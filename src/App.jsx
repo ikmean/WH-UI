@@ -8,14 +8,12 @@ import Footer from "./components/footer/Footer";
 export default function App() {
   return (
     <Router>
-      <div className="container">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
-      </div>
     </Router>
   );
 }

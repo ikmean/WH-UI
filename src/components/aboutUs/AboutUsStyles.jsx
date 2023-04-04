@@ -4,7 +4,7 @@ import { colors } from "../../lib/colors";
 export const AboutBoxContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  background: ${colors.grayDarker};
+  background: ${colors.greyDarker};
   margin-top: 162px;
   div {
     width: 40%;

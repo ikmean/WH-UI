@@ -7,7 +7,7 @@ import Logo from "./Logo";
 
 export default function Header() {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper className="container">
       <Logo />
       <Nav>
         <li>

@@ -1,10 +1,11 @@
-import React from "react";
-import { ButtonWrapper } from "./ButtonStyles";
+import React from "react"
+import { ButtonWrapper } from "./ButtonStyles"
 
 interface ButtonProps {
-  text: string;
+  text: string
+  color: string
 }
 
-export default function Button({ text }: ButtonProps) {
-  return <ButtonWrapper>{text}</ButtonWrapper>;
+export default function Button({ text, color }: ButtonProps) {
+  return <ButtonWrapper color={color}>{text}</ButtonWrapper>
 }

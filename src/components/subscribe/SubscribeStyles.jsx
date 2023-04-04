@@ -9,7 +9,7 @@ export const FooterWrapper = styled.div`
 `;
 
 export const BoxStyles = styled.div`
-  background: ${colors.gray};
+  background: ${colors.grey};
   border-radius: 12px;
   padding: 17px;
   margin-top: 22px;
