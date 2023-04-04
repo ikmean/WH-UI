@@ -29,4 +29,5 @@ export const ButtonWrapper = styled.div`
   border-radius: 12px;
   font-size: 18px;
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
+  cursor: pointer;
 `

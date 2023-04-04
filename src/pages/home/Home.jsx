@@ -3,6 +3,7 @@ import Explore from "../../components/explore/Explore";
 import SearchContainer from "../../components/search/SearchContainer";
 import Featured from "../../components/featured/Featured";
 import Properties from "../../components/properties/Properties";
+import FindHouse from "../../components/findHouse/FindHouse";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <SearchContainer />
       <Featured/>
       <Properties/>
+      <FindHouse/>
     </div>
   );
 }
