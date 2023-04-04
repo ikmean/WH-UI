@@ -1,7 +1,8 @@
 import React from "react";
 import Explore from "../../components/explore/Explore";
-import Featured from "../../components/featured/Featured";
 import SearchContainer from "../../components/search/SearchContainer";
+import Featured from "../../components/featured/Featured";
+import Properties from "../../components/properties/Properties";
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
       <Explore />
       <SearchContainer />
       <Featured/>
+      <Properties/>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import {
   Line,
   InfoBox,
   ImgWrapper,
+  Top,
 } from "./FeaturedStyles"
 import { ReactComponent as Location } from "../../lib/icons/location.svg"
 import { ReactComponent as SQFT } from "../../lib/icons/sqft.svg"
@@ -16,9 +17,9 @@ import { ReactComponent as Bath } from "../../lib/icons/bath.svg"
 import { ReactComponent as Parking } from "../../lib/icons/parking.svg"
 import { props } from "./FeaturedStyles"
 
-export default function FeaturedBox({ forSale }: props) {
+export default function FeaturedBox({ forSale, featured }: props) {
   return (
-    <BoxWrapper>
+    <BoxWrapper featured={featured}>
       <ImgWrapper>
         <img src={img1} alt="img1" width="667px" height="375px" />
         <div>
@@ -27,37 +28,41 @@ export default function FeaturedBox({ forSale }: props) {
           </InfoBox>
         </div>
       </ImgWrapper>
-      <TextBox>
-        <LocationContainer>
-          <div>
+      <TextBox featured={featured}>
+        <Top featured={featured}>
+          <LocationContainer featured={featured}>
             <Location />
-            <span>2238 Stradella Rd, San Francisco</span>
-          </div>
-          <Price>$8,495,000</Price>
-        </LocationContainer>
+            <span className="location">2238 Stradella Rd, San Francisco</span>
+          </LocationContainer>
+          <Price featured={featured}>$8,495,000</Price>
+        </Top>
         <h2>Luxury Loft in San Francisco, CA</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus
-          suscipit turpis sed vitae.
-        </p>
+        {featured && (
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus
+            suscipit turpis sed vitae.
+          </p>
+        )}
         <Line />
         <div>
-          <InfoBox>
+          <InfoBox featured={featured}>
             <SQFT />
             <span>6767 sqft</span>
           </InfoBox>
-          <InfoBox>
+          <InfoBox featured={featured}>
             <Bed />
             <span>10</span>
           </InfoBox>
-          <InfoBox>
+          <InfoBox featured={featured}>
             <Bath />
             <span>9</span>
           </InfoBox>
-          <InfoBox>
-            <Parking />
-            <span>4</span>
-          </InfoBox>
+          {featured && (
+            <InfoBox featured={featured}>
+              <Parking />
+              <span>4</span>
+            </InfoBox>
+          )}
         </div>
       </TextBox>
     </BoxWrapper>
