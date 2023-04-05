@@ -5,6 +5,7 @@ import Featured from "../../components/featured/Featured";
 import Properties from "../../components/properties/Properties";
 import FindHouse from "../../components/findHouse/FindHouse";
 import Discovery from "../../components/discover/Discovery";
+import Articles from "../../components/articles/Articles";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       <FindHouse/>
     </div>
       <Discovery/>
+      <Articles/>
   </div>    
   );
 }
