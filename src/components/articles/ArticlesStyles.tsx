@@ -3,6 +3,7 @@ import { colors } from "../../lib/colors"
 
 export const Wrapper = styled.div`
   margin-top: 166px;
+  padding-bottom: 160px;
   width: 100%;
   padding-left: 10%;
   h1 {

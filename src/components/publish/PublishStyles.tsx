@@ -4,7 +4,6 @@ import { colors } from "../../lib/colors"
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 160px;
 `
 export const BoxStyles = styled.div`
   padding: 85px 108px 92px 65px;
