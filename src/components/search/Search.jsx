@@ -10,7 +10,7 @@ export default function Search() {
         <GraySearch />
         <span>Search for properties</span>
       </div>
-      <Button text="Search" />
+      <Button text="Search" color="red"/>
     </SearchBox>
   );
 }

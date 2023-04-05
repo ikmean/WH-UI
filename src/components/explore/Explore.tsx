@@ -1,7 +1,7 @@
-import React from "react";
-import PostButton from "../button/PostButton";
-import { ExploreWrapper, Left, Right } from "./ExploreStyles";
-import img1 from "../../lib/images/img1.png";
+import React from "react"
+import PostButton from "../button/PostButton"
+import { ExploreWrapper, Left, Right } from "./ExploreStyles"
+import img1 from "../../lib/images/img1.png"
 
 function Explore() {
   return (
@@ -25,7 +25,7 @@ function Explore() {
         </div>
       </Right>
     </ExploreWrapper>
-  );
+  )
 }
 
-export default Explore;
+export default Explore
