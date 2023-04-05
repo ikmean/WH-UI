@@ -7,5 +7,9 @@ interface ButtonProps {
 }
 
 export default function Button({ text, color }: ButtonProps) {
-  return <ButtonWrapper color={color}>{text}</ButtonWrapper>
+  return (
+    <ButtonWrapper className="button" color={color}>
+      {text}
+    </ButtonWrapper>
+  )
 }

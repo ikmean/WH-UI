@@ -30,4 +30,5 @@ export const ButtonWrapper = styled.div`
   font-size: 18px;
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
   cursor: pointer;
+  transition: background-color 0.5s ease;
 `
