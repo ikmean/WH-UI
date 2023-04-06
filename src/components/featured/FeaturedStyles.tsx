@@ -21,7 +21,8 @@ export const BoxWrapper = styled.div<props>`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
   margin-bottom: 32px;
-  width: ${({ featured }) => (featured ? "" : "32%")};
+  width: ${({ featured }) => (featured ? "" : "31%")};
+  margin-right: 2%;
   img {
     border-top-left-radius: 26px;
     border-bottom-left-radius: ${({ featured }) => (featured ? "26px" : "")};
@@ -100,4 +101,35 @@ export const InfoBox = styled.div<props>`
 export const PropertiesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+`
+export const PropertiesPageHeader = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 18px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 30px;
+    width: 40%;
+    text-align: center;
+    color: ${colors.greyText};
+  }
+`
+export const PropertiesPageWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 80px;
+`
+
+export const Nav = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 33px;
+  .button {
+    margin-right: 68px;
+  }
 `
