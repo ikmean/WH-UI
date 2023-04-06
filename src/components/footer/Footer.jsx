@@ -7,17 +7,20 @@ import Subscribe from "../subscribe/Subscribe";
 export default function Footer() {
   return (
     <FooterWrapper>
+      <div className="container">
       <Top>
         <TopLeft>
           <Logo />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna sed
-            tortor nullam vel velit quis enim et amet.{" "}
+            tortor nullam vel velit quis enim et amet.
           </p>
           <SocialMedia />
         </TopLeft>
         <Subscribe />
       </Top>
+      </div>
+
     </FooterWrapper>
   );
 }
