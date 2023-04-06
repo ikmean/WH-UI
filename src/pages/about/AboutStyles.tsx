@@ -9,10 +9,6 @@ export const AboutContainer = styled.div`
     margin-top: 113px;
     font-size: 48px;
   }
-  p {
-    width: 40%;
-    color: ${colors.greyText};
-  }
 `
 export const Images = styled.div`
   img {
@@ -27,4 +23,8 @@ export const Description = styled.div`
   justify-content: space-between;
   margin-top: 52px;
   margin-bottom: 109px;
+  p {
+    width: 40%;
+    color: ${colors.greyText};
+  }
 `

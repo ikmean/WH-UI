@@ -3,6 +3,7 @@ import { AboutContainer, Description, Images } from "./AboutStyles"
 import aboutimg from "../../lib/images/aboutimg.png"
 import { TakeALook } from "../../components/takeALook/TakeALook"
 import { AboutUs } from "../../components/aboutUs/AboutUs"
+import { Agents } from "../../components/agents/Agents"
 
 function About() {
   return (
@@ -44,6 +45,7 @@ function About() {
       </div>
       <TakeALook />
       <AboutUs />
+      <Agents />
     </AboutContainer>
   )
 }
