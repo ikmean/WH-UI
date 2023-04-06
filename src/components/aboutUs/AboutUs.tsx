@@ -1,11 +1,14 @@
-import React from "react";
-import { AboutUsBox } from "./AboutUsBox";
+import React from "react"
+import { AboutUsBox } from "./AboutUsBox"
+import { Wrapper } from "./AboutUsStyles"
 
 export const AboutUs = () => {
   return (
-    <div>
-      <AboutUsBox />
-      {/* <AboutUsBox /> */}
-    </div>
-  );
-};
+    <Wrapper>
+      <div className="container">
+        <AboutUsBox />
+        <AboutUsBox reverse={true} />
+      </div>
+    </Wrapper>
+  )
+}
