@@ -59,12 +59,7 @@ export const TextBox = styled.div`
     margin-bottom: 8px;
   }
   div {
-    display: flex;
-    align-items: center;
     margin-bottom: 20px;
-    span {
-      margin-left: 16.7px;
-    }
   }
 `
 export const AgentWrapper = styled.div`
@@ -72,4 +67,17 @@ export const AgentWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 67px;
+`
+export const ContactStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  div {
+    display: flex;
+    align-items: center;
+    margin-right: 35px;
+    span {
+      margin-left: 16.7px;
+    }
+  }
 `

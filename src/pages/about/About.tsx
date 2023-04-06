@@ -5,6 +5,7 @@ import { TakeALook } from "../../components/takeALook/TakeALook"
 import { AboutUs } from "../../components/aboutUs/AboutUs"
 import { Agents } from "../../components/agents/Agents"
 import { Values } from "../../components/values/Values"
+import Offices from "../../components/offices/Offices"
 
 function About() {
   return (
@@ -48,6 +49,7 @@ function About() {
       <AboutUs />
       <Agents />
       <Values />
+      <Offices />
     </AboutContainer>
   )
 }

@@ -52,6 +52,9 @@ li {
 .flex {
   display: flex;
 }
+.row {
+  flex-direction: row !important;
+}
 .space-between {
   justify-content: space-between;
 }
