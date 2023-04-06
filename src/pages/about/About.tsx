@@ -4,6 +4,7 @@ import aboutimg from "../../lib/images/aboutimg.png"
 import { TakeALook } from "../../components/takeALook/TakeALook"
 import { AboutUs } from "../../components/aboutUs/AboutUs"
 import { Agents } from "../../components/agents/Agents"
+import { Values } from "../../components/values/Values"
 
 function About() {
   return (
@@ -46,6 +47,7 @@ function About() {
       <TakeALook />
       <AboutUs />
       <Agents />
+      <Values />
     </AboutContainer>
   )
 }

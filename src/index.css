@@ -52,7 +52,9 @@ li {
 .flex {
   display: flex;
 }
-
+.space-between {
+  justify-content: space-between;
+}
 @font-face {
   src: url(./lib/font/THICCCBOI-Regular.ttf);
   font-family: "Regular";
