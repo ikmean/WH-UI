@@ -42,6 +42,9 @@ li {
 .space-between {
   justify-content: space-between;
 }
+.center {
+  align-items: center;
+}
 p {
   font-weight: 500;
 }

@@ -15,7 +15,7 @@ function Home() {
       <Explore />
       <SearchContainer />
       <Featured/>
-      <Properties/>
+      <Properties title="All properties"/>
       <FindHouse/>
     </div>
       <Discovery/>

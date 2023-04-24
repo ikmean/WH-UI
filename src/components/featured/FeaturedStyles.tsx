@@ -15,6 +15,7 @@ export const HeaderStyles = styled.div`
   margin-bottom: 64px;
 `
 export const BoxWrapper = styled.div<props>`
+  background: white;
   a {
     display: flex;
     flex-direction: ${({ featured }) => (featured ? "" : "column")};

@@ -6,7 +6,7 @@ import Subscribe from "../subscribe/Subscribe";
 
 export default function Footer() {
   return (
-    <FooterWrapper>
+    <FooterWrapper className="footer">
       <div className="container">
       <Top>
         <TopLeft>
