@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/about/About";
 import Home from "./pages/home/Home";
 import Properties from "./pages/properties/Properties";
+import PropertiesInner from "./pages/properties/PropertiesInner";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
@@ -12,7 +13,8 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/properties" element={<Properties />} />
+          <Route path="/properties" element={<Properties />}/>
+          <Route path='/properties/:id' element={<PropertiesInner />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />

@@ -15,9 +15,11 @@ export const HeaderStyles = styled.div`
   margin-bottom: 64px;
 `
 export const BoxWrapper = styled.div<props>`
-  display: flex;
-  flex-direction: ${({ featured }) => (featured ? "" : "column")};
-  justify-content: ${({ featured }) => (featured ? "" : "space-between")};
+  a {
+    display: flex;
+    flex-direction: ${({ featured }) => (featured ? "" : "column")};
+    justify-content: ${({ featured }) => (featured ? "" : "space-between")};
+  }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
   margin-bottom: 32px;

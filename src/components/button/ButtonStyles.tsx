@@ -20,9 +20,8 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  max-height: 100%;
+  max-height: fit-content;
   padding: 20px 40px;
-  /* background: ${colors.secondary}; */
   background: ${({ color }) =>
     color === "white" ? "white" : color === "red" ? colors.secondary : "black"};
   color: ${({ color }) => (color === "white" ? "black" : "white")};

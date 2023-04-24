@@ -6,7 +6,7 @@ export const TakeALook = () => {
   return (
     <Container>
       <Title>Take a look at our numbers</Title>
-      <div>
+      <div className="flex space-between">
         <Box />
         <Box />
         <Box />

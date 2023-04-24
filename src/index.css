@@ -1,26 +1,10 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 
-/* @font-face {
-  src: url(./lib/fonts/Charming\ Holiday.otf);
-  font-family: "Charming, Regular";
-}
 @font-face {
-  src: url(./lib/fonts/ArchivoBlack-Regular.ttf);
-  font-family: "ArchivoBlack, Regular";
-} */
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
-
+  src: url(./lib/font/THICCCBOI-Regular.ttf);
+  font-family: "Regular";
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   font-family: "Regular";
   padding: 0px;
@@ -58,9 +42,6 @@ li {
 .space-between {
   justify-content: space-between;
 }
-@font-face {
-  src: url(./lib/font/THICCCBOI-Regular.ttf);
-  font-family: "Regular";
-  font-weight: normal;
-  font-style: normal;
+p {
+  font-weight: 500;
 }

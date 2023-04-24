@@ -16,55 +16,58 @@ import { ReactComponent as Bed } from "../../lib/icons/bed.svg"
 import { ReactComponent as Bath } from "../../lib/icons/bath.svg"
 import { ReactComponent as Parking } from "../../lib/icons/parking.svg"
 import { props } from "./FeaturedStyles"
+import { Link } from "react-router-dom"
 
 export default function FeaturedBox({ forSale, featured }: props) {
   return (
     <BoxWrapper featured={featured}>
-      <ImgWrapper>
-        <img src={img1} alt="img1" width="667px" height="375px" />
-        <div>
-          <InfoBox forSale={forSale} saleRent={true}>
-            {forSale ? "For Sale" : "For Rent"}
-          </InfoBox>
-        </div>
-      </ImgWrapper>
-      <TextBox featured={featured}>
-        <Top featured={featured}>
-          <LocationContainer featured={featured}>
-            <Location />
-            <span className="location">2238 Stradella Rd, San Francisco</span>
-          </LocationContainer>
-          <Price featured={featured}>$8,495,000</Price>
-        </Top>
-        <h2>Luxury Loft in San Francisco, CA</h2>
-        {featured && (
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus
-            suscipit turpis sed vitae.
-          </p>
-        )}
-        <Line />
-        <div>
-          <InfoBox featured={featured}>
-            <SQFT />
-            <span>6767 sqft</span>
-          </InfoBox>
-          <InfoBox featured={featured}>
-            <Bed />
-            <span>10</span>
-          </InfoBox>
-          <InfoBox featured={featured}>
-            <Bath />
-            <span>9</span>
-          </InfoBox>
-          {featured && (
-            <InfoBox featured={featured}>
-              <Parking />
-              <span>4</span>
+      <Link to={`id`}>
+        <ImgWrapper>
+          <img src={img1} alt="img1" width="667px" height="375px" />
+          <div>
+            <InfoBox forSale={forSale} saleRent={true}>
+              {forSale ? "For Sale" : "For Rent"}
             </InfoBox>
+          </div>
+        </ImgWrapper>
+        <TextBox featured={featured}>
+          <Top featured={featured}>
+            <LocationContainer featured={featured}>
+              <Location />
+              <span className="location">2238 Stradella Rd, San Francisco</span>
+            </LocationContainer>
+            <Price featured={featured}>$8,495,000</Price>
+          </Top>
+          <h2>Luxury Loft in San Francisco, CA</h2>
+          {featured && (
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat
+              purus suscipit turpis sed vitae.
+            </p>
           )}
-        </div>
-      </TextBox>
+          <Line />
+          <div>
+            <InfoBox featured={featured}>
+              <SQFT />
+              <span>6767 sqft</span>
+            </InfoBox>
+            <InfoBox featured={featured}>
+              <Bed />
+              <span>10</span>
+            </InfoBox>
+            <InfoBox featured={featured}>
+              <Bath />
+              <span>9</span>
+            </InfoBox>
+            {featured && (
+              <InfoBox featured={featured}>
+                <Parking />
+                <span>4</span>
+              </InfoBox>
+            )}
+          </div>
+        </TextBox>
+      </Link>
     </BoxWrapper>
   )
 }
