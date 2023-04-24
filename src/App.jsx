@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import About from "./pages/about/About";
 import Home from "./pages/home/Home";
 import Properties from "./pages/properties/Properties";
 import PropertiesInner from "./pages/properties/PropertiesInner";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Agents from './pages/agents/Agents'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/properties" element={<Properties />}/>
           <Route path='/properties/:id' element={<PropertiesInner />} />
           <Route path="/about" element={<About />} />
+          <Route path="/agents" element={<Agents />} />
         </Routes>
         <Footer />
     </Router>
