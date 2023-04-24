@@ -5,11 +5,12 @@ import { ContactStyles } from "./AgentsStyles"
 
 interface props {
   direction?: string
+  type?: string
 }
 
-export default function ContactInfo({ direction }: props) {
+export default function ContactInfo({ direction, type }: props) {
   return (
-    <ContactStyles className={direction}>
+    <ContactStyles className={direction} type={type}>
       <div>
         <Phone />
         <span>(414) 325-427</span>

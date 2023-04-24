@@ -19,13 +19,18 @@ export const Wrapper = styled.div`
     color: ${colors.greyText};
   }
 `
-export const AgentBoxStyles = styled.div`
-  width: 32%;
-  box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
+export const AgentBoxStyles = styled.div<{ type: string }>`
+  display: ${({ type }) => type === "small" && "flex"};
+  width: ${({ type }) => (type === "small" ? "100%" : "32%")};
+  box-shadow: ${({ type }) =>
+    type !== "small" && "0px 3px 20px rgba(8, 15, 52, 0.06)"};
   border-radius: 26px;
   img {
-    border-top-left-radius: 26px;
-    border-top-right-radius: 26px;
+    border-top-left-radius: ${({ type }) => (type === "small" ? "" : "26px")};
+    border-top-right-radius: ${({ type }) => (type === "small" ? "" : "26px")};
+    border-radius: ${({ type }) => type === "small" && "50%"};
+    width: ${({ type }) => (type === "small" ? "96.27px" : "100%")};
+    height: ${({ type }) => (type === "small" ? "96.27px" : "367px")};
   }
 `
 export const ImgWrapper = styled.div`
@@ -48,18 +53,19 @@ export const InfoBox = styled.div`
   color: white;
 `
 
-export const TextBox = styled.div`
+export const TextBox = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
-  margin-top: 36px;
+  margin-bottom: ${({ type }) => (type === "small" ? "" : "15px")};
+  margin-top: ${({ type }) => (type === "small" ? "" : "36px")};
   text-align: left;
-  padding: 0 40px 30px 40px;
+  padding: ${({ type }) => (type === "small" ? "0 22px" : "0 40px 30px 40px")};
   h2 {
     margin-bottom: 8px;
+    font-size: ${({ type }) => (type === "small" ? "20px" : "22px")};
   }
   div {
-    margin-bottom: 20px;
+    margin-bottom: ${({ type }) => (type === "small" ? "" : "20px")};
   }
 `
 export const AgentWrapper = styled.div`
@@ -68,7 +74,7 @@ export const AgentWrapper = styled.div`
   width: 100%;
   margin-top: 67px;
 `
-export const ContactStyles = styled.div`
+export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -76,8 +82,13 @@ export const ContactStyles = styled.div`
     display: flex;
     align-items: center;
     margin-right: 35px;
+    margin-bottom: ${({ type }) => type === "small" && "14px"};
+    svg {
+      width: ${({ type }) => (type === "small" ? "18px" : "")};
+      height: ${({ type }) => (type === "small" ? "18px" : "")};
+    }
     span {
-      margin-left: 16.7px;
+      margin-left: ${({ type }) => (type === "small" ? "11px" : "16.7px")};
     }
   }
 `

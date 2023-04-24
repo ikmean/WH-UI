@@ -3,6 +3,8 @@ import { colors } from "../../lib/colors"
 
 interface props {
   margin?: string
+  width?: string
+  color?: string
 }
 
 export const PostButtonWrapper = styled.div<props>`
@@ -16,10 +18,10 @@ export const PostButtonWrapper = styled.div<props>`
   width: fit-content;
 `
 
-export const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div<props>`
   display: flex;
   align-items: center;
-  width: fit-content;
+  width: ${({ width }) => (width === "100%" ? "100%" : "fit-content")};
   max-height: fit-content;
   padding: 20px 40px;
   background: ${({ color }) =>
@@ -30,4 +32,5 @@ export const ButtonWrapper = styled.div`
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
   cursor: pointer;
   transition: background-color 0.5s ease;
+  place-content: center;
 `
