@@ -20,8 +20,8 @@ export const Wrapper = styled.div`
   }
 `
 export const AgentBoxStyles = styled.div<{ type: string }>`
-  display: ${({ type }) => type === "small" && "flex"};
-  width: ${({ type }) => (type === "small" ? "100%" : "32%")};
+  width: ${({ type }) =>
+    type === "small" || type === "page" ? "100%" : "32%"};
   box-shadow: ${({ type }) =>
     type !== "small" && "0px 3px 20px rgba(8, 15, 52, 0.06)"};
   border-radius: 26px;
@@ -30,11 +30,18 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
     border-top-right-radius: ${({ type }) => (type === "small" ? "" : "26px")};
     border-radius: ${({ type }) => type === "small" && "50%"};
     width: ${({ type }) => (type === "small" ? "96.27px" : "100%")};
-    height: ${({ type }) => (type === "small" ? "96.27px" : "367px")};
+    height: ${({ type }) =>
+      type === "small" ? "96.27px" : type === "page" ? "100%" : "367px"};
+  }
+  a {
+    display: ${({ type }) => type !== "regular" && "flex"};
   }
 `
-export const ImgWrapper = styled.div`
+export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
+  width: ${({ type }) => type === "page" && "40%"};
+  height: ${({ type }) => type === "page" && "580px"};
+  flex-shrink: 0;
   div {
     position: absolute;
     top: 20px;
@@ -56,10 +63,16 @@ export const InfoBox = styled.div`
 export const TextBox = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
+  justify-content: ${({ type }) => type === "page" && "center"};
   margin-bottom: ${({ type }) => (type === "small" ? "" : "15px")};
   margin-top: ${({ type }) => (type === "small" ? "" : "36px")};
   text-align: left;
-  padding: ${({ type }) => (type === "small" ? "0 22px" : "0 40px 30px 40px")};
+  padding: ${({ type }) =>
+    type === "small"
+      ? "0 22px"
+      : type === "page"
+      ? "0 7% 0 8%"
+      : "0 40px 30px 40px"};
   h2 {
     margin-bottom: 8px;
     font-size: ${({ type }) => (type === "small" ? "20px" : "22px")};

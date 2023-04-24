@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import Properties from "./pages/properties/Properties";
 import PropertiesInner from "./pages/properties/PropertiesInner";
 import Agents from './pages/agents/Agents'
+import AgentsInner from './pages/agents/AgentsInner'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path='/properties/:id' element={<PropertiesInner />} />
           <Route path="/about" element={<About />} />
           <Route path="/agents" element={<Agents />} />
+          <Route path="/agents/:id" element={<AgentsInner />} />
         </Routes>
         <Footer />
     </Router>

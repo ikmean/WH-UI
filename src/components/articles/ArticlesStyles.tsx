@@ -16,13 +16,17 @@ export const Header = styled.div`
 `
 
 export const BoxContainer = styled.div`
-  width: 406px;
+  width: 32%;
+  margin-right: 2%;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
-  margin-right: 25px;
+  :nth-child(3) {
+    margin-right: 0;
+  }
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
+    width: 100%;
   }
   h2 {
     font-size: 22px;
