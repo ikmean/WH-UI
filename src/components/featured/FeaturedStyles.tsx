@@ -5,6 +5,7 @@ export interface props {
   forSale?: boolean
   saleRent?: boolean
   featured?: boolean
+  main?: boolean
 }
 
 export const HeaderStyles = styled.div`
@@ -25,7 +26,10 @@ export const BoxWrapper = styled.div<props>`
   border-radius: 26px;
   margin-bottom: 32px;
   width: ${({ featured }) => (featured ? "" : "31%")};
-  margin-right: 2%;
+  margin-right: ${({ main }) => (main ? "" : "3.5%")};
+  &:nth-child(3) {
+    margin-right: 0;
+  }
   img {
     border-top-left-radius: 26px;
     border-bottom-left-radius: ${({ featured }) => (featured ? "26px" : "")};
@@ -34,8 +38,10 @@ export const BoxWrapper = styled.div<props>`
     height: ${({ featured }) => (featured ? "" : "228.38px")};
   }
 `
-export const ImgWrapper = styled.div`
+export const ImgWrapper = styled.div<{ main: any }>`
   position: relative;
+  width: ${({ main }) => (main ? " 52%" : "")};
+  height: ${({ main }) => (main ? " 375px" : "")};
   div {
     position: absolute;
     top: 20px;
@@ -46,6 +52,7 @@ export const ImgWrapper = styled.div`
 export const TextBox = styled.div<props>`
   display: flex;
   flex-direction: column;
+  width: ${({ main }) => (main ? " 48%" : "")};
   padding: ${({ featured }) =>
     featured ? "65px 54px 62px 56px" : "40px 32px 30px 32px"};
   h2 {

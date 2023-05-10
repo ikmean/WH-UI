@@ -18,18 +18,20 @@ export const Left = styled.div`
 export const Right = styled.div`
   display: flex;
   width: 50%;
+  position: relative;
   img {
     margin-bottom: 20px;
   }
   div {
     display: flex;
     flex-direction: column;
+    width: 60%;
   }
   div:nth-child(1) {
     margin-top: 30px;
   }
   div:nth-child(2) {
     position: absolute;
-    right: 5%;
+    right: -28%;
   }
 `;

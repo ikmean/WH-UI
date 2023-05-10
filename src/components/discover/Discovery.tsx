@@ -18,8 +18,8 @@ export default function Discovery() {
           <Button text="About our company" color="black" />
         </TextWrapper>
         <ImgWrapper>
-          <img src={img1} alt="img1" width="452.93px" height="504.57px" />
-          <img src={img1} alt="img1" width="452.93px" height="504.57px" />
+          <img src={img1} alt="img1" width="100%" height="504.57px" />
+          <img src={img1} alt="img1" width="100%" height="504.57px" />
         </ImgWrapper>
       </div>
     </Wrapper>

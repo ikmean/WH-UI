@@ -18,19 +18,19 @@ import { ReactComponent as Parking } from "../../lib/icons/parking.svg"
 import { props } from "./FeaturedStyles"
 import { Link } from "react-router-dom"
 
-export default function FeaturedBox({ forSale, featured }: props) {
+export default function FeaturedBox({ forSale, featured, main }: props) {
   return (
-    <BoxWrapper featured={featured}>
+    <BoxWrapper featured={featured} main={main}>
       <Link to={`id`}>
-        <ImgWrapper>
-          <img src={img1} alt="img1" width="667px" height="375px" />
+        <ImgWrapper main={main}>
+          <img src={img1} alt="img1" width="100%" height="100%" />
           <div>
             <InfoBox forSale={forSale} saleRent={true}>
               {forSale ? "For Sale" : "For Rent"}
             </InfoBox>
           </div>
         </ImgWrapper>
-        <TextBox featured={featured}>
+        <TextBox featured={featured} main={main}>
           <Top featured={featured}>
             <LocationContainer featured={featured}>
               <Location />

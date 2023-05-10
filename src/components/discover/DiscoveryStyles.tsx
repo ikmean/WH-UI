@@ -33,6 +33,7 @@ export const TextWrapper = styled.div`
 
 export const ImgWrapper = styled.div`
   position: relative;
+  width: 32%;
   img:nth-child(2) {
     position: absolute;
     top: 50%;

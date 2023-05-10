@@ -16,12 +16,12 @@ function Explore() {
       </Left>
       <Right>
         <div>
-          <img src={img1} alt="img1" width="347.63px" height="233.54px" />
-          <img src={img1} alt="img1" width="347.63px" height="233.54px" />
+          <img src={img1} alt="img1" width="100%" height="233.54px" />
+          <img src={img1} alt="img1" width="100%" height="233.54px" />
         </div>
         <div>
-          <img src={img1} alt="img1" width="347.63px" height="233.54px" />
-          <img src={img1} alt="img1" width="347.63px" height="233.54px" />
+          <img src={img1} alt="img1" width="100%" height="233.54px" />
+          <img src={img1} alt="img1" width="100%" height="233.54px" />
         </div>
       </Right>
     </ExploreWrapper>

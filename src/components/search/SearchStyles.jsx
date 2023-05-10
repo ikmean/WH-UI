@@ -11,7 +11,7 @@ export const SearchBox = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 83px;
-  width: 500px;
+  width: 35%;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 14px;
   padding: 16px 17px 21px 16px;
@@ -21,5 +21,8 @@ export const SearchBox = styled.div`
   div {
     display: flex;
     align-items: center;
+  }
+  @media only screen and (max-width:1024px){
+    width: 40%;
   }
 `;

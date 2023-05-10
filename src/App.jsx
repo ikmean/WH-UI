@@ -8,6 +8,7 @@ import Properties from "./pages/properties/Properties";
 import PropertiesInner from "./pages/properties/PropertiesInner";
 import Agents from './pages/agents/Agents'
 import AgentsInner from './pages/agents/AgentsInner'
+import Blogs from './pages/blogs/Blogs'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/agents" element={<Agents />} />
           <Route path="/agents/:id" element={<AgentsInner />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
         <Footer />
     </Router>

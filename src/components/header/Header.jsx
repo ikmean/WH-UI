@@ -22,9 +22,6 @@ export default function Header() {
         <li>
           <Link to="/pages">Pages</Link>
         </li>
-        <li>
-          <Link to="/Cart">Cart(3)</Link>
-        </li>
       </Nav>
       <Right>
         <Search />
