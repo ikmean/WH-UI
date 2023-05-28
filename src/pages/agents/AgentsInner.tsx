@@ -20,7 +20,6 @@ function AgentsInner() {
 
   useEffect(() => {
     agentsInner && setData(agentsInner.attributes)
-    console.log("agentsInner", agentsInner)
   }, [agentsInner])
 
   useEffect(() => {

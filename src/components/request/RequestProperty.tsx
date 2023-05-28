@@ -19,7 +19,7 @@ function RequestProperty({ rentOrSale, price }: any) {
       <Line />
       <div>
         <h2>Reach the agent</h2>
-        <AgentBox type="small" />
+        {/* <AgentBox type="small" /> */}
       </div>
     </RequestPropertyStyles>
   )

@@ -11,8 +11,6 @@ function Agents() {
     fetchAgentsData()
   }, [fetchAgentsData])
 
-  console.log(agents)
-
   return (
     <div className="container">
       <Header className="flex space-between center">
@@ -22,17 +20,19 @@ function Agents() {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </Header>
-      <div className="flex space-between">
-        {agents.map((data: any, i: number) => (
-          <AgentBox
-            data={{
-              ...data.attributes,
-              id: data.id,
-            }}
-            key={i}
-          />
-        ))}
-      </div>
+      {agents && (
+        <div className="flex space-between">
+          {agents.map((data: any, i: number) => (
+            <AgentBox
+              data={{
+                ...data.attributes,
+                id: data.id,
+              }}
+              key={i}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

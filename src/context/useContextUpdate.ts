@@ -15,7 +15,9 @@ export default function useContextUpdateFromSocket(
                 fetchPropertyInnerData,
                 fetchPropertiesData,
                 fetchAgentsData,
-                fetchAgentsInnerData
+                fetchAgentsInnerData,
+                fetchBlogsData,
+                fetchBlogsInnerData
             }
         })
     }, [])
@@ -68,6 +70,34 @@ export default function useContextUpdateFromSocket(
                 const data = response.data.data
                 setContext(ctx => {
                     return { ...ctx, agentsInner: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+
+    const fetchBlogsData = () => {
+        const url = `${globalUrl}blogs`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, blogs: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+
+    const fetchBlogsInnerData = (id: string) => {
+        const url = `${globalUrl}agents/${id}`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, blogsInner: data }
                 })
             })
             .catch((error) => console.log(error));

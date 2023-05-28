@@ -22,7 +22,7 @@ export default function FeaturedBox({ data }: data) {
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
       <Link to={data.id.toString()}>
-        <ImgWrapper main={data.main}>
+        <ImgWrapper main={data.main} featured={data.featured}>
           <img src={img1} alt="img1" width="100%" height="100%" />
           <div>
             {data.dealType && (

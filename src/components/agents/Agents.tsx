@@ -13,9 +13,9 @@ export const Agents = () => {
         </p>
       </div>
       <AgentWrapper>
+        {/* <AgentBox />
         <AgentBox />
-        <AgentBox />
-        <AgentBox />
+        <AgentBox /> */}
       </AgentWrapper>
     </Wrapper>
   )

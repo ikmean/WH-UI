@@ -11,14 +11,16 @@ import { AppContext } from "../../context/createContext"
 
 function Home() {
   const { context } = useContext(AppContext)
-  const { properties, fetchPropertiesData } = context
+  const { properties, blogs, fetchPropertiesData, fetchBlogsData } = context
 
   useEffect(() => {
     fetchPropertiesData()
   }, [fetchPropertiesData])
 
+  useEffect(() => {
+    fetchBlogsData()
+  }, [fetchBlogsData])
 
-console.log(properties)
 
   return (
   <div className="flex-column">
@@ -30,7 +32,7 @@ console.log(properties)
       <FindHouse/>
     </div>
       <Discovery/>
-      <Articles/>
+      <Articles data={blogs}/>
       <Publish/>
   </div>    
   );

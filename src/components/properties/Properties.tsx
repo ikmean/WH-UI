@@ -8,19 +8,21 @@ export default function Properties({ title, properties }: any) {
   return (
     <div>
       <FeatureHeader title={title} />
-      <PropertiesWrapper>
-        {properties.map((data: any, i: number) => (
-          <FeaturedBox
-            data={{
-              ...data.attributes,
-              featured: false,
-              main: false,
-              id: data.id,
-            }}
-            key={i}
-          />
-        ))}
-      </PropertiesWrapper>
+      {properties && (
+        <PropertiesWrapper>
+          {properties.map((data: any, i: number) => (
+            <FeaturedBox
+              data={{
+                ...data.attributes,
+                featured: false,
+                main: false,
+                id: data.id,
+              }}
+              key={i}
+            />
+          ))}
+        </PropertiesWrapper>
+      )}
     </div>
   )
 }

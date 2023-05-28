@@ -42,10 +42,10 @@ export const BoxWrapper = styled.div<props>`
     height: ${({ featured }) => (featured ? "" : "228.38px")};
   }
 `
-export const ImgWrapper = styled.div<{ main: any }>`
+export const ImgWrapper = styled.div<{ main: any; featured: any }>`
   position: relative;
   width: ${({ main }) => (main ? " 52%" : "")};
-  height: ${({ main }) => (main ? " 375px" : "")};
+  height: ${({ main, featured }) => (featured ? "" : main ? "375px" : "")};
   div {
     position: absolute;
     top: 20px;

@@ -22,19 +22,21 @@ function Properties() {
     <div className="container">
       <PropertiesHeader />
       <SearchContainer />
-      <PropertiesPageWrapper>
-        {properties.map((data: any, i: number) => (
-          <FeaturedBox
-            data={{
-              ...data.attributes,
-              featured: false,
-              main: false,
-              id: data.id,
-            }}
-            key={i}
-          />
-        ))}
-      </PropertiesPageWrapper>
+      {properties.length && (
+        <PropertiesPageWrapper>
+          {properties.map((data: any, i: number) => (
+            <FeaturedBox
+              data={{
+                ...data.attributes,
+                featured: false,
+                main: false,
+                id: data.id,
+              }}
+              key={i}
+            />
+          ))}
+        </PropertiesPageWrapper>
+      )}
       <Nav>
         <Button color="white" text="Previous page" to="/" />
         <Button color="black" text="Next page" to="/" />

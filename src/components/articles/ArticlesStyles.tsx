@@ -78,4 +78,5 @@ export const Line = styled.div`
 export const BoxWrapper = styled.div`
   display: flex;
   overflow: hidden;
+  padding-bottom: 15px; // ქვემოთ შედოუ იჭრებოდა
 `
