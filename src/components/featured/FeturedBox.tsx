@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import img1 from "../../lib/images/img1.png"
 import {
   BoxWrapper,
@@ -15,52 +15,52 @@ import { ReactComponent as SQFT } from "../../lib/icons/sqft.svg"
 import { ReactComponent as Bed } from "../../lib/icons/bed.svg"
 import { ReactComponent as Bath } from "../../lib/icons/bath.svg"
 import { ReactComponent as Parking } from "../../lib/icons/parking.svg"
-import { props } from "./FeaturedStyles"
+import { data } from "./FeaturedStyles"
 import { Link } from "react-router-dom"
 
-export default function FeaturedBox({ forSale, featured, main }: props) {
+export default function FeaturedBox({ data }: data) {
   return (
-    <BoxWrapper featured={featured} main={main}>
-      <Link to={`id`}>
-        <ImgWrapper main={main}>
+    <BoxWrapper featured={data.featured} main={data.main}>
+      <Link to={data.id.toString()}>
+        <ImgWrapper main={data.main}>
           <img src={img1} alt="img1" width="100%" height="100%" />
           <div>
-            <InfoBox forSale={forSale} saleRent={true}>
-              {forSale ? "For Sale" : "For Rent"}
+            <InfoBox
+              forSale={data.dealType.data.attributes.title}
+              saleRent={true}
+            >
+              {data.forSale ? "For Sale" : "For Rent"}
             </InfoBox>
           </div>
         </ImgWrapper>
-        <TextBox featured={featured} main={main}>
-          <Top featured={featured}>
-            <LocationContainer featured={featured}>
+        <TextBox featured={data.featured} main={data.main}>
+          <Top featured={data.featured}>
+            <LocationContainer featured={data.featured}>
               <Location />
-              <span className="location">2238 Stradella Rd, San Francisco</span>
+              <span className="location">
+                {data.address}, {data.propertyLocation.data.attributes.title}
+              </span>
             </LocationContainer>
-            <Price featured={featured}>$8,495,000</Price>
+            <Price featured={data.featured}>${data.price}</Price>
           </Top>
-          <h2>Luxury Loft in San Francisco, CA</h2>
-          {featured && (
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat
-              purus suscipit turpis sed vitae.
-            </p>
-          )}
+          <h2>{data.title}</h2>
+          {data.featured && <p>{data.description}</p>}
           <Line />
           <div>
-            <InfoBox featured={featured}>
+            <InfoBox featured={data.featured}>
               <SQFT />
-              <span>6767 sqft</span>
+              <span>{data.size}</span>
             </InfoBox>
-            <InfoBox featured={featured}>
+            <InfoBox featured={data.featured}>
               <Bed />
-              <span>10</span>
+              <span>{data.bedroomQuantity}</span>
             </InfoBox>
-            <InfoBox featured={featured}>
+            <InfoBox featured={data.featured}>
               <Bath />
               <span>9</span>
             </InfoBox>
-            {featured && (
-              <InfoBox featured={featured}>
+            {data.featured && (
+              <InfoBox featured={data.featured}>
                 <Parking />
                 <span>4</span>
               </InfoBox>

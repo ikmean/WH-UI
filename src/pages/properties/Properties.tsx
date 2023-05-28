@@ -1,4 +1,5 @@
-import React from "react"
+/* eslint-disable @typescript-eslint/no-extra-semi */
+import React, { useContext, useEffect } from "react"
 import Button from "../../components/button/Button"
 import {
   Nav,
@@ -7,18 +8,32 @@ import {
 import FeaturedBox from "../../components/featured/FeturedBox"
 import PropertiesHeader from "../../components/properties/Header"
 import SearchContainer from "../../components/search/SearchContainer"
+import { AppContext } from "../../context/createContext"
 
 function Properties() {
+  const { context } = useContext(AppContext)
+  const { properties, fetchPropertiesData } = context
+
+  useEffect(() => {
+    fetchPropertiesData()
+  }, [fetchPropertiesData])
+
   return (
     <div className="container">
       <PropertiesHeader />
       <SearchContainer />
       <PropertiesPageWrapper>
-        <FeaturedBox forSale={true} />
-        <FeaturedBox />
-        <FeaturedBox />
-        <FeaturedBox />
-        <FeaturedBox />
+        {properties.map((data: any, i: number) => (
+          <FeaturedBox
+            data={{
+              ...data.attributes,
+              featured: false,
+              main: false,
+              id: data.id,
+            }}
+            key={i}
+          />
+        ))}
       </PropertiesPageWrapper>
       <Nav>
         <Button color="white" text="Previous page" />

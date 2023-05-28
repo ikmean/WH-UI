@@ -9,10 +9,15 @@ import PropertiesInner from "./pages/properties/PropertiesInner";
 import Agents from './pages/agents/Agents'
 import AgentsInner from './pages/agents/AgentsInner'
 import Blogs from './pages/blogs/Blogs'
+import { Provider } from "./context/createContext"
+import useContextUpdateFromSocket from "./context/useContextUpdate"
 
 export default function App() {
+  const { context } = useContextUpdateFromSocket()
+
   return (
     <Router>
+       <Provider value={{context}}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +29,7 @@ export default function App() {
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
         <Footer />
+       </Provider>
     </Router>
   );
 }

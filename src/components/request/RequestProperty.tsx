@@ -5,11 +5,11 @@ import { InputComponent } from "../input/Input"
 import Button from "../button/Button"
 import AgentBox from "../agents/AgentBox"
 
-function RequestProperty() {
+function RequestProperty({ rentOrSale, price }: any) {
   return (
     <RequestPropertyStyles>
-      <h3>Property for rent</h3>
-      <h1>$8,000 USD</h1>
+      <h3>Property for {rentOrSale}</h3>
+      <h1>${price}</h1>
       <Line />
       <h2>Get in touch to receive more info</h2>
       <InputComponent placeholder="Full name" />

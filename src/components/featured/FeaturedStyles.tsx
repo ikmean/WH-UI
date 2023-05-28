@@ -8,6 +8,10 @@ export interface props {
   main?: boolean
 }
 
+export interface data {
+  data: any
+}
+
 export const HeaderStyles = styled.div`
   display: flex;
   justify-content: space-between;
