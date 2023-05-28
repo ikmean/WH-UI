@@ -51,7 +51,7 @@ export const BoxContainer = styled.div<{ type: any }>`
   }
   span {
     display: inline-block;
-    color: red;
+    /* color: red; */ //TODO
     margin-right: 13px;
     margin-top: 21px;
     font-size: 18px;

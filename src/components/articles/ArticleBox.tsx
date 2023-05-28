@@ -2,18 +2,21 @@ import React from "react"
 import img1 from "../../lib/images/img1.png"
 import { ReactComponent as Arrow } from "../../lib/icons/redArrow.svg"
 import { BoxContainer, Info, InfoFooter, Line } from "./ArticlesStyles"
+import { getDate } from "../../helpers/TimeConverter"
 
-export default function ArticleBox({ type = "default" }: any) {
+export default function ArticleBox({ type = "default", data }: any) {
+  const date = getDate(data.publishedAt)
+
   return (
     <BoxContainer type={type}>
       <img src={img1} alt="img1" width="406px" height="282.94px" />
       <Info>
-        <h2>Here’s how to decorate your new home from scratch</h2>
+        <h2>{data.title}</h2>
         {type === "default" && <Line />}
         {type === "default" && (
           <InfoFooter>
             <span>Articles</span>
-            <span>February 25, 2022</span>
+            <span>{date}</span>
           </InfoFooter>
         )}
         {type === "description" && (

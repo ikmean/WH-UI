@@ -6,18 +6,20 @@ import { ContactStyles } from "./AgentsStyles"
 interface props {
   direction?: string
   type?: string
+  number?: string
+  email?: string
 }
 
-export default function ContactInfo({ direction, type }: props) {
+export default function ContactInfo({ direction, type, number, email }: props) {
   return (
     <ContactStyles className={direction} type={type}>
       <div>
         <Phone />
-        <span>(414) 325-427</span>
+        <span>{number}</span>
       </div>
       <div>
         <MailRed />
-        <span>john@realtorx.com</span>
+        <span>{email}</span>
       </div>
     </ContactStyles>
   )

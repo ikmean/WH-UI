@@ -25,14 +25,16 @@ export default function FeaturedBox({ data }: data) {
         <ImgWrapper main={data.main}>
           <img src={img1} alt="img1" width="100%" height="100%" />
           <div>
-            <InfoBox
-              forSale={data.dealType.data.attributes.title}
-              saleRent={true} //TODO ეს რატო იყო არ მახსოვს
-            >
-              {data.dealType.data.attributes.title === "sale"
-                ? "For Sale"
-                : "For Rent"}
-            </InfoBox>
+            {data.dealType && (
+              <InfoBox
+                forSale={data.dealType.data.attributes.title}
+                saleRent={true} //TODO ეს რატო იყო არ მახსოვს
+              >
+                {data.dealType.data.attributes.title === "sale"
+                  ? "For Sale"
+                  : "For Rent"}
+              </InfoBox>
+            )}
           </div>
         </ImgWrapper>
         <TextBox featured={data.featured} main={data.main}>

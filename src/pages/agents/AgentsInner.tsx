@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext, useEffect, useState } from "react"
 import AgentBox from "../../components/agents/AgentBox"
 import { BrowseMore } from "../properties/PropertiesStyles"
 import Properties from "../../components/properties/Properties"
@@ -9,32 +9,65 @@ import {
   ArticleBy,
   ArticleWrapper,
 } from "./AgentsStyles"
+import { AppContext } from "../../context/createContext"
+import { useParams } from "react-router-dom"
 
 function AgentsInner() {
+  const { context } = useContext(AppContext)
+  const { agentsInner, fetchAgentsInnerData } = context
+  const [data, setData] = useState(agentsInner)
+  const { id } = useParams()
+
+  useEffect(() => {
+    agentsInner && setData(agentsInner.attributes)
+    console.log("agentsInner", agentsInner)
+  }, [agentsInner])
+
+  useEffect(() => {
+    if (id) {
+      fetchAgentsInnerData(id)
+    }
+  }, [id, fetchAgentsInnerData])
+
   return (
     <AgentsInnerPageStyles>
       <div className="container">
-        <AgentBox
-          type="page"
-          text="Lorem ipsum dolor sit amet consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra sit semper lorem eu cursus vel ndrerit."
-        />
+        {data && (
+          <AgentBox type="page" data={{ ...data, id: agentsInner.id }} />
+        )}
       </div>
       <BrowseMore>
         <div className="container">
-          <Properties title="Properties in charge of John Carter" />
+          {/* {data && data.properties && (
+            <Properties
+              title={`Properties in charge of ${data.name} ${data.lastName}`}
+              properties={data.properties.data}
+            />
+          )} */}
         </div>
       </BrowseMore>
-      <ArticleBy className="container">
-        <div className="flex center space-between">
-          <h1>Articles by John Carter</h1>
-          <Button color="white" text="Browse all posts" to="/"></Button>
-        </div>
-        <ArticleWrapper>
-          <ArticleBox />
-          <ArticleBox />
-          <ArticleBox />
-        </ArticleWrapper>
-      </ArticleBy>
+      {data && (
+        <ArticleBy className="container">
+          <div className="flex center space-between">
+            <h1>
+              Articles by {data.name} {""}
+              {data.lastName}
+            </h1>
+            <Button color="white" text="Browse all posts" to="/"></Button>
+          </div>
+          <ArticleWrapper>
+            {data.blogs.data.map((data: any, i: number) => (
+              <ArticleBox
+                data={{
+                  ...data.attributes,
+                  id: data.id,
+                }}
+                key={i}
+              />
+            ))}
+          </ArticleWrapper>
+        </ArticleBy>
+      )}
     </AgentsInnerPageStyles>
   )
 }

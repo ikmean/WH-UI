@@ -1,8 +1,18 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import AgentBox from "../../components/agents/AgentBox"
 import { Header } from "./AgentsStyles"
+import { AppContext } from "../../context/createContext"
 
 function Agents() {
+  const { context } = useContext(AppContext)
+  const { agents, fetchAgentsData } = context
+
+  useEffect(() => {
+    fetchAgentsData()
+  }, [fetchAgentsData])
+
+  console.log(agents)
+
   return (
     <div className="container">
       <Header className="flex space-between center">
@@ -13,9 +23,15 @@ function Agents() {
         </p>
       </Header>
       <div className="flex space-between">
-        <AgentBox />
-        <AgentBox />
-        <AgentBox />
+        {agents.map((data: any, i: number) => (
+          <AgentBox
+            data={{
+              ...data.attributes,
+              id: data.id,
+            }}
+            key={i}
+          />
+        ))}
       </div>
     </div>
   )

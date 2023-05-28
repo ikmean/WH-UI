@@ -5,7 +5,6 @@ import { PropertiesWrapper } from "../featured/FeaturedStyles"
 
 //TODO
 export default function Properties({ title, properties }: any) {
-  console.log("properties:", properties)
   return (
     <div>
       <FeatureHeader title={title} />

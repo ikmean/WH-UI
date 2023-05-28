@@ -14,6 +14,8 @@ export default function useContextUpdateFromSocket(
                 ...ctx,
                 fetchPropertyInnerData,
                 fetchPropertiesData,
+                fetchAgentsData,
+                fetchAgentsInnerData
             }
         })
     }, [])
@@ -45,9 +47,32 @@ export default function useContextUpdateFromSocket(
             .catch((error) => console.log(error));
     }
 
-
-    return {
-        context,
-        fetchPropertiesData,
+    const fetchAgentsData = () => {
+        const url = `${globalUrl}agents`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, agents: data }
+                })
+            })
+            .catch((error) => console.log(error));
     }
+
+    const fetchAgentsInnerData = (id: string) => {
+        const url = `${globalUrl}agents/${id}`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, agentsInner: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+
+    return { context }
 }

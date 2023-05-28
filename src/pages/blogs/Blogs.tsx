@@ -11,11 +11,11 @@ function Blogs() {
         <Search />
       </Header>
       <div className="flex">
-        <ArticleBox type="description" />
+        {/* <ArticleBox type="description" /> */}
         <div className="flex flex-column space-between">
+          {/* <ArticleBox type="readMoreSmall" />
           <ArticleBox type="readMoreSmall" />
-          <ArticleBox type="readMoreSmall" />
-          <ArticleBox type="readMoreSmall" />
+          <ArticleBox type="readMoreSmall" /> */}
         </div>
       </div>
     </div>

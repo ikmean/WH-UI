@@ -6,6 +6,7 @@ export const AgentsInnerPageStyles = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 82px;
+  width: 100%;
 `
 export const Header = styled.div`
   margin-bottom: 47px;
