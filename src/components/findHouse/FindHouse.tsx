@@ -24,7 +24,7 @@ export default function FindHouse() {
           description="Lorem ipsum dolor sit amet consectetur adipiscing elit odio massa ege."
         />
       </BoxWrapper>
-      <Button text="Explore properties" color="black" />
+      <Button text="Explore properties" color="black" to="/" />
     </Wrapper>
   )
 }

@@ -10,7 +10,7 @@ export default function PublishBox() {
         Lorem ipsum dolor sit amet conse ctetur adipiscing elit ipsum at iaculis
         nulla nulla justo.
       </p>
-      <Button color="black" text="Browse packages" />
+      <Button color="black" text="Browse packages" to="/" />
     </BoxStyles>
   )
 }

@@ -27,7 +27,7 @@ function AgentsInner() {
       <ArticleBy className="container">
         <div className="flex center space-between">
           <h1>Articles by John Carter</h1>
-          <Button color="white" text="Browse all posts"></Button>
+          <Button color="white" text="Browse all posts" to="/"></Button>
         </div>
         <ArticleWrapper>
           <ArticleBox />

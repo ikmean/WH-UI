@@ -15,7 +15,7 @@ export default function Discovery() {
             cursus neque adipiscing maecenas proin eu viverra commodo felis
             risus at amet ornare pellentesque nulla ipsu.
           </p>
-          <Button text="About our company" color="black" />
+          <Button text="About our company" color="black" to="/" />
         </TextWrapper>
         <ImgWrapper>
           <img src={img1} alt="img1" width="100%" height="504.57px" />

@@ -20,7 +20,10 @@ export default function Header() {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/pages">Pages</Link>
+          <Link to="/agents">Agents</Link>
+        </li>
+        <li>
+          <Link to="/blogs">Blogs</Link>
         </li>
       </Nav>
       <Right>

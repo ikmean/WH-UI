@@ -15,7 +15,7 @@ function RequestProperty({ rentOrSale, price }: any) {
       <InputComponent placeholder="Full name" />
       <InputComponent placeholder="Email address" />
       <InputComponent placeholder="Phone number" />
-      <Button color="red" text="Request info" width="100%" />
+      <Button color="red" text="Request info" width="100%" to="/" />
       <Line />
       <div>
         <h2>Reach the agent</h2>

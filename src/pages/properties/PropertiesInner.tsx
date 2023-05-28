@@ -105,7 +105,7 @@ function PropertiesInner() {
           <div>
             <div className="flex space-between center">
               <h1>Property gallery</h1>
-              <Button text="Request info" color="black" />
+              <Button text="Request info" color="black" to="/" />
             </div>
             <GalleryContainer>
               <img src={img1} alt="" />

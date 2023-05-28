@@ -36,8 +36,8 @@ function Properties() {
         ))}
       </PropertiesPageWrapper>
       <Nav>
-        <Button color="white" text="Previous page" />
-        <Button color="black" text="Next page" />
+        <Button color="white" text="Previous page" to="/" />
+        <Button color="black" text="Next page" to="/" />
       </Nav>
     </div>
   )

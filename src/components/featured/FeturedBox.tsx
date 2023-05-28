@@ -27,9 +27,11 @@ export default function FeaturedBox({ data }: data) {
           <div>
             <InfoBox
               forSale={data.dealType.data.attributes.title}
-              saleRent={true}
+              saleRent={true} //TODO ეს რატო იყო არ მახსოვს
             >
-              {data.forSale ? "For Sale" : "For Rent"}
+              {data.dealType.data.attributes.title === "sale"
+                ? "For Sale"
+                : "For Rent"}
             </InfoBox>
           </div>
         </ImgWrapper>
