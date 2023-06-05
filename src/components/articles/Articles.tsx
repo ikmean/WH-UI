@@ -13,7 +13,7 @@ export default function Articles(data: any) {
           {data.data.map((data: any, i: number) => (
             <ArticleBox
               data={{
-                ...data.attributes,
+                ...data,
                 id: data.id,
               }}
               key={i}

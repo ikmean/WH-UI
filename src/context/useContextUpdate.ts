@@ -91,7 +91,7 @@ export default function useContextUpdateFromSocket(
 
 
     const fetchBlogsInnerData = (id: string) => {
-        const url = `${globalUrl}agents/${id}`;
+        const url = `${globalUrl}blogs/${id}`;
         axios
             .get(url)
             .then(response => {

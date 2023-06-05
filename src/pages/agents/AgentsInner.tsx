@@ -19,7 +19,7 @@ function AgentsInner() {
   const { id } = useParams()
 
   useEffect(() => {
-    agentsInner && setData(agentsInner.attributes)
+    agentsInner && setData(agentsInner)
   }, [agentsInner])
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function AgentsInner() {
             {data.blogs.data.map((data: any, i: number) => (
               <ArticleBox
                 data={{
-                  ...data.attributes,
+                  ...data,
                   id: data.id,
                 }}
                 key={i}

@@ -9,6 +9,7 @@ import PropertiesInner from "./pages/properties/PropertiesInner";
 import Agents from './pages/agents/Agents'
 import AgentsInner from './pages/agents/AgentsInner'
 import Blogs from './pages/blogs/Blogs'
+import BlogsInner from "./pages/blogs/BlogsInner";
 import { Provider } from "./context/createContext"
 import useContextUpdateFromSocket from "./context/useContextUpdate"
 
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/agents" element={<Agents />} />
           <Route path="/agents/:id" element={<AgentsInner />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:id" element={<BlogsInner />} />
         </Routes>
         <Footer />
        </Provider>

@@ -25,7 +25,7 @@ function Agents() {
           {agents.map((data: any, i: number) => (
             <AgentBox
               data={{
-                ...data.attributes,
+                ...data,
                 id: data.id,
               }}
               key={i}
