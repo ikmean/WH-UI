@@ -27,12 +27,17 @@ import { useParams } from "react-router-dom"
 
 function PropertiesInner() {
   const { context } = useContext(AppContext)
-  const { propertyInner, fetchPropertyInnerData } = context
+  const {
+    propertyInner,
+    fetchPropertyInnerData,
+    properties,
+    fetchPropertiesData,
+  } = context
   const [data, setData] = useState(propertyInner)
   const { id } = useParams()
 
   useEffect(() => {
-    propertyInner && setData(propertyInner.attributes)
+    propertyInner && setData(propertyInner)
   }, [propertyInner])
 
   useEffect(() => {
@@ -41,18 +46,19 @@ function PropertiesInner() {
     }
   }, [id, fetchPropertyInnerData])
 
+  useEffect(() => {
+    fetchPropertiesData()
+  }, [fetchPropertiesData])
+
   return (
     <PropertiesInnerPageContainer>
       <img src={cover} alt="" width="100%" height="515.05px" />
       {data && (
         <ContentContainer className="container">
-          <RequestProperty
-            rentOrSale={data.dealType.data.attributes.title}
-            price={data.price}
-          />
+          <RequestProperty rentOrSale={data.dealType} price={data.price} />
           <TextContent>
             <h3>{data.address}</h3>
-            <h1>{data.propertyLocation.data.attributes.title}</h1>
+            <h1>{data.location}</h1>
             <InfoContainer className="flex">
               <InfoBox>
                 <SQFT />
@@ -90,7 +96,10 @@ function PropertiesInner() {
             <Line />
             <h2>Property amenities</h2>
             <AmenityContainer>
-              <Amenity text="Garden" />
+              {data.amenities.map((data: any, i: number) => (
+                <Amenity text={data} key={i} />
+              ))}
+              {/* <Amenity text="Garden" />
               <Amenity text="Security cameras" />
               <Amenity text="Laundry" />
               <Amenity text="Internet" />
@@ -98,7 +107,7 @@ function PropertiesInner() {
               <Amenity text="Garage" />
               <Amenity text="Jacuzzi" />
               <Amenity text="Elevator" />
-              <Amenity text="Dish Washer" />
+              <Amenity text="Dish Washer" /> */}
             </AmenityContainer>
           </TextContent>
           <Line />
@@ -122,7 +131,7 @@ function PropertiesInner() {
       )}
       <BrowseMore>
         <div className="container">
-          <Properties title="Browse more properties" />
+          <Properties title="Browse more properties" properties={properties} />
         </div>
       </BrowseMore>
     </PropertiesInnerPageContainer>

@@ -13,7 +13,7 @@ export default function Properties({ title, properties }: any) {
           {properties.map((data: any, i: number) => (
             <FeaturedBox
               data={{
-                ...data.attributes,
+                ...data,
                 featured: false,
                 main: false,
                 id: data.id,

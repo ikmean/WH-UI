@@ -10,7 +10,7 @@ export default function Featured({ properties }: any) {
         {properties[0] && (
           <FeaturedBox
             data={{
-              ...properties[0].attributes,
+              ...properties[0],
               featured: true,
               main: true,
               id: properties[0].id,
@@ -20,7 +20,7 @@ export default function Featured({ properties }: any) {
         {properties[1] && (
           <FeaturedBox
             data={{
-              ...properties[1].attributes,
+              ...properties[1],
               featured: true,
               main: true,
               id: properties[1].id,

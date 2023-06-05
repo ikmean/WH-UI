@@ -27,12 +27,10 @@ export default function FeaturedBox({ data }: data) {
           <div>
             {data.dealType && (
               <InfoBox
-                forSale={data.dealType.data.attributes.title}
+                forSale={data.dealType}
                 saleRent={true} //TODO ეს რატო იყო არ მახსოვს
               >
-                {data.dealType.data.attributes.title === "sale"
-                  ? "For Sale"
-                  : "For Rent"}
+                {data.dealType === "sale" ? "For Sale" : "For Rent"}
               </InfoBox>
             )}
           </div>
@@ -42,7 +40,7 @@ export default function FeaturedBox({ data }: data) {
             <LocationContainer featured={data.featured}>
               <Location />
               <span className="location">
-                {data.address}, {data.propertyLocation.data.attributes.title}
+                {data.address}, {data.location}
               </span>
             </LocationContainer>
             <Price featured={data.featured}>${data.price}</Price>
