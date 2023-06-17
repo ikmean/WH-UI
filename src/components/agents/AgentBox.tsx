@@ -10,7 +10,7 @@ export default function AgentBox({ type = "regular", data }: any) {
     <AgentBoxStyles type={type}>
       <Link to={data.id.toString()}>
         <ImgWrapper type={type}>
-          <img src={img1} alt="img1" />
+          <img src={data.profilePicture.url} alt="img1" />
           {type !== "small" && <InfoBox>Agent</InfoBox>}
         </ImgWrapper>
         <TextBox type={type}>
