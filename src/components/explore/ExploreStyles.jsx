@@ -4,6 +4,12 @@ export const ExploreWrapper = styled.div`
   display: flex;
 `;
 
+export const ExploreHeader = styled.h1`
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4rem;
+`;
+
 export const Left = styled.div`
   display: flex;
   flex-direction: column;

@@ -4,12 +4,12 @@ import Dropdown from "../dropdown/Dropdown";
 import { SearchContainerStyles } from "./SearchStyles";
 
 export default function SearchContainer() {
-	return (
-		<SearchContainerStyles>
-			<Search />
-			<Dropdown text="Location" />
-			<Dropdown text="Property" />
-			<Dropdown text="Type" />
-		</SearchContainerStyles>
-	);
+  return (
+    <SearchContainerStyles>
+      <Search />
+      <Dropdown text="Location" />
+      <Dropdown text="Property" />
+      <Dropdown text="Type" />
+    </SearchContainerStyles>
+  );
 }
