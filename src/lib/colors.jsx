@@ -5,5 +5,5 @@ export const  colors = {
   border: "rgba(233, 233, 233, 1)",
   grey: "rgba(246, 246, 246, 1)",
   greyDarker: "rgba(249, 249, 249, 1)",
-  greyText:'rgba(141, 141, 145, 1)'
+  greyText: "rgba(141, 141, 145, 1)",
 };

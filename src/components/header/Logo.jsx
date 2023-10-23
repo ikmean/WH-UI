@@ -5,11 +5,11 @@ import { Left } from "./HeaderStyles";
 
 export default function Logo() {
   return (
-      <Link to="/">
-    <Left>
-      <Icon />
-      <h1>Realtor X</h1>
-    </Left>
-      </Link>
+    <Link to="/">
+      <Left>
+        <Icon />
+        <h1>Warm House</h1>
+      </Left>
+    </Link>
   );
 }
