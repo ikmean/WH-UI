@@ -18,7 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "src",
+    "paths": {
+      "@colors": ["lib/colors"]
+    }
   },
   "include": [
     "src/components",
@@ -35,5 +39,5 @@
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-empty-function": "off",
     }
-  ]
-}
+  ],
+  }

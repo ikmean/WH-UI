@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors } from "../../lib/colors";
+import { colors } from "@colors";
 
 const hoverTransition = (transitionType, transitionValue, transitionSeconds) =>
 	css`
