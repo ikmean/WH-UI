@@ -10,7 +10,19 @@ import { AppContext } from "../../context/createContext";
 
 function Home() {
 	const { context } = useContext(AppContext);
-	const { properties, blogs, fetchPropertiesData, fetchBlogsData } = context;
+	const { properties, blogs,  fetchPropertiesData, fetchBlogsData, location, propertyCategory, dealType, fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData  } = context;
+
+  useEffect(() => {
+		fetchLocationData();
+	}, [fetchLocationData]);
+
+  useEffect(() => {
+		fetchPropertyCategoryData();
+	}, [fetchPropertyCategoryData]);
+
+  useEffect(() => {
+		fetchDealTypeData();
+	}, [fetchDealTypeData]);
 
 	useEffect(() => {
 		fetchPropertiesData();
@@ -20,11 +32,12 @@ function Home() {
 		fetchBlogsData();
 	}, [fetchBlogsData]);
 
+
 	return (
 		<div className="flex-column">
 			<div className="container">
 				<Explore />
-				<SearchContainer />
+				<SearchContainer location={location} propertyCategory={propertyCategory} dealType={dealType} />
 				<Featured properties={properties} />
 				<Properties title="All properties" properties={properties} />
 				<FindHouse />

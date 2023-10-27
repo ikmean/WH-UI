@@ -12,7 +12,7 @@ import { AppContext } from "../../context/createContext"
 
 function Properties() {
   const { context } = useContext(AppContext)
-  const { properties, fetchPropertiesData } = context
+  const { properties, fetchPropertiesData, location, propertyCategory, dealType } = context
 
   useEffect(() => {
     fetchPropertiesData()
@@ -21,7 +21,7 @@ function Properties() {
   return (
     <div className="container">
       <PropertiesHeader />
-      <SearchContainer />
+      <SearchContainer location={location} propertyCategory={propertyCategory} dealType={dealType}/>
       {properties.length && (
         <PropertiesPageWrapper>
           {properties.map((data: any, i: number) => (
