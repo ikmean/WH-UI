@@ -28,6 +28,7 @@ export const DropdownBox = styled.div`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   color: ${colors.greyText};
   border-radius: 14px;
+  position: relative;
   &:hover {
     border: 1px solid ${colors.secondary};
     color: ${colors.secondary};
@@ -48,8 +49,17 @@ export const DropdownList = styled.div`
   color: ${colors.greyText};
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 14px;
+  position: absolute;
+  top: 85px;
+  left: 0px;
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
-  opacity: 100%;
+`;
+
+export const ListItem = styled.li`
+  &:hover {
+    color: ${colors.secondary};
+    cursor: pointer;
+  }
 `;

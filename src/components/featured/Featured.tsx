@@ -1,6 +1,6 @@
-import React from "react"
-import FeatureHeader from "./Header"
-import FeaturedBox from "./FeturedBox"
+import React from "react";
+import FeatureHeader from "./Header";
+import FeaturedBox from "./FeturedBox";
 
 export default function Featured({ properties }: any) {
   return (
@@ -29,5 +29,5 @@ export default function Featured({ properties }: any) {
         )}
       </div>
     </div>
-  )
+  );
 }

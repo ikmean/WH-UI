@@ -1,15 +1,15 @@
-import styled from "styled-components"
-import { colors } from "../../lib/colors"
+import styled from "styled-components";
+import { colors } from "../../lib/colors";
 
 export interface props {
-  forSale?: boolean
-  saleRent?: boolean
-  featured?: boolean
-  main?: boolean
+  forSale?: boolean;
+  forRent?: boolean;
+  featured?: boolean;
+  main?: boolean;
 }
 
 export interface data {
-  data: any
+  data: any;
 }
 
 export const HeaderStyles = styled.div`
@@ -18,18 +18,23 @@ export const HeaderStyles = styled.div`
   align-items: center;
   margin-top: 160px;
   margin-bottom: 64px;
-`
+`;
 export const BoxWrapper = styled.div<props>`
   background: white;
   a {
     display: flex;
     flex-direction: ${({ featured }) => (featured ? "" : "column")};
     justify-content: ${({ featured }) => (featured ? "" : "space-between")};
+    transition: box-shadow 0.3s, transform 0.3s;
+    &: hover {
+      box-shadow: 0 10px 30px 0 ${colors.grey};
+      transform: translate(0, -3px);
+    }
   }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
   margin-bottom: 32px;
-  width: ${({ featured }) => (featured ? "" : "31%")};
+  width: ${({ featured }) => (featured ? "" : "100%")};
   margin-right: ${({ main }) => (main ? "" : "3.5%")};
   &:nth-child(3) {
     margin-right: 0;
@@ -38,21 +43,22 @@ export const BoxWrapper = styled.div<props>`
     border-top-left-radius: 26px;
     border-bottom-left-radius: ${({ featured }) => (featured ? "26px" : "")};
     border-top-right-radius: ${({ featured }) => (featured ? "" : "26px")};
-    width: ${({ featured }) => (featured ? "" : "100%")};
-    height: ${({ featured }) => (featured ? "" : "228.38px")};
   }
-`
+`;
+
 export const ImgWrapper = styled.div<{ main: any; featured: any }>`
   position: relative;
-  width: ${({ main }) => (main ? " 52%" : "")};
+  width: ${({ main }) => (main ? " 53%" : "")};
   height: ${({ main, featured }) => (featured ? "" : main ? "375px" : "")};
+  transform: translate(0);
   div {
     position: absolute;
     top: 20px;
     right: 0;
     width: max-content;
   }
-`
+`;
+
 export const TextBox = styled.div<props>`
   display: flex;
   flex-direction: column;
@@ -66,56 +72,70 @@ export const TextBox = styled.div<props>`
   div {
     display: flex;
   }
-`
+  p {
+    color: ${colors.greyText};
+  }
+  &:hover {
+    h2 {
+      color: ${colors.secondary};
+    }
+  }
+`;
 
 export const LocationContainer = styled.div<props>`
   display: flex;
   align-items: center;
+  color: ${colors.greyText};
   span {
     padding-left: 11px;
     font-size: ${({ featured }) => (featured ? "18px" : "16px")};
   }
-`
+`;
 export const Top = styled.div<props>`
   display: flex;
   align-items: ${({ featured }) => (featured ? "flex-start" : "")};
   flex-direction: ${({ featured }) => (featured ? "row" : "column-reverse")};
   justify-content: ${({ featured }) => (featured ? " space-between" : "")};
   margin-bottom: 15px;
-`
+`;
+
 export const Price = styled.span<props>`
   color: ${({ featured }) => (featured ? colors.secondary : "black")};
   margin-bottom: ${({ featured }) => (featured ? "" : "13px")};
   font-weight: 700;
   font-size: 22px;
-`
+`;
 
 export const Line = styled.div`
   height: 1px;
   width: 100%;
   background: ${colors.border};
   margin: 36px 0;
-`
+`;
+
 export const InfoBox = styled.div<props>`
   display: flex;
   align-items: center;
   box-shadow: 0px 1px 6px rgba(20, 20, 43, 0.09);
   border-radius: 40px;
   margin-right: 18px;
+  background-color: ${({ forSale }) => (forSale ? colors.secondary : "white")};
   background: ${({ forSale }) => (forSale ? colors.secondary : "white")};
   color: ${({ forSale }) => forSale && "white"};
-  font-size: ${({ saleRent }) => (saleRent ? "16px" : "14px")};
-  padding: ${({ saleRent }) => (saleRent ? "12px 22px" : "10px 14px")};
+  font-size: ${({ forRent }) => (forRent ? "16px" : "14px")};
+  padding: ${({ forRent }) => (forRent ? "12px 22px" : "12px 22px")};
   span {
     color: black;
     padding-left: 7px;
   }
-`
+`;
 
 export const PropertiesWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+`;
+
 export const PropertiesPageHeader = styled.div`
   display: flex;
   align-items: center;
@@ -132,12 +152,12 @@ export const PropertiesPageHeader = styled.div`
     text-align: center;
     color: ${colors.greyText};
   }
-`
+`;
 export const PropertiesPageWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 80px;
-`
+`;
 
 export const Nav = styled.div`
   display: flex;
@@ -146,4 +166,4 @@ export const Nav = styled.div`
   .button {
     margin-right: 68px;
   }
-`
+`;
