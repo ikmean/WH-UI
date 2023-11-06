@@ -6,12 +6,19 @@ interface ButtonProps {
   color: string;
   width?: string;
   to: string;
+  className?: string;
 }
 
-export default function Button({ text, color, width, to }: ButtonProps) {
+export default function Button({
+  text,
+  color,
+  width,
+  to,
+  className,
+}: ButtonProps) {
   return (
     <ButtonWrapper
-      className="button"
+      className={className}
       color={color}
       width={width}
       onClick={() => (window.location.href = to)}

@@ -5,8 +5,8 @@ export const SearchContainerStyles = styled.div`
   display: flex;
   margin-top: 84px;
   justify-content: center;
-  align-items: flex-start;
-  gap: 33.695px;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
 `;
 

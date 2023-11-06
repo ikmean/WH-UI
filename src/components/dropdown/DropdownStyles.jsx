@@ -56,3 +56,10 @@ export const DropdownList = styled.div`
     width: 19%;
   }
 `;
+
+export const ListItem = styled.li`
+  &:hover {
+    color: ${colors.secondary};
+    cursor: pointer;
+  }
+`;
