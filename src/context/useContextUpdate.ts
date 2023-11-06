@@ -17,7 +17,10 @@ export default function useContextUpdateFromSocket(
                 fetchAgentsData,
                 fetchAgentsInnerData,
                 fetchBlogsData,
-                fetchBlogsInnerData
+                fetchBlogsInnerData,
+                fetchDealTypeData,
+                fetchLocationData,
+                fetchPropertyCategoryData
             }
         })
     }, [])
@@ -98,6 +101,47 @@ export default function useContextUpdateFromSocket(
                 const data = response.data.data
                 setContext(ctx => {
                     return { ...ctx, blogsInner: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+    const fetchLocationData = () => {
+        const url = `${globalUrl}properties/locations`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, location: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+    const fetchPropertyCategoryData = () => {
+        const url = `${globalUrl}properties/categories`;
+        axios
+            .get(url)
+            .then(response => {
+                const data = response.data.data
+                setContext(ctx => {
+                    return { ...ctx, propertyCategory: data }
+                })
+            })
+            .catch((error) => console.log(error));
+    }
+
+    const fetchDealTypeData = () => {
+        const url = `${globalUrl}properties/dealTypes`;
+        axios
+            .get(url)
+            .then(response => {
+
+                const data = response.data.data
+
+                setContext(ctx => {
+                    return { ...ctx, dealType: data }
                 })
             })
             .catch((error) => console.log(error));

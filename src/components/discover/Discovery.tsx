@@ -1,7 +1,8 @@
-import React from "react"
-import Button from "../button/Button"
-import { Wrapper, TextWrapper, ImgWrapper } from "./DiscoveryStyles"
-import img1 from "../../lib/images/img1.png"
+import React from "react";
+import Button from "../button/Button";
+import { Wrapper, TextWrapper, ImgWrapper } from "./DiscoveryStyles";
+import discoveryImg1 from "../../lib/images/discoveryImg1.png";
+import discoveryImg2 from "../../lib/images/discoveryImg2.png";
 
 export default function Discovery() {
   return (
@@ -18,10 +19,10 @@ export default function Discovery() {
           <Button text="About our company" color="black" to="/" />
         </TextWrapper>
         <ImgWrapper>
-          <img src={img1} alt="img1" width="100%" height="504.57px" />
-          <img src={img1} alt="img1" width="100%" height="504.57px" />
+          <img src={discoveryImg1} alt="discoveryImg1" />
+          <img src={discoveryImg2} alt="discoveryImg2" />
         </ImgWrapper>
       </div>
     </Wrapper>
-  )
+  );
 }

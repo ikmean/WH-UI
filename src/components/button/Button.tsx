@@ -1,22 +1,29 @@
-import React from "react"
-import { ButtonWrapper } from "./ButtonStyles"
+import React from "react";
+import { ButtonWrapper } from "./ButtonStyles";
 
 interface ButtonProps {
-  text: string
-  color: string
-  width?: string
-  to: string
+  text: string;
+  color: string;
+  width?: string;
+  to: string;
+  className?: string;
 }
 
-export default function Button({ text, color, width, to }: ButtonProps) {
+export default function Button({
+  text,
+  color,
+  width,
+  to,
+  className,
+}: ButtonProps) {
   return (
     <ButtonWrapper
-      className="button"
+      className={className}
       color={color}
       width={width}
       onClick={() => (window.location.href = to)}
     >
       {text}
     </ButtonWrapper>
-  )
+  );
 }

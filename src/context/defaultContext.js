@@ -6,12 +6,17 @@ export const defaultAppCTX = {
     agentsInner: null,
     blogs: [],
     blogsInner: null,
+    location: [],
+    propertyCategory: [],
+    dealType: [],
     fetchPropertyInnerData: () => {},
     fetchPropertiesData: () => {},
     fetchAgentsData: () => {},
     fetchAgentsInnerData: () => {},
     fetchBlogsData: () => {},
     fetchBlogsInnerData: () => {},
-    
+    fetchLocationData: ()=>{},
+    fetchPropertyCategoryData: ()=>{},
+    fetchDealTypeData: ()=>{},
 }
 

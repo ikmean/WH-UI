@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeaderWrapper, Right, Nav } from "./HeaderStyles";
+import { HeaderWrapper, Right, Nav, HeaderLink } from "./HeaderStyles";
 import { ReactComponent as Search } from "../../lib/icons/search.svg";
-import PostButton from "../button/PostButton";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -11,25 +10,31 @@ export default function Header() {
       <Logo />
       <Nav>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <HeaderLink>Home</HeaderLink>
+          </Link>
         </li>
         <li>
-          <Link to="/properties">Properties</Link>
+          <Link to="/properties">
+            <HeaderLink>Properties</HeaderLink>
+          </Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">
+            <HeaderLink>About</HeaderLink>
+          </Link>
         </li>
         <li>
-          <Link to="/agents">Agents</Link>
+          <Link to="/agents">
+            <HeaderLink>Agents</HeaderLink>
+          </Link>
         </li>
         <li>
-          <Link to="/blogs">Blogs</Link>
+          <Link to="/blogs">
+            <HeaderLink>Blogs</HeaderLink>
+          </Link>
         </li>
       </Nav>
-      <Right>
-        <Search />
-        <PostButton text="Post a property" margin="0 0 0 17.4px" />
-      </Right>
     </HeaderWrapper>
   );
 }

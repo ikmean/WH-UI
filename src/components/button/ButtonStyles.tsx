@@ -1,10 +1,10 @@
-import styled from "styled-components"
-import { colors } from "../../lib/colors"
+import styled from "styled-components";
+import { colors } from "../../lib/colors";
 
 interface props {
-  margin?: string
-  width?: string
-  color?: string
+  margin?: string;
+  width?: string;
+  color?: string;
 }
 
 export const PostButtonWrapper = styled.div<props>`
@@ -13,10 +13,17 @@ export const PostButtonWrapper = styled.div<props>`
   background: ${colors.primary};
   color: ${colors.white};
   border-radius: 10px;
-  padding: 15px 26px;
+  padding: 20px 36px;
   margin: ${({ margin }) => margin && margin};
   width: fit-content;
-`
+  transition: transform 1s ease, background-color 0.3s ease;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+    background-color: ${colors.secondary};
+  }
+`;
 
 export const ButtonWrapper = styled.div<props>`
   display: flex;
@@ -31,6 +38,14 @@ export const ButtonWrapper = styled.div<props>`
   font-size: 18px;
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
   cursor: pointer;
-  transition: background-color 0.5s ease;
   place-content: center;
-`
+  font-weight: 600;
+  transition: transform 1s ease, background-color 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+    background-color: ${({ color }) =>
+      (color === "black" || color === "white") && colors.secondary};
+    color: ${colors.white};
+  }
+`;
