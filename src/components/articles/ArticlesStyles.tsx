@@ -77,7 +77,6 @@ export const InfoFooter = styled.div`
   color: ${colors.greyText};
   padding-bottom: 33px;
 `;
-
 export const Line = styled.div`
   height: 1px;
   width: 100%;
@@ -87,7 +86,7 @@ export const Line = styled.div`
 
 export const BoxWrapper = styled.div`
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   padding-bottom: 15px;
   gap: 30px;
 `;

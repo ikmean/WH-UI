@@ -1,20 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../lib/colors";
 
-export const DropDownContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 100;
-`;
-
-export const Gap = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-
 export const DropdownBox = styled.div`
   display: flex;
   align-items: center;
@@ -30,17 +16,13 @@ export const DropdownBox = styled.div`
   color: ${colors.greyText};
   border-radius: 14px;
   position: relative;
-  &:hover {
-    border: 1px solid ${colors.secondary};
-    color: ${colors.secondary};
-  }
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
 `;
 
 export const DropdownList = styled.div`
-  display: flex;
+  display: none;
   align-items: left;
   flex-direction: column;
   gap: 10px;
@@ -51,11 +33,32 @@ export const DropdownList = styled.div`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 14px;
   position: absolute;
-  top: 85px;
+  top: 100px;
   left: 0px;
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
+`;
+
+export const DropDownContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  &:hover ${DropdownList} {
+    display: flex;
+  }
+  &:hover ${DropdownBox} {
+    border: 1px solid ${colors.secondary};
+    color: ${colors.secondary};
+  }
+`;
+
+export const Gap = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export const ListItem = styled.li`
