@@ -47,10 +47,10 @@ function Properties() {
           ))}
         </PropertiesPageWrapper>
       )}
-      <Nav>
-        <Button color="white" text="Previous page" to="/" />
-        <Button color="black" text="Next page" to="/" />
-      </Nav>
+      {/* <Nav>
+        <Button color="white" text="Previous page" to="/properties" />
+        <Button color="black" text="Next page" to="/properties" />
+      </Nav> */}
     </div>
   );
 }

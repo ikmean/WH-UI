@@ -1,15 +1,16 @@
-import React, { useContext, useEffect } from "react"
-import AgentBox from "../../components/agents/AgentBox"
-import { Header } from "./AgentsStyles"
-import { AppContext } from "../../context/createContext"
+import React, { useContext, useEffect } from "react";
+import AgentBox from "../../components/agents/AgentBox";
+import { Header } from "./AgentsStyles";
+import { AppContext } from "../../context/createContext";
+import { AgentsList } from "../../components/agents/AgentsStyles";
 
 function Agents() {
-  const { context } = useContext(AppContext)
-  const { agents, fetchAgentsData } = context
+  const { context } = useContext(AppContext);
+  const { agents, fetchAgentsData } = context;
 
   useEffect(() => {
-    fetchAgentsData()
-  }, [fetchAgentsData])
+    fetchAgentsData();
+  }, [fetchAgentsData]);
 
   return (
     <div className="container">
@@ -21,7 +22,7 @@ function Agents() {
         </p>
       </Header>
       {agents && (
-        <div className="flex space-between">
+        <AgentsList>
           {agents.map((data: any, i: number) => (
             <AgentBox
               data={{
@@ -31,10 +32,10 @@ function Agents() {
               key={i}
             />
           ))}
-        </div>
+        </AgentsList>
       )}
     </div>
-  )
+  );
 }
 
-export default Agents
+export default Agents;
