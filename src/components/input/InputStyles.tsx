@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const InputStyles = styled.div`
   input {
@@ -17,4 +17,4 @@ export const InputStyles = styled.div`
     left: 895.05px;
     padding: 20px;
   }
-`;
+`

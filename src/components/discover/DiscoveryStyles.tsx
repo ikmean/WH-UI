@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   img {
     border-radius: 12px;
   }
-`;
+`
 export const TextWrapper = styled.div`
   width: 45%;
   margin-right: 5%;
@@ -29,7 +29,7 @@ export const TextWrapper = styled.div`
     width: 75%;
     margin-bottom: 36px;
   }
-`;
+`
 
 export const ImgWrapper = styled.div`
   position: relative;
@@ -39,4 +39,4 @@ export const ImgWrapper = styled.div`
     top: 50%;
     left: 50%;
   }
-`;
+`

@@ -1,11 +1,11 @@
-import React from "react";
-import FeatureHeader from "./Header";
-import FeaturedBox from "./FeturedBox";
+import React from 'react'
+import FeatureHeader from './Header'
+import FeaturedBox from './FeturedBox'
 
 export default function Featured({ properties }: any) {
   return (
     <div>
-      <FeatureHeader title="Featured properties" />
+      <FeatureHeader title='Featured properties' />
       <div>
         {properties[0] && (
           <FeaturedBox
@@ -13,7 +13,7 @@ export default function Featured({ properties }: any) {
               ...properties[0],
               featured: true,
               main: true,
-              id: properties[0].id,
+              id: properties[0].id
             }}
           />
         )}
@@ -23,11 +23,11 @@ export default function Featured({ properties }: any) {
               ...properties[1],
               featured: true,
               main: true,
-              id: properties[1].id,
+              id: properties[1].id
             }}
           />
         )}
       </div>
     </div>
-  );
+  )
 }
