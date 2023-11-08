@@ -1,11 +1,11 @@
-import React from "react";
-import { BoxStyles } from "./SubscribeStyles";
-import { InputComponent } from "../input/Input";
-import { ReactComponent as Mail } from "../../lib/icons/mail.svg";
+import React from 'react'
+import { BoxStyles } from './SubscribeStyles'
+import { InputComponent } from '../input/Input'
+import { ReactComponent as Mail } from '../../lib/icons/mail.svg'
 // import Search from "../../lib/icons/search.svg"
 
 interface SubscribeBoxProps {
-  text: string;
+  text: string
 }
 
 export default function SubscribeBox({ text }: SubscribeBoxProps) {
@@ -15,5 +15,5 @@ export default function SubscribeBox({ text }: SubscribeBoxProps) {
       <Mail />
       {/* <Search /> */}
     </BoxStyles>
-  );
+  )
 }

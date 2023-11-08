@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 interface props {
-  margin?: string;
-  width?: string;
-  color?: string;
+  margin?: string
+  width?: string
+  color?: string
 }
 
 export const PostButtonWrapper = styled.div<props>`
@@ -23,17 +23,16 @@ export const PostButtonWrapper = styled.div<props>`
     transform: scale(0.95);
     background-color: ${colors.secondary};
   }
-`;
+`
 
 export const ButtonWrapper = styled.div<props>`
   display: flex;
   align-items: center;
-  width: ${({ width }) => (width === "100%" ? "100%" : "fit-content")};
+  width: ${({ width }) => (width === '100%' ? '100%' : 'fit-content')};
   max-height: fit-content;
   padding: 20px 40px;
-  background: ${({ color }) =>
-    color === "white" ? "white" : color === "red" ? colors.secondary : "black"};
-  color: ${({ color }) => (color === "white" ? "black" : "white")};
+  background: ${({ color }) => (color === 'white' ? 'white' : color === 'red' ? colors.secondary : 'black')};
+  color: ${({ color }) => (color === 'white' ? 'black' : 'white')};
   border-radius: 12px;
   font-size: 18px;
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
@@ -44,8 +43,7 @@ export const ButtonWrapper = styled.div<props>`
   &:hover {
     cursor: pointer;
     transform: scale(0.95);
-    background-color: ${({ color }) =>
-      (color === "black" || color === "white") && colors.secondary};
+    background-color: ${({ color }) => (color === 'black' || color === 'white') && colors.secondary};
     color: ${colors.white};
   }
-`;
+`

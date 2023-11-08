@@ -1,7 +1,7 @@
-import React from "react"
-import { ReactComponent as Phone } from "../../lib/icons/phone.svg"
-import { ReactComponent as MailRed } from "../../lib/icons/mailRed.svg"
-import { ContactStyles } from "./AgentsStyles"
+import React from 'react'
+import { ReactComponent as Phone } from '../../lib/icons/phone.svg'
+import { ReactComponent as MailRed } from '../../lib/icons/mailRed.svg'
+import { ContactStyles } from './AgentsStyles'
 
 interface props {
   direction?: string

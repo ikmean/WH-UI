@@ -1,25 +1,22 @@
-import React, { useContext, useEffect } from "react";
-import AgentBox from "../../components/agents/AgentBox";
-import { Header } from "./AgentsStyles";
-import { AppContext } from "../../context/createContext";
-import { AgentsList } from "../../components/agents/AgentsStyles";
+import React, { useContext, useEffect } from 'react'
+import AgentBox from '../../components/agents/AgentBox'
+import { Header } from './AgentsStyles'
+import { AppContext } from '../../context/createContext'
+import { AgentsList } from '../../components/agents/AgentsStyles'
 
 function Agents() {
-  const { context } = useContext(AppContext);
-  const { agents, fetchAgentsData } = context;
+  const { context } = useContext(AppContext)
+  const { agents, fetchAgentsData } = context
 
   useEffect(() => {
-    fetchAgentsData();
-  }, [fetchAgentsData]);
+    fetchAgentsData()
+  }, [fetchAgentsData])
 
   return (
-    <div className="container">
-      <Header className="flex space-between center">
+    <div className='container'>
+      <Header className='flex space-between center'>
         <h1>Our agents</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </Header>
       {agents && (
         <AgentsList>
@@ -27,7 +24,7 @@ function Agents() {
             <AgentBox
               data={{
                 ...data,
-                id: data.id,
+                id: data.id
               }}
               key={i}
             />
@@ -35,7 +32,7 @@ function Agents() {
         </AgentsList>
       )}
     </div>
-  );
+  )
 }
 
-export default Agents;
+export default Agents

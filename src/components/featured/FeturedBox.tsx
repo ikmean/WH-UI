@@ -1,36 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
-import {
-  BoxWrapper,
-  TextBox,
-  Price,
-  LocationContainer,
-  Line,
-  InfoBox,
-  ImgWrapper,
-  Top,
-} from "./FeaturedStyles";
-import { ReactComponent as Location } from "../../lib/icons/location.svg";
-import { ReactComponent as SQFT } from "../../lib/icons/sqft.svg";
-import { ReactComponent as Bed } from "../../lib/icons/bed.svg";
-import { ReactComponent as Bath } from "../../lib/icons/bath.svg";
-import { ReactComponent as Parking } from "../../lib/icons/parking.svg";
-import { data } from "./FeaturedStyles";
-import { Link } from "react-router-dom";
+import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top } from './FeaturedStyles'
+import { ReactComponent as Location } from '../../lib/icons/location.svg'
+import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
+import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
+import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
+import { ReactComponent as Parking } from '../../lib/icons/parking.svg'
+import { data } from './FeaturedStyles'
+import { Link } from 'react-router-dom'
 
 export default function FeaturedBox({ data }: data) {
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
       <Link to={data.id.toString()}>
         <ImgWrapper main={data.main} featured={data.featured}>
-          <img src={data.gallery[0].url} alt="featuredImg1" />
+          <img src={data.gallery[0].url} alt='featuredImg1' />
           <div>
             {data.dealType && (
-              <InfoBox
-                forSale={data.dealType === "Sale"}
-                forRent={data.dealType === "Rent"}
-              >
-                {data.dealType === "Sale" ? "For Sale" : "For Rent"}
+              <InfoBox forSale={data.dealType === 'Sale'} forRent={data.dealType === 'Rent'}>
+                {data.dealType === 'Sale' ? 'For Sale' : 'For Rent'}
               </InfoBox>
             )}
           </div>
@@ -39,7 +27,7 @@ export default function FeaturedBox({ data }: data) {
           <Top featured={data.featured}>
             <LocationContainer featured={data.featured}>
               <Location />
-              <span className="location">
+              <span className='location'>
                 {data.streetAddress}, {data.city}
               </span>
             </LocationContainer>
@@ -71,5 +59,5 @@ export default function FeaturedBox({ data }: data) {
         </TextBox>
       </Link>
     </BoxWrapper>
-  );
+  )
 }

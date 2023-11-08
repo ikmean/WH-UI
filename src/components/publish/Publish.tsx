@@ -1,10 +1,10 @@
-import React from "react"
-import PublishBox from "./PublishBox"
-import { Container } from "./PublishStyles"
+import React from 'react'
+import PublishBox from './PublishBox'
+import { Container } from './PublishStyles'
 
 export default function Publish() {
   return (
-    <div className="container">
+    <div className='container'>
       <Container>
         <PublishBox />
         <PublishBox />

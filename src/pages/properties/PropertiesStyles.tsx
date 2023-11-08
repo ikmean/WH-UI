@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { colors } from "../../lib/colors"
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const PropertiesInnerPageContainer = styled.div`
   display: flex;

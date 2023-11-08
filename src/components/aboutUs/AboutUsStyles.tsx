@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { colors } from "../../lib/colors"
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export interface props {
   reverse?: boolean
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 export const AboutBoxContainer = styled.div<props>`
   display: flex;
   justify-content: space-between;
-  flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "")};
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : '')};
 `
 export const Text = styled.div`
   width: 40%;
@@ -46,8 +46,8 @@ export const InfoBox = styled.div<props>`
   background: white;
   position: absolute;
   bottom: 60px;
-  left: ${({ reverse }) => (reverse ? "" : "-100px")};
-  right: ${({ reverse }) => (reverse ? "-100px" : "")};
+  left: ${({ reverse }) => (reverse ? '' : '-100px')};
+  right: ${({ reverse }) => (reverse ? '-100px' : '')};
   h2 {
     color: ${colors.secondary};
     font-size: 63px;
