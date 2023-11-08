@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const Container = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 138px;
-`;
+`
 
 export const BoxWrapper = styled.div`
   display: flex;
@@ -25,11 +25,11 @@ export const BoxWrapper = styled.div`
     margin-bottom: 11px;
   }
   p {
-    color:${colors.greyText};
+    color: ${colors.greyText};
     line-height: 30px;
   }
-`;
+`
 export const Title = styled.div`
   font-size: 32px;
   margin-bottom: 63px;
-`;
+`

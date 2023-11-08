@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ExploreWrapper = styled.div`
   display: flex;
-`;
+`
 
 export const ExploreHeader = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   line-height: 4rem;
-`;
+`
 
 export const Left = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const Left = styled.div`
     margin-bottom: 14px;
     margin-top: 115px;
   }
-`;
+`
 
 export const Right = styled.div`
   display: flex;
@@ -40,4 +40,4 @@ export const Right = styled.div`
     position: absolute;
     right: -28%;
   }
-`;
+`
