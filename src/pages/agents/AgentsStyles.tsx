@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 // import { colors } from "../../lib/colors"
 
 export const AgentsInnerPageStyles = styled.div`

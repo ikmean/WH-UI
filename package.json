@@ -22,8 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "format": "prettier src/**/*.tsx src/**/*.jsx --write",
+    "lint": "eslint  --fix src/**/*.tsx src/**/*.jsx"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +49,6 @@
     "@typescript-eslint/parser": "^5.48.2",
     "eslint": "^8.32.0",
     "eslint-plugin-react": "^7.32.1",
-    "prettier": "2.8.3"
+    "prettier": "^2.8.3"
   }
 }

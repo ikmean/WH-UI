@@ -42,8 +42,8 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
 
 export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
-  width: ${({ type }) => type === "page" && "40%"};
-  height: ${({ type }) => type === "page" && "580px"};
+  width: ${({ type }) => type === 'page' && '40%'};
+  height: ${({ type }) => type === 'page' && '580px'};
   flex-shrink: 0;
   div {
     position: absolute;
@@ -67,22 +67,17 @@ export const InfoBox = styled.div`
 export const TextBox = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
-  justify-content: ${({ type }) => type === "page" && "center"};
-  margin-bottom: ${({ type }) => (type === "small" ? "" : "15px")};
-  margin-top: ${({ type }) => (type === "small" ? "" : "36px")};
+  justify-content: ${({ type }) => type === 'page' && 'center'};
+  margin-bottom: ${({ type }) => (type === 'small' ? '' : '15px')};
+  margin-top: ${({ type }) => (type === 'small' ? '' : '36px')};
   text-align: left;
-  padding: ${({ type }) =>
-    type === "small"
-      ? "0 22px"
-      : type === "page"
-      ? "0 7% 0 8%"
-      : "0 40px 30px 40px"};
+  padding: ${({ type }) => (type === 'small' ? '0 22px' : type === 'page' ? '0 7% 0 8%' : '0 40px 30px 40px')};
   h2 {
     margin-bottom: 8px;
-    font-size: ${({ type }) => (type === "small" ? "20px" : "22px")};
+    font-size: ${({ type }) => (type === 'small' ? '20px' : '22px')};
   }
   div {
-    margin-bottom: ${({ type }) => (type === "small" ? "" : "20px")};
+    margin-bottom: ${({ type }) => (type === 'small' ? '' : '20px')};
   }
 `;
 
@@ -101,13 +96,13 @@ export const ContactStyles = styled.div<{ type: any }>`
     display: flex;
     align-items: center;
     margin-right: 35px;
-    margin-bottom: ${({ type }) => type === "small" && "14px"};
+    margin-bottom: ${({ type }) => type === 'small' && '14px'};
     svg {
-      width: ${({ type }) => (type === "small" ? "18px" : "")};
-      height: ${({ type }) => (type === "small" ? "18px" : "")};
+      width: ${({ type }) => (type === 'small' ? '18px' : '')};
+      height: ${({ type }) => (type === 'small' ? '18px' : '')};
     }
     span {
-      margin-left: ${({ type }) => (type === "small" ? "11px" : "16.7px")};
+      margin-left: ${({ type }) => (type === 'small' ? '11px' : '16.7px')};
     }
   }
 `;

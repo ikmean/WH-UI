@@ -1,8 +1,8 @@
-import React from "react";
-import { ReactComponent as Arrow } from "../../lib/icons/redArrow.svg";
-import { BoxContainer, Info, InfoFooter, Line } from "./ArticlesStyles";
-import { getDate } from "../../helpers/TimeConverter";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { ReactComponent as Arrow } from '../../lib/icons/redArrow.svg'
+import { BoxContainer, Info, InfoFooter, Line } from './ArticlesStyles'
+import { getDate } from '../../helpers/TimeConverter'
+import { Link } from 'react-router-dom'
 
 export default function ArticleBox({ type = "default", data }: any) {
 	const date = data && getDate(data.publishedAt);

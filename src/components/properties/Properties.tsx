@@ -1,7 +1,7 @@
-import React from "react";
-import FeatureHeader from "../featured/Header";
-import FeaturedBox from "../featured/FeturedBox";
-import { PropertiesWrapper } from "../featured/FeaturedStyles";
+import React from 'react'
+import FeatureHeader from '../featured/Header'
+import FeaturedBox from '../featured/FeturedBox'
+import { PropertiesWrapper } from '../featured/FeaturedStyles'
 
 //TODO
 export default function Properties({ title, properties }: any) {
@@ -16,7 +16,7 @@ export default function Properties({ title, properties }: any) {
                 ...data,
                 featured: false,
                 main: false,
-                id: data.id,
+                id: data.id
               }}
               key={i}
             />
@@ -24,5 +24,5 @@ export default function Properties({ title, properties }: any) {
         </PropertiesWrapper>
       )}
     </div>
-  );
+  )
 }

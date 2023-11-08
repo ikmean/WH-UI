@@ -1,5 +1,5 @@
-import React from "react";
-import { InputStyles } from "./InputStyles";
+import React from 'react'
+import { InputStyles } from './InputStyles'
 
 export const InputComponent = ({ placeholder }: any) => {
   return (
