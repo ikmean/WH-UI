@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { colors } from "../../lib/colors"
+import styled from "styled-components";
+import { colors } from "../../lib/colors";
 
 // export interface props {}
 
@@ -18,25 +18,28 @@ export const Wrapper = styled.div`
     line-height: 30px;
     color: ${colors.greyText};
   }
-`
+`;
+
+export const AgentsList = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 25px;
+`;
+
 export const AgentBoxStyles = styled.div<{ type: string }>`
-  width: ${({ type }) =>
-    type === "small" || type === "page" ? "100%" : "32%"};
-  box-shadow: ${({ type }) =>
-    type !== "small" && "0px 3px 20px rgba(8, 15, 52, 0.06)"};
+  box-shadow: "0px 3px 20px rgba(8, 15, 52, 0.06)";
   border-radius: 26px;
   img {
-    border-top-left-radius: ${({ type }) => (type === "small" ? "" : "26px")};
-    border-top-right-radius: ${({ type }) => (type === "small" ? "" : "26px")};
-    border-radius: ${({ type }) => type === "small" && "50%"};
-    width: ${({ type }) => (type === "small" ? "96.27px" : "100%")};
-    height: ${({ type }) =>
-      type === "small" ? "96.27px" : type === "page" ? "100%" : "367px"};
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    border-radius: 12px;
+    width: 100%;
   }
   a {
-    display: ${({ type }) => type !== "regular" && "flex"};
+    display: "flex";
   }
-`
+`;
+
 export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
   width: ${({ type }) => type === "page" && "40%"};
@@ -48,7 +51,8 @@ export const ImgWrapper = styled.div<{ type: any }>`
     right: 0;
     width: max-content;
   }
-`
+`;
+
 export const InfoBox = styled.div`
   display: flex;
   align-items: center;
@@ -58,7 +62,7 @@ export const InfoBox = styled.div`
   margin-right: 18px;
   background: ${colors.secondary};
   color: white;
-`
+`;
 
 export const TextBox = styled.div<{ type: any }>`
   display: flex;
@@ -80,13 +84,15 @@ export const TextBox = styled.div<{ type: any }>`
   div {
     margin-bottom: ${({ type }) => (type === "small" ? "" : "20px")};
   }
-`
+`;
+
 export const AgentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 67px;
-`
+`;
+
 export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
@@ -104,4 +110,4 @@ export const ContactStyles = styled.div<{ type: any }>`
       margin-left: ${({ type }) => (type === "small" ? "11px" : "16.7px")};
     }
   }
-`
+`;

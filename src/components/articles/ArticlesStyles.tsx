@@ -18,7 +18,7 @@ export const Header = styled.div`
   justify-content: space-between;
 `;
 
-export const BoxContainer = styled.div<{ type: any }>`
+export const BoxContainer = styled.div<{ type: string }>`
   display: ${({ type }) => type === "readMoreSmall" && "flex"};
   height: ${({ type }) => type === "readMoreSmall" && "179px"};
   width: ${({ type }) => type === "default" && "32%"};
@@ -57,7 +57,7 @@ export const BoxContainer = styled.div<{ type: any }>`
     margin-top: 21px;
     font-size: 18px;
   }
-  &: hover {
+  &:hover {
     box-shadow: 0 10px 30px 0 ${colors.grey};
     transform: translate(0, -3px);
     h2 {

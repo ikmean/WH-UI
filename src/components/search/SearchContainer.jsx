@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import Search from "./Search.jsx";
 import Dropdown from "../dropdown/Dropdown.jsx";
 import { SearchContainerStyles } from "./SearchStyles.jsx";
-import { AppContext } from "../../context/createContext";
 
 export default function SearchContainer({
   location,

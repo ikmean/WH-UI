@@ -15,4 +15,8 @@ export const Social = styled.div`
   color: ${colors.white};
   border-radius: 50%;
   margin-right: 16px;
+  &:hover {
+    background-color: ${colors.secondary};
+    cursor: pointer;
+  }
 `;

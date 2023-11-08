@@ -154,8 +154,9 @@ export const PropertiesPageHeader = styled.div`
   }
 `;
 export const PropertiesPageWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px;
   margin-top: 80px;
 `;
 

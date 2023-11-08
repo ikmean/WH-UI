@@ -1,9 +1,8 @@
-import React from "react"
-import img1 from "../../lib/images/img1.png"
-import { Line } from "../articles/ArticlesStyles"
-import { AgentBoxStyles, ImgWrapper, InfoBox, TextBox } from "./AgentsStyles"
-import ContactInfo from "./ContactInfo"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Line } from "../articles/ArticlesStyles";
+import { AgentBoxStyles, ImgWrapper, InfoBox, TextBox } from "./AgentsStyles";
+import ContactInfo from "./ContactInfo";
+import { Link } from "react-router-dom";
 
 export default function AgentBox({ type = "regular", data }: any) {
   return (
@@ -28,5 +27,5 @@ export default function AgentBox({ type = "regular", data }: any) {
         </TextBox>
       </Link>
     </AgentBoxStyles>
-  )
+  );
 }

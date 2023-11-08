@@ -10,19 +10,29 @@ export default function SocialMedia() {
   return (
     <SocialMediaWrapper>
       <Social>
-        <Facebook />
+        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
+          <Facebook />
+        </a>
       </Social>
       <Social>
-        <Twitter />
+        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
+          <Twitter />
+        </a>
       </Social>
       <Social>
-        <Linkedin />
+        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
+          <Linkedin />
+        </a>
       </Social>
       <Social>
-        <Youtube />
+        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
+          <Youtube />
+        </a>
       </Social>
       <Social>
-        <Whatsapp />
+        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
+          <Whatsapp />
+        </a>
       </Social>
     </SocialMediaWrapper>
   );

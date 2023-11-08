@@ -7,6 +7,7 @@ export const DropDownContainer = styled.div`
   justify-content: space-between;
   flex-direction: column;
   gap: 20px;
+  z-index: 100;
 `;
 
 export const Gap = styled.div`
