@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const SearchContainerStyles = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const SearchContainerStyles = styled.div`
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-`;
+`
 
 export const SearchBox = styled.div`
   width: 498.625px;
@@ -45,4 +45,4 @@ export const SearchBox = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 40%;
   }
-`;
+`

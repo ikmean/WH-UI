@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const DropdownBox = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const DropdownBox = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
-`;
+`
 
 export const DropdownList = styled.div`
   display: none;
@@ -38,7 +38,7 @@ export const DropdownList = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
-`;
+`
 
 export const DropDownContainer = styled.div`
   display: flex;
@@ -54,16 +54,16 @@ export const DropDownContainer = styled.div`
     border: 1px solid ${colors.secondary};
     color: ${colors.secondary};
   }
-`;
+`
 
 export const Gap = styled.div`
   display: flex;
   gap: 10px;
-`;
+`
 
 export const ListItem = styled.li`
   &:hover {
     color: ${colors.secondary};
     cursor: pointer;
   }
-`;
+`

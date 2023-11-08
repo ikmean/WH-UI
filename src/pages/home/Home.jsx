@@ -1,17 +1,15 @@
-import React, { lazy, useContext, useEffect } from "react";
-const Explore = lazy(() => import("../../components/explore/Explore"));
-const SearchContainer = lazy(() =>
-  import("../../components/search/SearchContainer")
-);
-const Properties = lazy(() => import("../../components/properties/Properties"));
-const FindHouse = lazy(() => import("../../components/findHouse/FindHouse"));
-const Discovery = lazy(() => import("../../components/discover/Discovery"));
-const Articles = lazy(() => import("../../components/articles/Articles"));
-import { AppContext } from "../../context/createContext";
-const Featured = lazy(() => import("../../components/featured/Featured"));
+import React, { lazy, useContext, useEffect } from 'react'
+const Explore = lazy(() => import('../../components/explore/Explore'))
+const SearchContainer = lazy(() => import('../../components/search/SearchContainer'))
+const Properties = lazy(() => import('../../components/properties/Properties'))
+const FindHouse = lazy(() => import('../../components/findHouse/FindHouse'))
+const Discovery = lazy(() => import('../../components/discover/Discovery'))
+const Articles = lazy(() => import('../../components/articles/Articles'))
+import { AppContext } from '../../context/createContext'
+const Featured = lazy(() => import('../../components/featured/Featured'))
 
 function Home() {
-  const { context } = useContext(AppContext);
+  const { context } = useContext(AppContext)
   const {
     properties,
     blogs,
@@ -22,46 +20,42 @@ function Home() {
     dealType,
     fetchLocationData,
     fetchPropertyCategoryData,
-    fetchDealTypeData,
-  } = context;
+    fetchDealTypeData
+  } = context
 
   useEffect(() => {
-    fetchLocationData();
-  }, [fetchLocationData]);
+    fetchLocationData()
+  }, [fetchLocationData])
 
   useEffect(() => {
-    fetchPropertyCategoryData();
-  }, [fetchPropertyCategoryData]);
+    fetchPropertyCategoryData()
+  }, [fetchPropertyCategoryData])
 
   useEffect(() => {
-    fetchDealTypeData();
-  }, [fetchDealTypeData]);
+    fetchDealTypeData()
+  }, [fetchDealTypeData])
 
   useEffect(() => {
-    fetchPropertiesData();
-  }, [fetchPropertiesData]);
+    fetchPropertiesData()
+  }, [fetchPropertiesData])
 
   useEffect(() => {
-    fetchBlogsData();
-  }, [fetchBlogsData]);
+    fetchBlogsData()
+  }, [fetchBlogsData])
 
   return (
-    <div className="flex-column">
-      <div className="container">
+    <div className='flex-column'>
+      <div className='container'>
         <Explore />
-        <SearchContainer
-          location={location}
-          propertyCategory={propertyCategory}
-          dealType={dealType}
-        />
+        <SearchContainer location={location} propertyCategory={propertyCategory} dealType={dealType} />
         <Featured properties={properties} />
-        <Properties title="All properties" properties={properties} />
+        <Properties title='All properties' properties={properties} />
         <FindHouse />
       </div>
       <Discovery />
       <Articles data={blogs} />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

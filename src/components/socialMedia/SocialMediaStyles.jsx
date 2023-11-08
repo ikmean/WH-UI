@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { colors } from "../../lib/colors";
+import styled from 'styled-components'
+import { colors } from '../../lib/colors'
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
   margin-top: 32px;
-`;
+`
 export const Social = styled.div`
   display: flex;
   align-items: center;
@@ -19,4 +19,4 @@ export const Social = styled.div`
     background-color: ${colors.secondary};
     cursor: pointer;
   }
-`;
+`

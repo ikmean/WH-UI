@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+=======
+import styled from "styled-components";
+import { colors } from "../../lib/colors";
+>>>>>>> 248f141 (home page fixes, subscribe button, email icon)
 
 // export interface props {}
 
@@ -36,9 +41,15 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
     width: 100%;
   }
   a {
+<<<<<<< HEAD
     display: 'flex';
   }
 `
+=======
+    display: "flex";
+  }
+`;
+>>>>>>> 248f141 (home page fixes, subscribe button, email icon)
 
 export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
@@ -51,7 +62,11 @@ export const ImgWrapper = styled.div<{ type: any }>`
     right: 0;
     width: max-content;
   }
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> 248f141 (home page fixes, subscribe button, email icon)
 
 export const InfoBox = styled.div`
   display: flex;
@@ -62,7 +77,7 @@ export const InfoBox = styled.div`
   margin-right: 18px;
   background: ${colors.secondary};
   color: white;
-`
+`;
 
 export const TextBox = styled.div<{ type: any }>`
   display: flex;
@@ -79,14 +94,22 @@ export const TextBox = styled.div<{ type: any }>`
   div {
     margin-bottom: ${({ type }) => (type === 'small' ? '' : '20px')};
   }
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> 248f141 (home page fixes, subscribe button, email icon)
 
 export const AgentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 67px;
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> 248f141 (home page fixes, subscribe button, email icon)
 
 export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
@@ -105,4 +128,4 @@ export const ContactStyles = styled.div<{ type: any }>`
       margin-left: ${({ type }) => (type === 'small' ? '11px' : '16.7px')};
     }
   }
-`
+`;
