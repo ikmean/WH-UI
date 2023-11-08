@@ -36,14 +36,20 @@ export default function Articles(data: any) {
 	const handleLeftClick = () => {
 		if (listContainerRef.current) {
 			//@ts-ignore
-			listContainerRef.current.scrollLeft -= 452.333;
+			listContainerRef.current.scrollBy({
+				left: -452.333,
+				behavior: "smooth",
+			});
 		}
 	};
 
 	const handleRightClick = () => {
 		if (listContainerRef.current) {
 			//@ts-ignore
-			listContainerRef.current.scrollLeft += 452.333;
+			listContainerRef.current.scrollBy({
+				left: 452.333,
+				behavior: "smooth",
+			});
 		}
 	};
 
