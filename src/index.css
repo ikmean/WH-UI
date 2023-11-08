@@ -1,13 +1,13 @@
 @font-face {
   src: url(./lib/font/THICCCBOI-SemiBold.ttf);
-  font-family: "SemiBold";
+  font-family: 'SemiBold';
   font-weight: normal;
   font-style: normal;
-  font-feature-settings: "clig" off, "liga" off;
+  font-feature-settings: 'clig' off, 'liga' off;
 }
 
 * {
-  font-family: "SemiBold";
+  font-family: 'SemiBold';
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
