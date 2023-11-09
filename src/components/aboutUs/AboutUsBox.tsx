@@ -10,7 +10,7 @@ export const AboutUsBox = ({ reverse }: props) => {
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit augue sit nunc amet posuere amet mauris maecenas facilisi eu nunc sapien
           eget volutpat mauris hac ipsum arcu praesent tristique scelerisque volutpat non vitae dolor vestibulum tortor nibh molestie odio
-          rhoncus.{' '}
+          rhoncus.
         </p>
       </Text>
       <ImgWrapper>

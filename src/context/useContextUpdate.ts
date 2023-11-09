@@ -12,6 +12,7 @@ export default function useContextUpdateFromSocket() {
         ...ctx,
         fetchPropertyInnerData,
         fetchPropertiesData,
+        fetchAboutData,
         fetchAgentsData,
         fetchAgentsInnerData,
         fetchBlogsData,
@@ -137,6 +138,19 @@ export default function useContextUpdateFromSocket() {
 
         setContext((ctx) => {
           return { ...ctx, dealType: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchAboutData = () => {
+    const url = `${globalUrl}about`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, location: data }
         })
       })
       .catch((error) => console.log(error))

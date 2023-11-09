@@ -2,6 +2,7 @@
 export const defaultAppCTX = {
   properties: [],
   propertyInner: null,
+  about: null,
   agents: [],
   agentsInner: null,
   blogs: [],
@@ -11,6 +12,7 @@ export const defaultAppCTX = {
   dealType: [],
   fetchPropertyInnerData: () => {},
   fetchPropertiesData: () => {},
+  fetchAboutData: () => {},
   fetchAgentsData: () => {},
   fetchAgentsInnerData: () => {},
   fetchBlogsData: () => {},

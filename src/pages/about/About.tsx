@@ -18,14 +18,14 @@ function About() {
             condimentum facilisi rhoncus ut cursus placerat facilisis dui posuere.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing eli quis sed ac curabitur bibendum blandit nisl morbi tellus tincidunt
-            condimentum facilisi rhoncus ut cursus placerat facilisis dui posuere.
+            Blandit massa enim nec dui morbi enim nunc faucibus a pellentesque sit amet porttitor eget non enim praesent elementum facilisis
+            aliquet enim tortor at auctor urna ullamcorper a lacus.
           </p>
         </Description>
         <Images>
-          <img src={aboutimg} alt='aboutimg' width='489.01px' height='666.16px' />
-          <img src={aboutimg} alt='aboutimg' width='489.01px' height='666.16px' />
-          <img src={aboutimg} alt='aboutimg' width='489.01px' height='666.16px' />
+          <img src={aboutimg} alt='aboutimg' />
+          <img src={aboutimg} alt='aboutimg' />
+          <img src={aboutimg} alt='aboutimg' />
         </Images>
       </div>
       <TakeALook />

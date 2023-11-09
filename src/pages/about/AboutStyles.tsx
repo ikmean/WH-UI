@@ -11,20 +11,22 @@ export const AboutContainer = styled.div`
   }
 `
 export const Images = styled.div`
-  img {
-    margin-right: 40px;
-    &:last-child {
-      position: absolute;
-    }
-  }
+  display: grid;
+  grid-template-columns: 40% 40% 20%;
+  gap: 20px;
 `
+
 export const Description = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 52px;
   margin-bottom: 109px;
+  gap: 40px;
   p {
-    width: 40%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    width: 50%;
     color: ${colors.greyText};
   }
 `
