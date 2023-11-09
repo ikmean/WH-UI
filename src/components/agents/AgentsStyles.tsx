@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
 export const AgentsList = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 33% 33% 33%;
   gap: 25px;
 `
 
@@ -37,6 +37,13 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
   }
   a {
     display: 'flex';
+  }
+  box-shadow: 0 10px 30px 0 ${colors.grey};
+  &:hover {
+    transform: translate(0, -3px);
+    h2 {
+      color: ${colors.secondary};
+    }
   }
 `
 

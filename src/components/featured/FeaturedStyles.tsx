@@ -26,9 +26,12 @@ export const BoxWrapper = styled.div<props>`
     flex-direction: ${({ featured }) => (featured ? '' : 'column')};
     justify-content: ${({ featured }) => (featured ? '' : 'space-between')};
     transition: box-shadow 0.3s, transform 0.3s;
-    &: hover {
+    &:hover {
       box-shadow: 0 10px 30px 0 ${colors.grey};
       transform: translate(0, -3px);
+      h2 {
+        color: ${colors.secondary};
+      }
     }
   }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
@@ -73,11 +76,6 @@ export const TextBox = styled.div<props>`
   }
   p {
     color: ${colors.greyText};
-  }
-  &:hover {
-    h2 {
-      color: ${colors.secondary};
-    }
   }
 `
 
