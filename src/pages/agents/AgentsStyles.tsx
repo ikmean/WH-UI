@@ -8,6 +8,7 @@ export const AgentsInnerPageStyles = styled.div`
   margin-top: 82px;
   width: 100%;
 `
+
 export const Header = styled.div`
   margin-bottom: 47px;
   margin-top: 78px;
@@ -21,6 +22,7 @@ export const ArticleWrapper = styled.div`
   width: 100%;
   margin-top: 47px;
 `
+
 export const ArticleBy = styled.div`
   margin-top: 140px;
 `

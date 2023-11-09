@@ -22,6 +22,7 @@ export const DropdownBox = styled.div`
 `
 
 export const DropdownList = styled.div`
+  z-index: 100;
   display: none;
   align-items: left;
   flex-direction: column;

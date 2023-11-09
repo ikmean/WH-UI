@@ -17,10 +17,12 @@ export const AboutBoxContainer = styled.div<props>`
   justify-content: space-between;
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : '')};
 `
+
 export const Text = styled.div`
-  width: 40%;
+  width: 45%;
   h1 {
     font-size: 32px;
+    font-weight: 700;
     line-height: 44px;
     margin-top: 330px;
   }
@@ -32,13 +34,17 @@ export const Text = styled.div`
     width: 80%;
   }
 `
+
 export const ImgWrapper = styled.div`
   position: relative;
   padding-top: 160px;
   img {
     border-radius: 12px;
+    max-width: 100%;
+    width: 492.77px;
   }
 `
+
 export const InfoBox = styled.div<props>`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
