@@ -1,5 +1,15 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
+const slideAnimation = (startY) => keyframes`
+  from {
+    opacity: 0;
+    transform: translatey(${startY});
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0px);
+  }
+`
 export const ExploreWrapper = styled.div`
   display: flex;
 `
@@ -35,9 +45,11 @@ export const Right = styled.div`
   }
   div:nth-child(1) {
     margin-top: 30px;
+    animation: ${slideAnimation('100px')} 1.6s;
   }
   div:nth-child(2) {
     position: absolute;
     right: -28%;
+    animation: ${slideAnimation('-100px')} 1.6s;
   }
 `
