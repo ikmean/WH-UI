@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react'
-import AgentBox from '../../components/agents/AgentBox'
 import { Header } from './AgentsStyles'
 import { AppContext } from '../../context/createContext'
-import { AgentsList } from '../../components/agents/AgentsStyles'
+import { Agents } from '../../components/agents/Agents'
 
-function Agents() {
+function AgentsPage() {
   const { context } = useContext(AppContext)
   const { agents, fetchAgentsData } = context
 
@@ -18,21 +17,9 @@ function Agents() {
         <h1>Our agents</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </Header>
-      {agents && (
-        <AgentsList>
-          {agents.map((data: any, i: number) => (
-            <AgentBox
-              data={{
-                ...data,
-                id: data.id
-              }}
-              key={i}
-            />
-          ))}
-        </AgentsList>
-      )}
+      <Agents data={agents} />
     </div>
   )
 }
 
-export default Agents
+export default AgentsPage

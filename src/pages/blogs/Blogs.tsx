@@ -3,6 +3,7 @@ import { Header } from './BlogsStyles'
 import Search from '../../components/search/Search'
 import ArticleBox from '../../components/articles/ArticleBox'
 import { AppContext } from '../../context/createContext'
+import { ArticleBoxList, ArticleList } from '../../components/articles/ArticlesStyles'
 
 function Blogs() {
   const { context } = useContext(AppContext)
@@ -20,14 +21,14 @@ function Blogs() {
         <Search />
       </Header>
       {blogs.length && (
-        <div className='flex'>
+        <ArticleList>
           <ArticleBox type='description' data={blogs[0]} />
-          <div className='flex flex-column space-between'>
-            {/* <ArticleBox type="readMoreSmall" />
-          <ArticleBox type="readMoreSmall" />
-          <ArticleBox type="readMoreSmall" /> */}
-          </div>
-        </div>
+          <ArticleBoxList>
+            {blogs.map((data: any, i: number) => (
+              <ArticleBox key={i} data={data} />
+            ))}
+          </ArticleBoxList>
+        </ArticleList>
       )}
     </div>
   )

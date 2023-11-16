@@ -75,6 +75,7 @@ export const InfoFooter = styled.div`
   color: ${colors.greyText};
   padding-bottom: 33px;
 `
+
 export const Line = styled.div`
   height: 1px;
   width: 100%;
@@ -114,4 +115,16 @@ export const ArticleButton = styled.button`
   &:hover {
     background-color: ${colors.primary};
   }
+`
+export const ArticleList = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 643.5px;
+`
+
+export const ArticleBoxList = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 643.5px;
+  max-width: 100%;
 `

@@ -25,15 +25,23 @@ export const Wrapper = styled.div`
 export const Left = styled.div`
   width: 45%;
 `
+
 export const Right = styled.div`
   width: 45%;
   padding-top: 160px;
   padding-bottom: 124px;
 `
+
 export const Header = styled.div`
   margin-bottom: 70px;
   margin-top: 164px;
   width: 70%;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  p {
+    width: 492.41px;
+  }
 `
 
 export const ValueBoxWrapper = styled.div`
@@ -50,6 +58,7 @@ export const ValueBoxWrapper = styled.div`
     margin-bottom: 10px;
   }
 `
+
 export const Icon = styled.div`
   display: flex;
   align-items: center;

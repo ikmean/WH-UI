@@ -150,7 +150,7 @@ export default function useContextUpdateFromSocket() {
       .then((response) => {
         const data = response.data.data
         setContext((ctx) => {
-          return { ...ctx, location: data }
+          return { ...ctx, about: data }
         })
       })
       .catch((error) => console.log(error))

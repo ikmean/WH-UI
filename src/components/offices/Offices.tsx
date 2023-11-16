@@ -2,18 +2,16 @@ import React from 'react'
 import OfficeBox from './OfficeBox'
 import { Header, Wrapper, BoxWrapper } from './OfficesStyles'
 
-export default function Offices() {
+export default function Offices({ offices }: any) {
   return (
     <Wrapper>
       <Header>
         <h1>Come and visit one of our offices</h1>
       </Header>
       <BoxWrapper className='flex'>
-        <OfficeBox />
-        <OfficeBox />
-        {/* <OfficeBox />
-        <OfficeBox />
-        <OfficeBox /> */}
+        {offices?.map((office: any, i: number) => (
+          <OfficeBox key={i} title={office.title} about={office.about} number={office.phone} location={office.address} />
+        ))}
       </BoxWrapper>
     </Wrapper>
   )

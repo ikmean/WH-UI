@@ -12,9 +12,3 @@ const Box = ({ h1, h2, p }: any) => {
 }
 
 export default Box
-
-{
-  /* <h1>99%</h1>
-    <h2>Customer satisfaction</h2>
-    <p>Lorem ipsum dolor sit amet dolor sit consectetur adipiscing.</p> */
-}
