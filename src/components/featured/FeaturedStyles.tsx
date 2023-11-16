@@ -22,20 +22,28 @@ export const HeaderStyles = styled.div`
 export const BoxWrapper = styled.div<props>`
   background: white;
   a {
+    overflow: hidden;
     display: flex;
     flex-direction: ${({ featured }) => (featured ? '' : 'column')};
     justify-content: ${({ featured }) => (featured ? '' : 'space-between')};
     transition: box-shadow 0.3s, transform 0.3s;
+    border-radius: 26px;
+    img {
+      transition: transform 0.3s;
+    }
     &:hover {
       box-shadow: 0 10px 30px 0 ${colors.grey};
       transform: translate(0, -3px);
+      border-radius: 26px;
+      img {
+        transform: scale(1.09);
+      }
       h2 {
         color: ${colors.secondary};
       }
     }
   }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
-  border-radius: 26px;
   margin-bottom: 32px;
   width: ${({ featured }) => (featured ? '' : '100%')};
   margin-right: ${({ main }) => (main ? '' : '3.5%')};
