@@ -19,7 +19,8 @@ export default function useContextUpdateFromSocket() {
         fetchBlogsInnerData,
         fetchDealTypeData,
         fetchLocationData,
-        fetchPropertyCategoryData
+        fetchPropertyCategoryData,
+        fetchOfficesData
       }
     })
   }, [])
@@ -151,6 +152,19 @@ export default function useContextUpdateFromSocket() {
         const data = response.data.data
         setContext((ctx) => {
           return { ...ctx, about: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchOfficesData = () => {
+    const url = `${globalUrl}company/offices`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, offices: data }
         })
       })
       .catch((error) => console.log(error))

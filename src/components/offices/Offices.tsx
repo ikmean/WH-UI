@@ -3,6 +3,7 @@ import OfficeBox from './OfficeBox'
 import { Header, Wrapper, BoxWrapper } from './OfficesStyles'
 
 export default function Offices({ offices }: any) {
+  console.log(offices)
   return (
     <Wrapper>
       <Header>
@@ -10,7 +11,14 @@ export default function Offices({ offices }: any) {
       </Header>
       <BoxWrapper className='flex'>
         {offices?.map((office: any, i: number) => (
-          <OfficeBox key={i} title={office.title} about={office.about} number={office.phone} location={office.address} />
+          <OfficeBox
+            key={i}
+            title={office.title}
+            about={office.about}
+            number={office.phone}
+            location={office.address}
+            gallery={office.gallery}
+          />
         ))}
       </BoxWrapper>
     </Wrapper>

@@ -24,8 +24,8 @@ function Blogs() {
         <ArticleList>
           <ArticleBox type='description' data={blogs[0]} />
           <ArticleBoxList>
-            {blogs.map((data: any, i: number) => (
-              <ArticleBox key={i} data={data} />
+            {blogs.slice(1).map((data: any, i: number) => (
+              <ArticleBox type='readMoreSmall' key={i} data={data} />
             ))}
           </ArticleBoxList>
         </ArticleList>

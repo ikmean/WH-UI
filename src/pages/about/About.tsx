@@ -20,7 +20,7 @@ function About() {
   }, [fetchAboutData])
 
   useEffect(() => {
-    fetchOfficesData
+    fetchOfficesData()
   }, [fetchOfficesData])
 
   return (
