@@ -2,9 +2,9 @@ import React from 'react'
 import FeatureHeader from './Header'
 import FeaturedBox from './FeturedBox'
 
-export default function Featured({ properties }: any) {
+export default function Featured({ properties, innerRef }: any) {
   return (
-    <div>
+    <div ref={innerRef}>
       <FeatureHeader title='Featured properties' />
       <div>
         {properties[0] && (

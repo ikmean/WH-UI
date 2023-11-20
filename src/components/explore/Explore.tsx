@@ -1,18 +1,24 @@
 import React from 'react'
 import PostButton from '../button/PostButton'
-import { ExploreHeader, ExploreWrapper, Left, Right } from './ExploreStyles'
+import { ExploreButton, ExploreHeader, ExploreText, ExploreWrapper, Left, Right } from './ExploreStyles'
 import img1 from '../../lib/images/img1.png'
 import img2 from '../../lib/images/img2.png'
 import img3 from '../../lib/images/img3.png'
 import img4 from '../../lib/images/img4.png'
 
-function Explore() {
+function Explore({ featuredListRef }: any) {
+  const handleClick = () => {
+    featuredListRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
+  }
+
   return (
     <ExploreWrapper>
       <Left>
         <ExploreHeader>The best place to find your dream house</ExploreHeader>
-        <span>Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus suscipit turpis sed vitae.</span>
-        <PostButton text='Start exploring' margin='40px 0 0 0' />
+        <ExploreText>Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus suscipit turpis sed vitae.</ExploreText>
+        <ExploreButton>
+          <PostButton text='Start exploring' margin='40px 0 0 0' onClick={() => handleClick()} />
+        </ExploreButton>
       </Left>
       <Right>
         <div>

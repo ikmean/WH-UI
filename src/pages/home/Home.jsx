@@ -1,4 +1,4 @@
-import React, { lazy, useContext, useEffect } from 'react'
+import React, { lazy, useContext, useEffect, useRef } from 'react'
 const Explore = lazy(() => import('../../components/explore/Explore'))
 const SearchContainer = lazy(() => import('../../components/search/SearchContainer'))
 const Properties = lazy(() => import('../../components/properties/Properties'))
@@ -23,6 +23,8 @@ function Home() {
     fetchDealTypeData
   } = context
 
+  const featuredListRef = useRef(null)
+
   useEffect(() => {
     fetchLocationData()
   }, [fetchLocationData])
@@ -46,9 +48,9 @@ function Home() {
   return (
     <div className='flex-column'>
       <div className='container'>
-        <Explore />
+        <Explore featuredListRef={featuredListRef} />
         <SearchContainer location={location} propertyCategory={propertyCategory} dealType={dealType} />
-        <Featured properties={properties} />
+        <Featured properties={properties} innerRef={featuredListRef} />
         <Properties title='All properties' properties={properties} />
         <FindHouse />
       </div>

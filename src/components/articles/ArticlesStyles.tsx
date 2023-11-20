@@ -24,6 +24,7 @@ export const BoxContainer = styled.div<{ type: string }>`
   width: ${({ type }) => type === 'default' && '32%'};
   width: ${({ type }) => type === 'description' && '40%'};
   flex-shrink: 0;
+  overflow: hidden;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
   :nth-child(3) {
@@ -37,6 +38,7 @@ export const BoxContainer = styled.div<{ type: string }>`
     height: ${({ type }) => type === 'readMoreSmall' && '100%'};
     height: ${({ type }) => type === 'description' && '377px'};
     max-height: 60%;
+    transition: transform 0.3s;
   }
   h2 {
     font-size: 22px;
@@ -58,6 +60,9 @@ export const BoxContainer = styled.div<{ type: string }>`
   &:hover {
     box-shadow: 0 10px 30px 0 ${colors.grey};
     transform: translate(0, -3px);
+    img {
+      transform: scale(1.03);
+    }
     h2 {
       color: ${colors.secondary};
     }

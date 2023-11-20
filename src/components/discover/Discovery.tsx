@@ -14,7 +14,7 @@ export default function Discovery() {
             Lorem ipsum dolor sit amet consectetur adipiscing elit odio massa eget posuere at proin lectus proin morbi euismod itae purus
             donec cursus neque adipiscing maecenas proin eu viverra commodo felis risus at amet ornare pellentesque nulla ipsu.
           </p>
-          <Button text='About our company' color='black' to='/' />
+          <Button text='About our company' color='black' to='/about' />
         </TextWrapper>
         <ImgWrapper>
           <img src={discoveryImg1} alt='discoveryImg1' />
