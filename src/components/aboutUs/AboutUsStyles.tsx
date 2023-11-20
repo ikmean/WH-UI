@@ -62,3 +62,25 @@ export const InfoBox = styled.div<props>`
     font-size: 22px;
   }
 `
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 47px;
+  margin-top: 78px;
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    padding: 20px;
+  }
+  p {
+    width: 40%;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: ${colors.greyText};
+    margin-bottom: 20px;
+  }
+`

@@ -13,13 +13,27 @@ export const Header = styled.div`
   width: 100%;
   margin-bottom: 41px;
   font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
 `
 
 export const BoxContainer = styled.div`
-  width: 40%;
+  width: 50%;
   margin-right: 40px;
   h2 {
     font-size: 22px;
+    line-height: 30px;
+  }
+  img {
+    width: 598.33px;
+    height: 50%;
+    top: 5996.08px;
+  }
+  p {
+    color: ${colors.greyText};
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: 500;
     line-height: 30px;
   }
 `

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { colors } from '../../lib/colors'
 
 const slideAnimation = (startY) => keyframes`
   from {
@@ -10,21 +11,35 @@ const slideAnimation = (startY) => keyframes`
     transform: translatey(0px);
   }
 `
+
 export const ExploreWrapper = styled.div`
   display: flex;
+  gap: 40px;
 `
 
 export const ExploreHeader = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   line-height: 4rem;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1.6s ease 0.5s forwards;
+`
+
+export const ExploreText = styled.span`
+  color: ${colors.greyText};
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1.6s ease 0.7s forwards;
+`
+
+export const ExploreButton = styled.div`
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1.6s ease 0.9s forwards;
 `
 
 export const Left = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-right: 120px;
+  width: 45%;
   h1 {
     margin-bottom: 14px;
     margin-top: 115px;
@@ -37,6 +52,8 @@ export const Right = styled.div`
   position: relative;
   img {
     margin-bottom: 20px;
+    width: 347px;
+    height: 233.33px;
   }
   div {
     display: flex;
@@ -44,12 +61,12 @@ export const Right = styled.div`
     width: 60%;
   }
   div:nth-child(1) {
-    margin-top: 30px;
+    margin-top: 60px;
     animation: ${slideAnimation('100px')} 1.6s;
   }
   div:nth-child(2) {
     position: absolute;
-    right: -28%;
+    right: -23%;
     animation: ${slideAnimation('-100px')} 1.6s;
   }
 `

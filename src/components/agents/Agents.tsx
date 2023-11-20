@@ -1,19 +1,23 @@
 import React from 'react'
+import { AgentsList } from './AgentsStyles'
 import AgentBox from './AgentBox'
-import { Wrapper, AgentWrapper } from './AgentsStyles'
 
-export const Agents = () => {
+export const Agents = ({ data }: any) => {
   return (
-    <Wrapper className='container'>
-      <div>
-        <h1>Meet the agents in our real estate firm</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mi lobortis gravida ornare leo in at in egestas.</p>
-      </div>
-      <AgentWrapper>
-        {/* <AgentBox />
-        <AgentBox />
-        <AgentBox /> */}
-      </AgentWrapper>
-    </Wrapper>
+    <>
+      {data && (
+        <AgentsList>
+          {data.map((agent: any, i: number) => (
+            <AgentBox
+              data={{
+                ...agent,
+                id: agent.id
+              }}
+              key={i}
+            />
+          ))}
+        </AgentsList>
+      )}
+    </>
   )
 }

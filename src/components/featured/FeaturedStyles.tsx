@@ -21,22 +21,23 @@ export const HeaderStyles = styled.div`
 `
 export const BoxWrapper = styled.div<props>`
   background: white;
+  border-radius: 26px;
   a {
+    border-radius: 26px;
     overflow: hidden;
     display: flex;
     flex-direction: ${({ featured }) => (featured ? '' : 'column')};
     justify-content: ${({ featured }) => (featured ? '' : 'space-between')};
     transition: box-shadow 0.3s, transform 0.3s;
-    border-radius: 26px;
     img {
       transition: transform 0.3s;
     }
     &:hover {
+      border-radius: 26px;
       box-shadow: 0 10px 30px 0 ${colors.grey};
       transform: translate(0, -3px);
-      border-radius: 26px;
       img {
-        transform: scale(1.09);
+        transform: scale(1.03);
       }
       h2 {
         color: ${colors.secondary};
@@ -121,8 +122,8 @@ export const Line = styled.div`
 export const InfoBox = styled.div<props>`
   display: flex;
   align-items: center;
-  box-shadow: 0px 1px 6px rgba(20, 20, 43, 0.09);
   border-radius: 40px;
+  box-shadow: 0px 1px 6px rgba(20, 20, 43, 0.09);
   margin-right: 18px;
   background-color: ${({ forSale }) => (forSale ? colors.secondary : 'white')};
   background: ${({ forSale }) => (forSale ? colors.secondary : 'white')};

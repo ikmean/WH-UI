@@ -15,10 +15,13 @@ export const BoxWrapper = styled.div`
   align-items: center;
   text-align: center;
   width: 30%;
+  margin-left: 50px;
+  margin-right: 50px;
   h1 {
     font-size: 63px;
     color: ${colors.secondary};
     font-weight: 500;
+    padding-bottom: 20px;
   }
   h2 {
     font-size: 22px;
@@ -29,7 +32,8 @@ export const BoxWrapper = styled.div`
     line-height: 30px;
   }
 `
+
 export const Title = styled.div`
   font-size: 32px;
-  margin-bottom: 63px;
+  line-height: 44px;
 `

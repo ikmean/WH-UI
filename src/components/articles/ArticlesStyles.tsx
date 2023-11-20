@@ -19,24 +19,29 @@ export const Header = styled.div`
 `
 
 export const BoxContainer = styled.div<{ type: string }>`
-  display: ${({ type }) => type === 'readMoreSmall' && 'flex'};
+  display: flex;
+  flex-direction: column;
+  margin-right: ${({ type }) => (type === 'default' ? '0' : '30px')};
   height: ${({ type }) => type === 'readMoreSmall' && '179px'};
-  width: ${({ type }) => type === 'default' && '32%'};
-  width: ${({ type }) => type === 'description' && '40%'};
+  width: ${({ type }) => type === 'description' && '50%'};
+  width: ${({ type }) => type === 'readMoreSmall' && '100%'};
   flex-shrink: 0;
+  overflow: hidden;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
   :nth-child(3) {
     margin-right: 0;
   }
   img {
+    object-fit: cover;
     border-top-left-radius: 26px;
     border-top-right-radius: ${({ type }) => type !== 'readMoreSmall' && '26px'};
     border-bottom-left-radius: ${({ type }) => type === 'readMoreSmall' && '26px'};
-    width: 100%;
-    height: ${({ type }) => type === 'readMoreSmall' && '100%'};
+    width: ${({ type }) => type === 'readMoreSmall' && '232.91px'};
+    height: ${({ type }) => type === 'readMoreSmall' && '179.28px'};
     height: ${({ type }) => type === 'description' && '377px'};
     max-height: 60%;
+    transition: transform 0.3s;
   }
   h2 {
     font-size: 22px;
@@ -58,8 +63,15 @@ export const BoxContainer = styled.div<{ type: string }>`
   &:hover {
     box-shadow: 0 10px 30px 0 ${colors.grey};
     transform: translate(0, -3px);
+    img {
+      transform: scale(1.03);
+    }
     h2 {
       color: ${colors.secondary};
+    }
+    svg {
+      transition: transform 0.2s ease-in-out;
+      transform: translate(5px, -5px);
     }
   }
 `
@@ -67,6 +79,7 @@ export const BoxContainer = styled.div<{ type: string }>`
 export const Info = styled.div`
   margin-top: 31px;
   padding: 0 25px;
+  flex-grow: 1;
 `
 
 export const InfoFooter = styled.div`
@@ -74,7 +87,9 @@ export const InfoFooter = styled.div`
   justify-content: space-between;
   color: ${colors.greyText};
   padding-bottom: 33px;
+  margin-top: 31px;
 `
+
 export const Line = styled.div`
   height: 1px;
   width: 100%;
@@ -114,4 +129,52 @@ export const ArticleButton = styled.button`
   &:hover {
     background-color: ${colors.primary};
   }
+`
+
+export const ArticleList = styled.div`
+  display: flex;
+  flex-direction: row;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  height: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+`
+
+export const ArticleBoxList = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 643.5px;
+  overflow-y: auto;
+  width: 100%;
+  gap: 50px;
+`
+
+export const ArticleBoxSmall = styled.div<{ type: string }>`
+  display: ${({ type }) => type === 'readMoreSmall' && 'flex'};
+  flex-direction: ${({ type }) => type === 'readMoreSmall' && 'row'};
+`
+
+export const ReadMore = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  color: ${colors.secondary};
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  display: inline-block;
+  /* &:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: translate(2px, -2px);
+  } */
 `

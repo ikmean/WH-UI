@@ -1,17 +1,16 @@
 import React from 'react'
-import img1 from '../../lib/images/img1.png'
 import ContactInfo from '../agents/ContactInfo'
 import { BoxContainer, Info, Line } from './OfficesStyles'
 
-export default function OfficeBox() {
+export default function OfficeBox({ number, location, title, about, gallery }: any) {
   return (
     <BoxContainer>
-      <img src={img1} alt='img1' width='100%' height='336.56px' />
+      <img src={gallery[0].medium} />
       <Info>
-        <h2>San Francisco Office</h2>
-        <p>Lorem ipsum dolor sit amet conse ctetur adipiscing elit ipsum at iaculis nulla nulla justo vestibulum faucibus nec.</p>
+        <h2>{title}</h2>
+        <p>{about}</p>
         <Line />
-        <ContactInfo direction='row' />
+        <ContactInfo direction='row' number={number} location={location} />
       </Info>
     </BoxContainer>
   )

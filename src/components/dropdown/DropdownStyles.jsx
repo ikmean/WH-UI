@@ -21,6 +21,10 @@ export const DropdownBox = styled.div`
   }
 `
 
+export const ArrowContainer = styled.div`
+  display: flex;
+`
+
 export const DropdownList = styled.div`
   z-index: 100;
   display: none;
@@ -41,6 +45,11 @@ export const DropdownList = styled.div`
   }
 `
 
+export const Gap = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
 export const DropDownContainer = styled.div`
   display: flex;
   align-items: center;
@@ -55,11 +64,27 @@ export const DropDownContainer = styled.div`
     border: 1px solid ${colors.secondary};
     color: ${colors.secondary};
   }
-`
-
-export const Gap = styled.div`
-  display: flex;
-  gap: 10px;
+  &:hover ${Gap} {
+    svg {
+      path {
+        stroke: ${colors.secondary};
+      }
+    }
+  }
+  &:hover ${ArrowContainer} {
+    svg {
+      transition: transform 0.2s ease-in-out;
+      transform: translate(2px, -2px) rotate(180deg);
+      path {
+        stroke: ${colors.secondary};
+      }
+    }
+  }
+  ${ArrowContainer} {
+    svg {
+      transition: transform 0.2s ease-in-out;
+    }
+  }
 `
 
 export const ListItem = styled.li`

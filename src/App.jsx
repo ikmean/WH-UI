@@ -6,7 +6,7 @@ import About from './pages/about/About'
 import Home from './pages/home/Home'
 import Properties from './pages/properties/Properties'
 import PropertiesInner from './pages/properties/PropertiesInner'
-import Agents from './pages/agents/Agents'
+import AgentsPage from './pages/agents/Agents'
 import AgentsInner from './pages/agents/AgentsInner'
 import Blogs from './pages/blogs/Blogs'
 import BlogsInner from './pages/blogs/BlogsInner'
@@ -25,7 +25,7 @@ export default function App() {
           <Route path='/properties' element={<Properties />} />
           <Route path='/properties/:id' element={<PropertiesInner />} />
           <Route path='/about' element={<About />} />
-          <Route path='/agents' element={<Agents />} />
+          <Route path='/agents' element={<AgentsPage />} />
           <Route path='/agents/:id' element={<AgentsInner />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/blogs/:id' element={<BlogsInner />} />

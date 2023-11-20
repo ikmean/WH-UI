@@ -29,11 +29,13 @@ export const AgentsList = styled.div`
 export const AgentBoxStyles = styled.div<{ type: string }>`
   box-shadow: '0px 3px 20px rgba(8, 15, 52, 0.06)';
   border-radius: 26px;
+  overflow: hidden;
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
     border-radius: 12px;
     width: 100%;
+    transition: transform 0.3s;
   }
   a {
     display: 'flex';
@@ -43,6 +45,9 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
     transform: translate(0, -3px);
     h2 {
       color: ${colors.secondary};
+    }
+    img {
+      transform: scale(1.03);
     }
   }
 `

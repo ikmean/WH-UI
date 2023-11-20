@@ -8,6 +8,7 @@ export const SearchContainerStyles = styled.div`
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  padding-left: 30px;
 `
 
 export const SearchBox = styled.div`
