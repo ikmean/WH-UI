@@ -41,7 +41,7 @@ function AgentsInner() {
         <ArticleBy className='container'>
           <div className='flex center space-between'>
             <h1>
-              Articles by {data.name} {''}
+              Articles by {data.name}
               {data.lastName}
             </h1>
             <Button color='white' text='Browse all posts' to='/'></Button>

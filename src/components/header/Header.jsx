@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { HeaderWrapper, Right, Nav, HeaderLink } from './HeaderStyles'
-import { ReactComponent as Search } from '../../lib/icons/search.svg'
+import { HeaderWrapper, Nav, HeaderLink } from './HeaderStyles'
 import Logo from './Logo'
 
 export default function Header() {
