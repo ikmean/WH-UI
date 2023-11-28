@@ -25,6 +25,7 @@ export const BoxContainer = styled.div<{ type: string }>`
   height: ${({ type }) => type === 'readMoreSmall' && '179px'};
   width: ${({ type }) => type === 'description' && '50%'};
   width: ${({ type }) => type === 'readMoreSmall' && '100%'};
+  width: ${({ type }) => type === 'default' && '390px'};
   flex-shrink: 0;
   overflow: hidden;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
@@ -38,6 +39,7 @@ export const BoxContainer = styled.div<{ type: string }>`
     border-top-right-radius: ${({ type }) => type !== 'readMoreSmall' && '26px'};
     border-bottom-left-radius: ${({ type }) => type === 'readMoreSmall' && '26px'};
     width: ${({ type }) => type === 'readMoreSmall' && '232.91px'};
+    height: ${({ type }) => type === 'default' && '232.91px'};
     height: ${({ type }) => type === 'readMoreSmall' && '179.28px'};
     height: ${({ type }) => type === 'description' && '377px'};
     max-height: 60%;
@@ -46,6 +48,7 @@ export const BoxContainer = styled.div<{ type: string }>`
   h2 {
     font-size: 22px;
     line-height: 30px;
+    height: 70px;
   }
   p {
     color: ${colors.greyText};
@@ -55,7 +58,6 @@ export const BoxContainer = styled.div<{ type: string }>`
   }
   span {
     display: inline-block;
-    /* color: red; */ //TODO
     margin-right: 13px;
     margin-top: 21px;
     font-size: 18px;
@@ -79,7 +81,8 @@ export const BoxContainer = styled.div<{ type: string }>`
 export const Info = styled.div`
   margin-top: 31px;
   padding: 0 25px;
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `
 
 export const InfoFooter = styled.div`
@@ -138,16 +141,6 @@ export const ArticleList = styled.div`
   grid-template-columns: 1fr;
   gap: 20px;
   height: auto;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
 `
 
 export const ArticleBoxList = styled.div`
@@ -157,6 +150,10 @@ export const ArticleBoxList = styled.div`
   overflow-y: auto;
   width: 100%;
   gap: 50px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  overflow-y: hidden;
+  overflow-x: hidden;
 `
 
 export const ArticleBoxSmall = styled.div<{ type: string }>`

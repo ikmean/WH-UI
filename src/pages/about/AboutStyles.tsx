@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { slideAnimation } from '../../styles'
 
 export const AboutContainer = styled.div`
   display: flex;
@@ -8,12 +9,16 @@ export const AboutContainer = styled.div`
   h1 {
     margin-top: 113px;
     font-size: 48px;
+    opacity: 0;
+    animation: ${slideAnimation('100px')} 1s ease 0.5s forwards;
   }
 `
 export const Images = styled.div`
   display: grid;
   grid-template-columns: 40% 40% 20%;
   gap: 20px;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
 `
 
 export const Description = styled.div`
@@ -28,5 +33,7 @@ export const Description = styled.div`
     line-height: 30px;
     width: 50%;
     color: ${colors.greyText};
+    opacity: 0;
+    animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
   }
 `

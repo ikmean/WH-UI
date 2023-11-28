@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { slideAnimation } from '../../styles'
 
 export interface props {
   forSale?: boolean
@@ -146,10 +147,13 @@ export const PropertiesPageHeader = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
   h1 {
     font-size: 48px;
     line-height: 60px;
     margin-bottom: 18px;
+    opacity: 0;
+    animation: ${slideAnimation('100px')} 1s ease 0.5s forwards;
   }
   p {
     font-size: 18px;
@@ -157,6 +161,8 @@ export const PropertiesPageHeader = styled.div`
     width: 40%;
     text-align: center;
     color: ${colors.greyText};
+    opacity: 0;
+    animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
   }
 `
 export const PropertiesPageWrapper = styled.div`
@@ -164,6 +170,8 @@ export const PropertiesPageWrapper = styled.div`
   grid-template-columns: auto auto auto;
   gap: 30px;
   margin-top: 80px;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 `
 
 export const Nav = styled.div`

@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { slideAnimation } from '../../styles'
 
 export const SearchContainerStyles = styled.div`
   display: flex;
-  margin-top: 84px;
+  margin-top: 44px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
   padding-left: 30px;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
 `
 
 export const SearchBox = styled.div`

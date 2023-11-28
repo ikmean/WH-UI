@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 export default function FeaturedBox({ data }: data) {
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
-      <Link to={data.id.toString()}>
+      <Link to={`properties/${data.id.toString()}`}>
         <ImgWrapper main={data.main} featured={data.featured}>
           <img src={data.gallery[0].url} alt='featuredImg1' />
           <div>

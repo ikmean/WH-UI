@@ -7,19 +7,18 @@ import { Link } from 'react-router-dom'
 export default function AgentBox({ type = 'regular', data }: any) {
   return (
     <AgentBoxStyles type={type}>
-      <Link to={data.id.toString()}>
+      <Link to={data?.id.toString()}>
         <ImgWrapper type={type}>
-          <img src={data.profilePicture.url} alt='img1' />
+          <img src={data?.profilePicture?.url} alt='img1' />
           {type !== 'small' && <InfoBox>Agent</InfoBox>}
         </ImgWrapper>
         <TextBox type={type}>
           <h2>
-            {data.name} {''}
-            {data.lastName}
+            {data?.name} {data?.lastName}
           </h2>
-          {type !== 'small' && <p>{data.about}</p>}
+          {type !== 'small' && <p>{data?.about}</p>}
           {type !== 'small' && <Line />}
-          <ContactInfo type={type} number={data.phoneNumber} email={data.email} />
+          <ContactInfo type={type} number={data?.phoneNumber} email={data?.email} />
         </TextBox>
       </Link>
     </AgentBoxStyles>
