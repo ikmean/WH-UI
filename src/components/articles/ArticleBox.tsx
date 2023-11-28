@@ -14,13 +14,15 @@ export default function ArticleBox({ type = 'default', data }: any) {
           {data && (
             <Info>
               <h2>{data.title}</h2>
-              {type === 'default' && <Line />}
-              {type === 'default' && (
-                <InfoFooter>
-                  <span>Articles</span>
-                  <span>{date}</span>
-                </InfoFooter>
-              )}
+              <div>
+                {type === 'default' && <Line />}
+                {type === 'default' && (
+                  <InfoFooter>
+                    <span>Articles</span>
+                    <span>{date}</span>
+                  </InfoFooter>
+                )}
+              </div>
               {type === 'description' && <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>}
               {type === 'readMoreSmall' && (
                 <ReadMore>

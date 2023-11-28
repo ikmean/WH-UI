@@ -31,7 +31,7 @@ export default function Articles(data: any) {
     if (listContainerRef.current) {
       //@ts-ignore
       listContainerRef.current.scrollBy({
-        left: -452.333,
+        left: -410.333,
         behavior: 'smooth'
       })
     }
@@ -41,7 +41,7 @@ export default function Articles(data: any) {
     if (listContainerRef.current) {
       //@ts-ignore
       listContainerRef.current.scrollBy({
-        left: 452.333,
+        left: 410.333,
         behavior: 'smooth'
       })
     }

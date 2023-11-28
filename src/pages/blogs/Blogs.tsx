@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Header } from './BlogsStyles'
+import { ArticleListWrapper, Header, SearchWrapper } from './BlogsStyles'
 import Search from '../../components/search/Search'
 import ArticleBox from '../../components/articles/ArticleBox'
 import { AppContext } from '../../context/createContext'
@@ -18,17 +18,21 @@ function Blogs() {
     <div className='container'>
       <Header>
         <h1>Articles & Resources</h1>
-        <Search />
+        <SearchWrapper>
+          <Search />
+        </SearchWrapper>
       </Header>
       {blogs.length && (
-        <ArticleList>
-          <ArticleBox type='description' data={blogs[0]} />
-          <ArticleBoxList>
-            {blogs.slice(1).map((data: any, i: number) => (
-              <ArticleBox type='readMoreSmall' key={i} data={data} />
-            ))}
-          </ArticleBoxList>
-        </ArticleList>
+        <ArticleListWrapper>
+          <ArticleList>
+            <ArticleBox type='description' data={blogs[0]} />
+            <ArticleBoxList>
+              {blogs.slice(1).map((data: any, i: number) => (
+                <ArticleBox type='readMoreSmall' key={i} data={data} />
+              ))}
+            </ArticleBoxList>
+          </ArticleList>
+        </ArticleListWrapper>
       )}
     </div>
   )

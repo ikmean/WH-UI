@@ -93,15 +93,19 @@ export default function useContextUpdateFromSocket() {
 
   const fetchBlogsInnerData = (id: string) => {
     const url = `${globalUrl}blogs/${id}`
+    let data: any = null
     axios
       .get(url)
       .then((response) => {
-        const data = response.data.data
+        data = response.data.data
         setContext((ctx) => {
           return { ...ctx, blogsInner: data }
         })
       })
       .catch((error) => console.log(error))
+
+    console.log(data)
+    return data
   }
 
   const fetchLocationData = () => {

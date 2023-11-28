@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extra-semi */
 import React, { useContext, useEffect } from 'react'
-import Button from '../../components/button/Button'
-import { Nav, PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
+import { PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
 import FeaturedBox from '../../components/featured/FeturedBox'
 import PropertiesHeader from '../../components/properties/Header'
 import SearchContainer from '../../components/search/SearchContainer'

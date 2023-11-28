@@ -1,16 +1,6 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { colors } from '../../lib/colors'
-
-const slideAnimation = (startY) => keyframes`
-  from {
-    opacity: 0;
-    transform: translatey(${startY});
-  }
-  to {
-    opacity: 1;
-    transform: translatey(0px);
-  }
-`
+import { slideAnimation } from '../../styles'
 
 export const ExploreWrapper = styled.div`
   display: flex;
