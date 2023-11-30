@@ -28,22 +28,23 @@ export const AgentsList = styled.div`
 `
 
 export const AgentBoxStyles = styled.div<{ type: string }>`
-  box-shadow: '0px 3px 20px rgba(8, 15, 52, 0.06)';
+  box-shadow: ${({ type }) => type !== 'small' && '0px 3px 20px rgba(8, 15, 52, 0.06)'};
   border-radius: 26px;
   overflow: hidden;
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
     border-radius: 12px;
+    border-radius: ${({ type }) => type === 'small' && '50%'};
     width: 100%;
     transition: transform 0.3s;
   }
   a {
     display: 'flex';
   }
-  box-shadow: 0 10px 30px 0 ${colors.grey};
+  box-shadow: ${({ type }) => type !== 'small' && '0 10px 30px 0 ${colors.grey}'};
   &:hover {
-    transform: translate(0, -3px);
+    transform: ${({ type }) => type !== 'small' && 'translate(0, -3px)'};
     h2 {
       color: ${colors.secondary};
     }
@@ -51,11 +52,17 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
       transform: scale(1.03);
     }
   }
+  span {
+    &:hover {
+      color: ${({ type }) => type === 'small' && 'red'};
+    }
+  }
 `
 
 export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
   width: ${({ type }) => type === 'page' && '40%'};
+  width: ${({ type }) => type === 'small' && '30%'};
   height: ${({ type }) => type === 'page' && '580px'};
   flex-shrink: 0;
   div {

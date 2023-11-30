@@ -21,6 +21,8 @@ export const HeaderStyles = styled.div`
   margin-bottom: 64px;
 `
 export const BoxWrapper = styled.div<props>`
+  z-index: 999;
+  position: relative;
   background: white;
   border-radius: 26px;
   a {
@@ -166,6 +168,8 @@ export const PropertiesPageHeader = styled.div`
   }
 `
 export const PropertiesPageWrapper = styled.div`
+  position: relative;
+  z-index: 0;
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 30px;

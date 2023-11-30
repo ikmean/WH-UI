@@ -11,10 +11,12 @@ export const InputStyles = styled.div`
     font-size: 18px;
     font-weight: 400;
     outline: none;
-    width: 460.27px;
+    width: 360.27px;
     height: 64px;
     top: 130.38px;
     left: 895.05px;
     padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 `

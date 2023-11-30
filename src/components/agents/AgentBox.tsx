@@ -5,19 +5,21 @@ import ContactInfo from './ContactInfo'
 import { Link } from 'react-router-dom'
 
 export default function AgentBox({ type = 'regular', data }: any) {
+  const isSmall = type === 'small'
+
   return (
     <AgentBoxStyles type={type}>
-      <Link to={data?.id.toString()}>
+      <Link to={`/agents/${data?.id.toString()}`} className={isSmall ? 'flex row center' : ''}>
         <ImgWrapper type={type}>
           <img src={data?.profilePicture?.url} alt='img1' />
-          {type !== 'small' && <InfoBox>Agent</InfoBox>}
+          {!isSmall && <InfoBox>Agent</InfoBox>}
         </ImgWrapper>
         <TextBox type={type}>
           <h2>
             {data?.name} {data?.lastName}
           </h2>
-          {type !== 'small' && <p>{data?.about}</p>}
-          {type !== 'small' && <Line />}
+          {!isSmall && <p>{data?.about}</p>}
+          {!isSmall && <Line />}
           <ContactInfo type={type} number={data?.phoneNumber} email={data?.email} />
         </TextBox>
       </Link>

@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-
+import React from 'react'
 import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top } from './FeaturedStyles'
 import { ReactComponent as Location } from '../../lib/icons/location.svg'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
-import { ReactComponent as Parking } from '../../lib/icons/parking.svg'
+import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
 import { data } from './FeaturedStyles'
 import { Link } from 'react-router-dom'
 
 export default function FeaturedBox({ data }: data) {
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
-      <Link to={`properties/${data.id.toString()}`}>
+      <Link to={`/properties/${data.id.toString()}`}>
         <ImgWrapper main={data.main} featured={data.featured}>
           <img src={data.gallery[0].url} alt='featuredImg1' />
           <div>
@@ -51,7 +50,7 @@ export default function FeaturedBox({ data }: data) {
             </InfoBox>
             {data.featured && (
               <InfoBox featured={data.featured}>
-                <Parking />
+                <ParkingSmall />
                 <span>4</span>
               </InfoBox>
             )}

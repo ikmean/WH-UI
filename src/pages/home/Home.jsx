@@ -1,12 +1,12 @@
-import React, { lazy, useContext, useEffect, useRef } from 'react'
-const Explore = lazy(() => import('../../components/explore/Explore'))
-const SearchContainer = lazy(() => import('../../components/search/SearchContainer'))
-const Properties = lazy(() => import('../../components/properties/Properties'))
-const FindHouse = lazy(() => import('../../components/findHouse/FindHouse'))
-const Discovery = lazy(() => import('../../components/discover/Discovery'))
-const Articles = lazy(() => import('../../components/articles/Articles'))
+import React, { useContext, useEffect, useRef } from 'react'
+import Explore from '../../components/explore/Explore'
 import { AppContext } from '../../context/createContext'
-const Featured = lazy(() => import('../../components/featured/Featured'))
+import SearchContainer from '../../components/search/SearchContainer'
+import Properties from '../../components/properties/Properties'
+import FindHouse from '../../components/findHouse/FindHouse'
+import Discovery from '../../components/discover/Discovery'
+import Articles from '../../components/articles/Articles'
+import Featured from '../../components/featured/Featured'
 
 function Home() {
   const { context } = useContext(AppContext)
