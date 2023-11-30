@@ -17,9 +17,9 @@ import { Line } from '../../components/articles/ArticlesStyles'
 import { InfoBox } from '../../components/featured/FeaturedStyles'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
-import { ReactComponent as Parking } from '../../lib/icons/parking.svg'
+import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
+import { ReactComponent as Eye } from '../../lib/icons/Eye.svg'
 import { Amenity } from './Amenity'
-import img1 from '../../lib/images/img1.png'
 import Button from '../../components/button/Button'
 import Properties from '../../components/properties/Properties'
 import { AppContext } from '../../context/createContext'
@@ -27,12 +27,20 @@ import { useParams } from 'react-router-dom'
 
 function PropertiesInner() {
   const { context } = useContext(AppContext)
-  const { propertyInner, fetchPropertyInnerData, properties, fetchPropertiesData } = context
+  const { propertyInner, fetchPropertyInnerData, properties, fetchPropertiesData, fetchAgentsInnerData, agentsInner } = context
   const [data, setData] = useState(propertyInner)
+  const [isHovering, setIsHovering] = useState(false)
   const { id } = useParams()
 
   useEffect(() => {
-    propertyInner && setData(propertyInner)
+    if (propertyInner) {
+      setData(propertyInner)
+
+      if (propertyInner.agent) {
+        fetchAgentsInnerData(propertyInner.agent)
+        console.log(agentsInner)
+      }
+    }
   }, [propertyInner])
 
   useEffect(() => {
@@ -50,14 +58,14 @@ function PropertiesInner() {
       <img src={cover} alt='' width='100%' height='515.05px' />
       {data && (
         <ContentContainer className='container'>
-          <RequestProperty rentOrSale={data.dealType} price={data.price} />
+          <RequestProperty rentOrSale={data.dealType} price={data.price} agent={agentsInner} />
           <TextContent>
-            <h3>{data.address}</h3>
-            <h1>{data.location}</h1>
+            <h3>{data.streetAddress}</h3>
+            <h1>{data.title}</h1>
             <InfoContainer className='flex'>
               <InfoBox>
                 <SQFT />
-                <span>{data.size}</span>
+                <span>{data.size} m²</span>
               </InfoBox>
               <InfoBox>
                 <SQFT />
@@ -65,14 +73,14 @@ function PropertiesInner() {
               </InfoBox>
               <InfoBox featured={true}>
                 <Bed />
-                <span>{data.bedroomQuantity}</span>
+                <span>{data.bedRoomQuantity}</span>
               </InfoBox>
               <InfoBox>
                 <Bath />
                 <span>9</span>
               </InfoBox>
               <InfoBox>
-                <Parking />
+                <ParkingSmall />
                 <span>4</span>
               </InfoBox>
             </InfoContainer>
@@ -92,15 +100,6 @@ function PropertiesInner() {
               {data.amenities.map((data: any, i: number) => (
                 <Amenity text={data} key={i} />
               ))}
-              {/* <Amenity text="Garden" />
-              <Amenity text="Security cameras" />
-              <Amenity text="Laundry" />
-              <Amenity text="Internet" />
-              <Amenity text="Pool" />
-              <Amenity text="Garage" />
-              <Amenity text="Jacuzzi" />
-              <Amenity text="Elevator" />
-              <Amenity text="Dish Washer" /> */}
             </AmenityContainer>
           </TextContent>
           <Line />
@@ -110,14 +109,17 @@ function PropertiesInner() {
               <Button text='Request info' color='black' to='/' />
             </div>
             <GalleryContainer>
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
-              <img src={img1} alt='' />
+              {data.gallery.map((photo: any, i: number) => (
+                <img key={i} src={photo.url} alt='img' />
+              ))}
+
+              {/* if(isHovering){
+  <Eye/>
+}else{
+  <img
+} */}
+
+              <Eye />
             </GalleryContainer>
           </div>
         </ContentContainer>

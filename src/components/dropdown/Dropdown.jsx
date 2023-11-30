@@ -4,6 +4,7 @@ import { ReactComponent as DownArrow } from '../../lib/icons/downArrow.svg'
 import { ReactComponent as LocationIcon } from '../../lib/icons/location.svg'
 import { ReactComponent as PropertyIcon } from '../../lib/icons/property.svg'
 import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
+import Loader from '../Loader/Loader'
 
 export default function Dropdown({ text, data }) {
   return (
@@ -18,11 +19,7 @@ export default function Dropdown({ text, data }) {
         <ArrowContainer>
           <DownArrow />
         </ArrowContainer>
-        <DropdownList>
-          {data.map((item) => (
-            <ListItem key={item.id}>{item.title}</ListItem>
-          ))}
-        </DropdownList>
+        <DropdownList>{!data ? <Loader /> : data.map((item) => <ListItem key={item.id}>{item.title}</ListItem>)}</DropdownList>
       </DropdownBox>
     </DropDownContainer>
   )

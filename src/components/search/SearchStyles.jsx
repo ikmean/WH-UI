@@ -3,6 +3,8 @@ import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
 
 export const SearchContainerStyles = styled.div`
+  position: relative;
+  z-index: 1;
   display: flex;
   margin-top: 44px;
   justify-content: center;

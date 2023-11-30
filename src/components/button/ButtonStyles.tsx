@@ -31,6 +31,8 @@ export const ButtonWrapper = styled.div<props>`
   width: ${({ width }) => (width === '100%' ? '100%' : 'fit-content')};
   max-height: fit-content;
   padding: 20px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background: ${({ color }) => (color === 'white' ? 'white' : color === 'red' ? colors.secondary : 'black')};
   color: ${({ color }) => (color === 'white' ? 'black' : 'white')};
   border-radius: 12px;

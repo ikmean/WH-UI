@@ -15,6 +15,10 @@ export const TextContent = styled.div`
   h3 {
     margin-top: 63px;
     margin-bottom: 5px;
+    color: ${colors.greyText};
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
   }
   h1 {
     font-size: 32px;

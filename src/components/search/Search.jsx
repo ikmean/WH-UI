@@ -10,11 +10,6 @@ export default function Search() {
       <div>
         <GraySearch />
         <InputComponent placeholder='Search for properties' />
-        {/* <input
-					type="text"
-					name="search-properties"
-					placeholder="Search for properties"
-				/> */}
       </div>
       <Button text='Search' color='red' />
     </SearchBox>
