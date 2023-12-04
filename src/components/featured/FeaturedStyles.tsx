@@ -171,7 +171,8 @@ export const PropertiesPageWrapper = styled.div`
   position: relative;
   z-index: 0;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 30px;
   margin-top: 80px;
   opacity: 0;

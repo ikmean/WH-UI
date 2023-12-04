@@ -7,9 +7,17 @@ export const PropertiesInnerPageContainer = styled.div`
   align-items: center;
   width: 100%;
 `
+
+export const ButtonWrapper = styled.div`
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+`
+
 export const ContentContainer = styled.div`
   position: relative;
 `
+
 export const TextContent = styled.div`
   width: 60%;
   h3 {
@@ -42,6 +50,7 @@ export const TextContent = styled.div`
 export const InfoContainer = styled.div`
   margin-bottom: 30px;
 `
+
 export const AmenityContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 2fr 1fr;
@@ -58,6 +67,23 @@ export const AmenityStyles = styled.div`
   }
 `
 
+export const EyeStyles = styled.div`
+  opacity: 0;
+  position: absolute;
+  top: 35%;
+  right: 30%;
+  background-color: ${colors.grey};
+  padding: 10px 15px 10px 15px;
+  border-radius: 50%;
+`
+
+export const BlackImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+`
+
 export const GalleryContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -70,10 +96,38 @@ export const GalleryContainer = styled.div`
   }
 `
 
+export const GalleryStyles = styled.div`
+  position: relative;
+  &:hover ${EyeStyles} {
+    opacity: 100;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover ${BlackImage} {
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover {
+    img {
+      opacity: 0.33;
+      transition: opacity 0.3s ease-in-out;
+      cursor: pointer;
+    }
+  }
+`
+
 export const BrowseMore = styled.div`
   background: ${colors.greyDarker};
   width: 100%;
   display: flex;
   justify-content: center;
   padding-bottom: 128px;
+`
+
+export const ButtonsStyles = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 `

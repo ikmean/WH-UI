@@ -33,7 +33,7 @@ function About() {
         </Description>
         <Images>
           {about?.gallery?.map((image: any, i: number) => (
-            <img key={i} src={image.large} alt='aboutimg' />
+            <img key={i} src={image.large} alt='aboutimg' height='100%' />
           ))}
         </Images>
       </div>
