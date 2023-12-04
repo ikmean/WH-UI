@@ -40,7 +40,6 @@ import { AmenityStyles } from './PropertiesStyles'
 export const Amenity = ({ text }: any) => {
   return (
     <AmenityStyles>
-      {text}
       {text === 'Garden' && <Garden />}
       {text === 'Internet' && <Internet />}
       {text === 'Jacuzzi' && <Jacuzzi />}
