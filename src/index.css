@@ -69,8 +69,8 @@ li {
   justify-content: space-between;
 }
 
-.center {
-  align-items: center;
+.margin {
+  margin-left: 8px;
 }
 
 p {

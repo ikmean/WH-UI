@@ -30,7 +30,16 @@ export const AgentsList = styled.div`
 export const AgentBoxStyles = styled.div<{ type: string }>`
   box-shadow: ${({ type }) => type !== 'small' && '0px 3px 20px rgba(8, 15, 52, 0.06)'};
   border-radius: 26px;
+  /* max-width: fit-content; */
   overflow: hidden;
+  /* overflow: visible;
+  div::-webkit-scrollbar {
+    display: none;
+  }
+  div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  } */
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
@@ -62,7 +71,7 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
 export const ImgWrapper = styled.div<{ type: any }>`
   position: relative;
   width: ${({ type }) => type === 'page' && '40%'};
-  width: ${({ type }) => type === 'small' && '30%'};
+  width: ${({ type }) => type === 'small' && '25%'};
   height: ${({ type }) => type === 'page' && '580px'};
   flex-shrink: 0;
   div {
@@ -112,10 +121,11 @@ export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  word-break: break-all;
   div {
     display: flex;
     align-items: center;
-    margin-right: 35px;
+    /* margin-right: 35px; */
     margin-bottom: ${({ type }) => type === 'small' && '14px'};
     svg {
       width: ${({ type }) => (type === 'small' ? '18px' : '')};
