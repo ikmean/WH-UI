@@ -1,17 +1,37 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { slideAnimation } from '../../styles'
 
 export const PropertiesInnerPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  img {
+    opacity: 0;
+    animation: ${slideAnimation('100px')} 1s ease 0.5s forwards;
+  }
+`
+
+export const ImgBtnStyles = styled.div`
+  position: relative;
+  width: 100%;
+  height: 515.05px;
 `
 
 export const ButtonWrapper = styled.div`
   position: absolute;
   left: 60px;
-  bottom: 60px;
+  bottom: 40px;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
+  &:hover {
+    svg {
+      path {
+        stroke: white;
+      }
+    }
+  }
 `
 
 export const ContentContainer = styled.div`
@@ -20,6 +40,8 @@ export const ContentContainer = styled.div`
 
 export const TextContent = styled.div`
   width: 60%;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 1s forwards;
   h3 {
     margin-top: 63px;
     margin-bottom: 5px;

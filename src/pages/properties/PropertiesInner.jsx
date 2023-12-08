@@ -10,6 +10,7 @@ import {
   EyeStyles,
   GalleryContainer,
   GalleryStyles,
+  ImgBtnStyles,
   InfoContainer,
   PropertiesInnerPageContainer,
   TextContent
@@ -22,6 +23,7 @@ import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
 import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
 import { ReactComponent as Eye } from '../../lib/icons/Eye.svg'
+import { ReactComponent as PhotoCamera } from '../../lib/icons/PhotoCamera.svg'
 import blackImage from '../../lib/images/blackImage.png'
 import { Amenity } from './Amenity'
 import Button from '../../components/button/Button'
@@ -50,6 +52,7 @@ function PropertiesInner() {
   useEffect(() => {
     if (id) {
       fetchPropertyInnerData(id)
+      window.scrollTo(0, 0)
     }
   }, [id, fetchPropertyInnerData])
 
@@ -65,10 +68,21 @@ function PropertiesInner() {
     <PropertiesInnerPageContainer>
       {data && (
         <>
-          <img src={data?.gallery[0]?.url} alt='' width='100%' height='515.05px' />
-          <ButtonWrapper>
-            <Button text={'Browse Gallery'} color={'white'} click={handleClick} />
-          </ButtonWrapper>
+          <ImgBtnStyles>
+            <img src={data?.gallery[0]?.url} alt='' width='100%' height='515.05px' />
+            <ButtonWrapper>
+              <Button
+                text={
+                  <>
+                    <PhotoCamera />
+                    <span className='margin'>Browse Gallery</span>
+                  </>
+                }
+                color={'white'}
+                click={handleClick}
+              />
+            </ButtonWrapper>
+          </ImgBtnStyles>
           <ContentContainer className='container'>
             <RequestProperty rentOrSale={data.dealType} price={data.price} agent={agentsInner} />
             <TextContent>
@@ -85,7 +99,7 @@ function PropertiesInner() {
                 </InfoBox>
                 <InfoBox>
                   <Bath />
-                  <span>{data?.bathRoom}</span>
+                  <span>{data?.bathroom}</span>
                 </InfoBox>
                 {data.parking && (
                   <InfoBox>

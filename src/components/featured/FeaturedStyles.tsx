@@ -72,6 +72,9 @@ export const ImgWrapper = styled.div<{ main: any; featured: any }>`
     right: 0;
     width: max-content;
   }
+  img {
+    height: ${({ main, featured }) => (featured ? '375px' : main ? '375px' : '220px')};
+  }
 `
 
 export const TextBox = styled.div<props>`

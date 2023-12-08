@@ -30,7 +30,6 @@ export const SearchBox = styled.div`
   &:hover {
     border: 1px solid ${colors.secondary};
   }
-
   input {
     font-size: 18px;
     font-style: normal;
@@ -43,7 +42,6 @@ export const SearchBox = styled.div`
     color: ${colors.greyText};
     width: 100%;
   }
-
   div {
     display: flex;
     align-items: center;

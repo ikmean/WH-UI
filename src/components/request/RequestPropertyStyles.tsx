@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { slideAnimation } from '../../styles'
 
 export const RequestPropertyStyles = styled.div`
   position: absolute;
@@ -11,6 +12,8 @@ export const RequestPropertyStyles = styled.div`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 16px;
   padding: 46px 48px 50px 48px;
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
   h1 {
     font-size: 32px;
     margin-top: 14px;
@@ -24,7 +27,6 @@ export const RequestPropertyStyles = styled.div`
     color: ${colors.greyText};
     font-size: 18px;
   }
-
   .button {
     margin-top: 9px;
     margin-bottom: 65px;
