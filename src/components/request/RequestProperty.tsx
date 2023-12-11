@@ -4,6 +4,7 @@ import { Line } from '../articles/ArticlesStyles'
 import { InputComponent } from '../input/Input'
 import Button from '../button/Button'
 import AgentBox from '../agents/AgentBox'
+import { colors } from '../../lib/colors'
 
 function RequestProperty({ rentOrSale, price, agent }: any) {
   return (
@@ -12,10 +13,10 @@ function RequestProperty({ rentOrSale, price, agent }: any) {
       <h1>${price}</h1>
       <Line />
       <h2>Get in touch to receive more info</h2>
-      <InputComponent placeholder='Full name' />
-      <InputComponent placeholder='Email address' />
-      <InputComponent placeholder='Phone number' />
-      <div style={{ marginBottom: '60px' }}>
+      <div className={'column'} style={{ gap: '18px' }}>
+        <InputComponent placeholder='Full name' backgroundColor={colors.grey} />
+        <InputComponent placeholder='Email address' backgroundColor={colors.grey} />
+        <InputComponent placeholder='Phone number' backgroundColor={colors.grey} />
         <Button color='red' text='Request info' width='100%' to='/' />
       </div>
       <Line />

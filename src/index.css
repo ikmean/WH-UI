@@ -73,6 +73,11 @@ li {
   margin-left: 8px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
 p {
   font-weight: 500;
 }

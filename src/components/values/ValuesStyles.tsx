@@ -51,11 +51,16 @@ export const ValueBoxWrapper = styled.div`
   background: white;
   padding: 49px 60px 70px 38px;
   margin-bottom: 36px;
+  transition: transform 0.3s ease;
   h2 {
     text-transform: capitalize;
     font-size: 22px;
     line-height: 30px;
     margin-bottom: 10px;
+  }
+  &:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-10px);
   }
 `
 

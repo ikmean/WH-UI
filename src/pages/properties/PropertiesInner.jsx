@@ -79,6 +79,7 @@ function PropertiesInner() {
                   </>
                 }
                 color={'white'}
+                borderRadius='50px'
                 click={handleClick}
               />
             </ButtonWrapper>

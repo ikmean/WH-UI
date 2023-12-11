@@ -13,6 +13,7 @@ export const SearchContainerStyles = styled.div`
   flex-shrink: 0;
   padding-left: 30px;
   opacity: 0;
+  border-radius: 14px;
   animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
 `
 
@@ -27,9 +28,6 @@ export const SearchBox = styled.div`
   border: 1px solid white;
   border-radius: 14px;
   padding: 16px 17px 21px 16px;
-  &:hover {
-    border: 1px solid ${colors.secondary};
-  }
   input {
     font-size: 18px;
     font-style: normal;
@@ -42,6 +40,9 @@ export const SearchBox = styled.div`
     color: ${colors.greyText};
     width: 100%;
   }
+  &:hover {
+    border: 1px solid ${colors.secondary};
+  }
   div {
     display: flex;
     align-items: center;
@@ -49,4 +50,8 @@ export const SearchBox = styled.div`
   @media only screen and (max-width: 1024px) {
     width: 40%;
   }
+`
+
+export const Margin = styled.div`
+  margin-top: 4px;
 `

@@ -27,10 +27,10 @@ export const Header = styled.div`
 export const AgentBoxWrapperPage = styled.div`
   display: flex;
   align-items: center;
-  box-shadow: 0 10px 30px 0 ${colors.grey};
+  box-shadow: 0 10px 30px #e0e0e0;
+  background: none;
   align-items: center;
-  padding: 20px 70px 20px 70px;
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 26px;
   opacity: 0;
@@ -84,10 +84,11 @@ export const AgentInfo = styled.div`
 
 export const ArticleWrapper = styled.div`
   display: flex;
+  gap: 20px;
   width: 100%;
   margin-top: 47px;
 `
 
-export const ArticleBy = styled.div`
+export const ContentBy = styled.div`
   margin-top: 140px;
 `

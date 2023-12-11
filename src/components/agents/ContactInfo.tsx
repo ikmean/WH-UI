@@ -8,11 +8,11 @@ interface props {
   email?: string
   direction?: string
   type?: string
-  number?: string
+  phoneNumber?: string
   location?: string
 }
 
-export default function ContactInfo({ direction, type, number, location, email }: props) {
+export default function ContactInfo({ direction, type, phoneNumber, location, email }: props) {
   return (
     <ContactStyles className={direction} type={type}>
       {location && (
@@ -23,12 +23,16 @@ export default function ContactInfo({ direction, type, number, location, email }
       )}
       <div>
         <Phone />
-        <span>{number}</span>
+        <span>{phoneNumber}</span>
       </div>
       {email && (
         <div>
-          <MailRed />
-          <span>{email}</span>
+          <div>
+            <MailRed />
+          </div>
+          <div>
+            <span>{email}</span>
+          </div>
         </div>
       )}
     </ContactStyles>

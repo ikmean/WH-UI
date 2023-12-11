@@ -6,10 +6,10 @@ import { SearchContainerStyles } from './SearchStyles.jsx'
 export default function SearchContainer({ location, propertyCategory, dealType }) {
   return (
     <SearchContainerStyles>
-      <Search />
-      <Dropdown text='Location' data={location} />
-      <Dropdown text='Property' data={propertyCategory} />
       <Dropdown text='Type' data={dealType} />
+      <Dropdown text='Property' data={propertyCategory} />
+      <Dropdown text='Location' data={location} />
+      <Search />
     </SearchContainerStyles>
   )
 }

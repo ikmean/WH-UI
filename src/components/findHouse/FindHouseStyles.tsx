@@ -27,6 +27,7 @@ export const BoxStyles = styled.div`
   flex-direction: column;
   width: 27%;
   text-align: center;
+  transition: transform 0.3s ease;
   h2 {
     font-size: 22px;
     margin-bottom: 16px;
@@ -36,5 +37,9 @@ export const BoxStyles = styled.div`
   span {
     font-size: 18px;
     line-height: 30px;
+  }
+  &:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.03);
   }
 `

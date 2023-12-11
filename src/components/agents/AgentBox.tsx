@@ -20,7 +20,7 @@ export default function AgentBox({ type = 'regular', data }: any) {
           </h2>
           {!isSmall && <p>{data?.about}</p>}
           {!isSmall && <Line />}
-          <ContactInfo type={type} number={data?.phoneNumber} email={data?.email} />
+          <ContactInfo type={type} phoneNumber={data?.phoneNumber} email={data?.email} />
         </TextBox>
       </Link>
     </AgentBoxStyles>

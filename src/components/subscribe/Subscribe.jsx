@@ -1,12 +1,13 @@
 import React from 'react'
 import Button from '../button/Button'
 import SubscribeBox from './SubscribeBox'
+import { H1 } from './SubscribeStyles'
 
 export default function Subscribe() {
   return (
     <div>
-      <h1>Subscribe to our newsletter</h1>
-      <SubscribeBox text='Enter your email address' />
+      <H1>Subscribe to our newsletter</H1>
+      <SubscribeBox text=' email address' />
       <Button text='Subscribe' color='red' />
     </div>
   )
