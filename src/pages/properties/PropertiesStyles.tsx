@@ -25,13 +25,6 @@ export const ButtonWrapper = styled.div`
   bottom: 40px;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
-  &:hover {
-    svg {
-      path {
-        stroke: white;
-      }
-    }
-  }
 `
 
 export const ContentContainer = styled.div`
@@ -126,7 +119,7 @@ export const GalleryStyles = styled.div`
     cursor: pointer;
   }
   &:hover ${BlackImage} {
-    opacity: 0.9;
+    opacity: 0.6;
     transition: opacity 0.3s ease-in-out;
     cursor: pointer;
   }
@@ -140,7 +133,7 @@ export const GalleryStyles = styled.div`
 `
 
 export const BrowseMore = styled.div`
-  background: ${colors.greyDarker};
+  /* background: ${colors.greyDarker}; */
   width: 100%;
   display: flex;
   justify-content: center;

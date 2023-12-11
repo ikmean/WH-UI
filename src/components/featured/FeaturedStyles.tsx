@@ -25,6 +25,17 @@ export const BoxWrapper = styled.div<props>`
   position: relative;
   background: white;
   border-radius: 26px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-10px);
+    img {
+      transform: scale(1.03);
+    }
+    h2 {
+      color: ${colors.secondary};
+    }
+  }
   a {
     border-radius: 26px;
     overflow: hidden;
@@ -34,17 +45,6 @@ export const BoxWrapper = styled.div<props>`
     transition: box-shadow 0.3s, transform 0.3s;
     img {
       transition: transform 0.3s;
-    }
-    &:hover {
-      border-radius: 26px;
-      box-shadow: 0 10px 30px 0 ${colors.grey};
-      transform: translate(0, -3px);
-      img {
-        transform: scale(1.03);
-      }
-      h2 {
-        color: ${colors.secondary};
-      }
     }
   }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
@@ -189,4 +189,9 @@ export const Nav = styled.div`
   .button {
     margin-right: 68px;
   }
+`
+
+export const SlowLoader = styled.div`
+  opacity: 0;
+  animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 `

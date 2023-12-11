@@ -3,6 +3,7 @@ import { colors } from '../../lib/colors'
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
+  align-items: center;
   margin-top: 32px;
 `
 export const Social = styled.div`

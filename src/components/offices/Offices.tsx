@@ -3,7 +3,6 @@ import OfficeBox from './OfficeBox'
 import { Header, Wrapper, BoxWrapper } from './OfficesStyles'
 
 export default function Offices({ offices }: any) {
-  console.log(offices)
   return (
     <Wrapper>
       <Header>
@@ -15,7 +14,7 @@ export default function Offices({ offices }: any) {
             key={i}
             title={office.title}
             about={office.about}
-            number={office.phone}
+            phoneNumber={office.phoneNumber}
             location={office.address}
             gallery={office.gallery}
           />

@@ -1,8 +1,7 @@
 import React from 'react'
-import { BoxStyles } from './SubscribeStyles'
+import { BoxStyles, SubscribeInputStyles } from './SubscribeStyles'
 import { InputComponent } from '../input/Input'
 import { ReactComponent as Mail } from '../../lib/icons/mail.svg'
-// import Search from "../../lib/icons/search.svg"
 
 interface SubscribeBoxProps {
   text: string
@@ -11,9 +10,10 @@ interface SubscribeBoxProps {
 export default function SubscribeBox({ text }: SubscribeBoxProps) {
   return (
     <BoxStyles>
-      <InputComponent placeholder={text} />
+      <SubscribeInputStyles>
+        <input placeholder={'Enter your Email address'} />
+      </SubscribeInputStyles>
       <Mail />
-      {/* <Search /> */}
     </BoxStyles>
   )
 }

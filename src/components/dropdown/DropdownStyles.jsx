@@ -45,6 +45,7 @@ export const DropdownList = styled.div`
 `
 
 export const Gap = styled.div`
+  align-items: center;
   display: flex;
   gap: 10px;
 `

@@ -13,7 +13,7 @@ export const FooterWrapper = styled.div`
 
 export const Top = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 170px;
   padding-bottom: 80px;
   border-bottom: 1px solid ${colors.border};
 `
@@ -22,4 +22,14 @@ export const TopLeft = styled.div`
   p {
     margin-top: 26px;
   }
+`
+
+export const FooterText = styled.p`
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 80%;
+  color: ${colors.greyText};
 `

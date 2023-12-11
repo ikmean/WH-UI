@@ -5,6 +5,7 @@ interface props {
   margin?: string
   width?: string
   color?: string
+  borderRadius?: string
 }
 
 export const PostButtonWrapper = styled.div<props>`
@@ -35,7 +36,7 @@ export const ButtonWrapper = styled.div<props>`
   margin-bottom: 10px;
   background: ${({ color }) => (color === 'white' ? 'white' : color === 'red' ? colors.secondary : 'black')};
   color: ${({ color }) => (color === 'white' ? 'black' : 'white')};
-  border-radius: 12px;
+  border-radius: ${({ borderRadius }) => (borderRadius ? borderRadius : '12px')};
   font-size: 18px;
   box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
   cursor: pointer;
@@ -47,5 +48,10 @@ export const ButtonWrapper = styled.div<props>`
     transform: scale(0.95);
     background-color: ${({ color }) => (color === 'black' || color === 'white') && colors.secondary};
     color: ${colors.white};
+    svg {
+      path {
+        stroke: white;
+      }
+    }
   }
 `

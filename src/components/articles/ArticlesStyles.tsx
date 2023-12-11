@@ -28,8 +28,8 @@ export const BoxContainer = styled.div<{ type: string }>`
   width: ${({ type }) => type === 'default' && '390px'};
   flex-shrink: 0;
   overflow: hidden;
-  box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 26px;
+  box-shadow: 0px 3px 10px rgba(8, 15, 52, 0.06);
   :nth-child(3) {
     margin-right: 0;
   }
@@ -63,8 +63,8 @@ export const BoxContainer = styled.div<{ type: string }>`
     font-size: 18px;
   }
   &:hover {
-    box-shadow: 0 10px 30px 0 ${colors.grey};
-    transform: translate(0, -3px);
+    transition: transform 0.3s ease;
+    transform: translate(0px, -5px);
     img {
       transform: scale(1.03);
     }
