@@ -34,6 +34,7 @@ export const H1 = styled.p`
   text-align: left;
 `
 
+//subscribe input
 export const SubscribeInputStyles = styled.div`
   input {
     display: flex;

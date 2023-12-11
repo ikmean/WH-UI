@@ -7,7 +7,7 @@ export default function Subscribe() {
   return (
     <div>
       <H1>Subscribe to our newsletter</H1>
-      <SubscribeBox text='Enter your email address' />
+      <SubscribeBox text=' email address' />
       <Button text='Subscribe' color='red' />
     </div>
   )
