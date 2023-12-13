@@ -55,3 +55,8 @@ export const SearchBox = styled.div`
 export const Margin = styled.div`
   margin-top: 4px;
 `
+
+export const SearchButton = styled.div`
+  //TODO apply styles properly
+  border: 1px solid red;
+`

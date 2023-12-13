@@ -34,9 +34,11 @@ function FilteredProperties() {
 
   useEffect(() => {
     const filteredProperties = properties.filter((property) => {
-      if (searchParams.get('dealType') && searchParams.get('dealType') === property.dealType) return true
-      //   if (selectedLocation && selectedLocation === property.city) return true
-      //   if (selectedPropertyCategory && selectedPropertyCategory === property.category) return true
+      //TODO: add logic to filter properly depend on query parameters
+
+      if (selectedDealType && selectedDealType === property.dealType) return true
+      if (selectedLocation && selectedLocation === property.city) return true
+      if (selectedPropertyCategory && selectedPropertyCategory === property.category) return true
 
       return false
     })

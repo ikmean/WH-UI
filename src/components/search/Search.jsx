@@ -1,8 +1,8 @@
 import React from 'react'
-import { Margin, SearchBox } from './SearchStyles'
-import Button from '../button/Button'
+import { Margin, SearchBox, SearchButton } from './SearchStyles'
 import { ReactComponent as GraySearch } from '../../lib/icons/graySearch.svg'
 import { InputComponent } from '../input/Input'
+import { Link } from 'react-router-dom'
 
 export default function Search({ selectedDealType, selectedPropertyCategory, selectedLocation }) {
   return (
@@ -12,11 +12,11 @@ export default function Search({ selectedDealType, selectedPropertyCategory, sel
         <InputComponent placeholder='Search for properties' />
       </div>
       <Margin>
-        <Button
-          text='Search'
-          color='red'
-          to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}`}
-        />
+        <SearchButton>
+          <Link to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}`}>
+            Search
+          </Link>
+        </SearchButton>
       </Margin>
     </SearchBox>
   )

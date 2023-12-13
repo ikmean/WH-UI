@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Search from './Search.jsx'
 import Dropdown from '../dropdown/Dropdown.jsx'
 import { ReactComponent as LocationIcon } from '../../lib/icons/location.svg'
@@ -6,10 +6,8 @@ import { ReactComponent as PropertyIcon } from '../../lib/icons/property.svg'
 import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
 import { SearchContainerStyles } from './SearchStyles.jsx'
 import { AppContext } from '../../context/createContext.js'
-import { useSearchParams } from 'react-router-dom'
 
 export default function SearchContainer() {
-  const [searchParams, setSearchParams] = useSearchParams()
   const { context } = useContext(AppContext)
   const {
     location,
@@ -23,24 +21,9 @@ export default function SearchContainer() {
     setSelectedLocation
   } = context
 
-  const onDealTypeSelect = (type) => {
-    setSelectedDealType(type)
-  }
-
-  const setDealTypeText = () => {
-    console.log(Object.keys(searchParams))
-    console.log('Selected Deal Type ->>>>>>>>', selectedDealType)
-    console.log('Quuery Param Deal Type ->>>>>', searchParams.get('dealType'))
-    if (selectedDealType === null && Object.keys(searchParams).length === 0) return 'Type'
-
-    if (searchParams.get('dealType') && !selectedDealType === null) return selectedDealType
-
-    return selectedDealType
-  }
-
   return (
     <SearchContainerStyles>
-      <Dropdown text={setDealTypeText()} icon={<TypeIcon />} data={dealType} onSelect={(value) => onDealTypeSelect(value)} />
+      <Dropdown text={selectedDealType || 'Type'} icon={<TypeIcon />} data={dealType} onSelect={(value) => setSelectedDealType(value)} />
       <Dropdown
         text={selectedPropertyCategory || 'Property'}
         icon={<PropertyIcon />}
