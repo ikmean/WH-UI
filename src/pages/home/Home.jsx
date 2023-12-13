@@ -49,7 +49,7 @@ function Home() {
     <div className='flex-column'>
       <div className='container'>
         <Explore featuredListRef={featuredListRef} />
-        <SearchContainer location={location} propertyCategory={propertyCategory} dealType={dealType} />
+        <SearchContainer />
         <Featured properties={properties} innerRef={featuredListRef} />
         <Properties title='All properties' properties={properties} />
         <FindHouse />

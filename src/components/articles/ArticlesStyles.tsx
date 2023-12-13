@@ -21,6 +21,7 @@ export const Header = styled.div`
 export const BoxContainer = styled.div<{ type: string }>`
   display: flex;
   flex-direction: column;
+  border-radius: 26px;
   margin-right: ${({ type }) => (type === 'default' ? '0' : '30px')};
   height: ${({ type }) => type === 'readMoreSmall' && '179px'};
   width: ${({ type }) => type === 'description' && '50%'};
@@ -28,8 +29,8 @@ export const BoxContainer = styled.div<{ type: string }>`
   width: ${({ type }) => type === 'default' && '390px'};
   flex-shrink: 0;
   overflow: hidden;
-  border-radius: 26px;
-  box-shadow: 0px 3px 10px rgba(8, 15, 52, 0.06);
+  box-shadow: 0px 3px 5px rgba(8, 15, 52, 0.06);
+  transition: transform 0.3s ease;
   :nth-child(3) {
     margin-right: 0;
   }
@@ -83,6 +84,7 @@ export const Info = styled.div`
   padding: 0 25px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `
 
 export const InfoFooter = styled.div`
