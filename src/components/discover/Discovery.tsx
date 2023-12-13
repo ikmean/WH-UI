@@ -9,7 +9,7 @@ import { SlowLoader } from '../featured/FeaturedStyles'
 export default function Discovery() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-400px'
+    rootMargin: '-390px'
   })
   console.log('discovery', inView)
   return (

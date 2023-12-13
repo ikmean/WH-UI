@@ -12,7 +12,7 @@ import { SlowLoader } from '../featured/FeaturedStyles'
 export default function Articles(data: any) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-200px'
+    rootMargin: '-245px'
   })
   console.log('articles', inView)
   const [isHovering, setIsHovering] = useState({ left: false, right: false })

@@ -9,7 +9,7 @@ import { SlowLoader } from '../featured/FeaturedStyles'
 export default function Footer() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-75px'
+    rootMargin: '-80px'
   })
   console.log('footer', inView)
   return (
