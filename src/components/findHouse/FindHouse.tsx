@@ -8,9 +8,9 @@ import { SlowLoader } from '../featured/FeaturedStyles'
 export default function FindHouse() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    delay: 500
+    rootMargin: '-300px'
   })
-
+  console.log('findHouse', inView)
   return (
     <div ref={ref}>
       {inView && (
