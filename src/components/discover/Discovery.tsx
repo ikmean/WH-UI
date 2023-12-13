@@ -13,25 +13,27 @@ export default function Discovery() {
   })
   console.log('discovery', inView)
   return (
-    <Wrapper ref={ref}>
+    <div ref={ref}>
       {inView && (
         <SlowLoader>
-          <div className='container flex'>
-            <TextWrapper>
-              <h1>The best place to discover amazing properties at great prices</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit odio massa eget posuere at proin lectus proin morbi euismod itae
-                purus donec cursus neque adipiscing maecenas proin eu viverra commodo felis risus at amet ornare pellentesque nulla ipsu.
-              </p>
-              <Button text='About our company' color='black' to='/about' />
-            </TextWrapper>
-            <ImgWrapper>
-              <img src={discoveryImg1} alt='discoveryImg1' />
-              <img src={discoveryImg2} alt='discoveryImg2' />
-            </ImgWrapper>
-          </div>
+          <Wrapper>
+            <div className='container flex'>
+              <TextWrapper>
+                <h1>The best place to discover amazing properties at great prices</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit odio massa eget posuere at proin lectus proin morbi euismod itae
+                  purus donec cursus neque adipiscing maecenas proin eu viverra commodo felis risus at amet ornare pellentesque nulla ipsu.
+                </p>
+                <Button text='About our company' color='black' to='/about' />
+              </TextWrapper>
+              <ImgWrapper>
+                <img src={discoveryImg1} alt='discoveryImg1' />
+                <img src={discoveryImg2} alt='discoveryImg2' />
+              </ImgWrapper>
+            </div>
+          </Wrapper>
         </SlowLoader>
       )}
-    </Wrapper>
+    </div>
   )
 }
