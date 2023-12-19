@@ -7,9 +7,9 @@ import { useInView } from 'react-intersection-observer'
 export default function Properties({ title, properties }: any) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    delay: 500
+    rootMargin: '-200px'
   })
-
+  console.log('properties', inView)
   return (
     <div ref={ref}>
       {inView && (
