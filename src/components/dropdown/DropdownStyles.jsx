@@ -88,8 +88,32 @@ export const DropDownContainer = styled.div`
 `
 
 export const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
   &:hover {
     color: ${colors.secondary};
-    cursor: pointer;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid ${colors.greyText};
+    border-radius: 4px;
+    outline: none;
+    margin-right: 10px;
+    &:checked {
+      background-color: ${colors.secondary};
+      border-color: ${colors.secondary};
+    }
+    &:checked::before {
+      content: '\u2713';
+      display: block;
+      text-align: center;
+      line-height: 18px;
+      color: white;
+    }
   }
 `

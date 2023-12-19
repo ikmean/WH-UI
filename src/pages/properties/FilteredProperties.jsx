@@ -13,13 +13,13 @@ function FilteredProperties() {
   const { context } = useContext(AppContext)
   const {
     properties,
-    fetchPropertiesData,
     fetchLocationData,
     fetchPropertyCategoryData,
     fetchDealTypeData,
     selectedDealType,
     selectedPropertyCategory,
-    selectedLocation
+    selectedLocation,
+    searchInput
   } = context
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -29,22 +29,24 @@ function FilteredProperties() {
   const propertiesPerPage = 6
 
   useEffect(() => {
-    fetchPropertiesData()
-  }, [fetchPropertiesData])
-
-  useEffect(() => {
     const filteredProperties = properties.filter((property) => {
-      //TODO: add logic to filter properly depend on query parameters
+      const dealTypeMatch = selectedDealType.length === 0 || selectedDealType.includes(property.dealType)
+      const locationMatch = selectedLocation.length === 0 || selectedLocation.includes(property.city)
+      const categoryMatch = selectedPropertyCategory.length === 0 || selectedPropertyCategory.includes(property.category)
+      const searchMatch =
+        searchInput.trim() === '' ||
+        property.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        property.streetAddress.toLowerCase().includes(searchInput.toLowerCase()) ||
+        property.city.toLowerCase().includes(searchInput.toLowerCase()) ||
+        property.district.toLowerCase().includes(searchInput.toLowerCase()) ||
+        property.description.toLowerCase().includes(searchInput.toLowerCase()) ||
+        property.aboutProperty.toLowerCase().includes(searchInput.toLowerCase())
 
-      if (selectedDealType && selectedDealType === property.dealType) return true
-      if (selectedLocation && selectedLocation === property.city) return true
-      if (selectedPropertyCategory && selectedPropertyCategory === property.category) return true
-
-      return false
+      return dealTypeMatch && locationMatch && categoryMatch && searchMatch
     })
 
     setFilteredPropertyList(filteredProperties)
-  }, [searchParams])
+  }, [properties, selectedDealType, selectedLocation, selectedPropertyCategory, searchInput, searchParams])
 
   useEffect(() => {
     fetchLocationData()
@@ -95,7 +97,7 @@ function FilteredProperties() {
       )}
       <ButtonsStyles>
         {currentPage > 1 && <Button color='white' text='Previous page' click={prevPage} />}
-        {indexOfLastProperty < properties.length && <Button color='white' text='Next page' click={nextPage} />}
+        {indexOfLastProperty < filteredPropertyList.length && <Button color='white' text='Next page' click={nextPage} />}
       </ButtonsStyles>
     </div>
   )

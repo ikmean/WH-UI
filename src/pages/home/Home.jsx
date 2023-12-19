@@ -8,20 +8,10 @@ import Discovery from '../../components/discover/Discovery'
 import Articles from '../../components/articles/Articles'
 import Featured from '../../components/featured/Featured'
 
-function Home() {
+function Home({ searchInput, setSearchInput }) {
   const { context } = useContext(AppContext)
-  const {
-    properties,
-    blogs,
-    fetchPropertiesData,
-    fetchBlogsData,
-    location,
-    propertyCategory,
-    dealType,
-    fetchLocationData,
-    fetchPropertyCategoryData,
-    fetchDealTypeData
-  } = context
+  const { properties, blogs, fetchPropertiesData, fetchBlogsData, fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData } =
+    context
 
   const featuredListRef = useRef(null)
 
@@ -49,7 +39,7 @@ function Home() {
     <div className='flex-column'>
       <div className='container'>
         <Explore featuredListRef={featuredListRef} />
-        <SearchContainer />
+        <SearchContainer searchInput={searchInput} setSearchInput={setSearchInput} />
         <Featured properties={properties} innerRef={featuredListRef} />
         <Properties title='All properties' properties={properties} />
         <FindHouse />

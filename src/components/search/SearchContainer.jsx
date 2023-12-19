@@ -21,20 +21,62 @@ export default function SearchContainer() {
     setSelectedLocation
   } = context
 
+  const handleSelectDealType = (value) => {
+    const updatedSelectedDealType = toggleSelection(selectedDealType, value)
+    setSelectedDealType(updatedSelectedDealType)
+  }
+
+  const handleSelectPropertyCategory = (value) => {
+    const updatedSelectedPropertyCategory = toggleSelection(selectedPropertyCategory, value)
+    setSelectedPropertyCategory(updatedSelectedPropertyCategory)
+  }
+
+  const handleSelectLocation = (value) => {
+    const updatedSelectedLocation = toggleSelection(selectedLocation, value)
+    setSelectedLocation(updatedSelectedLocation)
+  }
+
+  const toggleSelection = (selectedItems, value) => {
+    const itemIndex = selectedItems.indexOf(value)
+    const newSelectedItems = [...selectedItems]
+
+    if (itemIndex === -1) {
+      newSelectedItems.push(value)
+    } else {
+      newSelectedItems.splice(itemIndex, 1)
+    }
+
+    return newSelectedItems
+  }
+
+  const checkIfSelected = function (type, selectedType) {
+    return type.map((type) => {
+      return { ...type, selected: !!selectedType.includes(type.title) }
+    })
+  }
+
   return (
     <SearchContainerStyles>
-      <Dropdown text={selectedDealType || 'Type'} icon={<TypeIcon />} data={dealType} onSelect={(value) => setSelectedDealType(value)} />
       <Dropdown
-        text={selectedPropertyCategory || 'Property'}
-        icon={<PropertyIcon />}
-        data={propertyCategory}
-        onSelect={(value) => setSelectedPropertyCategory(value)}
+        text={'Type'}
+        // text={selectedDealType?.length > 0 ? selectedDealType.join(', ') : 'Type'}
+        icon={<TypeIcon />}
+        data={checkIfSelected(dealType, selectedDealType)}
+        onSelect={handleSelectDealType}
       />
       <Dropdown
-        text={selectedLocation || 'Location'}
+        text={'Property'}
+        // text={selectedPropertyCategory?.length > 0 ? selectedPropertyCategory.join(', ') : 'Property'}
+        icon={<PropertyIcon />}
+        data={checkIfSelected(propertyCategory, selectedPropertyCategory)}
+        onSelect={handleSelectPropertyCategory}
+      />
+      <Dropdown
+        text={'Location'}
+        // text={selectedLocation?.length > 0 ? selectedLocation.join(', ') : 'Location'}
         icon={<LocationIcon />}
-        data={location}
-        onSelect={(value) => setSelectedLocation(value)}
+        data={checkIfSelected(location, selectedLocation)}
+        onSelect={handleSelectLocation}
       />
       <Search selectedDealType={selectedDealType} selectedPropertyCategory={selectedPropertyCategory} selectedLocation={selectedLocation} />
     </SearchContainerStyles>

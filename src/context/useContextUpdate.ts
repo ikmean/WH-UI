@@ -21,12 +21,19 @@ export default function useContextUpdateFromSocket() {
         fetchLocationData,
         fetchPropertyCategoryData,
         fetchOfficesData,
+        setSearchInput,
         setSelectedDealType,
         setSelectedPropertyCategory,
         setSelectedLocation
       }
     })
   }, [])
+
+  const setSearchInput = (value: any) => {
+    setContext((ctx) => {
+      return { ...ctx, searchInput: value }
+    })
+  }
 
   const setSelectedDealType = (type: any) => {
     setContext((ctx) => {

@@ -19,12 +19,12 @@ export default function Dropdown({ text, icon, data, onSelect }) {
           <DownArrow />
         </ArrowContainer>
         <DropdownList>
-          {/* {!data ? <Loader /> : data.map((item) => <ListItem key={item.id}>{item.title}</ListItem>)} */}
           {!data ? (
             <Loader />
           ) : (
             data.map((item) => (
-              <ListItem key={item.id} onClick={() => handleSelect(item)}>
+              <ListItem key={item.id} selected={item.selected}>
+                <input type='checkbox' checked={item.selected} onChange={() => handleSelect(item)} />
                 {item.title}
               </ListItem>
             ))

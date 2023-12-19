@@ -9,10 +9,11 @@ export const SearchContainerStyles = styled.div`
   margin-top: 44px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   flex-shrink: 0;
   padding-left: 30px;
   opacity: 0;
+  /* border: 1px solid ${colors.secondary}; */
   border-radius: 14px;
   animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
 `
@@ -52,11 +53,28 @@ export const SearchBox = styled.div`
   }
 `
 
-export const Margin = styled.div`
-  margin-top: 4px;
-`
-
 export const SearchButton = styled.div`
-  //TODO apply styles properly
-  border: 1px solid red;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  width: 110px;
+  max-width: fit-content;
+  height: 55px;
+  max-height: fit-content;
+  padding: 20px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background: ${colors.secondary};
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+  box-shadow: 0px 2px 12px rgba(20, 20, 43, 0.07);
+  cursor: pointer;
+  place-content: center;
+  transition: transform 0.5s ease, background-color 0.3s ease;
+  &:hover {
+    transform: scale(0.95);
+  }
 `
