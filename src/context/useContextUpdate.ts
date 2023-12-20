@@ -20,10 +20,38 @@ export default function useContextUpdateFromSocket() {
         fetchDealTypeData,
         fetchLocationData,
         fetchPropertyCategoryData,
-        fetchOfficesData
+        fetchOfficesData,
+        setSearchInput,
+        setSelectedDealType,
+        setSelectedPropertyCategory,
+        setSelectedLocation
       }
     })
   }, [])
+
+  const setSearchInput = (value: any) => {
+    setContext((ctx) => {
+      return { ...ctx, searchInput: value }
+    })
+  }
+
+  const setSelectedDealType = (type: any) => {
+    setContext((ctx) => {
+      return { ...ctx, selectedDealType: type }
+    })
+  }
+
+  const setSelectedPropertyCategory = (category: any) => {
+    setContext((ctx) => {
+      return { ...ctx, selectedPropertyCategory: category }
+    })
+  }
+
+  const setSelectedLocation = (location: any) => {
+    setContext((ctx) => {
+      return { ...ctx, selectedLocation: location }
+    })
+  }
 
   const fetchPropertiesData = () => {
     const url = `${globalUrl}properties`

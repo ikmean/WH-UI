@@ -11,6 +11,13 @@ export const defaultAppCTX = {
   location: [],
   propertyCategory: [],
   dealType: [],
+  selectedDealType: [],
+  selectedPropertyCategory: [],
+  selectedLocation: [],
+  searchInput: null,
+  setSelectedDealType: () => {},
+  setSelectedPropertyCategory: () => {},
+  setSelectedLocation: () => {},
   fetchPropertyInnerData: () => {},
   fetchPropertiesData: () => {},
   fetchAboutData: () => {},
@@ -21,5 +28,6 @@ export const defaultAppCTX = {
   fetchBlogsInnerData: () => {},
   fetchLocationData: () => {},
   fetchPropertyCategoryData: () => {},
-  fetchDealTypeData: () => {}
+  fetchDealTypeData: () => {},
+  setSearchInput: () => {}
 }

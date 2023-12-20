@@ -18,9 +18,6 @@ function Blogs() {
     <div className='container'>
       <Header>
         <h1>Articles & Resources</h1>
-        <SearchWrapper>
-          <Search />
-        </SearchWrapper>
       </Header>
       {blogs.length && (
         <ArticleListWrapper>

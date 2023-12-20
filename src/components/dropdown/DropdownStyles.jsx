@@ -1,21 +1,33 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors } from '../../lib/colors'
 
 export const DropdownBox = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
+  min-width: 200px;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  height: 83px;
   width: 223.43px;
+  height: 83px;
   padding: 32px 38px 38px 22px;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   color: ${colors.greyText};
   border-radius: 14px;
   position: relative;
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      border: 1px solid ${colors.secondary};
+      color: ${colors.secondary};
+      svg {
+        path {
+          stroke: ${colors.secondary};
+        }
+      }
+    `}
   @media only screen and (max-width: 1024px) {
     width: 19%;
   }
@@ -88,8 +100,32 @@ export const DropDownContainer = styled.div`
 `
 
 export const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
   &:hover {
     color: ${colors.secondary};
-    cursor: pointer;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid ${colors.greyText};
+    border-radius: 4px;
+    outline: none;
+    margin-right: 10px;
+    &:checked {
+      background-color: ${colors.secondary};
+      border-color: ${colors.secondary};
+    }
+    &:checked::before {
+      content: '\u2713';
+      display: block;
+      text-align: center;
+      line-height: 18px;
+      color: white;
+    }
   }
 `

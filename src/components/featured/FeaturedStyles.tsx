@@ -195,3 +195,12 @@ export const SlowLoader = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 `
+
+export const NoProperties = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 50px;
+  color: ${colors.greyText};
+  font-size: 25px;
+`

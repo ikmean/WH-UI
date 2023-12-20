@@ -1,25 +1,36 @@
 import React from 'react'
 import { ArrowContainer, DropDownContainer, DropdownBox, DropdownList, Gap, ListItem } from './DropdownStyles'
 import { ReactComponent as DownArrow } from '../../lib/icons/downArrow.svg'
-import { ReactComponent as LocationIcon } from '../../lib/icons/location.svg'
-import { ReactComponent as PropertyIcon } from '../../lib/icons/property.svg'
-import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
 import Loader from '../Loader/Loader'
 
-export default function Dropdown({ text, data }) {
+export default function Dropdown({ text, icon, data, onSelect }) {
+  const handleSelect = (item) => {
+    onSelect(item.title, icon)
+  }
+  const hasSelection = data.some((item) => item.selected)
+
   return (
     <DropDownContainer>
-      <DropdownBox>
+      <DropdownBox isSelected={hasSelection}>
         <Gap>
-          {text === 'Location' && <LocationIcon />}
-          {text === 'Property' && <PropertyIcon />}
-          {text === 'Type' && <TypeIcon />}
+          {icon}
           <span>{text}</span>
         </Gap>
         <ArrowContainer>
           <DownArrow />
         </ArrowContainer>
-        <DropdownList>{!data ? <Loader /> : data.map((item) => <ListItem key={item.id}>{item.title}</ListItem>)}</DropdownList>
+        <DropdownList>
+          {!data ? (
+            <Loader />
+          ) : (
+            data.map((item) => (
+              <ListItem key={item.id} selected={item.selected}>
+                <input type='checkbox' checked={item.selected} onChange={() => handleSelect(item)} />
+                {item.title}
+              </ListItem>
+            ))
+          )}
+        </DropdownList>
       </DropdownBox>
     </DropDownContainer>
   )

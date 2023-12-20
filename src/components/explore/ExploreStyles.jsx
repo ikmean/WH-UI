@@ -10,7 +10,7 @@ export const ExploreWrapper = styled.div`
 export const ExploreHeader = styled.h1`
   font-size: 3rem;
   font-weight: 700;
-  line-height: 4rem;
+  line-height: 60px;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1.6s ease 0.5s forwards;
 `

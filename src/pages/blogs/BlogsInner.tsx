@@ -38,7 +38,7 @@ function BlogsInner() {
           <DateWrapper>Articles - {formattedDate}</DateWrapper>
           <h1>{data?.title}</h1>
           <p>{data?.description}</p>
-          <Link to={`agents/${data?.agent}`}>
+          <Link to={`/agents/${data?.agent}`}>
             <Author>
               <img src={agentsInner?.profilePicture.small} alt='img2' />
               <div>
@@ -67,7 +67,7 @@ function BlogsInner() {
         <h3>{data?.header6}</h3>
         <p>{data?.text6}</p>
       </ArticleContent>
-      <Link to={`agents/${data?.agent}`}>
+      <Link to={`/agents/${data?.agent}`}>
         <AuthorBigger>
           <img src={agentsInner?.profilePicture.small} alt='img2' />
           <div>

@@ -32,3 +32,15 @@ export const RequestPropertyStyles = styled.div`
     margin-bottom: 65px;
   }
 `
+
+export const SubmittedMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: ${colors.secondary};
+  position: relative;
+  height: 330px;
+  width: 360px;
+  font-size: 20px;
+`
