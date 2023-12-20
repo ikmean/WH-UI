@@ -57,23 +57,15 @@ export default function SearchContainer() {
 
   return (
     <SearchContainerStyles>
-      <Dropdown
-        text={'Type'}
-        // text={selectedDealType?.length > 0 ? selectedDealType.join(', ') : 'Type'}
-        icon={<TypeIcon />}
-        data={checkIfSelected(dealType, selectedDealType)}
-        onSelect={handleSelectDealType}
-      />
+      <Dropdown text={'Type'} icon={<TypeIcon />} data={checkIfSelected(dealType, selectedDealType)} onSelect={handleSelectDealType} />
       <Dropdown
         text={'Property'}
-        // text={selectedPropertyCategory?.length > 0 ? selectedPropertyCategory.join(', ') : 'Property'}
         icon={<PropertyIcon />}
         data={checkIfSelected(propertyCategory, selectedPropertyCategory)}
         onSelect={handleSelectPropertyCategory}
       />
       <Dropdown
         text={'Location'}
-        // text={selectedLocation?.length > 0 ? selectedLocation.join(', ') : 'Location'}
         icon={<LocationIcon />}
         data={checkIfSelected(location, selectedLocation)}
         onSelect={handleSelectLocation}

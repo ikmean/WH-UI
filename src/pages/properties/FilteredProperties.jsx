@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-extra-semi */
 import React, { useContext, useEffect, useState } from 'react'
-import { PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
+import { NoProperties, PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
 import FeaturedBox from '../../components/featured/FeturedBox'
 import PropertiesHeader from '../../components/properties/Header'
 import SearchContainer from '../../components/search/SearchContainer'
@@ -35,12 +35,9 @@ function FilteredProperties() {
       const categoryMatch = selectedPropertyCategory.length === 0 || selectedPropertyCategory.includes(property.category)
       const searchMatch =
         searchInput.trim() === '' ||
-        property.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-        property.streetAddress.toLowerCase().includes(searchInput.toLowerCase()) ||
-        property.city.toLowerCase().includes(searchInput.toLowerCase()) ||
-        property.district.toLowerCase().includes(searchInput.toLowerCase()) ||
-        property.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-        property.aboutProperty.toLowerCase().includes(searchInput.toLowerCase())
+        [property.title, property.streetAddress, property.city, property.district, property.description, property.aboutProperty].some(
+          (field) => field.toLowerCase().includes(searchInput.toLowerCase())
+        )
 
       return dealTypeMatch && locationMatch && categoryMatch && searchMatch
     })
@@ -80,7 +77,7 @@ function FilteredProperties() {
     <div className='container'>
       <PropertiesHeader />
       <SearchContainer />
-      {filteredPropertyList.length > 0 && (
+      {filteredPropertyList.length > 0 ? (
         <PropertiesPageWrapper>
           {currentProperties.map((data, i) => (
             <FeaturedBox
@@ -94,6 +91,8 @@ function FilteredProperties() {
             />
           ))}
         </PropertiesPageWrapper>
+      ) : (
+        <NoProperties>No properties found</NoProperties>
       )}
       <ButtonsStyles>
         {currentPage > 1 && <Button color='white' text='Previous page' click={prevPage} />}

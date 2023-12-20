@@ -7,10 +7,11 @@ export default function Dropdown({ text, icon, data, onSelect }) {
   const handleSelect = (item) => {
     onSelect(item.title, icon)
   }
+  const hasSelection = data.some((item) => item.selected)
 
   return (
     <DropDownContainer>
-      <DropdownBox>
+      <DropdownBox isSelected={hasSelection}>
         <Gap>
           {icon}
           <span>{text}</span>

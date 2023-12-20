@@ -32,7 +32,6 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
   border-radius: 26px;
   overflow: hidden;
   transition: transform 0.3s ease;
-
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
@@ -114,7 +113,7 @@ export const AgentWrapper = styled.div`
 export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  /* gap: 30px; */
   align-items: flex-start;
   word-break: break-all;
   div {
