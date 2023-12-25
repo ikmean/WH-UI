@@ -23,6 +23,7 @@ export const BoxWrapper = styled.div<props>`
   background: white;
   border-radius: 26px;
   transition: transform 0.3s ease;
+  display: ${({ featured }) => (featured ? 'flex' : '')};
   &:hover {
     transition: transform 0.3s ease;
     transform: translateY(-10px);
@@ -43,6 +44,7 @@ export const BoxWrapper = styled.div<props>`
     img {
       transition: transform 0.3s;
     }
+    width: 100%;
   }
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   margin-bottom: 32px;
@@ -61,6 +63,7 @@ export const BoxWrapper = styled.div<props>`
 export const ImgWrapper = styled.div<{ main: any; featured: any }>`
   position: relative;
   width: ${({ main }) => (main ? ' 53%' : '')};
+  width: ${({ featured }) => (featured ? ' 100%' : '')};
   height: ${({ main, featured }) => (featured ? '' : main ? '375px' : '')};
   transform: translate(0);
   div {
@@ -120,7 +123,6 @@ export const Price = styled.span<props>`
   margin-bottom: ${({ featured }) => (featured ? '' : '13px')};
   font-weight: 700;
   font-size: 22px;
-  cursor: pointer;
 `
 
 export const CurrencyIcons = styled.div`
@@ -128,6 +130,7 @@ export const CurrencyIcons = styled.div`
   background-color: grey;
   border-radius: 20px;
   padding: none !important;
+  cursor: pointer;
   svg {
     width: 30px;
     height: 30px;

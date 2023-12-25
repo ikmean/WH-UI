@@ -54,11 +54,11 @@ function PropertiesInner() {
   useEffect(() => {
     if (id) {
       fetchPropertyInnerData(id)
-      window.scrollTo(0, 0)
     }
   }, [id, fetchPropertyInnerData])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchPropertiesData()
   }, [fetchPropertiesData])
 
