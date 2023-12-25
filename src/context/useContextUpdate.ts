@@ -25,7 +25,8 @@ export default function useContextUpdateFromSocket() {
         setSelectedDealType,
         setSelectedPropertyCategory,
         setSelectedLocation,
-        createCustomerRequest,cleanupSearchParams
+        createCustomerRequest,
+        cleanupSearchParams
       }
     })
   }, [])
@@ -57,7 +58,6 @@ export default function useContextUpdateFromSocket() {
 
   const cleanupSearchParams = () => {
     setContext((ctx) => {
-    
       return { ...ctx, searchInput: null, selectedDealType: [], selectedLocation: [], selectedPropertyCategory: [] }
     })
   }
