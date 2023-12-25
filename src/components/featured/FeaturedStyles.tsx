@@ -123,7 +123,7 @@ export const Price = styled.span<props>`
   margin-bottom: ${({ featured }) => (featured ? '' : '13px')};
   font-weight: 700;
   font-size: 22px;
-  `
+`
 
 export const CurrencyIcons = styled.div`
   align-items: center;

@@ -21,7 +21,7 @@ export default function FeaturedBox({ data }: any) {
 
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
-      <Link to={`/properties/${data.id.toString()}`} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth'})}>
+      <Link to={`/properties/${data.id.toString()}`} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}>
         <ImgWrapper main={data.main} featured={data.featured}>
           <img src={data.gallery[0].url} alt='featuredImg1' />
           <div>
@@ -33,46 +33,46 @@ export default function FeaturedBox({ data }: any) {
           </div>
         </ImgWrapper>
       </Link>
-        <TextBox featured={data.featured} main={data.main}>
-          <Top featured={data.featured}>
-            <LocationContainer featured={data.featured}>
-              <Location />
-              <span className='location'>
-                {data.streetAddress}, {data.city}
-              </span>
-            </LocationContainer>
-            <div >
-              <Price featured={data.featured}>{selectedCurrency === 'gel' ? `${data.price.gel}` : `${data.price.usd}`}</Price>
-              <CurrencyIcons onClick={handleCurrencySwitch}>
-                <Gel />
-                <Usd />
-              </CurrencyIcons>
-            </div>
-          </Top>
-          <h2>{data.title}</h2>
-          {data.featured && <p>{data.description}</p>}
-          <Line />
+      <TextBox featured={data.featured} main={data.main}>
+        <Top featured={data.featured}>
+          <LocationContainer featured={data.featured}>
+            <Location />
+            <span className='location'>
+              {data.streetAddress}, {data.city}
+            </span>
+          </LocationContainer>
           <div>
-            <InfoBox featured={data.featured}>
-              <SQFT />
-              <span>{data.size} m2</span>
-            </InfoBox>
-            <InfoBox featured={data.featured}>
-              <Bed />
-              <span>{data.bedRoomQuantity}</span>
-            </InfoBox>
-            <InfoBox featured={data.featured}>
-              <Bath />
-              <span>9</span>
-            </InfoBox>
-            {data.featured && (
-              <InfoBox featured={data.featured}>
-                <ParkingSmall />
-                <span>4</span>
-              </InfoBox>
-            )}
+            <Price featured={data.featured}>{selectedCurrency === 'gel' ? `${data.price.gel}` : `${data.price.usd}`}</Price>
+            <CurrencyIcons onClick={handleCurrencySwitch}>
+              <Gel />
+              <Usd />
+            </CurrencyIcons>
           </div>
-        </TextBox>
+        </Top>
+        <h2>{data.title}</h2>
+        {data.featured && <p>{data.description}</p>}
+        <Line />
+        <div>
+          <InfoBox featured={data.featured}>
+            <SQFT />
+            <span>{data.size} m2</span>
+          </InfoBox>
+          <InfoBox featured={data.featured}>
+            <Bed />
+            <span>{data.bedRoomQuantity}</span>
+          </InfoBox>
+          <InfoBox featured={data.featured}>
+            <Bath />
+            <span>9</span>
+          </InfoBox>
+          {data.featured && (
+            <InfoBox featured={data.featured}>
+              <ParkingSmall />
+              <span>4</span>
+            </InfoBox>
+          )}
+        </div>
+      </TextBox>
     </BoxWrapper>
   )
 }
