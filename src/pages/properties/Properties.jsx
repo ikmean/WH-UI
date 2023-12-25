@@ -42,7 +42,7 @@ function Properties() {
 
   const indexOfLastProperty = currentPage * propertiesPerPage
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage
-  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty)
+  const currentProperties = properties?.slice(indexOfFirstProperty, indexOfLastProperty)
 
   const nextPage = () => {
     if (indexOfLastProperty < properties.length) {

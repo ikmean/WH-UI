@@ -24,10 +24,35 @@ export default function useContextUpdateFromSocket() {
         setSearchInput,
         setSelectedDealType,
         setSelectedPropertyCategory,
-        setSelectedLocation
+        setSelectedLocation,
+        createCustomerRequest
       }
     })
   }, [])
+
+  interface customerContactRequestPayload {
+    fullName?: string
+    lastName?: string
+    email: string
+    phoneNumber?: string
+    property?: string
+    contactDetails?: string
+  }
+  const createCustomerRequest = (payload: customerContactRequestPayload) => {
+    const url = `${globalUrl}customer-contact-requests/call-me`
+
+    axios
+      .post(url, {
+        name: payload?.fullName || 'unknown',
+        lastName: payload?.lastName || 'unknown',
+        email: payload.email,
+        phoneNumber: payload?.phoneNumber || 'unknown',
+        property: payload?.property,
+        contactDetails: payload?.contactDetails || 'unknown'
+      })
+      .then((response) => console.log('Customer Request Response: ', response))
+      .catch((error) => console.log(error))
+  }
 
   const setSearchInput = (value: any) => {
     setContext((ctx) => {

@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { RequestPropertyStyles, SubmittedMessage } from './RequestPropertyStyles'
 import { Line } from '../articles/ArticlesStyles'
 import Button from '../button/Button'
 import AgentBox from '../agents/AgentBox'
 import { colors } from '../../lib/colors'
 import { InputStyles } from '../input/InputStyles'
+import { AppContext } from '../../context/createContext'
 
-function RequestProperty({ rentOrSale, price, agent }: any) {
+function RequestProperty({ rentOrSale, price, agent, property }: any) {
+  const { context } = useContext(AppContext)
+  const { createCustomerRequest } = context
+
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -39,12 +43,14 @@ function RequestProperty({ rentOrSale, price, agent }: any) {
       return
     }
     setFormSubmitted(true)
+
+    createCustomerRequest({ fullName, email, phoneNumber, property })
   }
 
   return (
     <RequestPropertyStyles>
       <h3>Property for {rentOrSale}</h3>
-      <h1>${price}</h1>
+      <h1>${price.usd}</h1>
       <Line />
       <h2>Get in touch to receive more info</h2>
       {formSubmitted ? (

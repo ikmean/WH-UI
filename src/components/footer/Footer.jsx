@@ -11,7 +11,7 @@ export default function Footer() {
     triggerOnce: true,
     rootMargin: '-80px'
   })
-  console.log('footer', inView)
+
   return (
     <FooterWrapper className='footer' ref={ref}>
       {inView && (

@@ -2,7 +2,7 @@ import React from 'react'
 import { ButtonWrapper } from './ButtonStyles'
 
 interface ButtonProps {
-  text: string
+  text?: string
   color: string
   width?: string
   borderRadius?: string

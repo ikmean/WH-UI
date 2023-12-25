@@ -9,10 +9,6 @@ export interface props {
   main?: boolean
 }
 
-export interface data {
-  data: any
-}
-
 export const HeaderStyles = styled.div`
   display: flex;
   justify-content: space-between;
@@ -20,6 +16,7 @@ export const HeaderStyles = styled.div`
   margin-top: 160px;
   margin-bottom: 64px;
 `
+
 export const BoxWrapper = styled.div<props>`
   z-index: 999;
   position: relative;
@@ -98,11 +95,13 @@ export const LocationContainer = styled.div<props>`
   display: flex;
   align-items: center;
   color: ${colors.greyText};
+  margin-top: 10px;
   span {
     padding-left: 11px;
     font-size: ${({ featured }) => (featured ? '18px' : '16px')};
   }
 `
+
 export const Top = styled.div<props>`
   display: flex;
   align-items: ${({ featured }) => (featured ? 'flex-start' : '')};
@@ -116,6 +115,26 @@ export const Price = styled.span<props>`
   margin-bottom: ${({ featured }) => (featured ? '' : '13px')};
   font-weight: 700;
   font-size: 22px;
+  padding: 10px 10px 0px 10px;
+  color: ${({ featured }) => (featured ? colors.secondary : 'black')};
+  margin-bottom: ${({ featured }) => (featured ? '' : '13px')};
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+`
+
+export const CurrencyIcons = styled.div`
+  align-items: center;
+  background-color: grey;
+  border-radius: 20px;
+  padding: none !important;
+  svg {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 5px;
+    /* background-color: ${colors.secondary}; */
+  }
 `
 
 export const Line = styled.div`

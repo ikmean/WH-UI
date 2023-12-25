@@ -146,3 +146,63 @@ export const ButtonsStyles = styled.div`
   justify-content: center;
   gap: 10px;
 `
+
+export const Buttons = styled.button`
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background-color: transparent;
+  color: ${colors.greyDarker};
+  border-radius: 12px;
+  border: 1px solid var(--neutral-300);
+  width: 56px;
+  box-shadow: 0 2px 8px rgba(20, 20, 43, 0.06);
+  cursor: pointer;
+  width: fit-content;
+  /* padding: 20px 15px; */
+  svg {
+    width: 45px;
+    height: 45px;
+    path {
+      stroke: ${colors.greyText};
+    }
+  }
+  &:hover {
+    svg {
+      path {
+        stroke: ${colors.grey};
+      }
+    }
+  }
+`
+
+export const ButtonClose = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: ${colors.greyDarker};
+  border-radius: 12px;
+  border: 1px solid var(--neutral-300);
+  width: 56px;
+  box-shadow: 0 2px 8px rgba(20, 20, 43, 0.06);
+  cursor: pointer;
+  width: fit-content;
+  padding: 30px 30px;
+  svg {
+    width: 20px;
+    height: 20px;
+    path {
+      stroke: ${colors.greyText};
+      stroke-width: 5;
+    }
+  }
+  &:hover {
+    svg {
+      path {
+        stroke: ${colors.grey};
+      }
+    }
+  }
+`

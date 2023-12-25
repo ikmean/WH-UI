@@ -33,10 +33,11 @@ function FilteredProperties() {
       const dealTypeMatch = selectedDealType.length === 0 || selectedDealType.includes(property.dealType)
       const locationMatch = selectedLocation.length === 0 || selectedLocation.includes(property.city)
       const categoryMatch = selectedPropertyCategory.length === 0 || selectedPropertyCategory.includes(property.category)
+
       const searchMatch =
-        searchInput.trim() === '' ||
+        searchInput === null ||
         [property.title, property.streetAddress, property.city, property.district, property.description, property.aboutProperty].some(
-          (field) => field.toLowerCase().includes(searchInput.toLowerCase())
+          (field) => field.toLowerCase().includes(searchInput?.trim().toLowerCase())
         )
 
       return dealTypeMatch && locationMatch && categoryMatch && searchMatch

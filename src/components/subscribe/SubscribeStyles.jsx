@@ -57,3 +57,18 @@ export const SubscribeInputStyles = styled.div`
     }
   }
 `
+
+export const SuccessMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: ${colors.secondary};
+  background-color: ${colors.pink};
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  width: 460px;
+  padding-left: 30px;
+  font-size: 20px;
+`
