@@ -9,7 +9,7 @@ export default function Properties({ title, properties }: any) {
     triggerOnce: true,
     rootMargin: '-200px'
   })
-  console.log('properties', inView)
+
   return (
     <div ref={ref}>
       {inView && (

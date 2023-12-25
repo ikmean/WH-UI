@@ -8,8 +8,7 @@ import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg
 import { ReactComponent as Gel } from '../../lib/icons/gel.svg'
 import { ReactComponent as Usd } from '../../lib/icons/usd.svg'
 
-import { Link } from 'react-router-dom'
-;('../button/Button')
+import { Link } from 'react-router-dom';
 
 export default function FeaturedBox({ data }: any) {
   const [selectedCurrency, setSelectedCurrency] = useState('gel')

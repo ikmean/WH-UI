@@ -25,7 +25,7 @@ export default function useContextUpdateFromSocket() {
         setSelectedDealType,
         setSelectedPropertyCategory,
         setSelectedLocation,
-        createCustomerRequest
+        createCustomerRequest,cleanupSearchParams
       }
     })
   }, [])
@@ -38,6 +38,7 @@ export default function useContextUpdateFromSocket() {
     property?: string
     contactDetails?: string
   }
+
   const createCustomerRequest = (payload: customerContactRequestPayload) => {
     const url = `${globalUrl}customer-contact-requests/call-me`
 
@@ -52,6 +53,13 @@ export default function useContextUpdateFromSocket() {
       })
       .then((response) => console.log('Customer Request Response: ', response))
       .catch((error) => console.log(error))
+  }
+
+  const cleanupSearchParams = () => {
+    setContext((ctx) => {
+    
+      return { ...ctx, searchInput: null, selectedDealType: [], selectedLocation: [], selectedPropertyCategory: [] }
+    })
   }
 
   const setSearchInput = (value: any) => {
