@@ -19,6 +19,7 @@ import RequestProperty from '../../components/request/RequestProperty'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { Line } from '../../components/articles/ArticlesStyles'
 import { InfoBox } from '../../components/featured/FeaturedStyles'
+import ImageModal from './ImageModal'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
 import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
@@ -37,6 +38,8 @@ function PropertiesInner() {
   const [data, setData] = useState(propertyInner)
   const { id } = useParams()
   const galleryRef = useRef(null)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     if (propertyInner) {
@@ -44,7 +47,6 @@ function PropertiesInner() {
 
       if (propertyInner.agent) {
         fetchAgentsInnerData(propertyInner.agent)
-        console.log(agentsInner)
       }
     }
   }, [propertyInner])
@@ -62,6 +64,17 @@ function PropertiesInner() {
 
   const handleClick = function () {
     galleryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
+  }
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = (e) => {
+    e.preventDefault()
+
+    setIsModalOpen(false)
   }
 
   return (
@@ -85,7 +98,7 @@ function PropertiesInner() {
             </ButtonWrapper>
           </ImgBtnStyles>
           <ContentContainer className='container'>
-            <RequestProperty rentOrSale={data.dealType} price={data.price} agent={agentsInner} />
+            <RequestProperty rentOrSale={data.dealType} price={data.price} agent={agentsInner} property={id} />
             <TextContent>
               <h3>{data.streetAddress}</h3>
               <h1>{data.title}</h1>
@@ -130,7 +143,7 @@ function PropertiesInner() {
               </div>
               <GalleryContainer>
                 {data.gallery.map((photo, i) => (
-                  <GalleryStyles key={i}>
+                  <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
                     <img key={i} src={photo.url} alt='img' />
                     <BlackImage>
                       <img src={blackImage} alt='blackImage' />
@@ -150,6 +163,13 @@ function PropertiesInner() {
           <Properties title='Browse more properties' properties={properties} />
         </div>
       </BrowseMore>
+      <ImageModal
+        isModalOpen={isModalOpen}
+        selectedImageIndex={selectedImageIndex}
+        setSelectedImageIndex={setSelectedImageIndex}
+        data={data}
+        closeModal={closeModal}
+      />
     </PropertiesInnerPageContainer>
   )
 }

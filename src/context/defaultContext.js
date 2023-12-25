@@ -29,5 +29,6 @@ export const defaultAppCTX = {
   fetchLocationData: () => {},
   fetchPropertyCategoryData: () => {},
   fetchDealTypeData: () => {},
-  setSearchInput: () => {}
+  setSearchInput: () => {},
+  createCustomerRequest: () => {}
 }

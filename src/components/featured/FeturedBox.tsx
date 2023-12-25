@@ -1,14 +1,25 @@
-import React from 'react'
-import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top } from './FeaturedStyles'
+import React, { useState } from 'react'
+import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top, CurrencyIcons } from './FeaturedStyles'
 import { ReactComponent as Location } from '../../lib/icons/location.svg'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
 import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
-import { data } from './FeaturedStyles'
-import { Link } from 'react-router-dom'
+import { ReactComponent as Gel } from '../../lib/icons/gel.svg'
+import { ReactComponent as Usd } from '../../lib/icons/usd.svg'
 
-export default function FeaturedBox({ data }: data) {
+import { Link } from 'react-router-dom'
+;('../button/Button')
+
+export default function FeaturedBox({ data }: any) {
+  const [selectedCurrency, setSelectedCurrency] = useState('gel')
+
+  const handleCurrencySwitch = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    event.preventDefault()
+
+    setSelectedCurrency((prevCurrency) => (prevCurrency === 'gel' ? 'usd' : 'gel'))
+  }
+
   return (
     <BoxWrapper featured={data.featured} main={data.main}>
       <Link to={`/properties/${data.id.toString()}`}>
@@ -30,7 +41,13 @@ export default function FeaturedBox({ data }: data) {
                 {data.streetAddress}, {data.city}
               </span>
             </LocationContainer>
-            <Price featured={data.featured}>${data.price}</Price>
+            <div onClick={handleCurrencySwitch}>
+              <Price featured={data.featured}>{selectedCurrency === 'gel' ? `₾${data.price.gel}` : `$${data.price.usd}`}</Price>
+              <CurrencyIcons>
+                <Gel />
+                <Usd />
+              </CurrencyIcons>
+            </div>
           </Top>
           <h2>{data.title}</h2>
           {data.featured && <p>{data.description}</p>}
