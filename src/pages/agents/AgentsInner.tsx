@@ -9,6 +9,8 @@ import { AppContext } from '../../context/createContext'
 import { useParams } from 'react-router-dom'
 import { PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
 import FeaturedBox from '../../components/featured/FeturedBox'
+import { Util } from '../../helpers/Util'
+import Loader from '../../components/Loader/Loader'
 
 function AgentsInner() {
   const { context } = useContext(AppContext)
@@ -21,14 +23,16 @@ function AgentsInner() {
     if (id) {
       fetchAgentsInnerData(id)
     }
+    window.scrollTo(0,0)
   }, [id, fetchAgentsInnerData])
 
   useEffect(() => {
     agentsInner && setData(agentsInner)
-    console.log(data)
   }, [agentsInner])
 
   return (
+    Util.isNull(data) ? 
+    <Loader /> :
     <AgentsInnerPageStyles>
       <AgentBoxWrapperPage>
         <img src={agentsInner?.profilePicture.url} alt='img2' />

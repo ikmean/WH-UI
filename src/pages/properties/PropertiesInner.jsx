@@ -31,6 +31,8 @@ import Button from '../../components/button/Button'
 import Properties from '../../components/properties/Properties'
 import { AppContext } from '../../context/createContext'
 import { useParams } from 'react-router-dom'
+import { Util } from '../../helpers/Util'
+import Loader from '../../components/Loader/Loader'
 
 function PropertiesInner() {
   const { context } = useContext(AppContext)
@@ -77,7 +79,9 @@ function PropertiesInner() {
     setIsModalOpen(false)
   }
 
-  return (
+  return Util.isNull(data) ? (
+    <Loader />
+  ) : (
     <PropertiesInnerPageContainer>
       {data && (
         <>

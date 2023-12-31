@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Header } from './AgentsStyles'
 import { AppContext } from '../../context/createContext'
 import { Agents } from '../../components/agents/Agents'
 import Loader from '../../components/Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 function AgentsPage() {
   const { context } = useContext(AppContext)
@@ -14,7 +15,7 @@ function AgentsPage() {
 
   return (
     <>
-      {!agents ? (
+      {Util.isNull(agents) ? (
         <Loader />
       ) : (
         <div className='container'>

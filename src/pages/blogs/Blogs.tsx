@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from 'react'
-import { ArticleListWrapper, Header, SearchWrapper } from './BlogsStyles'
-import Search from '../../components/search/Search'
+import { ArticleListWrapper, Header } from './BlogsStyles'
 import ArticleBox from '../../components/articles/ArticleBox'
 import { AppContext } from '../../context/createContext'
 import { ArticleBoxList, ArticleList } from '../../components/articles/ArticlesStyles'
+import Loader from '../../components/Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 function Blogs() {
   const { context } = useContext(AppContext)
@@ -13,8 +14,9 @@ function Blogs() {
     fetchBlogsData()
   }, [fetchBlogsData])
 
-  console.log(blogs)
   return (
+    Util.isNull(blogs) ? 
+    <Loader /> :
     <div className='container'>
       <Header>
         <h1>Articles & Resources</h1>

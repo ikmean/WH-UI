@@ -2,6 +2,7 @@ import React from 'react'
 import { ArrowContainer, DropDownContainer, DropdownBox, DropdownList, Gap, ListItem } from './DropdownStyles'
 import { ReactComponent as DownArrow } from '../../lib/icons/downArrow.svg'
 import Loader from '../Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 export default function Dropdown({ text, icon, data, onSelect }) {
   const handleSelect = (item) => {
@@ -20,7 +21,7 @@ export default function Dropdown({ text, icon, data, onSelect }) {
           <DownArrow />
         </ArrowContainer>
         <DropdownList>
-          {!data ? (
+          {Util.isNull(data) ? (
             <Loader />
           ) : (
             data.map((item) => (
