@@ -23,16 +23,16 @@ function AgentsInner() {
     if (id) {
       fetchAgentsInnerData(id)
     }
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [id, fetchAgentsInnerData])
 
   useEffect(() => {
     agentsInner && setData(agentsInner)
   }, [agentsInner])
 
-  return (
-    Util.isNull(data) ? 
-    <Loader /> :
+  return Util.isNull(data) ? (
+    <Loader />
+  ) : (
     <AgentsInnerPageStyles>
       <AgentBoxWrapperPage>
         <img src={agentsInner?.profilePicture.url} alt='img2' />

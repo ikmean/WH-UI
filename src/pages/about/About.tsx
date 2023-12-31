@@ -25,10 +25,9 @@ function About() {
     fetchOfficesData()
   }, [fetchOfficesData])
 
-  return (
-
-    Util.isNull(about) ?  
-    <Loader /> :
+  return Util.isNull(about) ? (
+    <Loader />
+  ) : (
     <AboutContainer>
       <div className='container'>
         <h1>{about?.header}</h1>
@@ -44,15 +43,10 @@ function About() {
       </div>
       <TakeALook />
       <AboutUs />
-      {
-        Util.isNull(agents) ? <Loader /> : <AboutAgents agents={agents} />
-      }
-      
+      {Util.isNull(agents) ? <Loader /> : <AboutAgents agents={agents} />}
+
       <Values />
-      {
-        Util.isNull(offices) ? <Loader /> :  <Offices offices={offices} />
-      }
-    
+      {Util.isNull(offices) ? <Loader /> : <Offices offices={offices} />}
     </AboutContainer>
   )
 }

@@ -14,9 +14,9 @@ function Blogs() {
     fetchBlogsData()
   }, [fetchBlogsData])
 
-  return (
-    Util.isNull(blogs) ? 
-    <Loader /> :
+  return Util.isNull(blogs) ? (
+    <Loader />
+  ) : (
     <div className='container'>
       <Header>
         <h1>Articles & Resources</h1>

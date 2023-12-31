@@ -24,12 +24,12 @@ function BlogsInner() {
     if (id) {
       fetchBlogsInnerData(id)
     }
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0)
   }, [id, fetchBlogsInnerData])
 
-  return (
-    Util.isNull(blogsInner) ? 
-    <Loader /> :
+  return Util.isNull(blogsInner) ? (
+    <Loader />
+  ) : (
     <>
       <ArticleHeaderWrapper>
         <ArticleHeaderContent>
