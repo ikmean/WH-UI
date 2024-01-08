@@ -8,45 +8,24 @@ import { AppContext } from '../../context/createContext'
 import Button from '../../components/button/Button'
 import { ButtonsStyles } from './PropertiesStyles'
 import { useSearchParams } from 'react-router-dom'
-import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 
 function PropertiesPage() {
   const { context } = useContext(AppContext)
-  const {
-    properties,
-    fetchLocationData,
-    fetchPropertyCategoryData,
-    fetchDealTypeData,
-    selectedDealType,
-    selectedPropertyCategory,
-    selectedLocation,
-    searchInput
-  } = context
+  const { properties, fetchPropertiesData, fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData, loadingProperties } = context
   const [searchParams, setSearchParams] = useSearchParams()
-
   const [currentPage, setCurrentPage] = useState(1)
-  const [filteredPropertyList, setFilteredPropertyList] = useState([])
 
   const propertiesPerPage = 6
 
   useEffect(() => {
-    const filteredProperties = properties.filter((property) => {
-      const dealTypeMatch = selectedDealType.length === 0 || selectedDealType.includes(property.dealType)
-      const locationMatch = selectedLocation.length === 0 || selectedLocation.includes(property.city)
-      const categoryMatch = selectedPropertyCategory.length === 0 || selectedPropertyCategory.includes(property.category)
-
-      const searchMatch =
-        searchInput === null ||
-        [property.title, property.streetAddress, property.city, property.district, property.description, property.aboutProperty].some(
-          (field) => field.toLowerCase().includes(searchInput?.trim().toLowerCase())
-        )
-
-      return dealTypeMatch && locationMatch && categoryMatch && searchMatch
+    fetchPropertiesData({
+      dealType: searchParams.get('dealType'),
+      location: searchParams.get('location'),
+      category: searchParams.get('propertyCategory'),
+      text: searchParams.get('searchInput')
     })
-
-    setFilteredPropertyList(filteredProperties)
-  }, [properties, selectedDealType, selectedLocation, selectedPropertyCategory, searchInput, searchParams])
+  }, [])
 
   useEffect(() => {
     fetchLocationData()
@@ -62,7 +41,7 @@ function PropertiesPage() {
 
   const indexOfLastProperty = currentPage * propertiesPerPage
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage
-  const currentProperties = filteredPropertyList.slice(indexOfFirstProperty, indexOfLastProperty)
+  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty)
 
   const nextPage = () => {
     if (indexOfLastProperty < properties.length) {
@@ -78,33 +57,35 @@ function PropertiesPage() {
     }
   }
 
-  return Util.isNull(properties) ? (
-    <Loader />
-  ) : (
+  return (
     <div className='container'>
       <PropertiesHeader />
       <SearchContainer />
-      {filteredPropertyList.length > 0 ? (
-        <PropertiesPageWrapper>
-          {currentProperties.map((data, i) => (
-            <FeaturedBox
-              data={{
-                ...data,
-                featured: false,
-                main: false,
-                id: data.id
-              }}
-              key={i}
-            />
-          ))}
-        </PropertiesPageWrapper>
-      ) : (
-        <NoProperties>No properties found</NoProperties>
-      )}
-      <ButtonsStyles>
-        {currentPage > 1 && <Button color='white' text='Previous page' click={prevPage} />}
-        {indexOfLastProperty < filteredPropertyList.length && <Button color='white' text='Next page' click={nextPage} />}
-      </ButtonsStyles>
+      <>
+        {loadingProperties ? (
+          <Loader />
+        ) : properties.length > 0 ? (
+          <PropertiesPageWrapper>
+            {currentProperties.map((data, i) => (
+              <FeaturedBox
+                data={{
+                  ...data,
+                  featured: false,
+                  main: false,
+                  id: data.id
+                }}
+                key={i}
+              />
+            ))}
+          </PropertiesPageWrapper>
+        ) : (
+          <NoProperties>No properties found</NoProperties>
+        )}
+        <ButtonsStyles>
+          {currentPage > 1 && <Button color='white' text='Previous page' click={prevPage} />}
+          {indexOfLastProperty < properties.length && <Button color='white' text='Next page' click={nextPage} />}
+        </ButtonsStyles>
+      </>
     </div>
   )
 }

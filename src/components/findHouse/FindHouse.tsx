@@ -10,7 +10,6 @@ export default function FindHouse() {
     triggerOnce: true,
     rootMargin: '-300px'
   })
-  console.log('findHouse', inView)
   return (
     <div ref={ref}>
       {inView && (

@@ -6,6 +6,7 @@ export default function useContextUpdateFromSocket() {
   const [context, setContext] = useState(defaultAppCTX)
   const [globalUrl] = useState('https://wh-api-gky42.ondigitalocean.app/content/')
 
+
   useEffect(() => {
     setContext((ctx: any) => {
       return {
@@ -56,6 +57,7 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
+  
   const cleanupSearchParams = () => {
     setContext((ctx) => {
       return { ...ctx, searchInput: null, selectedDealType: [], selectedLocation: [], selectedPropertyCategory: [] }
@@ -86,14 +88,23 @@ export default function useContextUpdateFromSocket() {
     })
   }
 
-  const fetchPropertiesData = () => {
-    const url = `${globalUrl}properties`
+
+  interface PropertiesSearchParams {
+    dealType? : [],
+    location?: [],
+    category?: [],
+    text?: string
+  }
+  const fetchPropertiesData = ( searchParams: PropertiesSearchParams) => {
+    const url = `${globalUrl}properties?dealType=${searchParams?.dealType}&city=${searchParams?.location}&category=${searchParams?.category}&text=${searchParams?.text}`
+    setContext(ctx => { return { ...ctx, loadingProperties: true }})
+
     axios
       .get(url)
       .then((response) => {
         const data = response.data.data
         setContext((ctx) => {
-          return { ...ctx, properties: data }
+          return { ...ctx, properties: data, loadingProperties: false }
         })
       })
       .catch((error) => console.log(error))
@@ -105,7 +116,6 @@ export default function useContextUpdateFromSocket() {
       .get(url)
       .then((response) => {
         const data = response.data.data
-        console.log('fetchPropertyInnerData', data)
         setContext((ctx) => {
           return { ...ctx, propertyInner: data }
         })
@@ -165,7 +175,6 @@ export default function useContextUpdateFromSocket() {
       })
       .catch((error) => console.log(error))
 
-    console.log(data)
     return data
   }
 

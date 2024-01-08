@@ -15,6 +15,7 @@ export const defaultAppCTX = {
   selectedPropertyCategory: [],
   selectedLocation: [],
   searchInput: null,
+  loadingProperties: true,
   setSelectedDealType: () => {},
   setSelectedPropertyCategory: () => {},
   setSelectedLocation: () => {},

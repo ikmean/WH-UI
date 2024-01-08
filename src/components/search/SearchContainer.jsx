@@ -6,6 +6,7 @@ import { ReactComponent as PropertyIcon } from '../../lib/icons/property.svg'
 import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
 import { SearchContainerStyles } from './SearchStyles.jsx'
 import { AppContext } from '../../context/createContext.js'
+import { useSearchParams } from 'react-router-dom'
 
 export default function SearchContainer() {
   const { context } = useContext(AppContext)
@@ -18,8 +19,11 @@ export default function SearchContainer() {
     selectedPropertyCategory,
     setSelectedPropertyCategory,
     selectedLocation,
-    setSelectedLocation
+    setSelectedLocation,
+    searchInput,
+    fetchPropertiesData
   } = context
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const handleSelectDealType = (value) => {
     const updatedSelectedDealType = toggleSelection(selectedDealType, value)
@@ -70,7 +74,14 @@ export default function SearchContainer() {
         data={checkIfSelected(location, selectedLocation)}
         onSelect={handleSelectLocation}
       />
-      <Search selectedDealType={selectedDealType} selectedPropertyCategory={selectedPropertyCategory} selectedLocation={selectedLocation} />
+      <Search
+        searchParams={searchParams}
+        fetchPropertiesData={fetchPropertiesData}
+        selectedDealType={selectedDealType}
+        selectedPropertyCategory={selectedPropertyCategory}
+        selectedLocation={selectedLocation}
+        searchInput={searchInput}
+      />
     </SearchContainerStyles>
   )
 }
