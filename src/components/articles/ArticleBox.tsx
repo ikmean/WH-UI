@@ -8,7 +8,7 @@ export default function ArticleBox({ type = 'default', data }: any) {
   const date = data && getDate(data?.publishedAt)
   return (
     <BoxContainer type={type}>
-      <Link to={data?.id?.toString()}>
+      <Link to={`/blogs/${data?.id?.toString()}`}>
         <ArticleBoxSmall type={type}>
           <img src={data?.cover?.small} alt='img1' width='406px' height='282.94px' />
           {data && (

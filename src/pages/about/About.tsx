@@ -6,6 +6,8 @@ import { Values } from '../../components/values/Values'
 import Offices from '../../components/offices/Offices'
 import { AppContext } from '../../context/createContext'
 import AboutAgents from '../../components/aboutUs/AboutAgents'
+import Loader from '../../components/Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 function About() {
   const { context } = useContext(AppContext)
@@ -23,7 +25,9 @@ function About() {
     fetchOfficesData()
   }, [fetchOfficesData])
 
-  return (
+  return Util.isNull(about) ? (
+    <Loader />
+  ) : (
     <AboutContainer>
       <div className='container'>
         <h1>{about?.header}</h1>
@@ -39,9 +43,10 @@ function About() {
       </div>
       <TakeALook />
       <AboutUs />
-      <AboutAgents agents={agents} />
+      {Util.isNull(agents) ? <Loader /> : <AboutAgents agents={agents} />}
+
       <Values />
-      <Offices offices={offices} />
+      {Util.isNull(offices) ? <Loader /> : <Offices offices={offices} />}
     </AboutContainer>
   )
 }

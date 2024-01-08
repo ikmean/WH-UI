@@ -11,7 +11,6 @@ export default function Discovery() {
     triggerOnce: true,
     rootMargin: '-390px'
   })
-  console.log('discovery', inView)
   return (
     <div ref={ref}>
       {inView && (

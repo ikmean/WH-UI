@@ -4,6 +4,7 @@ import FeaturedBox from './FeturedBox'
 import { useInView } from 'react-intersection-observer'
 import { SlowLoader } from './FeaturedStyles'
 import Loader from '../Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 export default function Featured({ properties }: any) {
   const [ref, inView] = useInView({
@@ -13,7 +14,7 @@ export default function Featured({ properties }: any) {
 
   return (
     <>
-      {!properties ? (
+      {Util.isNull(properties) ? (
         <Loader />
       ) : (
         <div ref={ref}>

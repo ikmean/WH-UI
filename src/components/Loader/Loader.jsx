@@ -1,11 +1,12 @@
 import React from 'react'
-import './Loader.css'
+import { LoaderContainer, LoaderAnimation } from './LoaderStyles'
 
-const Loader = () => {
+const Loader = ({ type = 'BIG' }) => {
   return (
-    <div className='loader-container'>
-      <div className='loader'></div>
-    </div>
+    <LoaderContainer type={type}>
+      <LoaderAnimation type={type}></LoaderAnimation>
+    </LoaderContainer>
   )
 }
+
 export default Loader

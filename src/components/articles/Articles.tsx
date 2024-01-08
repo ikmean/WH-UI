@@ -14,7 +14,7 @@ export default function Articles(data: any) {
     triggerOnce: true,
     rootMargin: '-245px'
   })
-  console.log('articles', inView)
+
   const [isHovering, setIsHovering] = useState({ left: false, right: false })
   const listContainerRef = useRef(null)
 
