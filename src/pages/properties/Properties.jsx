@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-extra-semi */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { NoProperties, PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
 import FeaturedBox from '../../components/featured/FeturedBox'
 import PropertiesHeader from '../../components/properties/Header'
@@ -12,11 +12,20 @@ import Loader from '../../components/Loader/Loader'
 
 function PropertiesPage() {
   const { context } = useContext(AppContext)
-  const { properties, fetchPropertiesData, fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData, loadingProperties } = context
+  const {
+    properties,
+    fetchPropertiesData,
+    fetchLocationData,
+    fetchPropertyCategoryData,
+    fetchDealTypeData,
+    loadingProperties,
+    setSelectedDealType,
+    setSelectedPropertyCategory,
+    setSelectedLocation,
+    setSearchInput
+  } = context
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
-
-  const propertiesPerPage = 6
 
   useEffect(() => {
     fetchPropertiesData({
@@ -25,20 +34,32 @@ function PropertiesPage() {
       category: searchParams.get('propertyCategory'),
       text: searchParams.get('searchInput')
     })
-  }, [])
-
-  useEffect(() => {
-    fetchLocationData()
-  }, [fetchLocationData])
-
-  useEffect(() => {
     fetchPropertyCategoryData()
-  }, [fetchPropertyCategoryData])
-
-  useEffect(() => {
+    fetchLocationData()
     fetchDealTypeData()
-  }, [fetchDealTypeData])
 
+    setSearchInput(searchParams.get('searchInput') !== 'null' ? searchParams.get('searchInput') : '')
+    setSelectedDealType(
+      searchParams
+        .get('dealType')
+        ?.split(',')
+        ?.filter((el) => el !== '') || []
+    )
+    setSelectedLocation(
+      searchParams
+        .get('location')
+        ?.split(',')
+        ?.filter((el) => el !== '') || []
+    )
+    setSelectedPropertyCategory(
+      searchParams
+        .get('propertyCategory')
+        ?.split(',')
+        ?.filter((el) => el !== '') || []
+    )
+  }, [fetchPropertiesData])
+
+  const propertiesPerPage = 6
   const indexOfLastProperty = currentPage * propertiesPerPage
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage
   const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty)

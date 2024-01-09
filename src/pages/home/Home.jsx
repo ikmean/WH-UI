@@ -25,24 +25,24 @@ function Home({ searchInput, setSearchInput }) {
   const featuredListRef = useRef(null)
 
   useEffect(() => {
-    fetchLocationData()
-  }, [fetchLocationData])
-
-  useEffect(() => {
-    fetchPropertyCategoryData()
-  }, [fetchPropertyCategoryData])
-
-  useEffect(() => {
     fetchDealTypeData()
+    fetchLocationData()
+    fetchPropertyCategoryData()
+    fetchPropertiesData()
+    fetchBlogsData()
   }, [fetchDealTypeData])
 
-  useEffect(() => {
-    fetchPropertiesData()
-  }, [fetchPropertiesData])
+  // useEffect(() => {
+  // }, [fetchPropertyCategoryData])
 
-  useEffect(() => {
-    fetchBlogsData()
-  }, [fetchBlogsData])
+  // useEffect(() => {
+  // }, [fetchDealTypeData])
+
+  // useEffect(() => {
+  // }, [fetchPropertiesData])
+
+  // useEffect(() => {
+  // }, [fetchBlogsData])
 
   return (
     <div className='flex-column'>

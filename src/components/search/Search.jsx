@@ -3,29 +3,9 @@ import { SearchBox, SearchButton } from './SearchStyles'
 import { ReactComponent as GraySearch } from '../../lib/icons/graySearch.svg'
 import { InputComponent } from '../input/Input'
 import { Link } from 'react-router-dom'
+import Button from '../button/Button'
 
-export default function Search({
-  searchParams,
-  fetchPropertiesData,
-  selectedDealType,
-  selectedPropertyCategory,
-  selectedLocation,
-  searchInput
-}) {
-  const handleClick = () => {
-    let dealType = selectedDealType
-    let location = selectedLocation
-    let category = selectedPropertyCategory
-    let text = searchInput
-
-    if (selectedDealType?.length === 0) dealType = searchParams.get('dealType')
-    if (selectedLocation?.length === 0) location = searchParams.get('location')
-    if (selectedPropertyCategory?.length === 0) category = searchParams.get('propertyCategory')
-    if (searchInput?.length === 0) text = searchInput.get('searchInput')
-
-    fetchPropertiesData({ dealType, location, category, text })
-  }
-
+export default function Search({ selectedDealType, selectedPropertyCategory, selectedLocation, searchInput }) {
   return (
     <SearchBox>
       <div>
@@ -37,11 +17,11 @@ export default function Search({
           selectedLocation={selectedLocation}
         />
       </div>
-      <Link
+      <Button
+        text='Search'
+        color='white'
         to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}`}
-      >
-        <SearchButton onClick={(e) => handleClick(e)}>Search</SearchButton>
-      </Link>
+      />
     </SearchBox>
   )
 }
