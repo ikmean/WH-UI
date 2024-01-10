@@ -34,7 +34,7 @@ function PropertiesPage() {
       location: searchParams.get('location'),
       category: searchParams.get('propertyCategory'),
       text: searchParams.get('searchInput'),
-      locale
+      locale: searchParams.get('locale') || locale
     })
     fetchPropertyCategoryData(locale)
     fetchLocationData(locale)

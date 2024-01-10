@@ -36,7 +36,7 @@ export default function Search() {
         />
       </div>
       <Link
-        to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}`}
+        to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}&locale=${locale}`}
       >
         <SearchButton onClick={() => handleClick()}>Search</SearchButton>
       </Link>

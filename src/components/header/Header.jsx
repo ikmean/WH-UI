@@ -11,7 +11,7 @@ export default function Header() {
 
   const handleLocaleChange = (value) => {
     cleanupSearchParams()
-    setSearchParams({})
+    setSearchParams({ locale: value })
     setLocale({ locale: value })
   }
 
@@ -47,10 +47,10 @@ export default function Header() {
       </Nav>
 
       <LocaleButtonWrapper>
-        <LocaleButton onClick={() => handleLocaleChange('en')} selected={locale === 'en'}>
+        <LocaleButton onClick={() => handleLocaleChange('en')} selected={searchParams.get('locale') === 'en'}>
           EN
         </LocaleButton>
-        <LocaleButton onClick={() => handleLocaleChange('ka')} selected={locale === 'ka'}>
+        <LocaleButton onClick={() => handleLocaleChange('ka')} selected={searchParams.get('locale') === 'ka'}>
           GE
         </LocaleButton>
       </LocaleButtonWrapper>
