@@ -36,7 +36,7 @@ import Loader from '../../components/Loader/Loader'
 
 function PropertiesInner() {
   const { context } = useContext(AppContext)
-  const { propertyInner, fetchPropertyInnerData, properties, fetchPropertiesData } = context
+  const { propertyInner, fetchPropertyInnerData, properties, fetchPropertiesData, locale } = context
   const { id } = useParams()
   const galleryRef = useRef(null)
   const [selectedImageIndex, setSelectedImageIndex] = useState(null)
@@ -50,11 +50,11 @@ function PropertiesInner() {
   }, [id, fetchPropertyInnerData])
 
   useEffect(() => {
-    fetchPropertiesData()
+    fetchPropertiesData({ locale })
   }, [fetchPropertiesData])
 
   const handleClick = function () {
-    galleryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
+    galleryRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
   }
 
   const handleImageClick = (index) => {
@@ -91,27 +91,27 @@ function PropertiesInner() {
             </ButtonWrapper>
           </ImgBtnStyles>
           <ContentContainer className='container'>
-            <RequestProperty rentOrSale={propertyInner.dealType} price={propertyInner.price} agent={propertyInner.agent} property={id} />
+            <RequestProperty rentOrSale={propertyInner?.dealType} price={propertyInner?.price} agent={propertyInner?.agent} property={id} />
             <TextContent>
-              <h3>{propertyInner.streetAddress}</h3>
-              <h1>{propertyInner.title}</h1>
+              <h3>{propertyInner?.streetAddress}</h3>
+              <h1>{propertyInner?.title}</h1>
               <InfoContainer className='flex'>
                 <InfoBox>
                   <SQFT />
-                  <span>{propertyInner.size} m²</span>
+                  <span>{propertyInner?.size} m²</span>
                 </InfoBox>
                 <InfoBox featured={true}>
                   <Bed />
-                  <span>{propertyInner.bedRoomQuantity}</span>
+                  <span>{propertyInner?.bedRoomQuantity}</span>
                 </InfoBox>
                 <InfoBox>
                   <Bath />
                   <span>{propertyInner?.bathroom}</span>
                 </InfoBox>
-                {propertyInner.parking && (
+                {propertyInner?.parking && (
                   <InfoBox>
                     <ParkingSmall />
-                    <span>{propertyInner.parking}</span>
+                    <span>{propertyInner?.parking}</span>
                   </InfoBox>
                 )}
               </InfoContainer>
@@ -123,8 +123,8 @@ function PropertiesInner() {
               <Line />
               <h2>Property amenities</h2>
               <AmenityContainer>
-                {propertyInner.amenities.map((data, i) => (
-                  <Amenity text={data.svg} key={i} />
+                {propertyInner?.amenities?.map((data, i) => (
+                  <Amenity text={data?.svg} key={i} />
                 ))}
               </AmenityContainer>
             </TextContent>
@@ -135,9 +135,9 @@ function PropertiesInner() {
                 <Button text='Request info' color='black' to='/' />
               </div>
               <GalleryContainer>
-                {propertyInner.gallery.map((photo, i) => (
+                {propertyInner?.gallery?.map((photo, i) => (
                   <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
-                    <img key={i} src={photo.url} alt='img' />
+                    <img key={i} src={photo?.url} alt='img' />
                     <BlackImage>
                       <img src={blackImage} alt='blackImage' />
                     </BlackImage>

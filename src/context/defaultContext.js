@@ -16,6 +16,8 @@ export const defaultAppCTX = {
   selectedLocation: [],
   searchInput: null,
   loadingProperties: true,
+  locale: 'en',
+  setLocale: () => {},
   setSelectedDealType: () => {},
   setSelectedPropertyCategory: () => {},
   setSelectedLocation: () => {},

@@ -21,7 +21,8 @@ export default function SearchContainer() {
     selectedLocation,
     setSelectedLocation,
     searchInput,
-    fetchPropertiesData
+    fetchPropertiesData,
+    locale
   } = context
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -81,6 +82,7 @@ export default function SearchContainer() {
         selectedPropertyCategory={selectedPropertyCategory}
         selectedLocation={selectedLocation}
         searchInput={searchInput}
+        locale={locale}
       />
     </SearchContainerStyles>
   )

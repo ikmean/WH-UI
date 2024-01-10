@@ -19,30 +19,19 @@ function Home({ searchInput, setSearchInput }) {
     fetchLocationData,
     fetchPropertyCategoryData,
     fetchDealTypeData,
-    loadingProperties
+    loadingProperties,
+    locale
   } = context
 
   const featuredListRef = useRef(null)
 
   useEffect(() => {
-    fetchDealTypeData()
-    fetchLocationData()
-    fetchPropertyCategoryData()
-    fetchPropertiesData()
-    fetchBlogsData()
+    fetchDealTypeData(locale)
+    fetchLocationData(locale)
+    fetchPropertyCategoryData(locale)
+    fetchPropertiesData({ locale })
+    fetchBlogsData(locale)
   }, [fetchDealTypeData])
-
-  // useEffect(() => {
-  // }, [fetchPropertyCategoryData])
-
-  // useEffect(() => {
-  // }, [fetchDealTypeData])
-
-  // useEffect(() => {
-  // }, [fetchPropertiesData])
-
-  // useEffect(() => {
-  // }, [fetchBlogsData])
 
   return (
     <div className='flex-column'>

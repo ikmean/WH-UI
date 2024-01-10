@@ -11,19 +11,13 @@ import { Util } from '../../helpers/Util'
 
 function About() {
   const { context } = useContext(AppContext)
-  const { agents, fetchAgentsData, about, fetchAboutData, offices, fetchOfficesData } = context
+  const { agents, fetchAgentsData, about, fetchAboutData, offices, fetchOfficesData, locale } = context
 
   useEffect(() => {
-    fetchAgentsData()
+    fetchAgentsData(locale)
+    fetchAboutData(locale)
+    fetchOfficesData(locale)
   }, [fetchAgentsData])
-
-  useEffect(() => {
-    fetchAboutData()
-  }, [fetchAboutData])
-
-  useEffect(() => {
-    fetchOfficesData()
-  }, [fetchOfficesData])
 
   return Util.isNull(about) ? (
     <Loader />

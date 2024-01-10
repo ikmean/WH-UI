@@ -22,7 +22,8 @@ function PropertiesPage() {
     setSelectedDealType,
     setSelectedPropertyCategory,
     setSelectedLocation,
-    setSearchInput
+    setSearchInput,
+    locale
   } = context
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
@@ -32,11 +33,12 @@ function PropertiesPage() {
       dealType: searchParams.get('dealType'),
       location: searchParams.get('location'),
       category: searchParams.get('propertyCategory'),
-      text: searchParams.get('searchInput')
+      text: searchParams.get('searchInput'),
+      locale
     })
-    fetchPropertyCategoryData()
-    fetchLocationData()
-    fetchDealTypeData()
+    fetchPropertyCategoryData(locale)
+    fetchLocationData(locale)
+    fetchDealTypeData(locale)
 
     setSearchInput(searchParams.get('searchInput') !== 'null' ? searchParams.get('searchInput') : '')
     setSelectedDealType(

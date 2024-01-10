@@ -7,10 +7,10 @@ import { Util } from '../../helpers/Util'
 
 function AgentsPage() {
   const { context } = useContext(AppContext)
-  const { agents, fetchAgentsData } = context
+  const { agents, fetchAgentsData, locale } = context
 
   useEffect(() => {
-    fetchAgentsData()
+    fetchAgentsData(locale)
   }, [fetchAgentsData])
 
   return (
