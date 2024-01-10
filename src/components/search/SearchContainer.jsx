@@ -75,15 +75,7 @@ export default function SearchContainer() {
         data={checkIfSelected(location, selectedLocation)}
         onSelect={handleSelectLocation}
       />
-      <Search
-        searchParams={searchParams}
-        fetchPropertiesData={fetchPropertiesData}
-        selectedDealType={selectedDealType}
-        selectedPropertyCategory={selectedPropertyCategory}
-        selectedLocation={selectedLocation}
-        searchInput={searchInput}
-        locale={locale}
-      />
+      <Search />
     </SearchContainerStyles>
   )
 }

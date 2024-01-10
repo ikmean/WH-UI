@@ -33,18 +33,29 @@ export default function useContextUpdateFromSocket() {
     })
   }, [])
 
-  const setLocale = (locale: string) => {
-    fetchPropertiesData({ locale })
-    fetchAgentsData(locale)
-    fetchBlogsData(locale)
-    fetchLocationData(locale)
-    fetchPropertyCategoryData(locale)
-    fetchDealTypeData(locale)
-    fetchAboutData(locale)
-    fetchOfficesData(locale)
+  interface ISearchParams {
+    locale: string
+  }
+
+  interface IPropertySearchParams extends ISearchParams {
+    dealType?: []
+    location?: []
+    category?: []
+    text?: string
+  }
+
+  const setLocale = (props: IPropertySearchParams) => {
+    fetchPropertiesData(props)
+    fetchAgentsData(props.locale)
+    fetchBlogsData(props.locale)
+    fetchLocationData(props.locale)
+    fetchPropertyCategoryData(props.locale)
+    fetchDealTypeData(props.locale)
+    fetchAboutData(props.locale)
+    fetchOfficesData(props.locale)
 
     setContext((ctx) => {
-      return { ...ctx, locale }
+      return { ...ctx, locale: props.locale }
     })
   }
   interface customerContactRequestPayload {
@@ -102,14 +113,7 @@ export default function useContextUpdateFromSocket() {
     })
   }
 
-  interface propertyParams {
-    locale: string
-    dealType?: []
-    location?: []
-    category?: []
-    text?: string
-  }
-  const fetchPropertiesData = (params: propertyParams) => {
+  const fetchPropertiesData = (params: IPropertySearchParams) => {
     const url = `${globalUrl}properties?locale=${params?.locale}&dealType=${params?.dealType}&city=${params?.location}&category=${params?.category}&text=${params?.text}`
     setContext((ctx) => {
       return { ...ctx, loadingProperties: true }
