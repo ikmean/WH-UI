@@ -1,13 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { Header } from '../aboutUs/AboutUsStyles'
 import { Agents } from '../../components/agents/Agents'
 
 function AboutAgents({ agents }: any) {
+  const { t } = useTranslation()
+
   return (
     <div className='container'>
       <Header className='flex space-between center'>
-        <h1>Meet the agents in our real estate firm</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mi lobortis gravida ornare leo in at in egestas.</p>
+        <h1>{t('MeetTheAgentsHeader')}</h1>
+        <p>{t('MeetTheAgentsDesc')}</p>
       </Header>
       <Agents data={agents} />
     </div>

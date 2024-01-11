@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import ArticleBox from './ArticleBox'
 import { Wrapper, Header, BoxWrapper, ArticleButton, ArticleButtonWrapper } from './ArticlesStyles'
 import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg'
@@ -10,6 +12,8 @@ import { useInView } from 'react-intersection-observer'
 import { SlowLoader } from '../featured/FeaturedStyles'
 
 export default function Articles(data: any) {
+  const { t } = useTranslation()
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-245px'
@@ -59,7 +63,7 @@ export default function Articles(data: any) {
       {inView && (
         <SlowLoader>
           <Header>
-            <h1>Read our latest articles</h1>
+            <h1>{t('ReadOurLatestArticles')}</h1>
             <ArticleButtonWrapper>
               <ArticleButton onClick={handleLeftClick} onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
                 {isHovering.left ? <ChevronLeftWhite /> : <ChevronLeft />}

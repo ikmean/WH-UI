@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { Header } from './AgentsStyles'
 import { AppContext } from '../../context/createContext'
 import { Agents } from '../../components/agents/Agents'
@@ -6,6 +8,8 @@ import Loader from '../../components/Loader/Loader'
 import { Util } from '../../helpers/Util'
 
 function AgentsPage() {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const { agents, fetchAgentsData, locale } = context
 
@@ -20,10 +24,8 @@ function AgentsPage() {
       ) : (
         <div className='container'>
           <Header className='flex space-between center'>
-            <h1>Our agents</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <h1>{t('OurAgents')}</h1>
+            <p>{t('AgentPageDesc')}</p>
           </Header>
           <Agents data={agents} />
         </div>

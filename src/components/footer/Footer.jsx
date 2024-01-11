@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import Logo from '../header/Logo'
 import { FooterText, FooterWrapper, Top, TopLeft } from './FooterStyles'
 import SocialMedia from '../socialMedia/SocialMedia'
@@ -7,6 +9,8 @@ import { useInView } from 'react-intersection-observer'
 import { SlowLoader } from '../featured/FeaturedStyles'
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-80px'
@@ -20,9 +24,7 @@ export default function Footer() {
             <Top>
               <TopLeft>
                 <Logo />
-                <FooterText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna sed tortor nullam vel velit quis enim et amet.
-                </FooterText>
+                <FooterText>{t('FooterText')}</FooterText>
                 <SocialMedia />
               </TopLeft>
               <Subscribe />

@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { RequestPropertyStyles, SubmittedMessage } from './RequestPropertyStyles'
 import { Line } from '../articles/ArticlesStyles'
 import Button from '../button/Button'
@@ -8,6 +10,8 @@ import { InputStyles } from '../input/InputStyles'
 import { AppContext } from '../../context/createContext'
 
 function RequestProperty({ rentOrSale, price, agent, property }: any) {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const { createCustomerRequest } = context
 
@@ -49,32 +53,34 @@ function RequestProperty({ rentOrSale, price, agent, property }: any) {
 
   return (
     <RequestPropertyStyles>
-      <h3>Property for {rentOrSale}</h3>
+      <h3>
+        {t('PropertyFor')} {rentOrSale}
+      </h3>
       <h1>${price.usd}</h1>
       <Line />
-      <h2>Get in touch to receive more info</h2>
+      <h2>{t('GetInTouch')}</h2>
       {formSubmitted ? (
         <SubmittedMessage>
-          <p>Your message has been submitted.</p>
-          <p>I will get back to you within 24-48 hours.</p>
+          <p>{t('MessageSubmited')}</p>
+          <p>{t('GetBackToYou')}</p>
         </SubmittedMessage>
       ) : (
         <div className={'column'} style={{ gap: '18px' }}>
           <InputStyles backgroundColor={colors.grey}>
-            <input placeholder='Full name' type='text' value={fullName} onChange={(e) => setFullName(e.target.value)} />
+            <input placeholder={t('FullName')} type='text' value={fullName} onChange={(e) => setFullName(e.target.value)} />
           </InputStyles>
           <InputStyles backgroundColor={colors.grey}>
-            <input placeholder='Email address' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder={t('Email')} type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
           </InputStyles>
           <InputStyles backgroundColor={colors.grey}>
-            <input placeholder='Phone Number' type='number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            <input placeholder={t('PhoneNumber')} type='number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
           </InputStyles>
-          <Button color='red' text='Request info' width='100%' to='/' click={handleSubmit} />
+          <Button color='red' text={t('RequestInfo')} width='100%' to='/' click={handleSubmit} />
         </div>
       )}
       <Line />
       <div>
-        <h2>Reach the agent</h2>
+        <h2>{t('ReachTheAgent')}</h2>
         <AgentBox type='small' data={agent} />
       </div>
     </RequestPropertyStyles>

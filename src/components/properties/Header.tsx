@@ -1,11 +1,15 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { PropertiesPageHeader } from '../featured/FeaturedStyles'
 
 function PropertiesHeader() {
+  const { t } = useTranslation()
+
   return (
     <PropertiesPageHeader>
-      <h1>Browse properties</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit bortis arcu enim urna adipiscing praesent .</p>
+      <h1>{t('PropertiesPageHeader')}</h1>
+      <p>{t('PropertiesPageDescription')}</p>
     </PropertiesPageHeader>
   )
 }

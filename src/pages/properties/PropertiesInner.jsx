@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useContext, useEffect, useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import {
   AmenityContainer,
   BlackImage,
@@ -35,6 +37,8 @@ import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 
 function PropertiesInner() {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const { propertyInner, fetchPropertyInnerData, properties, fetchPropertiesData, locale } = context
   const { id } = useParams()
@@ -81,7 +85,7 @@ function PropertiesInner() {
                 text={
                   <>
                     <PhotoCamera />
-                    <span className='margin'>Browse Gallery</span>
+                    <span className='margin'>{t('BrowseGallery')}</span>
                   </>
                 }
                 color={'white'}
@@ -117,11 +121,11 @@ function PropertiesInner() {
               </InfoContainer>
               <p>{propertyInner?.description}</p>
               <Line />
-              <h2>About the property</h2>
+              <h2>{t('AboutTheProperty')}</h2>
               <p>{propertyInner?.aboutProperty}</p>
               <br />
               <Line />
-              <h2>Property amenities</h2>
+              <h2>{t('PropertyAmenities')}</h2>
               <AmenityContainer>
                 {propertyInner?.amenities?.map((data, i) => (
                   <Amenity text={data?.svg} key={i} />
@@ -131,7 +135,7 @@ function PropertiesInner() {
             <Line />
             <div>
               <div ref={galleryRef} className='flex space-between center'>
-                <h1>Property gallery</h1>
+                <h1>{t('PropertyGallery')}</h1>
                 <Button text='Request info' color='black' to='/' />
               </div>
               <GalleryContainer>
@@ -153,7 +157,7 @@ function PropertiesInner() {
       )}
       <BrowseMore>
         <div className='container'>
-          <Properties title='Browse more properties' properties={properties} />
+          <Properties title={t('BrowseProperties')} properties={properties} />
         </div>
       </BrowseMore>
       <ImageModal

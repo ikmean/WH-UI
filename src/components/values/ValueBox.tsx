@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { ValueBoxWrapper, Icon } from './ValuesStyles'
 import { ReactComponent as Excellence } from '../../lib/icons/excellence.svg'
 import { ReactComponent as Accesibility } from '../../lib/icons/accesibility.svg'
@@ -9,6 +11,8 @@ interface props {
 }
 
 export const ValueBox = ({ type }: props) => {
+  const { t } = useTranslation()
+
   return (
     <ValueBoxWrapper>
       <Icon>
@@ -17,11 +21,8 @@ export const ValueBox = ({ type }: props) => {
         {type === 'quality' && <Quality />}
       </Icon>
       <div>
-        <h2>{type}</h2>
-        <p>
-          Lorem ipsum dolor sit amet conse ctetur adipiscing elit ipsum at iaculis nulla nulla justo vestibulum faucibus nec ullamcorper
-          bibend.
-        </p>
+        <h2>{t(`${type}`)}</h2>
+        <p>{t(`${type}Desc`)}</p>
       </div>
     </ValueBoxWrapper>
   )

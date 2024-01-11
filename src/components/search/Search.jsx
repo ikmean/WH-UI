@@ -4,8 +4,10 @@ import { ReactComponent as GraySearch } from '../../lib/icons/graySearch.svg'
 import { InputComponent } from '../input/Input'
 import { Link, useSearchParams } from 'react-router-dom'
 import { AppContext } from '../../context/createContext'
+import { useTranslation } from 'react-i18next'
 
 export default function Search() {
+  const { t } = useTranslation()
   const { context } = useContext(AppContext)
   const { selectedDealType, selectedPropertyCategory, selectedLocation, searchInput, fetchPropertiesData, locale } = context
   const [searchParams, setSearchParams] = useSearchParams()
@@ -29,7 +31,7 @@ export default function Search() {
       <div>
         <GraySearch />
         <InputComponent
-          placeholder='Search for properties'
+          placeholder={t('SearchForProperties')}
           selectedDealType={selectedDealType}
           selectedPropertyCategory={selectedPropertyCategory}
           selectedLocation={selectedLocation}
@@ -38,7 +40,7 @@ export default function Search() {
       <Link
         to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}&locale=${locale}`}
       >
-        <SearchButton onClick={() => handleClick()}>Search</SearchButton>
+        <SearchButton onClick={() => handleClick()}> {t('Search')}</SearchButton>
       </Link>
     </SearchBox>
   )

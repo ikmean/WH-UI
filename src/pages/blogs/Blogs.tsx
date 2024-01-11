@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { ArticleListWrapper, Header } from './BlogsStyles'
 import ArticleBox from '../../components/articles/ArticleBox'
 import { AppContext } from '../../context/createContext'
@@ -7,6 +9,8 @@ import Loader from '../../components/Loader/Loader'
 import { Util } from '../../helpers/Util'
 
 function Blogs() {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const { blogs, fetchBlogsData } = context
 
@@ -19,7 +23,7 @@ function Blogs() {
   ) : (
     <div className='container'>
       <Header>
-        <h1>Articles & Resources</h1>
+        <h1>{t('BlogsPageHeader')}</h1>
       </Header>
       {blogs.length && (
         <ArticleListWrapper>

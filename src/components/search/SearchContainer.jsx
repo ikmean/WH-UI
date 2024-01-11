@@ -7,8 +7,10 @@ import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
 import { SearchContainerStyles } from './SearchStyles.jsx'
 import { AppContext } from '../../context/createContext.js'
 import { useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export default function SearchContainer() {
+  const { t } = useTranslation()
   const { context } = useContext(AppContext)
   const {
     location,
@@ -62,15 +64,15 @@ export default function SearchContainer() {
 
   return (
     <SearchContainerStyles>
-      <Dropdown text={'Type'} icon={<TypeIcon />} data={checkIfSelected(dealType, selectedDealType)} onSelect={handleSelectDealType} />
+      <Dropdown text={t('Type')} icon={<TypeIcon />} data={checkIfSelected(dealType, selectedDealType)} onSelect={handleSelectDealType} />
       <Dropdown
-        text={'Property'}
+        text={t('Property')}
         icon={<PropertyIcon />}
         data={checkIfSelected(propertyCategory, selectedPropertyCategory)}
         onSelect={handleSelectPropertyCategory}
       />
       <Dropdown
-        text={'Location'}
+        text={t('Location')}
         icon={<LocationIcon />}
         data={checkIfSelected(location, selectedLocation)}
         onSelect={handleSelectLocation}
