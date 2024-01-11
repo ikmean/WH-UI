@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { SearchBox, SearchButton } from './SearchStyles'
 import { ReactComponent as GraySearch } from '../../lib/icons/graySearch.svg'
 import { InputComponent } from '../input/Input'
-import { Link } from 'react-router-dom'
-import Button from '../button/Button'
+import { Link, useSearchParams } from 'react-router-dom'
+import { AppContext } from '../../context/createContext'
 
-export default function Search({ selectedDealType, selectedPropertyCategory, selectedLocation, searchInput }) {
+export default function Search() {
+  const { context } = useContext(AppContext)
+  const { selectedDealType, selectedPropertyCategory, selectedLocation, searchInput, fetchPropertiesData, locale } = context
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const handleClick = () => {
+    let dealType = selectedDealType
+    let location = selectedLocation
+    let category = selectedPropertyCategory
+    let text = searchInput
+
+    if (selectedDealType?.length === 0) dealType = searchParams.get('dealType')
+    if (selectedLocation?.length === 0) location = searchParams.get('location')
+    if (selectedPropertyCategory?.length === 0) category = searchParams.get('propertyCategory')
+    if (searchInput?.length === 0) text = searchInput.get('searchInput')
+
+    fetchPropertiesData({ dealType, location, category, text, locale })
+  }
+
   return (
     <SearchBox>
       <div>
@@ -17,11 +35,11 @@ export default function Search({ selectedDealType, selectedPropertyCategory, sel
           selectedLocation={selectedLocation}
         />
       </div>
-      <Button
-        text='Search'
-        color='white'
-        to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}`}
-      />
+      <Link
+        to={`/properties?dealType=${selectedDealType}&propertyCategory=${selectedPropertyCategory}&location=${selectedLocation}&searchInput=${searchInput}&locale=${locale}`}
+      >
+        <SearchButton onClick={() => handleClick()}>Search</SearchButton>
+      </Link>
     </SearchBox>
   )
 }

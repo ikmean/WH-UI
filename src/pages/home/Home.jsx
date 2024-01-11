@@ -8,6 +8,7 @@ import Discovery from '../../components/discover/Discovery'
 import Articles from '../../components/articles/Articles'
 import Featured from '../../components/featured/Featured'
 import Loader from '../../components/Loader/Loader'
+import { useSearchParams } from 'react-router-dom'
 
 function Home({ searchInput, setSearchInput }) {
   const { context } = useContext(AppContext)
@@ -19,30 +20,21 @@ function Home({ searchInput, setSearchInput }) {
     fetchLocationData,
     fetchPropertyCategoryData,
     fetchDealTypeData,
-    loadingProperties
+    loadingProperties,
+    locale
   } = context
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const featuredListRef = useRef(null)
 
   useEffect(() => {
-    fetchDealTypeData()
-    fetchLocationData()
-    fetchPropertyCategoryData()
-    fetchPropertiesData()
-    fetchBlogsData()
+    setSearchParams({ locale })
+    fetchDealTypeData(locale)
+    fetchLocationData(locale)
+    fetchPropertyCategoryData(locale)
+    fetchPropertiesData({ locale })
+    fetchBlogsData(locale)
   }, [fetchDealTypeData])
-
-  // useEffect(() => {
-  // }, [fetchPropertyCategoryData])
-
-  // useEffect(() => {
-  // }, [fetchDealTypeData])
-
-  // useEffect(() => {
-  // }, [fetchPropertiesData])
-
-  // useEffect(() => {
-  // }, [fetchBlogsData])
 
   return (
     <div className='flex-column'>

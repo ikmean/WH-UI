@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 export default function useContextUpdateFromSocket() {
   const [context, setContext] = useState(defaultAppCTX)
   const [globalUrl] = useState('https://wh-api-gky42.ondigitalocean.app/content/')
+  // const [globalUrl] = useState('http://localhost:5555/content/')
 
   useEffect(() => {
     setContext((ctx: any) => {
@@ -26,11 +27,37 @@ export default function useContextUpdateFromSocket() {
         setSelectedPropertyCategory,
         setSelectedLocation,
         createCustomerRequest,
-        cleanupSearchParams
+        cleanupSearchParams,
+        setLocale
       }
     })
   }, [])
 
+  interface ISearchParams {
+    locale: string
+  }
+
+  interface IPropertySearchParams extends ISearchParams {
+    dealType?: []
+    location?: []
+    category?: []
+    text?: string
+  }
+
+  const setLocale = (props: IPropertySearchParams) => {
+    fetchPropertiesData(props)
+    fetchAgentsData(props.locale)
+    fetchBlogsData(props.locale)
+    fetchLocationData(props.locale)
+    fetchPropertyCategoryData(props.locale)
+    fetchDealTypeData(props.locale)
+    fetchAboutData(props.locale)
+    fetchOfficesData(props.locale)
+
+    setContext((ctx) => {
+      return { ...ctx, locale: props.locale }
+    })
+  }
   interface customerContactRequestPayload {
     fullName?: string
     lastName?: string
@@ -86,14 +113,8 @@ export default function useContextUpdateFromSocket() {
     })
   }
 
-  interface PropertiesSearchParams {
-    dealType?: []
-    location?: []
-    category?: []
-    text?: string
-  }
-  const fetchPropertiesData = (searchParams: PropertiesSearchParams) => {
-    const url = `${globalUrl}properties?dealType=${searchParams?.dealType}&city=${searchParams?.location}&category=${searchParams?.category}&text=${searchParams?.text}`
+  const fetchPropertiesData = (params: IPropertySearchParams) => {
+    const url = `${globalUrl}properties?locale=${params?.locale}&dealType=${params?.dealType}&city=${params?.location}&category=${params?.category}&text=${params?.text}`
     setContext((ctx) => {
       return { ...ctx, loadingProperties: true }
     })
@@ -122,8 +143,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchAgentsData = () => {
-    const url = `${globalUrl}agents`
+  const fetchAgentsData = (locale: string) => {
+    const url = `${globalUrl}agents?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -148,8 +169,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchBlogsData = () => {
-    const url = `${globalUrl}blogs`
+  const fetchBlogsData = (locale: string) => {
+    const url = `${globalUrl}blogs?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -177,8 +198,8 @@ export default function useContextUpdateFromSocket() {
     return data
   }
 
-  const fetchLocationData = () => {
-    const url = `${globalUrl}properties/locations`
+  const fetchLocationData = (locale: string) => {
+    const url = `${globalUrl}properties/locations?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -190,8 +211,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchPropertyCategoryData = () => {
-    const url = `${globalUrl}properties/categories`
+  const fetchPropertyCategoryData = (locale: string) => {
+    const url = `${globalUrl}properties/categories?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -203,8 +224,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchDealTypeData = () => {
-    const url = `${globalUrl}properties/dealTypes`
+  const fetchDealTypeData = (locale: string) => {
+    const url = `${globalUrl}properties/dealTypes?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -217,8 +238,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchAboutData = () => {
-    const url = `${globalUrl}about`
+  const fetchAboutData = (locale: string) => {
+    const url = `${globalUrl}about?locale=${locale}`
     axios
       .get(url)
       .then((response) => {
@@ -230,8 +251,8 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchOfficesData = () => {
-    const url = `${globalUrl}company/offices`
+  const fetchOfficesData = (locale: string) => {
+    const url = `${globalUrl}company/offices?locale=${locale}`
     axios
       .get(url)
       .then((response) => {

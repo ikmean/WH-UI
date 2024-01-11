@@ -57,3 +57,20 @@ export const Nav = styled.ul`
     }
   }
 `
+
+export const LocaleButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
+export const LocaleButton = styled.div`
+  border: 1px solid ${colors.grey};
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid ${({ selected }) => (selected ? colors.secondary : 'transparent')};
+  border-radius: 2px;
+  &:hover {
+    /* background-color: ${colors.secondary}; */
+    color: ${({ selected }) => (selected ? colors.primary : colors.secondary)};
+  }
+`

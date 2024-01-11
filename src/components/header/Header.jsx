@@ -1,12 +1,19 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { HeaderWrapper, Nav, HeaderLink } from './HeaderStyles'
+import { Link, useSearchParams } from 'react-router-dom'
+import { HeaderWrapper, Nav, HeaderLink, LocaleButtonWrapper, LocaleButton } from './HeaderStyles'
 import Logo from './Logo'
 import { AppContext } from '../../context/createContext'
 
 export default function Header() {
   const { context } = useContext(AppContext)
-  const { cleanupSearchParams } = context
+  const { cleanupSearchParams, setLocale, locale } = context
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const handleLocaleChange = (value) => {
+    cleanupSearchParams()
+    setSearchParams({ locale: value })
+    setLocale({ locale: value })
+  }
 
   return (
     <HeaderWrapper className='container'>
@@ -38,6 +45,15 @@ export default function Header() {
           </Link>
         </li>
       </Nav>
+
+      <LocaleButtonWrapper>
+        <LocaleButton onClick={() => handleLocaleChange('en')} selected={searchParams.get('locale') === 'en'}>
+          EN
+        </LocaleButton>
+        <LocaleButton onClick={() => handleLocaleChange('ka')} selected={searchParams.get('locale') === 'ka'}>
+          GE
+        </LocaleButton>
+      </LocaleButtonWrapper>
     </HeaderWrapper>
   )
 }

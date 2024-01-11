@@ -21,7 +21,8 @@ export default function SearchContainer() {
     selectedLocation,
     setSelectedLocation,
     searchInput,
-    fetchPropertiesData
+    fetchPropertiesData,
+    locale
   } = context
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -74,14 +75,7 @@ export default function SearchContainer() {
         data={checkIfSelected(location, selectedLocation)}
         onSelect={handleSelectLocation}
       />
-      <Search
-        searchParams={searchParams}
-        fetchPropertiesData={fetchPropertiesData}
-        selectedDealType={selectedDealType}
-        selectedPropertyCategory={selectedPropertyCategory}
-        selectedLocation={selectedLocation}
-        searchInput={searchInput}
-      />
+      <Search />
     </SearchContainerStyles>
   )
 }
