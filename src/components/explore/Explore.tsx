@@ -5,8 +5,11 @@ import img1 from '../../lib/images/img1.png'
 import img2 from '../../lib/images/img2.png'
 import img3 from '../../lib/images/img3.png'
 import img4 from '../../lib/images/img4.png'
+import { useTranslation } from 'react-i18next'
 
 function Explore({ featuredListRef }: any) {
+  const { t } = useTranslation()
+
   const handleClick = () => {
     featuredListRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' })
   }
@@ -14,10 +17,10 @@ function Explore({ featuredListRef }: any) {
   return (
     <ExploreWrapper>
       <Left>
-        <ExploreHeader>The best place to find your dream house</ExploreHeader>
-        <ExploreText>Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat purus suscipit turpis sed vitae.</ExploreText>
+        <ExploreHeader> {t('ExploreHeader')} </ExploreHeader>
+        <ExploreText> {t('ExploreText')} </ExploreText>
         <ExploreButton>
-          <PostButton text='Start exploring' margin='40px 0 0 0' onClick={() => handleClick()} />
+          <PostButton text={t('StartExploring')} margin='40px 0 0 0' onClick={() => handleClick()} />
         </ExploreButton>
       </Left>
       <Right>

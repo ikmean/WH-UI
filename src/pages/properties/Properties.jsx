@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-extra-semi */
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { NoProperties, PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
 import FeaturedBox from '../../components/featured/FeturedBox'
 import PropertiesHeader from '../../components/properties/Header'
@@ -11,6 +13,8 @@ import { useSearchParams } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 
 function PropertiesPage() {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const {
     properties,
@@ -102,11 +106,11 @@ function PropertiesPage() {
             ))}
           </PropertiesPageWrapper>
         ) : (
-          <NoProperties>No properties found</NoProperties>
+          <NoProperties>{t('NoPropertiesFound')}</NoProperties>
         )}
         <ButtonsStyles>
-          {currentPage > 1 && <Button color='white' text='Previous page' click={prevPage} />}
-          {indexOfLastProperty < properties.length && <Button color='white' text='Next page' click={nextPage} />}
+          {currentPage > 1 && <Button color='white' text={t('PreviousPage')} click={prevPage} />}
+          {indexOfLastProperty < properties.length && <Button color='white' text={t('NextPage')} click={nextPage} />}
         </ButtonsStyles>
       </>
     </div>

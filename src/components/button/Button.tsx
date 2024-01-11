@@ -1,5 +1,6 @@
 import React from 'react'
 import { ButtonWrapper } from './ButtonStyles'
+import { Link } from 'react-router-dom'
 
 interface ButtonProps {
   text?: string
@@ -13,14 +14,10 @@ interface ButtonProps {
 
 export default function Button({ text, color, width, borderRadius, to, className, click }: ButtonProps) {
   return (
-    <ButtonWrapper
-      className={className}
-      color={color}
-      width={width}
-      borderRadius={borderRadius}
-      onClick={click ? () => click() : () => (window.location.href = to)}
-    >
-      {text}
-    </ButtonWrapper>
+    <Link to={to}>
+      <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius}>
+        {text}
+      </ButtonWrapper>
+    </Link>
   )
 }

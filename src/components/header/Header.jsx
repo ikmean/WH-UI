@@ -2,14 +2,17 @@ import React, { useContext } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { HeaderWrapper, Nav, HeaderLink, LocaleButtonWrapper, LocaleButton } from './HeaderStyles'
 import Logo from './Logo'
+import { useTranslation } from 'react-i18next'
 import { AppContext } from '../../context/createContext'
 
 export default function Header() {
+  const { i18n, t } = useTranslation()
   const { context } = useContext(AppContext)
   const { cleanupSearchParams, setLocale, locale } = context
   const [searchParams, setSearchParams] = useSearchParams()
 
   const handleLocaleChange = (value) => {
+    i18n.changeLanguage(value)
     cleanupSearchParams()
     setSearchParams({ locale: value })
     setLocale({ locale: value })
@@ -21,27 +24,27 @@ export default function Header() {
       <Nav>
         <li>
           <Link to='/' onClick={() => cleanupSearchParams()}>
-            <HeaderLink>Home</HeaderLink>
+            <HeaderLink>{t('Home')}</HeaderLink>
           </Link>
         </li>
         <li>
           <Link to='/properties'>
-            <HeaderLink>Properties</HeaderLink>
+            <HeaderLink>{t('Properties')}</HeaderLink>
           </Link>
         </li>
         <li>
           <Link to='/about'>
-            <HeaderLink>About</HeaderLink>
+            <HeaderLink>{t('About')}</HeaderLink>
           </Link>
         </li>
         <li>
           <Link to='/agents'>
-            <HeaderLink>Agents</HeaderLink>
+            <HeaderLink>{t('Agents')}</HeaderLink>
           </Link>
         </li>
         <li>
           <Link to='/blogs'>
-            <HeaderLink>Blogs</HeaderLink>
+            <HeaderLink>{t('Blogs')}</HeaderLink>
           </Link>
         </li>
       </Nav>

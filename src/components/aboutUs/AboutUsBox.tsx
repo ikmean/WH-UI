@@ -1,12 +1,18 @@
 import React, { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { AboutBoxContainer, Text, ImgWrapper, InfoBox, props } from './AboutUsStyles'
-import img1 from '../../lib/images/img1.png'
 import { AppContext } from '../../context/createContext'
+import { Util } from '../../helpers/Util'
+import Loader from '../Loader/Loader'
 
 export const AboutUsBox = ({ reverse }: props) => {
+  const { t } = useTranslation()
+
   const { context } = useContext(AppContext)
   const { about } = context
 
+  console.log(about.gallery)
   return (
     <AboutBoxContainer reverse={reverse}>
       <Text>
@@ -14,10 +20,14 @@ export const AboutUsBox = ({ reverse }: props) => {
         <p>{about.goalDescription}</p>
       </Text>
       <ImgWrapper>
-        <img src={img1} alt='img1' width='622.72px' height='598px' />
+        {Util.isNull(about.gallery) ? (
+          <Loader />
+        ) : (
+          <img src={reverse ? about?.gallery[0]?.large : about?.gallery[1]?.large} alt='img1' width='622.72px' height='598px' />
+        )}
         <InfoBox reverse={reverse}>
-          <h2>{about.succesfulSales}</h2>
-          <span>Successful sales</span>
+          <h2>{reverse ? about.succesfulSales : about.customerSatisfaction}</h2>
+          <span>{reverse ? t('SuccessfulSales') : t('CustomerSatisfaction')}</span>
         </InfoBox>
       </ImgWrapper>
     </AboutBoxContainer>

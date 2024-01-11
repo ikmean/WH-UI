@@ -1,12 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import OfficeBox from './OfficeBox'
 import { Header, Wrapper, BoxWrapper } from './OfficesStyles'
 
 export default function Offices({ offices }: any) {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <Header>
-        <h1>Come and visit one of our offices</h1>
+        <h1>{t('VisitOffices')}</h1>
       </Header>
       <BoxWrapper className='flex'>
         {offices?.map((office: any, i: number) => (

@@ -1,19 +1,22 @@
 import React, { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import Box from './Box'
 import { Container, Title } from './TakeALookStyles'
 import { AppContext } from '../../context/createContext'
 
 export const TakeALook = () => {
+  const { t } = useTranslation()
   const { context } = useContext(AppContext)
   const { about } = context
 
   return (
     <Container>
-      <Title>Take a look at our numbers</Title>
+      <Title>{t('TakeALookHeader')}</Title>
       <div className='flex space-between'>
-        <Box h1={about.customerSatisfaction} h2={'Customer satisfaction'} p={about.customerSatisfactionDescription} />
-        <Box h1={about.inPropertySales} h2={'In property sales'} p={about.inPropertySalesDescription} />
-        <Box h1={about.succesfulSales} h2={'Successful sales'} p={about.succesfullSalesDescription} />
+        <Box h1={about.customerSatisfaction} h2={t('CustomerSatisfaction')} p={about.customerSatisfactionDescription} />
+        <Box h1={about.inPropertySales} h2={t('InPropertySales')} p={about.inPropertySalesDescription} />
+        <Box h1={about.succesfulSales} h2={t('SuccessfulSales')} p={about.succesfullSalesDescription} />
       </div>
     </Container>
   )
