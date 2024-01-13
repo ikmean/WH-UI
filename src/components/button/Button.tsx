@@ -7,17 +7,23 @@ interface ButtonProps {
   color: string
   width?: string
   borderRadius?: string
-  to: string
+  to?: string
   className?: string
   click?: any
 }
 
 export default function Button({ text, color, width, borderRadius, to, className, click }: ButtonProps) {
-  return (
+  if (to) {
     <Link to={to}>
-      <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius}>
+      <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius} onClick={click}>
         {text}
       </ButtonWrapper>
     </Link>
+  }
+
+  return (
+    <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius} onClick={click}>
+      {text}
+    </ButtonWrapper>
   )
 }

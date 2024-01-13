@@ -3,11 +3,12 @@ import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
 
 export const RequestPropertyStyles = styled.div`
+  z-index: 1000;
   position: absolute;
   right: 0;
   top: -100px;
   width: 459px;
-  height: 839px;
+  /* height: 839px; */
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 16px;

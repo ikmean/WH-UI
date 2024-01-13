@@ -12,6 +12,8 @@ import BlogsInner from './pages/blogs/BlogsInner'
 import { Provider } from './context/createContext'
 import useContextUpdateFromSocket from './context/useContextUpdate'
 import PropertiesPage from './pages/properties/Properties'
+import DevelopersPage from './pages/developers/DevelopersPage'
+import DeveloperInnerPage from './pages/developers/DeveloperInnerPage'
 
 export default function App() {
   const { context } = useContextUpdateFromSocket()
@@ -24,6 +26,8 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/properties' element={<PropertiesPage />} />
           <Route path='/properties/:id' element={<PropertiesInner />} />
+          <Route path='/developers' element={<DevelopersPage />} />
+          <Route path='/developers/:id' element={<DeveloperInnerPage />} />
           <Route path='/about' element={<About />} />
           <Route path='/agents' element={<AgentsPage />} />
           <Route path='/agents/:id' element={<AgentsInner />} />

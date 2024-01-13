@@ -9,7 +9,18 @@ import { colors } from '../../lib/colors'
 import { InputStyles } from '../input/InputStyles'
 import { AppContext } from '../../context/createContext'
 
-function RequestProperty({ rentOrSale, price, agent, property }: any) {
+interface props {
+  rentOrSale?: string
+  price?: {
+    usd?: number
+  }
+  agent?: string
+  property?: string
+  project?: string
+  developer?: string
+}
+
+function CustomerContactRequest({ rentOrSale, price, agent, property, project, developer }: props) {
   const { t } = useTranslation()
 
   const { context } = useContext(AppContext)
@@ -18,6 +29,7 @@ function RequestProperty({ rentOrSale, price, agent, property }: any) {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [contactDetails, setContactDetailsDetails] = useState('')
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const isValidEmail = (input: any) => {
@@ -48,16 +60,20 @@ function RequestProperty({ rentOrSale, price, agent, property }: any) {
     }
     setFormSubmitted(true)
 
-    createCustomerRequest({ fullName, email, phoneNumber, property })
+    createCustomerRequest({ fullName, email, phoneNumber, contactDetails, property, project, developer })
   }
 
   return (
     <RequestPropertyStyles>
-      <h3>
-        {t('PropertyFor')} {rentOrSale}
-      </h3>
-      <h1>${price.usd}</h1>
-      <Line />
+      {property && (
+        <>
+          <h3>
+            {t('PropertyFor')} {rentOrSale}
+          </h3>
+          <h1>${price?.usd}</h1>
+          <Line />
+        </>
+      )}
       <h2>{t('GetInTouch')}</h2>
       {formSubmitted ? (
         <SubmittedMessage>
@@ -75,16 +91,21 @@ function RequestProperty({ rentOrSale, price, agent, property }: any) {
           <InputStyles backgroundColor={colors.grey}>
             <input placeholder={t('PhoneNumber')} type='number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
           </InputStyles>
-          <Button color='red' text={t('RequestInfo')} width='100%' to='/' click={handleSubmit} />
+          <InputStyles backgroundColor={colors.grey}>
+            <textarea placeholder={t('ContactDetails')} value={contactDetails} onChange={(e) => setContactDetailsDetails(e.target.value)} />
+          </InputStyles>
+          <Button color='red' text={t('RequestInfo')} width='100%' click={handleSubmit} />
         </div>
       )}
       <Line />
-      <div>
-        <h2>{t('ReachTheAgent')}</h2>
-        <AgentBox type='small' data={agent} />
-      </div>
+      {agent && (
+        <div>
+          <h2>{t('ReachTheAgent')}</h2>
+          <AgentBox type='small' data={agent} />
+        </div>
+      )}
     </RequestPropertyStyles>
   )
 }
 
-export default RequestProperty
+export default CustomerContactRequest

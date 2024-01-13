@@ -33,6 +33,11 @@ export default function Header() {
           </Link>
         </li>
         <li>
+          <Link to='/developers'>
+            <HeaderLink>{t('Developers')}</HeaderLink>
+          </Link>
+        </li>
+        <li>
           <Link to='/about'>
             <HeaderLink>{t('About')}</HeaderLink>
           </Link>

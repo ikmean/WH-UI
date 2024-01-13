@@ -2,6 +2,8 @@
 export const defaultAppCTX = {
   properties: [],
   propertyInner: null,
+  developers: [],
+  developerInner: null,
   about: {},
   offices: [],
   agents: [],
@@ -17,22 +19,32 @@ export const defaultAppCTX = {
   searchInput: null,
   loadingProperties: true,
   locale: 'en',
+
   setLocale: () => {},
   setSelectedDealType: () => {},
   setSelectedPropertyCategory: () => {},
   setSelectedLocation: () => {},
+  cleanupSearchParams: () => {},
+  setSearchInput: () => {},
+
   fetchPropertyInnerData: () => {},
   fetchPropertiesData: () => {},
-  fetchAboutData: () => {},
-  fetchOfficesData: () => {},
-  fetchAgentsData: () => {},
-  fetchAgentsInnerData: () => {},
-  fetchBlogsData: () => {},
-  fetchBlogsInnerData: () => {},
+
   fetchLocationData: () => {},
   fetchPropertyCategoryData: () => {},
   fetchDealTypeData: () => {},
-  setSearchInput: () => {},
-  createCustomerRequest: () => {},
-  cleanupSearchParams: () => {}
+
+  fetchAboutData: () => {},
+  fetchOfficesData: () => {},
+
+  fetchAgentsData: () => {},
+  fetchAgentsInnerData: () => {},
+
+  fetchBlogsData: () => {},
+  fetchBlogsInnerData: () => {},
+
+  fetchDevelopersData: () => {},
+  fetchDeveloperInnerData: () => {},
+
+  createCustomerRequest: () => {}
 }
