@@ -28,7 +28,9 @@ export default function useContextUpdateFromSocket() {
         setSelectedLocation,
         createCustomerRequest,
         cleanupSearchParams,
-        setLocale
+        setLocale,
+        fetchDevelopersData,
+        fetchDeveloperInnerData
       }
     })
   }, [])
@@ -53,6 +55,7 @@ export default function useContextUpdateFromSocket() {
     fetchDealTypeData(props.locale)
     fetchAboutData(props.locale)
     fetchOfficesData(props.locale)
+    fetchDevelopersData(props.locale)
 
     setContext((ctx) => {
       return { ...ctx, locale: props.locale }
@@ -138,6 +141,32 @@ export default function useContextUpdateFromSocket() {
         const data = response.data.data
         setContext((ctx) => {
           return { ...ctx, propertyInner: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchDevelopersData = (locale: string) => {
+    const url = `${globalUrl}developers?locale=${locale}`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, developers: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchDeveloperInnerData = (id: string) => {
+    const url = `${globalUrl}developers/${id}`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, developerInner: data }
         })
       })
       .catch((error) => console.log(error))

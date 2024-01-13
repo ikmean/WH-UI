@@ -17,7 +17,7 @@ import {
   PropertiesInnerPageContainer,
   TextContent
 } from './PropertiesStyles'
-import RequestProperty from '../../components/request/RequestProperty'
+import RequestProperty from '../../components/request/CustomerContactRequest'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { Line } from '../../components/articles/ArticlesStyles'
 import { InfoBox } from '../../components/featured/FeaturedStyles'

@@ -75,7 +75,13 @@ const resources = {
       Email: 'Email address',
       PhoneNumber: 'Phone Number',
       RequestInfo: 'Request info',
-      ReachTheAgent: 'Reach the agent'
+      ReachTheAgent: 'Reach the agent',
+      Developers: 'Developers',
+      Projects: 'Projects',
+      ContactDetails: 'ContactDetails',
+      ConstructionCompanies: 'Construction Companies',
+      Company: 'Company',
+      OngoingProjects: 'Ongoing Projects'
     }
   },
   ka: {
@@ -142,14 +148,20 @@ const resources = {
       PropertyAmenities: 'ქონების კეთილმოწყობა',
       PropertyGallery: 'ქონების გალერია',
       PropertyFor: 'გარიგების ტიპი - ',
-      GetInTouch: 'შეუკვეთე ზარი',
+      GetInTouch: 'დაგვიკავშირდი მეტი ინფორმაციისთვის',
       MessageSubmited: 'მოთხოვნა წარმატებით გაიგზავნა',
       GetBackToYou: 'დაგიკავშირდებით 24-48 საათის განმავლობაში',
       FullName: 'სახელი - გვარი',
       Email: 'საფოსტო მისამართი',
       PhoneNumber: 'ტელეფონის ნომერი',
       RequestInfo: 'მოითხოვე ინფორმაცია',
-      ReachTheAgent: 'დაუკავშირდი აგენტს'
+      ReachTheAgent: 'დაუკავშირდი აგენტს',
+      Developers: 'დეველოპერები',
+      Projects: 'პროექტები',
+      ContactDetails: 'კონტაქტის დეტალები, მეტი ინფორმაცია',
+      ConstructionCompanies: 'სამშენებლო კომპანიები',
+      Company: 'კომპანია',
+      OngoingProjects: 'მიმდინარე პროექტები'
     }
   }
 }
