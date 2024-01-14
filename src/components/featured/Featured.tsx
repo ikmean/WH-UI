@@ -7,7 +7,7 @@ import { SlowLoader } from './FeaturedStyles'
 import Loader from '../Loader/Loader'
 import { Util } from '../../helpers/Util'
 
-export default function Featured({ properties }: any) {
+export default function Featured({ properties, innerRef }: any) {
   const { t } = useTranslation()
 
   const [ref, inView] = useInView({
@@ -23,7 +23,7 @@ export default function Featured({ properties }: any) {
         <div ref={ref}>
           {inView && (
             <SlowLoader>
-              <div>
+              <div ref={innerRef}>
                 <FeatureHeader title={t('FeaturedProperties')} />
                 {properties[0] && (
                   <FeaturedBox

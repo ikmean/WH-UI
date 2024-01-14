@@ -6,6 +6,7 @@ import img2 from '../../lib/images/img2.png'
 import img3 from '../../lib/images/img3.png'
 import img4 from '../../lib/images/img4.png'
 import { useTranslation } from 'react-i18next'
+import Button from '../button/Button'
 
 function Explore({ featuredListRef }: any) {
   const { t } = useTranslation()
@@ -20,7 +21,7 @@ function Explore({ featuredListRef }: any) {
         <ExploreHeader> {t('ExploreHeader')} </ExploreHeader>
         <ExploreText> {t('ExploreText')} </ExploreText>
         <ExploreButton>
-          <PostButton text={t('StartExploring')} margin='40px 0 0 0' onClick={() => handleClick()} />
+          <Button color='black' click={handleClick} text={t('StartExploring')} />
         </ExploreButton>
       </Left>
       <Right>

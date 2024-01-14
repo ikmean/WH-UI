@@ -19,6 +19,7 @@ export const ExploreText = styled.span`
   color: ${colors.greyText};
   opacity: 0;
   animation: ${slideAnimation('100px')} 1.6s ease 0.7s forwards;
+  padding: 1rem 0;
 `
 
 export const ExploreButton = styled.div`

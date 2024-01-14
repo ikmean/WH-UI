@@ -14,11 +14,13 @@ interface ButtonProps {
 
 export default function Button({ text, color, width, borderRadius, to, className, click }: ButtonProps) {
   if (to) {
-    <Link to={to}>
-      <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius} onClick={click}>
-        {text}
-      </ButtonWrapper>
-    </Link>
+    return (
+      <Link to={to}>
+        <ButtonWrapper className={className} color={color} width={width} borderRadius={borderRadius} onClick={click}>
+          {text}
+        </ButtonWrapper>
+      </Link>
+    )
   }
 
   return (
