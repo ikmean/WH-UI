@@ -81,7 +81,10 @@ const resources = {
       ContactDetails: 'ContactDetails',
       ConstructionCompanies: 'Construction Companies',
       Company: 'Company',
-      OngoingProjects: 'Ongoing Projects'
+      OngoingProjects: 'Ongoing Projects',
+      PricesFrom: 'Prices From',
+      SeeMoreDevelopers: 'See More Developers',
+      OfThem: 'of them'
     }
   },
   ka: {
@@ -161,7 +164,10 @@ const resources = {
       ContactDetails: 'კონტაქტის დეტალები, მეტი ინფორმაცია',
       ConstructionCompanies: 'სამშენებლო კომპანიები',
       Company: 'კომპანია',
-      OngoingProjects: 'მიმდინარე პროექტები'
+      OngoingProjects: 'მიმდინარე პროექტი',
+      PricesFrom: 'საწყისი ფასი',
+      SeeMoreDevelopers: 'სამშენებლო კომპანიები',
+      OfThem: 'მათგანი'
     }
   }
 }
