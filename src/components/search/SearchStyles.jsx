@@ -19,6 +19,7 @@ export const SearchContainerStyles = styled.div`
 
   ${media.lg`
     flex-direction: column;
+    padding-left: 0;
   `}
 `
 export const DropDownWrapper = styled.div`

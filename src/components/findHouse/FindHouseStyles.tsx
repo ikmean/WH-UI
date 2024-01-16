@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { media } from '../../helpers/device'
+import { colors } from '../../lib/colors'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,17 +11,42 @@ export const Wrapper = styled.div`
   h1 {
     font-size: 32px;
     line-height: 44px;
-    width: 40%;
-    width: 25%;
+    width: 30%;
     text-align: center;
     margin-bottom: 63px;
   }
+
+  ${media.md`
+    h1{
+      width: 50%;
+    }
+  `}
+
+  ${media.sm`
+    h1{
+      width: 45%;
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      width: 45%;
+      font-size: 1.5rem;
+    }
+  `}
 `
 
 export const BoxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 65px;
+  ${media.lg`
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  `}
 `
 export const BoxStyles = styled.div`
   display: flex;
@@ -41,5 +68,15 @@ export const BoxStyles = styled.div`
   &:hover {
     transition: transform 0.3s ease;
     transform: scale(1.03);
+  }
+
+  ${media.lg`
+    width: 100%;
+  `}
+`
+
+export const TextWrapper = styled.div`
+  span {
+    color: ${colors.greyText};
   }
 `

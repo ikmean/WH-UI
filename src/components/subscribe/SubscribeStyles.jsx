@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const FooterWrapper = styled.div`
   display: flex;
@@ -24,6 +25,11 @@ export const BoxStyles = styled.div`
     border-color: ${colors.secondary};
     transition: transform 0.3s ease;
   }
+
+  ${media.md`
+    justify-content: space-between;
+    width: 80%;
+  `}
 `
 
 export const H1 = styled.p`
@@ -56,6 +62,14 @@ export const SubscribeInputStyles = styled.div`
       color: transparent;
     }
   }
+
+  ${media.md`
+    justify-content: space-between;
+   
+    input{
+      width: 80%;
+    } 
+  `}
 `
 
 export const SuccessMessage = styled.div`
