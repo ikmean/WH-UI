@@ -58,8 +58,9 @@ export const Right = styled.div`
 export const Nav = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
   padding-right: 200px;
+  margin-left: 100px;
   li {
     a {
       ${hoverTransition('color', `${colors.secondary}`, '0.4s')}
@@ -110,8 +111,9 @@ export const BurgerMenuButton = styled.div`
 
 export const LocaleButtonWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 `
 
 export const LocaleButton = styled.div`

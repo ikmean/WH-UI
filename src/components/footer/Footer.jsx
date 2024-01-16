@@ -7,6 +7,7 @@ import SocialMedia from '../socialMedia/SocialMedia'
 import Subscribe from '../subscribe/Subscribe'
 import { useInView } from 'react-intersection-observer'
 import { SlowLoader } from '../featured/FeaturedStyles'
+import { Left } from '../header/HeaderStyles'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -23,7 +24,10 @@ export default function Footer() {
           <div className='container'>
             <Top>
               <TopLeft>
-                <Logo />
+                <Left>
+                  <Logo />
+                  <h1>Warm House</h1>
+                </Left>
                 <FooterText>{t('FooterText')}</FooterText>
                 <SocialMedia />
               </TopLeft>
