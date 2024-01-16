@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const ExploreWrapper = styled.div`
   display: flex;
   gap: 40px;
+
+  ${media.md`
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+  `}
 `
 
 export const ExploreHeader = styled.h1`
@@ -13,6 +20,18 @@ export const ExploreHeader = styled.h1`
   line-height: 60px;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1.6s ease 0.5s forwards;
+
+  ${media.md`
+   text-align: center;
+  `}
+
+  ${media.sm`
+    font-size: 2.5rem;
+  `}
+
+  ${media.sm`
+    font-size: 2.06rem;
+  `}
 `
 
 export const ExploreText = styled.span`
@@ -20,6 +39,7 @@ export const ExploreText = styled.span`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1.6s ease 0.7s forwards;
   padding: 1rem 0;
+  font-size: 1.125rem;
 `
 
 export const ExploreButton = styled.div`
@@ -35,6 +55,21 @@ export const Left = styled.div`
     margin-bottom: 14px;
     margin-top: 115px;
   }
+
+  ${media.md`
+   align-items: center;
+   width: 70%;
+  `}
+
+  ${media.sm`
+   align-items: center;
+   width: 60%;
+  `}
+
+  ${media.xs`
+   align-items: center;
+   width: 80%;
+  `}
 `
 
 export const Right = styled.div`
@@ -43,8 +78,8 @@ export const Right = styled.div`
   position: relative;
   img {
     margin-bottom: 20px;
-    width: 347px;
-    height: 233.33px;
+    width: auto;
+    height: 100%;
   }
   div {
     display: flex;
@@ -60,4 +95,14 @@ export const Right = styled.div`
     right: -23%;
     animation: ${slideAnimation('-100px')} 1.6s;
   }
+
+  ${media.md`
+   align-items: center;
+   width: 100%;
+   gap: 1rem;
+
+   div:nth-child(2){
+     position: initial;
+   }
+  `}
 `

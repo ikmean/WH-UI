@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const DropdownBox = styled.div`
   display: flex;
@@ -28,9 +29,11 @@ export const DropdownBox = styled.div`
         }
       }
     `}
-  @media only screen and (max-width: 1024px) {
-    width: 19%;
-  }
+
+  ${media.lg`
+      width: 100%;
+      justify-content: space-between;
+    `}
 `
 
 export const ArrowContainer = styled.div`
@@ -51,9 +54,11 @@ export const DropdownList = styled.div`
   position: absolute;
   top: 100px;
   left: 0px;
-  @media only screen and (max-width: 1024px) {
-    width: 19%;
-  }
+  z-index: 1000;
+
+  ${media.lg`
+      width: 100%;
+  `}
 `
 
 export const Gap = styled.div`
@@ -97,6 +102,10 @@ export const DropDownContainer = styled.div`
       transition: transform 0.2s ease-in-out;
     }
   }
+
+  ${media.lg`
+      width: 100%;
+  `}
 `
 
 export const ListItem = styled.li`
