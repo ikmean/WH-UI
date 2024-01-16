@@ -2,7 +2,7 @@ import React from 'react'
 import { ButtonClose, Buttons } from './PropertiesStyles'
 import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg'
-import { ReactComponent as Close } from '../../lib/icons/Close.svg'
+import { ReactComponent as Close } from '../../lib/icons/close.svg'
 
 const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, data, closeModal }) => {
   if (!isModalOpen || selectedImageIndex === null) {

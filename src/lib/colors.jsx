@@ -1,6 +1,7 @@
 export const colors = {
   primary: 'rgba(34, 34, 35, 1)',
-  secondary: 'rgba(248, 87, 87, 1)',
+  // secondary: 'rgba(248, 87, 87, 1)',
+  secondary: '#fb8722',
   pink: '#fee',
   white: 'rgba(255, 255, 255, 1)',
   border: 'rgba(233, 233, 233, 1)',

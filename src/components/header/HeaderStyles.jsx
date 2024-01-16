@@ -60,6 +60,7 @@ export const Nav = styled.ul`
   justify-content: space-between;
   width: 60%;
   padding-right: 200px;
+  margin-left: 100px;
   li {
     a {
       ${hoverTransition('color', `${colors.secondary}`, '0.4s')}
@@ -71,21 +72,16 @@ export const Nav = styled.ul`
       position: fixed;
       flex-direction: column;
       justify-content: flex-start;
+      margin-left:  0;
       left: 0;
       right: 0;
-      top: 10vh;
+      top: 17vh;
       padding: 6rem 0 0 4rem;
       gap: 5rem;
       background-color: ${colors.white};
       z-index: 10000;
       width: 100%;
-      height: 90vh;
-      `}
-
-  ${media.lg`
-        top: 12vh;
-        height: 88vh;
-        gap: 3rem;
+      height: 83vh;
       `}
 `
 
@@ -111,7 +107,7 @@ export const BurgerMenuButton = styled.div`
 export const LocaleButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 `
 
 export const LocaleButton = styled.div`
