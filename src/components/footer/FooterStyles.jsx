@@ -7,8 +7,7 @@ export const FooterWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 82px;
-  margin-top: 60px;
-  margin-left: 100px;
+  padding: 3rem 1rem 2rem 3rem;
   border-top: 1px solid ${colors.border};
   width: 100%;
 `

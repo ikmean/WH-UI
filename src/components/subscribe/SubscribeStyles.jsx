@@ -28,6 +28,7 @@ export const BoxStyles = styled.div`
 
   ${media.md`
     justify-content: space-between;
+    width: 80%;
   `}
 `
 
@@ -61,6 +62,14 @@ export const SubscribeInputStyles = styled.div`
       color: transparent;
     }
   }
+
+  ${media.md`
+    justify-content: space-between;
+   
+    input{
+      width: 80%;
+    } 
+  `}
 `
 
 export const SuccessMessage = styled.div`

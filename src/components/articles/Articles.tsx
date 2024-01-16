@@ -8,18 +8,11 @@ import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg
 import { ReactComponent as ChevronRightWhite } from '../../lib/icons/ChevronRightWhite.svg'
 import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronLeftWhite } from '../../lib/icons/ChevronLeftWhite.svg'
-import { useInView } from 'react-intersection-observer'
-import { SlowLoader } from '../featured/FeaturedStyles'
 import Loader from '../Loader/Loader'
 import { Util } from '../../helpers/Util'
 
 export default function Articles(data: any) {
   const { t } = useTranslation()
-
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: '-245px'
-  })
 
   const [isHovering, setIsHovering] = useState({ left: false, right: false })
   const listContainerRef = useRef(null)
@@ -61,36 +54,32 @@ export default function Articles(data: any) {
   }
 
   return (
-    <Wrapper ref={ref}>
-      {inView && (
-        <SlowLoader>
-          <Header>
-            <h1>{t('ReadOurLatestArticles')}</h1>
-            <ArticleButtonWrapper>
-              <ArticleButton onClick={handleLeftClick} onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
-                {isHovering.left ? <ChevronLeftWhite /> : <ChevronLeft />}
-              </ArticleButton>
-              <ArticleButton onClick={handleRightClick} onMouseOver={handleMouseOverRight} onMouseOut={handleMouseOutRight}>
-                {isHovering.right ? <ChevronRightWhite /> : <ChevronRight />}
-              </ArticleButton>
-            </ArticleButtonWrapper>
-          </Header>
-          {Util.isNull(data) ? (
-            <Loader />
-          ) : (
-            <BoxWrapper ref={listContainerRef}>
-              {data.data.map((data: any, i: number) => (
-                <ArticleBox
-                  data={{
-                    ...data,
-                    id: data.id
-                  }}
-                  key={i}
-                />
-              ))}
-            </BoxWrapper>
-          )}
-        </SlowLoader>
+    <Wrapper>
+      <Header>
+        <h1>{t('ReadOurLatestArticles')}</h1>
+        <ArticleButtonWrapper>
+          <ArticleButton onClick={handleLeftClick} onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
+            {isHovering.left ? <ChevronLeftWhite /> : <ChevronLeft />}
+          </ArticleButton>
+          <ArticleButton onClick={handleRightClick} onMouseOver={handleMouseOverRight} onMouseOut={handleMouseOutRight}>
+            {isHovering.right ? <ChevronRightWhite /> : <ChevronRight />}
+          </ArticleButton>
+        </ArticleButtonWrapper>
+      </Header>
+      {Util.isNull(data) ? (
+        <Loader />
+      ) : (
+        <BoxWrapper ref={listContainerRef}>
+          {data.data.map((data: any, i: number) => (
+            <ArticleBox
+              data={{
+                ...data,
+                id: data.id
+              }}
+              key={i}
+            />
+          ))}
+        </BoxWrapper>
       )}
     </Wrapper>
   )

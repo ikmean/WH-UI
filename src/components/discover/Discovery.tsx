@@ -17,21 +17,17 @@ export default function Discovery() {
   })
   return (
     <div ref={ref}>
-      {inView && (
-        <SlowLoader>
-          <Wrapper>
-            <TextWrapper>
-              <h1>{t('DiscoveryHeader')}</h1>
-              <p>{t('DiscoveryDescription')}</p>
-              <Button text={t('AboutOurCompany')} color='black' to='/about' />
-            </TextWrapper>
-            <ImgWrapper>
-              <img src={discoveryImg1} alt='discoveryImg1' />
-              <img src={discoveryImg2} alt='discoveryImg2' />
-            </ImgWrapper>
-          </Wrapper>
-        </SlowLoader>
-      )}
+      <Wrapper>
+        <TextWrapper>
+          <h1>{t('DiscoveryHeader')}</h1>
+          <p>{t('DiscoveryDescription')}</p>
+          <Button text={t('AboutOurCompany')} color='black' to='/about' />
+        </TextWrapper>
+        <ImgWrapper>
+          <img src={discoveryImg1} alt='discoveryImg1' />
+          <img src={discoveryImg2} alt='discoveryImg2' />
+        </ImgWrapper>
+      </Wrapper>
     </div>
   )
 }
