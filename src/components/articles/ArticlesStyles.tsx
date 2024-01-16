@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const Wrapper = styled.div`
   margin-top: 166px;
@@ -16,6 +17,18 @@ export const Header = styled.div`
   margin-bottom: 41px;
   display: flex;
   justify-content: space-between;
+
+  ${media.sm`
+    h1{
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      font-size: 1.5rem;
+    }
+  `}
 `
 
 export const BoxContainer = styled.div<{ type: string }>`
@@ -107,6 +120,10 @@ export const BoxWrapper = styled.div`
   overflow: hidden;
   padding-bottom: 15px;
   gap: 30px;
+
+  ${media.xs`
+   gap: 1.5rem;
+  `}
 `
 
 export const ArticleButtonWrapper = styled.div`
