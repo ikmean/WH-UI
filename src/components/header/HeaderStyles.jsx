@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 const hoverTransition = (transitionType, transitionValue, transitionSeconds) =>
   css`
@@ -22,6 +23,10 @@ export const HeaderLink = styled.div`
   font-weight: 500;
   font-style: normal;
   line-height: 20px;
+
+  ${media.lg`
+      font-size: 2rem;
+      `}
 `
 
 export const Left = styled.div`
@@ -56,10 +61,46 @@ export const Nav = styled.ul`
       ${hoverTransition('color', `${colors.secondary}`, '0.4s')}
     }
   }
+
+  ${media.lg`
+      display: ${({ open }) => (open ? 'flex' : 'none')};
+      position: fixed;
+      flex-direction: column;
+      justify-content: flex-start;
+      left: 0;
+      right: 0;
+      top: 8vh;
+      padding: 6rem 0 0 4rem;
+      gap: 5rem;
+      background-color: ${colors.white};
+      z-index: 10000;
+      width: 100%;
+      height: 92vh;
+      `}
+`
+
+export const BurgerMenuButton = styled.div`
+  display: none;
+
+  ${media.lg`
+    display: block;
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: ${({ open }) => (open ? colors.primary : colors.secondary)};
+      padding: 0.4rem;
+      border-radius: 0.3rem;
+      transition: background-color 1s;
+      margin-left: 1rem;
+    }
+    
+  `}
 `
 
 export const LocaleButtonWrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 10px;
 `
 
@@ -70,7 +111,6 @@ export const LocaleButton = styled.div`
   border: 1px solid ${({ selected }) => (selected ? colors.secondary : 'transparent')};
   border-radius: 2px;
   &:hover {
-    /* background-color: ${colors.secondary}; */
     color: ${({ selected }) => (selected ? colors.primary : colors.secondary)};
   }
 `

@@ -10,6 +10,8 @@ import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronLeftWhite } from '../../lib/icons/ChevronLeftWhite.svg'
 import { useInView } from 'react-intersection-observer'
 import { SlowLoader } from '../featured/FeaturedStyles'
+import Loader from '../Loader/Loader'
+import { Util } from '../../helpers/Util'
 
 export default function Articles(data: any) {
   const { t } = useTranslation()
@@ -72,21 +74,21 @@ export default function Articles(data: any) {
                 {isHovering.right ? <ChevronRightWhite /> : <ChevronRight />}
               </ArticleButton>
             </ArticleButtonWrapper>
-          </Header>{' '}
-          {data.data.length && (
-            <>
-              <BoxWrapper ref={listContainerRef}>
-                {data.data.map((data: any, i: number) => (
-                  <ArticleBox
-                    data={{
-                      ...data,
-                      id: data.id
-                    }}
-                    key={i}
-                  />
-                ))}
-              </BoxWrapper>
-            </>
+          </Header>
+          {Util.isNull(data) ? (
+            <Loader />
+          ) : (
+            <BoxWrapper ref={listContainerRef}>
+              {data.data.map((data: any, i: number) => (
+                <ArticleBox
+                  data={{
+                    ...data,
+                    id: data.id
+                  }}
+                  key={i}
+                />
+              ))}
+            </BoxWrapper>
           )}
         </SlowLoader>
       )}
