@@ -64,18 +64,12 @@ export default function Header() {
       </Nav>
 
       <LocaleButtonWrapper>
-        <div className='row'>
-          <LocaleButton onClick={() => handleLocaleChange('en')} selected={searchParams.get('locale') === 'en'}>
-            EN
-          </LocaleButton>
-          <LocaleButton onClick={() => handleLocaleChange('ka')} selected={searchParams.get('locale') === 'ka'}>
-            GE
-          </LocaleButton>
-        </div>
-        <div className='row'>
-          <LocaleButton>USD</LocaleButton>
-          <LocaleButton>GEL</LocaleButton>
-        </div>
+        <LocaleButton onClick={() => handleLocaleChange('en')} selected={searchParams.get('locale') === 'en'}>
+          EN
+        </LocaleButton>
+        <LocaleButton onClick={() => handleLocaleChange('ka')} selected={searchParams.get('locale') === 'ka'}>
+          GE
+        </LocaleButton>
 
         <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
           <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>
