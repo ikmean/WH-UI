@@ -106,6 +106,7 @@ export const BurgerMenuButton = styled.div`
 
 export const LocaleButtonWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 5px;
 `
