@@ -26,7 +26,11 @@ export const HeaderLink = styled.div`
 
   ${media.lg`
       font-size: 2rem;
-      `}
+    `}
+
+  ${media.lg`
+      font-size: 1.5rem;
+  `}
 `
 
 export const Left = styled.div`
@@ -69,13 +73,19 @@ export const Nav = styled.ul`
       justify-content: flex-start;
       left: 0;
       right: 0;
-      top: 8vh;
+      top: 10vh;
       padding: 6rem 0 0 4rem;
       gap: 5rem;
       background-color: ${colors.white};
       z-index: 10000;
       width: 100%;
-      height: 92vh;
+      height: 90vh;
+      `}
+
+  ${media.lg`
+        top: 12vh;
+        height: 88vh;
+        gap: 3rem;
       `}
 `
 
