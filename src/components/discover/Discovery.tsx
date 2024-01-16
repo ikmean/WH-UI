@@ -20,17 +20,15 @@ export default function Discovery() {
       {inView && (
         <SlowLoader>
           <Wrapper>
-            <div className='container flex'>
-              <TextWrapper>
-                <h1>{t('DiscoveryHeader')}</h1>
-                <p>{t('DiscoveryDescription')}</p>
-                <Button text={t('AboutOurCompany')} color='black' to='/about' />
-              </TextWrapper>
-              <ImgWrapper>
-                <img src={discoveryImg1} alt='discoveryImg1' />
-                <img src={discoveryImg2} alt='discoveryImg2' />
-              </ImgWrapper>
-            </div>
+            <TextWrapper>
+              <h1>{t('DiscoveryHeader')}</h1>
+              <p>{t('DiscoveryDescription')}</p>
+              <Button text={t('AboutOurCompany')} color='black' to='/about' />
+            </TextWrapper>
+            <ImgWrapper>
+              <img src={discoveryImg1} alt='discoveryImg1' />
+              <img src={discoveryImg2} alt='discoveryImg2' />
+            </ImgWrapper>
           </Wrapper>
         </SlowLoader>
       )}

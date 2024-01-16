@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export interface props {
   forSale?: boolean
@@ -15,6 +16,23 @@ export const HeaderStyles = styled.div`
   align-items: center;
   margin-top: 160px;
   margin-bottom: 64px;
+
+  ${media.sm`
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      h1{
+        font-size: 1.75rem;
+      }
+    `}
+
+  ${media.xs`
+      h1{
+        font-size: 1.5rem;
+      }
+    `}
 `
 
 export const BoxWrapper = styled.div<props>`
@@ -58,6 +76,10 @@ export const BoxWrapper = styled.div<props>`
     border-bottom-left-radius: ${({ featured }) => (featured ? '26px' : '')};
     border-top-right-radius: ${({ featured }) => (featured ? '' : '26px')};
   }
+
+  ${media.lg`
+    flex-direction: column;
+  `}
 `
 
 export const ImgWrapper = styled.div<{ main: any; featured: any }>`
@@ -75,6 +97,12 @@ export const ImgWrapper = styled.div<{ main: any; featured: any }>`
   img {
     height: ${({ main, featured }) => (featured ? '375px' : main ? '375px' : '220px')};
   }
+
+  ${media.lg`
+    img{
+      height: 100%;
+    }
+  `}
 `
 
 export const TextBox = styled.div<props>`
@@ -92,6 +120,10 @@ export const TextBox = styled.div<props>`
   p {
     color: ${colors.greyText};
   }
+
+  ${media.lg`
+    width: 100%;
+  `}
 `
 
 export const LocationContainer = styled.div<props>`
@@ -111,6 +143,10 @@ export const Top = styled.div<props>`
   flex-direction: ${({ featured }) => (featured ? 'row' : 'column-reverse')};
   justify-content: ${({ featured }) => (featured ? ' space-between' : '')};
   margin-bottom: 15px;
+
+  ${media.sm`
+    flex-direction: column;
+  `}
 `
 
 export const Price = styled.span<props>`
@@ -147,6 +183,14 @@ export const Line = styled.div`
   margin: 36px 0;
 `
 
+export const InfoBoxWrapper = styled.div`
+  ${media.xs`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  `}
+`
+InfoBoxWrapper
 export const InfoBox = styled.div<props>`
   display: flex;
   align-items: center;
@@ -162,12 +206,25 @@ export const InfoBox = styled.div<props>`
     color: black;
     padding-left: 7px;
   }
+
+  ${media.xs`
+    align-items: center;
+    justify-content: center;
+  `}
 `
 
 export const PropertiesWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
+
+  ${media.lg`
+    grid-template-columns: auto auto;
+  `}
+
+  ${media.sm`
+    grid-template-columns: auto;
+  `}
 `
 
 export const PropertiesPageHeader = styled.div`

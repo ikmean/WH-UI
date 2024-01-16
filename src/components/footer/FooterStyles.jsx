@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const FooterWrapper = styled.div`
   display: flex;
@@ -17,12 +18,27 @@ export const Top = styled.div`
   gap: 170px;
   padding-bottom: 80px;
   border-bottom: 1px solid ${colors.border};
+
+  ${media.md`
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 2rem;
+  `}
+
+  ${media.xs`
+    padding-left: 2rem;
+  `}
 `
 export const TopLeft = styled.div`
   width: 50%;
   p {
     margin-top: 26px;
   }
+
+  ${media.md`
+    width: 100%;
+  `}
 `
 
 export const FooterText = styled.p`

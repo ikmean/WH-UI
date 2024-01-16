@@ -1,5 +1,16 @@
 import React, { useState } from 'react'
-import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top, CurrencyIcons } from './FeaturedStyles'
+import {
+  BoxWrapper,
+  TextBox,
+  Price,
+  LocationContainer,
+  Line,
+  InfoBox,
+  ImgWrapper,
+  Top,
+  CurrencyIcons,
+  InfoBoxWrapper
+} from './FeaturedStyles'
 import { ReactComponent as Location } from '../../lib/icons/location.svg'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
@@ -52,7 +63,7 @@ export default function FeaturedBox({ data }: any) {
         <h2>{data?.title}</h2>
         {data?.featured && <p>{data?.description}</p>}
         <Line />
-        <div>
+        <InfoBoxWrapper>
           <InfoBox featured={data?.featured}>
             <SQFT />
             <span>{data?.size} m2</span>
@@ -71,7 +82,7 @@ export default function FeaturedBox({ data }: any) {
               <span>4</span>
             </InfoBox>
           )}
-        </div>
+        </InfoBoxWrapper>
       </TextBox>
     </BoxWrapper>
   )
