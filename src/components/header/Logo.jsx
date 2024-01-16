@@ -5,9 +5,9 @@ import { ReactComponent as Icon } from '../../lib/icons/icon.svg'
 
 import { Left } from './HeaderStyles'
 
-export default function Logo() {
+export default function Logo({ onClick }) {
   return (
-    <Link to='/'>
+    <Link to='/' onClick={onClick}>
       <Left>
         <Icon />
         <h1>Warm House</h1>
