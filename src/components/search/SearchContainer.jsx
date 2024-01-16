@@ -4,9 +4,8 @@ import Dropdown from '../dropdown/Dropdown.jsx'
 import { ReactComponent as LocationIcon } from '../../lib/icons/location.svg'
 import { ReactComponent as PropertyIcon } from '../../lib/icons/property.svg'
 import { ReactComponent as TypeIcon } from '../../lib/icons/type.svg'
-import { SearchContainerStyles } from './SearchStyles.jsx'
+import { DropDownWrapper, SearchContainerStyles } from './SearchStyles.jsx'
 import { AppContext } from '../../context/createContext.js'
-import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 export default function SearchContainer() {
@@ -21,12 +20,8 @@ export default function SearchContainer() {
     selectedPropertyCategory,
     setSelectedPropertyCategory,
     selectedLocation,
-    setSelectedLocation,
-    searchInput,
-    fetchPropertiesData,
-    locale
+    setSelectedLocation
   } = context
-  const [searchParams, setSearchParams] = useSearchParams()
 
   const handleSelectDealType = (value) => {
     const updatedSelectedDealType = toggleSelection(selectedDealType, value)
@@ -64,19 +59,21 @@ export default function SearchContainer() {
 
   return (
     <SearchContainerStyles>
-      <Dropdown text={t('Type')} icon={<TypeIcon />} data={checkIfSelected(dealType, selectedDealType)} onSelect={handleSelectDealType} />
-      <Dropdown
-        text={t('Property')}
-        icon={<PropertyIcon />}
-        data={checkIfSelected(propertyCategory, selectedPropertyCategory)}
-        onSelect={handleSelectPropertyCategory}
-      />
-      <Dropdown
-        text={t('Location')}
-        icon={<LocationIcon />}
-        data={checkIfSelected(location, selectedLocation)}
-        onSelect={handleSelectLocation}
-      />
+      <DropDownWrapper>
+        <Dropdown text={t('Type')} icon={<TypeIcon />} data={checkIfSelected(dealType, selectedDealType)} onSelect={handleSelectDealType} />
+        <Dropdown
+          text={t('Property')}
+          icon={<PropertyIcon />}
+          data={checkIfSelected(propertyCategory, selectedPropertyCategory)}
+          onSelect={handleSelectPropertyCategory}
+        />
+        <Dropdown
+          text={t('Location')}
+          icon={<LocationIcon />}
+          data={checkIfSelected(location, selectedLocation)}
+          onSelect={handleSelectLocation}
+        />
+      </DropDownWrapper>
       <Search />
     </SearchContainerStyles>
   )

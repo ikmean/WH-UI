@@ -1,9 +1,9 @@
 import { css } from 'styled-components'
 
 const size = {
-  xs: '400px', // for small screen mobile
-  sm: '600px', // for mobile screen
-  md: '900px', // for tablets
+  xs: '500px', // for small screen mobile
+  sm: '780px', // for mobile screen
+  md: '1000px', // for tablets
   lg: '1280px', // for laptops
   xl: '1440px', // for desktop / monitors
   xxl: '1920px' // for big screens
