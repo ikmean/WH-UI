@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const RequestPropertyStyles = styled.div`
   z-index: 1000;

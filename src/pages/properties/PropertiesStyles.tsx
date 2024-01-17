@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const PropertiesInnerPageContainer = styled.div`
   display: flex;
@@ -29,6 +30,11 @@ export const ButtonWrapper = styled.div`
 
 export const ContentContainer = styled.div`
   position: relative;
+
+  ${media.md`
+    display: flex;
+    flex-direction: column;
+  `}
 `
 
 export const TextContent = styled.div`
@@ -83,12 +89,16 @@ export const AmenityStyles = styled.div`
 `
 
 export const EyeStyles = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   position: absolute;
-  top: 35%;
-  right: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${colors.grey};
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px;
   border-radius: 50%;
 `
 

@@ -80,7 +80,18 @@ export const BoxContainer = styled.div<{ type: string }>`
 
   ${media.md`
       width:100%;
-     
+      margin-right: 0;
+  `}
+
+  ${media.xs`
+    margin-right: 0;
+    height: 100%;
+    max-height: 100%;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
   `}
 `
 
@@ -114,7 +125,7 @@ export const BoxWrapper = styled.div`
   gap: 30px;
 
   ${media.xs`
-   gap: 1.5rem;
+     gap: 1.5rem;
   `}
 `
 
@@ -155,6 +166,10 @@ export const ArticleList = styled.div`
     align-items: center;
     width: 80%;
   `}
+
+  ${media.xs`
+    width: 100%;
+  `}
 `
 
 export const ArticleBoxList = styled.div`
@@ -178,8 +193,12 @@ export const ArticleBoxSmall = styled.div<{ type: string }>`
   display: ${({ type }) => type === 'readMoreSmall' && 'flex'};
   flex-direction: ${({ type }) => type === 'readMoreSmall' && 'row'};
 
-  ${media.lg`
+  ${media.md`
     flex-direction: ${({ type }: any) => type === 'readMoreSmall' && 'column'};
+
+    img{
+      width:100%;
+    }
   `}
 `
 
@@ -192,8 +211,8 @@ export const ReadMore = styled.div`
   font-size: 18px;
   line-height: 20px;
   display: inline-block;
-  /* &:hover {
-    transition: transform 0.2s ease-in-out;
-    transform: translate(2px, -2px);
-  } */
+
+  ${media.md`
+    padding-bottom: 0.5rem;
+  `}
 `
