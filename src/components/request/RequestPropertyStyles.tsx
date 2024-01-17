@@ -33,12 +33,6 @@ export const RequestPropertyStyles = styled.div`
     margin-top: 9px;
     margin-bottom: 65px;
   }
-
-  ${media.md`
-    position: relative;
-    align-items: center;
-    justify-content: center;
-  `}
 `
 
 export const SubmittedMessage = styled.div`
