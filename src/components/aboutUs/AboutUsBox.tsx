@@ -12,7 +12,6 @@ export const AboutUsBox = ({ reverse }: props) => {
   const { context } = useContext(AppContext)
   const { about } = context
 
-  console.log(about.gallery)
   return (
     <AboutBoxContainer reverse={reverse}>
       <Text>
