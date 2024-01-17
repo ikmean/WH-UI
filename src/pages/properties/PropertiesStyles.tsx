@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const PropertiesInnerPageContainer = styled.div`
   display: flex;
@@ -29,6 +30,11 @@ export const ButtonWrapper = styled.div`
 
 export const ContentContainer = styled.div`
   position: relative;
+
+  ${media.md`
+    display: flex;
+    flex-direction: column;
+  `}
 `
 
 export const TextContent = styled.div`

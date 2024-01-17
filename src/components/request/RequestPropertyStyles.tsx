@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const RequestPropertyStyles = styled.div`
   z-index: 1000;
@@ -32,6 +33,12 @@ export const RequestPropertyStyles = styled.div`
     margin-top: 9px;
     margin-bottom: 65px;
   }
+
+  ${media.md`
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  `}
 `
 
 export const SubmittedMessage = styled.div`
