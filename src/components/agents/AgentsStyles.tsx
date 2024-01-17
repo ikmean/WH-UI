@@ -109,6 +109,10 @@ export const TextBox = styled.div<{ type: any }>`
   div {
     margin-bottom: ${({ type }) => (type === 'small' ? '' : '20px')};
   }
+
+  ${media.xs`
+    padding: 0.5rem;
+  `}
 `
 
 export const AgentWrapper = styled.div`

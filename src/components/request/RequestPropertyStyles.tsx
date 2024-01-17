@@ -9,7 +9,6 @@ export const RequestPropertyStyles = styled.div`
   right: 0;
   top: -100px;
   width: 459px;
-  /* height: 839px; */
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   border-radius: 16px;
@@ -33,6 +32,14 @@ export const RequestPropertyStyles = styled.div`
     margin-top: 9px;
     margin-bottom: 65px;
   }
+
+  ${media.md`
+    position: initial;
+  `}
+
+  ${media.xs`
+    width: 23rem;
+  `}
 `
 
 export const SubmittedMessage = styled.div`

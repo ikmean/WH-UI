@@ -12,6 +12,7 @@ import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 import RequestProperty from '../../components/request/CustomerContactRequest'
 import Developer from './Developer'
+import { media } from '../../helpers/device'
 
 export default function DeveloperInnerPage() {
   const { t } = useTranslation()
@@ -34,13 +35,13 @@ export default function DeveloperInnerPage() {
   ) : (
     <DeveloperInnerPageWrapper>
       <DeveloperInfoWrapper>
-        <RequestProperty developer={developerInner.id} project={developerInner?.projects[0]?.id} />
         <DeveloperLogo src={developerInner?.cover} />
         <DeveloperInfoDetailsContainer>
           <DeveloperTitle>{developerInner?.title} </DeveloperTitle>
           <DeveloperDescription>{developerInner?.description}</DeveloperDescription>
           <span>{developerInner?.url}</span>
         </DeveloperInfoDetailsContainer>
+        <RequestProperty developer={developerInner.id} project={developerInner?.projects[0]?.id} />
       </DeveloperInfoWrapper>
 
       <FlexWrapper>
@@ -133,11 +134,19 @@ export const DeveloperInfoWrapper = styled.div`
   gap: 1rem;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   padding: 2rem;
+
+  ${media.md`
+    flex-direction: column;
+  `}
 `
 export const DeveloperLogo = styled.img`
   width: auto;
   height: 15rem;
   padding: 1rem;
+
+  ${media.sm`
+    width: 40rem;
+  `}
 `
 export const DeveloperInfoDetailsContainer = styled.div`
   display: flex;

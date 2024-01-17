@@ -78,8 +78,8 @@ export const BoxContainer = styled.div<{ type: string }>`
     }
   }
 
-  ${media.md`
-      width:100%;
+  ${media.lg`
+      width: ${({ type }: any) => type !== 'default' && '100%'};
       margin-right: 0;
   `}
 

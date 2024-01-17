@@ -42,7 +42,7 @@ export const ArticleListWrapper = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 
-  ${media.md`
+  ${media.lg`
     display: flex;
     justify-content: center;
     align-items: center;
