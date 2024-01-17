@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
+export const AgentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+`
 export const AgentsInnerPageStyles = styled.div`
   display: flex;
   align-items: center;
@@ -11,6 +17,8 @@ export const AgentsInnerPageStyles = styled.div`
 `
 
 export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 47px;
   margin-top: 78px;
   h1 {
@@ -21,7 +29,17 @@ export const Header = styled.div`
     width: 40%;
     opacity: 0;
     animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
+    color: ${colors.greyText};
   }
+
+  ${media.sm`
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    p{
+      width: 80%;
+    }
+  `}
 `
 
 export const AgentBoxWrapperPage = styled.div`
