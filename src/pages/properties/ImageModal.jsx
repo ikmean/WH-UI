@@ -33,11 +33,12 @@ const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, da
         alignItems: 'center',
         zIndex: 1000
       }}
-      onClick={closeModal}
+      // onClick={closeModal}
     >
       <Buttons onClick={handlePrevClick}>
         <ChevronLeft />
       </Buttons>
+
       <ButtonClose onClick={closeModal}>
         <Close />
       </ButtonClose>

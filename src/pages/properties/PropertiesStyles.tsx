@@ -83,6 +83,9 @@ export const AmenityStyles = styled.div`
 `
 
 export const EyeStyles = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   position: absolute;
   top: 35%;
