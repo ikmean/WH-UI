@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -25,6 +26,13 @@ export const AgentsList = styled.div`
   gap: 25px;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
+  ${media.md`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${media.sm`
+    grid-template-columns: auto ;
+  `}
 `
 
 export const AgentBoxStyles = styled.div<{ type: string }>`

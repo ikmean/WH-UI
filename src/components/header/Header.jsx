@@ -72,10 +72,10 @@ export default function Header() {
             GE
           </LocaleButton>
         </div>
-        <div className='row'>
+        {/* <div className='row'>
           <LocaleButton>USD</LocaleButton>
           <LocaleButton>GEL</LocaleButton>
-        </div>
+        </div> */}
 
         <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
           <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>
