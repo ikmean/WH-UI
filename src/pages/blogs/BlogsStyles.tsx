@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { slideAnimation } from '../../styles'
+import { media } from '../../helpers/device'
 
 export const Header = styled.div`
   display: flex;
@@ -14,6 +15,22 @@ export const Header = styled.div`
     opacity: 0;
     animation: ${slideAnimation('100px')} 1s ease 0.5s forwards;
   }
+
+  ${media.sm`
+    h1{
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      font-size: 1.5rem;
+    }
+  `}
+
+  ${media.lg`
+    justify-content: center;
+  `}
 `
 
 export const SearchWrapper = styled.div`
@@ -24,6 +41,12 @@ export const SearchWrapper = styled.div`
 export const ArticleListWrapper = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
+
+  ${media.md`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `}
 `
 
 export const DateWrapper = styled.div`

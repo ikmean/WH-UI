@@ -17,18 +17,6 @@ export const Header = styled.div`
   margin-bottom: 41px;
   display: flex;
   justify-content: space-between;
-
-  ${media.sm`
-    h1{
-      font-size: 1.75rem;
-    }
-  `}
-
-  ${media.xs`
-    h1{
-      font-size: 1.5rem;
-    }
-  `}
 `
 
 export const BoxContainer = styled.div<{ type: string }>`
@@ -36,7 +24,6 @@ export const BoxContainer = styled.div<{ type: string }>`
   flex-direction: column;
   border-radius: 26px;
   margin-right: ${({ type }) => (type === 'default' ? '0' : '30px')};
-  height: ${({ type }) => type === 'readMoreSmall' && '179px'};
   width: ${({ type }) => type === 'description' && '50%'};
   width: ${({ type }) => type === 'readMoreSmall' && '100%'};
   width: ${({ type }) => type === 'default' && '390px'};
@@ -90,6 +77,11 @@ export const BoxContainer = styled.div<{ type: string }>`
       transform: translate(5px, -5px);
     }
   }
+
+  ${media.md`
+      width:100%;
+     
+  `}
 `
 
 export const Info = styled.div`
@@ -155,11 +147,14 @@ export const ArticleButton = styled.button`
 
 export const ArticleList = styled.div`
   display: flex;
-  flex-direction: row;
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 1fr;
   gap: 20px;
-  height: auto;
+
+  ${media.lg`
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  `}
 `
 
 export const ArticleBoxList = styled.div`
@@ -173,11 +168,19 @@ export const ArticleBoxList = styled.div`
   scrollbar-color: transparent transparent;
   overflow-y: hidden;
   overflow-x: hidden;
+
+  ${media.lg`
+    max-height: 100%;
+  `}
 `
 
 export const ArticleBoxSmall = styled.div<{ type: string }>`
   display: ${({ type }) => type === 'readMoreSmall' && 'flex'};
   flex-direction: ${({ type }) => type === 'readMoreSmall' && 'row'};
+
+  ${media.lg`
+    flex-direction: ${({ type }: any) => type === 'readMoreSmall' && 'column'};
+  `}
 `
 
 export const ReadMore = styled.div`

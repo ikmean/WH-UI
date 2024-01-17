@@ -8,6 +8,7 @@ import { colors } from '../../lib/colors'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 import Developer from './Developer'
+import { media } from '../../helpers/device'
 
 export default function DevelopersPage() {
   const { t } = useTranslation()
@@ -45,6 +46,13 @@ export const DevelopersPageWrapper = styled.div`
   grid-template-rows: repeat(2, auto);
   gap: 4rem;
   padding: 5rem;
+  ${media.md`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${media.sm`
+    grid-template-columns: auto ;
+  `}
 `
 
 export const DevelopersPageHeader = styled.h2`

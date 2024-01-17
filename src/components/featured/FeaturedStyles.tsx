@@ -253,6 +253,9 @@ export const PropertiesPageHeader = styled.div`
     h1{
       font-size: 2.5rem;
     }
+    p{
+      width: 100%;
+    }
   `}
 
   ${media.xs`
@@ -271,6 +274,14 @@ export const PropertiesPageWrapper = styled.div`
   margin-top: 80px;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
+
+  ${media.md`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${media.sm`
+    grid-template-columns: auto ;
+  `}
 `
 
 export const Nav = styled.div`
