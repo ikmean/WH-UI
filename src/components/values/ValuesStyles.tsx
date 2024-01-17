@@ -70,7 +70,7 @@ export const Icon = styled.div`
   justify-content: center;
   width: 107.09px;
   height: 107.09px;
-  background: rgba(248, 87, 87, 0.12);
+  background: rgba(252, 239, 222);
   border-radius: 50%;
   margin-right: 22px;
   flex-shrink: 0;

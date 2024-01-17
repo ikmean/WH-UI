@@ -22,7 +22,7 @@ export const ValueBox = ({ type }: props) => {
       </Icon>
       <div>
         <h2>{t(`${type}`)}</h2>
-        <p>{t(`${type}Desc`)}</p>
+        <p>{t(`${type}`)}</p>
       </div>
     </ValueBoxWrapper>
   )

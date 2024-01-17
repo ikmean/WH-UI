@@ -113,7 +113,7 @@ export const AgentWrapper = styled.div`
 export const ContactStyles = styled.div<{ type: any }>`
   display: flex;
   flex-direction: column;
-  /* gap: 30px; */
+  gap: 10px;
   align-items: flex-start;
   word-break: break-all;
   div {
