@@ -88,10 +88,11 @@ export const EyeStyles = styled.div`
   align-items: center;
   opacity: 0;
   position: absolute;
-  top: 35%;
-  right: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${colors.grey};
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px;
   border-radius: 50%;
 `
 
