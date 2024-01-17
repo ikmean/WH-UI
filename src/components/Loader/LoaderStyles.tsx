@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { colors } from '../../lib/colors'
 
 interface props {
   type: string
@@ -22,7 +23,7 @@ export const LoaderContainer = styled.div<props>`
 
 export const LoaderAnimation = styled.div<props>`
   border: 6px solid #f3f3f3;
-  border-top: 6px solid rgba(248, 87, 87, 1);
+  border-top: 6px solid ${colors.secondary};
   border-radius: 50%;
   width: ${({ type }) => (type === 'small' ? '50px' : '80px')};
   height: ${({ type }) => (type === 'small' ? '50px' : '80px')};

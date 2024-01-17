@@ -54,10 +54,10 @@ export default function FeaturedBox({ data }: any) {
           </LocationContainer>
           <div>
             <Price featured={data?.featured}>{selectedCurrency === 'gel' ? `${data?.price?.gel}` : `${data?.price?.usd}`}</Price>
-            <CurrencyIcons onClick={handleCurrencySwitch}>
+            {/* <CurrencyIcons onClick={handleCurrencySwitch}>
               <Gel />
               <Usd />
-            </CurrencyIcons>
+            </CurrencyIcons> */}
           </div>
         </Top>
         <h2>{data?.title}</h2>
