@@ -30,6 +30,10 @@ export const BoxStyles = styled.div`
     justify-content: space-between;
     width: 80%;
   `}
+
+  ${media.sm`
+    gap: 1rem;
+  `}
 `
 
 export const H1 = styled.p`
@@ -42,6 +46,8 @@ export const H1 = styled.p`
 
 //subscribe input
 export const SubscribeInputStyles = styled.div`
+  width: 100%;
+
   input {
     display: flex;
     border: none;
@@ -67,8 +73,16 @@ export const SubscribeInputStyles = styled.div`
     justify-content: space-between;
    
     input{
-      width: 80%;
+      width: 100%;
+      font-size: 1rem;
     } 
+  `}
+
+  ${media.sm`
+    
+    input{
+      font-size: 0.8rem;
+    }
   `}
 `
 

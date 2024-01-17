@@ -58,7 +58,7 @@ export const Right = styled.div`
 export const Nav = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
   padding-right: 200px;
   margin-left: 100px;
   li {
@@ -75,14 +75,14 @@ export const Nav = styled.ul`
       margin-left:  0;
       left: 0;
       right: 0;
-      top: 17vh;
+      top: 12vh;
       padding: 6rem 0 0 4rem;
       gap: 5rem;
       background-color: ${colors.white};
       z-index: 10000;
       width: 100%;
-      height: 83vh;
-      `}
+      height: 88vh;
+  `}
 `
 
 export const BurgerMenuButton = styled.div`

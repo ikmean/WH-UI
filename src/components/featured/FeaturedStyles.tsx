@@ -233,7 +233,7 @@ export const PropertiesPageHeader = styled.div`
   flex-direction: column;
   margin-top: 50px;
   h1 {
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 60px;
     margin-bottom: 18px;
     opacity: 0;
@@ -248,6 +248,18 @@ export const PropertiesPageHeader = styled.div`
     opacity: 0;
     animation: ${slideAnimation('100px')} 1s ease 0.7s forwards;
   }
+
+  ${media.sm`
+    h1{
+      font-size: 2.5rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      font-size: 2.05rem
+    }
+  `}
 `
 export const PropertiesPageWrapper = styled.div`
   position: relative;
@@ -268,11 +280,6 @@ export const Nav = styled.div`
   .button {
     margin-right: 68px;
   }
-`
-
-export const SlowLoader = styled.div`
-  opacity: 0;
-  animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 `
 
 export const NoProperties = styled.div`
