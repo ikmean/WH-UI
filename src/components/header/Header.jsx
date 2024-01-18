@@ -151,6 +151,7 @@ export default function Header() {
           </SelectionStyles>
         )}
         </div>
+    </LocaleButtonWrapper>
 
         <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
           <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>
