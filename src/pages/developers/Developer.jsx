@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { Link } from 'react-router-dom'
+import { media } from '../../helpers/device'
 
 export default function Developer({ developer }) {
   const { t } = useTranslation()
@@ -34,9 +35,22 @@ export default function Developer({ developer }) {
 export const DeveloperContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   padding: 0 0 1rem 0;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
+
+  img {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  span {
+    color: ${colors.greyText};
+  }
+
+  p {
+    color: ${colors.greyText};
+  }
 
   &:hover {
     transition: transform 0.3s ease;
@@ -45,6 +59,11 @@ export const DeveloperContainer = styled.div`
       transform: scale(1);
     }
   }
+
+  ${media.xs`
+    justify-content: center;
+    width: 80vw;
+  `}
 `
 export const DeveloperInfoContainer = styled.div`
   display: flex;

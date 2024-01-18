@@ -25,7 +25,7 @@ import Dropdown from '../dropdown/Dropdown'
 export default function Header() {
   const { i18n, t } = useTranslation()
   const { context } = useContext(AppContext)
-  const { cleanupSearchParams, setLocale } = context
+  const { cleanupSearchParams, setLocale, setEmailSubscription, setCcrSubmited } = context
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedLanguage, setSelectedLanguage] = useState('EN')
   const [selectedCurrency, setSelectedCurrency] = useState('USD')
@@ -48,10 +48,16 @@ export default function Header() {
   const toggleSelection = () => {
     setSelectionOpen(!selectionOpen)
   }
+  
+   const handleMenuNavigationCleanup = () => {
+    setBurgerMenuOpen(false)
+    setEmailSubscription(false)
+    setCcrSubmited(false)
+  }
 
   return (
     <HeaderWrapper className='container'>
-      <Logo onClick={() => setBurgerMenuOpen(false)} />
+      <Logo onClick={() => handleMenuNavigationCleanup()} />
       <Nav open={burgerMenuOpen}>
         <li>
           <Link to='/' onClick={() => handleHomeClick()}>
@@ -59,27 +65,27 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link to='/properties' onClick={() => setBurgerMenuOpen(false)}>
+          <Link to='/properties' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('Properties')}</HeaderLink>
           </Link>
         </li>
         <li>
-          <Link to='/developers' onClick={() => setBurgerMenuOpen(false)}>
+          <Link to='/developers' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('Developers')}</HeaderLink>
           </Link>
         </li>
         <li>
-          <Link to='/about' onClick={() => setBurgerMenuOpen(false)}>
+          <Link to='/about' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('About')}</HeaderLink>
           </Link>
         </li>
         <li>
-          <Link to='/agents' onClick={() => setBurgerMenuOpen(false)}>
+          <Link to='/agents' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('Agents')}</HeaderLink>
           </Link>
         </li>
         <li>
-          <Link to='/blogs' onClick={() => setBurgerMenuOpen(false)}>
+          <Link to='/blogs' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('Blogs')}</HeaderLink>
           </Link>
         </li>
@@ -144,6 +150,7 @@ export default function Header() {
             </StyledSelect>
           </SelectionStyles>
         )}
+        </div>
 
         <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
           <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>

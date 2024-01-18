@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { AboutContainer, Description, Images } from './AboutStyles'
+import { AboutContainer, Description, HeaderAndDescription, Images } from './AboutStyles'
 import { TakeALook } from '../../components/takeALook/TakeALook'
 import { AboutUs } from '../../components/aboutUs/AboutUs'
 import { Values } from '../../components/values/Values'
@@ -23,15 +23,17 @@ function About() {
     <Loader />
   ) : (
     <AboutContainer>
-      <div className='container'>
-        <h1>{about?.header}</h1>
-        <Description>
-          <p>{about?.descriptionFirst}</p>
-          <p>{about?.descriptionSecond}</p>
-        </Description>
+      <div>
+        <HeaderAndDescription>
+          <h1>{about?.header}</h1>
+          <Description>
+            <p>{about?.descriptionFirst}</p>
+            <p>{about?.descriptionSecond}</p>
+          </Description>
+        </HeaderAndDescription>
         <Images>
           {about?.gallery?.map((image: any, i: number) => (
-            <img key={i} src={image.large} alt='aboutimg' height='100%' />
+            <img key={i} src={image.large} alt='aboutimg' />
           ))}
         </Images>
       </div>

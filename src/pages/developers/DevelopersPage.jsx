@@ -42,7 +42,7 @@ export default function DevelopersPage() {
 
 export const DevelopersPageWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 4rem;
   padding: 5rem;
@@ -51,7 +51,8 @@ export const DevelopersPageWrapper = styled.div`
   `}
 
   ${media.sm`
-    grid-template-columns: auto ;
+    grid-template-columns: auto;
+    padding: 2rem;
   `}
 `
 

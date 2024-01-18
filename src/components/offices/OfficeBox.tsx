@@ -10,7 +10,7 @@ export default function OfficeBox({ phoneNumber, location, title, about, gallery
         <h2>{title}</h2>
         <p>{about}</p>
         <Line />
-        <ContactInfo direction='row' phoneNumber={phoneNumber} location={location} />
+        <ContactInfo direction='column' phoneNumber={phoneNumber} location={location} />
       </Info>
     </BoxContainer>
   )

@@ -79,7 +79,7 @@ function PropertiesInner() {
       {propertyInner && (
         <>
           <ImgBtnStyles>
-            <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='515.05px' />
+            <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='auto' />
             <ButtonWrapper>
               <Button
                 text={
@@ -95,7 +95,6 @@ function PropertiesInner() {
             </ButtonWrapper>
           </ImgBtnStyles>
           <ContentContainer className='container'>
-            <RequestProperty rentOrSale={propertyInner?.dealType} price={propertyInner?.price} agent={propertyInner?.agent} property={id} />
             <TextContent>
               <h3>{propertyInner?.streetAddress}</h3>
               <h1>{propertyInner?.title}</h1>
@@ -133,10 +132,11 @@ function PropertiesInner() {
               </AmenityContainer>
             </TextContent>
             <Line />
+            <RequestProperty rentOrSale={propertyInner?.dealType} price={propertyInner?.price} agent={propertyInner?.agent} property={id} />
+            <Line />
             <div>
               <div ref={galleryRef} className='flex space-between center'>
                 <h1>{t('PropertyGallery')}</h1>
-                <Button text='Request info' color='black' to='/' />
               </div>
               <GalleryContainer>
                 {propertyInner?.gallery?.map((photo, i) => (

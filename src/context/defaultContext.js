@@ -19,6 +19,8 @@ export const defaultAppCTX = {
   searchInput: null,
   loadingProperties: true,
   locale: 'en',
+  emailSubscription: false,
+  ccrSubmited: false,
 
   setLocale: () => {},
   setSelectedDealType: () => {},
@@ -26,6 +28,8 @@ export const defaultAppCTX = {
   setSelectedLocation: () => {},
   cleanupSearchParams: () => {},
   setSearchInput: () => {},
+  setEmailSubscription: () => {},
+  setCcrSubmited: () => {},
 
   fetchPropertyInnerData: () => {},
   fetchPropertiesData: () => {},
