@@ -12,7 +12,7 @@ export default function Offices({ offices }: any) {
       <Header>
         <h1>{t('VisitOffices')}</h1>
       </Header>
-      <BoxWrapper className='flex'>
+      <BoxWrapper>
         {offices?.map((office: any, i: number) => (
           <OfficeBox
             key={i}

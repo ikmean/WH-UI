@@ -9,21 +9,19 @@ export const Values = () => {
 
   return (
     <Wrapper>
-      <div className='container flex space-between '>
-        <Left>
-          <Header>
-            <h1>{t('ValuesHeader')}</h1>
-            <p>{t('ValuesDesc')}</p>
-          </Header>
-          <ValueBox type='excellence' />
-          <ValueBox type='quality' />
-        </Left>
-        <Right>
-          <ValueBox type='excellence' />
-          <ValueBox type='accesibility' />
-          <ValueBox type='quality' />
-        </Right>
-      </div>
+      <Left>
+        <Header>
+          <h1>{t('ValuesHeader')}</h1>
+          <p>{t('ValuesDesc')}</p>
+        </Header>
+        <ValueBox type='excellence' />
+        <ValueBox type='quality' />
+      </Left>
+      <Right>
+        <ValueBox type='excellence' />
+        <ValueBox type='accesibility' />
+        <ValueBox type='quality' />
+      </Right>
     </Wrapper>
   )
 }

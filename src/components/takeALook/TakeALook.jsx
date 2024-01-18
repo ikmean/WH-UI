@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Box from './Box'
-import { Container, Title } from './TakeALookStyles'
+import { Container, TakeALookContainer, Title } from './TakeALookStyles'
 import { AppContext } from '../../context/createContext'
 
 export const TakeALook = () => {
@@ -13,11 +13,11 @@ export const TakeALook = () => {
   return (
     <Container>
       <Title>{t('TakeALookHeader')}</Title>
-      <div className='flex space-between'>
+      <TakeALookContainer>
         <Box h1={about.customerSatisfaction} h2={t('CustomerSatisfaction')} p={about.customerSatisfactionDescription} />
         <Box h1={about.inPropertySales} h2={t('InPropertySales')} p={about.inPropertySalesDescription} />
         <Box h1={about.succesfulSales} h2={t('SuccessfulSales')} p={about.succesfullSalesDescription} />
-      </div>
+      </TakeALookContainer>
     </Container>
   )
 }
