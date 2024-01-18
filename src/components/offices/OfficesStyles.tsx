@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const Wrapper = styled.div`
   margin-top: 168px;
@@ -8,6 +9,10 @@ export const Wrapper = styled.div`
   h1 {
     font-size: 32px;
   }
+
+  ${media.sm`
+    padding: 2rem;
+  `}
 `
 export const Header = styled.div`
   width: 100%;
@@ -15,20 +20,25 @@ export const Header = styled.div`
   font-size: 32px;
   font-weight: 700;
   line-height: 44px;
+
+  ${media.xs`
+    h1{
+      font-size: 1.5rem;
+    }
+    
+  `}
 `
 
 export const BoxContainer = styled.div`
-  width: 50%;
-  margin-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   h2 {
     font-size: 22px;
     line-height: 30px;
   }
-  img {
-    width: 598.33px;
-    height: 50%;
-    top: 5996.08px;
-  }
+
   p {
     color: ${colors.greyText};
     padding-top: 10px;
@@ -36,6 +46,10 @@ export const BoxContainer = styled.div`
     font-weight: 500;
     line-height: 30px;
   }
+
+  ${media.md`
+      padding-bottom: 2rem;
+    `}
 `
 
 export const Info = styled.div`
@@ -54,6 +68,15 @@ export const Line = styled.div`
 `
 
 export const BoxWrapper = styled.div`
-  display: flex;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  ${media.lg`
+  grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${media.sm`
+  grid-template-columns: repeat(1, 1fr);
+  `}
 `
