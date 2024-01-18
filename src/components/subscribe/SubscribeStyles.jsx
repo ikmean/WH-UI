@@ -42,6 +42,11 @@ export const H1 = styled.p`
   line-height: 28px;
   letter-spacing: 0px;
   text-align: left;
+  padding-bottom: 1rem;
+
+  ${media.md`
+    font-size: 1rem;
+  `}
 `
 
 //subscribe input
@@ -93,10 +98,19 @@ export const SuccessMessage = styled.div`
   color: ${colors.secondary};
   background-color: ${colors.pink};
   border-radius: 12px;
-  position: relative;
   overflow: hidden;
   height: 150px;
   width: 460px;
   padding-left: 30px;
   font-size: 20px;
+
+  ${media.md`
+    height: 6rem;
+    width: 15rem;
+    font-size: 1rem;
+  `}/* ${media.xs`
+    height: 8rem;
+    width: 20rem;
+    font-size: 1rem;
+  `} */
 `

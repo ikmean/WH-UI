@@ -103,23 +103,70 @@ export const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 5rem;
+
+  ${media.md`
+    grid-template-columns: repeat(2, 1fr);
+    
+  `}
+
+  ${media.sm`
+    grid-template-columns: repeat(1, 1fr);
+    padding: 5rem 4rem;
+  `}
+
+  ${media.xs`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `}
 `
 export const DevelopersGridGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 5rem;
+
+  ${media.lg`
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  `}
+
+  ${media.md`
+  grid-template-columns: repeat(2, 1fr);
+    
+  `}
+
+  ${media.sm`
+  grid-template-columns: repeat(1, 1fr);
+    
+  `}
 `
 export const GridHeader = styled.h2`
   span {
     color: ${colors.greyText};
     font-size: 1.1rem;
   }
+
+  ${media.md`
+    text-align: center;
+  `}
+
+  ${media.sm`
+    font-size: 1rem;
+    span{
+      font-size: 0.95rem;
+    }
+  `}
 `
 export const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  ${media.lg`
+    align-items: center;
+  `}
 `
 
 export const DeveloperInnerPageWrapper = styled.div`
@@ -131,21 +178,25 @@ export const DeveloperInnerPageWrapper = styled.div`
 export const DeveloperInfoWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   padding: 2rem;
 
-  ${media.md`
-    flex-direction: column;
+  ${media.lg`
+    align-items: center;
   `}
 `
 export const DeveloperLogo = styled.img`
-  width: auto;
-  height: 15rem;
+  width: 50rem;
+  height: auto;
   padding: 1rem;
 
+  ${media.lg`
+    width: 45rem;
+  `}
   ${media.sm`
-    width: 40rem;
+    width: 80vw;
   `}
 `
 export const DeveloperInfoDetailsContainer = styled.div`
@@ -155,6 +206,14 @@ export const DeveloperInfoDetailsContainer = styled.div`
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
   width: 100%;
   padding: 1rem;
+
+  ${media.sm`
+    width: 80%;
+  `}
+  ${media.xs`
+    width: 60%;
+    padding: 2rem;
+  `}
 `
 export const DeveloperTitle = styled.h3``
 export const DeveloperDescription = styled.p``
@@ -186,6 +245,11 @@ export const ProjectContainer = styled.div`
       transform: scale(1);
     }
   }
+
+  ${media.xs`
+    justify-content: center;
+    width: 80vw;
+  `}
 `
 
 export const ProjectDetailsContainer = styled.div`

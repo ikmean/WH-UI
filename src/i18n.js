@@ -84,7 +84,10 @@ const resources = {
       OngoingProjects: 'Ongoing Projects',
       PricesFrom: 'Prices From',
       SeeMoreDevelopers: 'See More Developers',
-      OfThem: 'of them'
+      OfThem: 'of them',
+      EnterYourFullName: 'Please enter your full name.',
+      EnterYourEmail: 'Please enter your email address.',
+      EnterYourGeoNumber: 'Please enter a georgian phone number'
     }
   },
   ka: {
@@ -167,7 +170,10 @@ const resources = {
       OngoingProjects: 'მიმდინარე პროექტი',
       PricesFrom: 'საწყისი ფასი',
       SeeMoreDevelopers: 'სამშენებლო კომპანიები',
-      OfThem: 'მათგანი'
+      OfThem: 'მათგანი',
+      EnterYourFullName: 'გთხოვთ აკრიფოთ სახელი/გვარი',
+      EnterYourEmail: 'გთხოვთ აკრიფოთ საფოსტო მისამართი',
+      EnterYourGeoNumber: 'გთხოვთ აკრიფოთ ქართული ნომერი'
     }
   }
 }

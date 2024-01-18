@@ -10,10 +10,9 @@ export default function Subscribe() {
   const { t } = useTranslation()
 
   const { context } = useContext(AppContext)
-  const { createCustomerRequest } = context
+  const { createCustomerRequest, emailSubscription, setEmailSubscription } = context
 
   const [email, setEmail] = useState('')
-  const [subscribe, setSubscribe] = useState(false)
 
   const isValidEmail = (input) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -27,15 +26,15 @@ export default function Subscribe() {
       alert('Please enter your email address.')
       return
     }
-    setSubscribe(true)
 
     createCustomerRequest({ email })
+    setEmailSubscription(true)
   }
 
   return (
     <div>
       <H1> {t('SubscribeHeader')} </H1>
-      <SubscribeBox email={email} setEmail={setEmail} subscribe={subscribe} />
+      <SubscribeBox email={email} setEmail={setEmail} subscribe={emailSubscription} />
       <Button text={t('Subscribe')} color='red' click={handleSubmit} />
     </div>
   )
