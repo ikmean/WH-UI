@@ -48,8 +48,8 @@ export default function Header() {
   const toggleSelection = () => {
     setSelectionOpen(!selectionOpen)
   }
-  
-   const handleMenuNavigationCleanup = () => {
+
+  const handleMenuNavigationCleanup = () => {
     setBurgerMenuOpen(false)
     setEmailSubscription(false)
     setCcrSubmited(false)
@@ -150,13 +150,11 @@ export default function Header() {
             </StyledSelect>
           </SelectionStyles>
         )}
-        </div>
-    </LocaleButtonWrapper>
-
-        <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
-          <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>
-        </BurgerMenuButton>
       </LocaleButtonWrapper>
+
+      <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>
+        <div>{burgerMenuOpen ? <Close /> : <Burger />}</div>
+      </BurgerMenuButton>
     </HeaderWrapper>
   )
 }
