@@ -48,8 +48,15 @@ export const SubmittedMessage = styled.div`
   justify-content: center;
   gap: 10px;
   color: ${colors.secondary};
-  position: relative;
   height: 330px;
   width: 360px;
   font-size: 20px;
+
+  ${media.md`
+    font-size: 1rem;
+  `}
+
+  ${media.xs`
+    width: 20rem;
+  `}
 `
