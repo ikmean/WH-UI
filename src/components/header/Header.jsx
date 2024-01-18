@@ -27,9 +27,8 @@ export default function Header() {
   const { context } = useContext(AppContext)
   const { cleanupSearchParams, setLocale } = context
   const [searchParams, setSearchParams] = useSearchParams()
-  const [selectedLanguage, setSelectedLanguage] = useState('')
-
-  const [selectedCurrency, setSelectedCurrency] = useState('')
+  const [selectedLanguage, setSelectedLanguage] = useState('EN')
+  const [selectedCurrency, setSelectedCurrency] = useState('USD')
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
   const [selectionOpen, setSelectionOpen] = useState(false)
 
@@ -37,8 +36,8 @@ export default function Header() {
     i18n.changeLanguage(value)
     setSearchParams({ locale: value })
     setLocale({ locale: value })
-    setSelectedLanguage(value)
-    setSelectedCurrency(value)
+    // setSelectedLanguage(value)
+    // setSelectedCurrency(value)
   }
 
   const handleHomeClick = () => {
@@ -117,12 +116,28 @@ export default function Header() {
               <LocaleButton>USD</LocaleButton>
               <LocaleButton>GEL</LocaleButton>
             </div> */}
-            <StyledSelect id='languageSelect' onChange={(e) => handleLocaleChange(e.target.value)} value={selectedLanguage}>
+            <StyledSelect
+              id='languageSelect'
+              onChange={(e) => {
+                e.preventDefault()
+                handleLocaleChange(e.target.value)
+                setSelectedLanguage(selectedLanguage)
+              }}
+              value={selectedLanguage}
+            >
               <option value=' disabled'>Language</option>
               <option value='en'>EN</option>
               <option value='ka'>GE</option>
             </StyledSelect>
-            <StyledSelect id='currencySelect' onChange={(e) => handleLocaleChange(e.target.value)} value={selectedLanguage}>
+            <StyledSelect
+              id='currencySelect'
+              onChange={(e) => {
+                e.preventDefault()
+                handleLocaleChange(e.target.value)
+                setSelectedCurrency(selectedCurrency)
+              }}
+              value={selectedCurrency}
+            >
               <option value=' disabled'>Currency</option>
               <option value='usd'>USD</option>
               <option value='gel'>GEL</option>
