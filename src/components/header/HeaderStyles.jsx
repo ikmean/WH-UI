@@ -127,7 +127,6 @@ export const WorldWrapper = styled.div`
 export const SelectionStyles = styled.div`
   opacity: 80;
   display: flex;
-  flex-direction: row;
   gap: 30px;
   align-items: center;
   justify-content: center;
