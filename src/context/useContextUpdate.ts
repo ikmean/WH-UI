@@ -32,7 +32,8 @@ export default function useContextUpdateFromSocket() {
         fetchDevelopersData,
         fetchDeveloperInnerData,
         setEmailSubscription,
-        setCcrSubmited
+        setCcrSubmited,
+        setCurrency
       }
     })
   }, [])
@@ -73,6 +74,11 @@ export default function useContextUpdateFromSocket() {
     })
   }
 
+  const setCurrency = (value: string) => {
+    setContext((ctx) => {
+      return { ...ctx, currency: value }
+    })
+  }
   const setEmailSubscription = (value: boolean) => {
     setContext((ctx) => {
       return { ...ctx, emailSubscription: value }
