@@ -110,6 +110,50 @@ export const LocaleButtonWrapper = styled.div`
   gap: 5px;
 `
 
+export const WorldWrapper = styled.div`
+  padding: 10px;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: ${colors.grey};
+    svg {
+      path {
+        fill: ${colors.secondary};
+      }
+    }
+  }
+`
+
+export const SelectionStyles = styled.div`
+  opacity: 80;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ${colors.grey};
+  border: 1px solid ${colors.greyText};
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  z-index: 1000;
+  width: 40%;
+  height: 40%;
+`
+
+export const StyledSelect = styled.select`
+  width: 40%;
+  border: 1px solid ${colors.secondary};
+  border-radius: 20px;
+  padding: 8px;
+  margin-top: 5px;
+`
+
 export const LocaleButton = styled.div`
   border: 1px solid ${colors.grey};
   padding: 5px;
