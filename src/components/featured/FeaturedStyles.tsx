@@ -275,7 +275,7 @@ export const PropertiesPageWrapper = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 
-  ${media.md`
+  ${media.lg`
     grid-template-columns: repeat(2, 1fr);
   `}
 

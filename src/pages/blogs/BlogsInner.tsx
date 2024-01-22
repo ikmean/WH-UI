@@ -38,7 +38,7 @@ function BlogsInner() {
           <p>{data?.description}</p>
           <Link to={`/agents/${data?.agent.id}`}>
             <Author>
-              <img src={data?.agent?.profilePicture?.small} alt='img2' />
+              <img src={data?.agent?.profilePicture?.small} alt='agent photo' />
               <div>
                 <h2>
                   {data?.agent?.name} {data?.agent?.lastName}
@@ -48,7 +48,7 @@ function BlogsInner() {
             </Author>
           </Link>
         </ArticleHeaderContent>
-        <img src={data?.cover?.url} alt='img1' />
+        <img src={data?.cover?.url} alt='blog cover' />
       </ArticleHeaderWrapper>
       <ArticleContent>
         <h2>{data?.header1}</h2>
@@ -65,9 +65,9 @@ function BlogsInner() {
         <h3>{data?.header6}</h3>
         <p>{data?.text6}</p>
       </ArticleContent>
-      <Link to={`/agents/${data?.agent.id}`}>
+      <Link to={`/agents/${data?.agent?.id}`}>
         <AuthorBigger>
-          <img src={data?.agent?.profilePicture.small} alt='img2' />
+          <img src={data?.agent?.profilePicture?.small} alt='agent image' />
           <div>
             <h2>
               {data?.agent?.name} {data?.agent?.lastName}
