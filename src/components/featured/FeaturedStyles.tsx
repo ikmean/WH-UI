@@ -114,9 +114,6 @@ export const TextBox = styled.div<props>`
     margin-bottom: 8px;
     font-size: ${({ featured }) => (featured ? '22px' : '18px')};
   }
-  div {
-    display: flex;
-  }
   p {
     color: ${colors.greyText};
   }
@@ -184,10 +181,11 @@ export const Line = styled.div`
 `
 
 export const InfoBoxWrapper = styled.div`
-  ${media.xs`
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  ${media.xs`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   `}
 `
 InfoBoxWrapper
