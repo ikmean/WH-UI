@@ -87,7 +87,9 @@ const resources = {
       OfThem: 'of them',
       EnterYourFullName: 'Please enter your full name.',
       EnterYourEmail: 'Please enter your email address.',
-      EnterYourGeoNumber: 'Please enter a georgian phone number'
+      EnterYourGeoNumber: 'Please enter a georgian phone number',
+      PropertiesInChargeOf: "'s properties",
+      Articles: '- Articles'
     }
   },
   ka: {
@@ -173,7 +175,9 @@ const resources = {
       OfThem: 'მათგანი',
       EnterYourFullName: 'გთხოვთ აკრიფოთ სახელი/გვარი',
       EnterYourEmail: 'გთხოვთ აკრიფოთ საფოსტო მისამართი',
-      EnterYourGeoNumber: 'გთხოვთ აკრიფოთ ქართული ნომერი'
+      EnterYourGeoNumber: 'გთხოვთ აკრიფოთ ქართული ნომერი',
+      PropertiesInChargeOf: ' - ყველა უძრავი ქონება',
+      Articles: '- სტატიები'
     }
   }
 }

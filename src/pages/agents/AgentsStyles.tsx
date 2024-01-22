@@ -58,20 +58,11 @@ export const AgentBoxWrapperPage = styled.div`
     font-size: 32px;
     font-weight: 700;
     line-height: 44px;
-    padding: 20px 50px 0px 90px;
   }
   img {
     width: 550px;
     height: 650px;
     border-radius: 20px;
-  }
-  div {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0px;
-    text-align: left;
-    width: 600px;
   }
   p {
     font-size: 18px;
@@ -81,32 +72,111 @@ export const AgentBoxWrapperPage = styled.div`
     text-align: left;
     color: ${colors.greyText};
     margin-top: 10px;
-    padding: 20px 50px 50px 90px;
   }
+
+  ${media.lg`
+    flex-direction: column;
+    width: 60vw;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  `}
+
+  ${media.md`
+    width: 80vw;
+  `}
+
+  ${media.sm`
+    width: 90vw;
+  `}
+`
+
+export const AgentBoxInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  gap: 3rem;
+
+  ${media.lg`
+    width: 100%;
+    align-items: flex-start;
+  `}
+
+  ${media.sm`
+    h2{
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    padding: 1rem;
+
+    h2{
+      font-size: 1.5rem;
+    }
+
+    p{
+      font-size: 1rem;
+    }
+  `}
 `
 
 export const AgentInfo = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 0px;
-  div {
-    padding: 50px 50px 20px 90px;
-  }
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+
   span {
     font-size: 18px;
     font-weight: 100;
     line-height: 20px;
-    padding-left: 10px;
   }
+
+  ${media.sm`
+    flex-direction: column;
+  `}
+
+  ${media.xs`
+    flex-direction: column;
+    span{
+      font-size: 0.8rem;
+    }
+  `}
 `
 
 export const ArticleWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  width: 100%;
+  display: grid;
   margin-top: 47px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+
+  ${media.lg`
+    grid-template-columns: repeat(2, 1fr);
+
+  `}
+  ${media.md`
+    grid-template-columns: repeat(1, 1fr);
+    
+  `}
 `
 
 export const ContentBy = styled.div`
   margin-top: 140px;
+
+  ${media.sm`
+    h1{
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      font-size: 1.5rem;
+    }
+  `}
 `

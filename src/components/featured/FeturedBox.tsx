@@ -24,12 +24,6 @@ import { Link } from 'react-router-dom'
 export default function FeaturedBox({ data }: any) {
   const [selectedCurrency, setSelectedCurrency] = useState('gel')
 
-  const handleCurrencySwitch = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    event.preventDefault()
-
-    setSelectedCurrency((prevCurrency) => (prevCurrency === 'gel' ? 'usd' : 'gel'))
-  }
-
   return (
     <BoxWrapper featured={data?.featured} main={data?.main}>
       <Link to={`/properties/${data?.id?.toString()}`} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}>
@@ -54,10 +48,6 @@ export default function FeaturedBox({ data }: any) {
           </LocationContainer>
           <div>
             <Price featured={data?.featured}>{selectedCurrency === 'gel' ? `${data?.price?.gel}` : `${data?.price?.usd}`}</Price>
-            {/* <CurrencyIcons onClick={handleCurrencySwitch}>
-              <Gel />
-              <Usd />
-            </CurrencyIcons> */}
           </div>
         </Top>
         <h2>{data?.title}</h2>
@@ -74,12 +64,12 @@ export default function FeaturedBox({ data }: any) {
           </InfoBox>
           <InfoBox featured={data?.featured}>
             <Bath />
-            <span>9</span>
+            <span>{data.bathroom}</span>
           </InfoBox>
           {data?.featured && (
             <InfoBox featured={data?.featured}>
               <ParkingSmall />
-              <span>4</span>
+              <span>{data.parking}</span>
             </InfoBox>
           )}
         </InfoBoxWrapper>

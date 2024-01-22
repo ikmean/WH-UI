@@ -77,7 +77,7 @@ export const Nav = styled.ul`
       right: 0;
       top: 12vh;
       padding: 6rem 0 0 4rem;
-      gap: 5rem;
+      gap: 3rem;
       background-color: ${colors.white};
       z-index: 10000;
       width: 100%;
