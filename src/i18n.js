@@ -89,7 +89,13 @@ const resources = {
       EnterYourEmail: 'Please enter your email address.',
       EnterYourGeoNumber: 'Please enter a georgian phone number',
       PropertiesInChargeOf: "'s properties",
-      Articles: '- Articles'
+      Articles: '- Articles',
+      Currency: 'Currency',
+      Language: 'Language',
+      GE: 'GE',
+      EN: 'EN',
+      USD: 'USD',
+      GEL: 'GEL'
     }
   },
   ka: {
@@ -177,7 +183,13 @@ const resources = {
       EnterYourEmail: 'გთხოვთ აკრიფოთ საფოსტო მისამართი',
       EnterYourGeoNumber: 'გთხოვთ აკრიფოთ ქართული ნომერი',
       PropertiesInChargeOf: ' - ყველა უძრავი ქონება',
-      Articles: '- სტატიები'
+      Articles: '- სტატიები',
+      Currency: 'ვალუტა',
+      Language: 'ენა',
+      GE: 'ქართული',
+      EN: 'ინგლისური',
+      USD: 'დოლარი',
+      GEL: 'ლარი'
     }
   }
 }
