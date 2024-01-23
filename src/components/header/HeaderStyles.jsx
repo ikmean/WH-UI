@@ -114,6 +114,7 @@ export const LocaleButtonWrapper = styled.div`
 export const WorldWrapper = styled.div`
   padding: 10px;
   border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
     background-color: ${colors.grey};
@@ -132,7 +133,7 @@ export const SelectionStyles = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -144,23 +145,69 @@ export const SelectionStyles = styled.div`
   z-index: 1000;
   width: 40%;
   height: 40%;
+
+  ${media.md`
+    width: 60%
+  `}
+
+  ${media.sm`
+    width: 70%
+  `}
+
+  ${media.xs`
+    width: 100%
+  `}
 `
 
-export const StyledSelect = styled.select`
-  width: 40%;
-  border: 1px solid ${colors.secondary};
-  border-radius: 20px;
-  padding: 8px;
-  margin-top: 5px;
+export const Selection = styled.div`
+  span {
+    font-size: 24px;
+    padding: 30px;
+  }
+
+  ${media.xs`
+   span { 
+    padding: 5px  
+    }
+  `}
 `
 
-export const LocaleButton = styled.div`
-  border: 1px solid ${colors.grey};
-  padding: 5px;
+export const Option = styled.div`
+  color: ${({ selected }) => (selected ? colors.secondary : '')};
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
   cursor: pointer;
-  border: 1px solid ${({ selected }) => (selected ? colors.secondary : 'transparent')};
-  border-radius: 2px;
   &:hover {
-    color: ${({ selected }) => (selected ? colors.primary : colors.secondary)};
+    color: ${colors.secondary};
+  }
+`
+
+export const BtnClose = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: ${colors.greyDarker};
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  width: fit-content;
+  padding: 20px;
+  svg {
+    width: 18px;
+    height: 18px;
+    path {
+      stroke: ${colors.greyText};
+      stroke-width: 4;
+    }
+  }
+  &:hover {
+    svg {
+      path {
+        stroke: ${colors.secondary};
+      }
+    }
   }
 `

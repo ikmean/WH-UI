@@ -190,7 +190,6 @@ export const GalleryStyles = styled.div`
 `
 
 export const BrowseMore = styled.div`
-  /* background: ${colors.greyDarker}; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -217,7 +216,6 @@ export const Buttons = styled.button`
   box-shadow: 0 2px 8px rgba(20, 20, 43, 0.06);
   cursor: pointer;
   width: fit-content;
-  /* padding: 20px 15px; */
   svg {
     width: 45px;
     height: 45px;
