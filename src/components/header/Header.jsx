@@ -94,22 +94,22 @@ export default function Header() {
         {selectionOpen && (
           <SelectionStyles>
             <Selection>
-              <span>Language</span>
+              <span>{t('Language')}</span>
               <Option onClick={() => handleLocaleChange('en')} selected={locale === 'en'}>
-                EN
+                {t('EN')}
               </Option>
               <Option onClick={() => handleLocaleChange('ka')} selected={locale === 'ka'}>
-                GE
+                {t('GE')}
               </Option>
             </Selection>
 
             <Selection>
-              <span>Currency</span>
+              <span>{t('Currency')}</span>
               <Option onClick={() => setCurrency('USD')} selected={currency === 'USD'}>
-                USD
+                {t('USD')}
               </Option>
               <Option onClick={() => setCurrency('GEL')} selected={currency === 'GEL'}>
-                GEL
+                {t('GEL')}
               </Option>
             </Selection>
             <BtnClose onClick={() => setSelectionOpen(false)}>

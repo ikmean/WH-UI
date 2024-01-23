@@ -162,6 +162,7 @@ export const SelectionStyles = styled.div`
 export const Selection = styled.div`
   span {
     font-size: 24px;
+    font-weight: 500;
     padding: 30px;
   }
 
