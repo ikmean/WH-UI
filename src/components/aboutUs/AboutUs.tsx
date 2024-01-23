@@ -5,10 +5,8 @@ import { Wrapper } from './AboutUsStyles'
 export const AboutUs = () => {
   return (
     <Wrapper>
-      <div className='container'>
-        <AboutUsBox />
-        <AboutUsBox reverse={true} />
-      </div>
+      <AboutUsBox />
+      <AboutUsBox reverse={true} />
     </Wrapper>
   )
 }

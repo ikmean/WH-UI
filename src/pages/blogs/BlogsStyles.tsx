@@ -42,7 +42,7 @@ export const ArticleListWrapper = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
 
-  ${media.md`
+  ${media.lg`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,15 +62,22 @@ export const DateWrapper = styled.div`
 
 export const ArticleHeaderWrapper = styled.div`
   display: flex;
-  flex-direction: row;
   gap: 20px;
   padding: 20px;
   img {
-    height: 748.36px;
     width: 100%;
     opacity: 0;
     animation: ${slideAnimation('100px')} 1.6s ease 1s forwards;
   }
+
+  ${media.md`
+    flex-direction: column;
+    align-items: center;
+  `}
+
+  ${media.xs`
+    padding: 2rem;
+  `}
 `
 
 export const ArticleHeaderContent = styled.div`
@@ -90,8 +97,6 @@ export const ArticleHeaderContent = styled.div`
   }
   p {
     color: ${colors.greyText};
-    width: 512.31px;
-    height: 90px;
     font-size: 18px;
     font-weight: 500;
     line-height: 30px;
@@ -101,6 +106,18 @@ export const ArticleHeaderContent = styled.div`
     opacity: 0;
     animation: ${slideAnimation('100px')} 1.6s ease 0.9s forwards;
   }
+
+  ${media.sm`
+    h1{
+      font-size: 2.5rem;
+    }
+  `}
+
+  ${media.xs`
+    h1{
+      font-size: 2.05rem;
+    }
+  `}
 `
 
 export const Author = styled.div`
@@ -143,9 +160,7 @@ export const Author = styled.div`
 
 export const AuthorBigger = styled.div`
   display: flex;
-  flex-direction: row;
   width: 838px;
-  height: 337.79px;
   border-radius: 26px;
   box-shadow: 0 10px 30px 0 ${colors.grey};
   align-items: center;
@@ -197,6 +212,20 @@ export const AuthorBigger = styled.div`
       color: ${colors.secondary};
     }
   }
+
+  ${media.sm`
+    width: 100vw;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  `}
+
+  ${media.xs`
+    img{
+      height: 7rem;
+      width: 7rem;
+    }
+  `}
 `
 
 export const ArticleContent = styled.div`
@@ -228,8 +257,27 @@ export const ArticleContent = styled.div`
     padding: 40px 0px 20px 0px;
   }
   img {
-    width: 838px;
-    height: 516.96px;
+    width: 100%;
     padding: 20px 0px 20px 0px;
   }
+
+  ${media.md`
+    padding: 0 1.5rem;
+  `}
+
+  ${media.sm`
+    h2{
+      font-size: 1.75rem;
+    }
+    h3{
+      font-size: 1.25rem;
+    }
+  `}
+
+  ${media.xs`
+    padding: 0 1rem;
+    h2{
+      font-size: 1.44rem;
+    }
+  `}
 `

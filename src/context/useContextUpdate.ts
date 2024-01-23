@@ -30,7 +30,10 @@ export default function useContextUpdateFromSocket() {
         cleanupSearchParams,
         setLocale,
         fetchDevelopersData,
-        fetchDeveloperInnerData
+        fetchDeveloperInnerData,
+        setEmailSubscription,
+        setCcrSubmited,
+        setCurrency
       }
     })
   }, [])
@@ -44,6 +47,15 @@ export default function useContextUpdateFromSocket() {
     location?: []
     category?: []
     text?: string
+  }
+
+  interface customerContactRequestPayload {
+    fullName?: string
+    lastName?: string
+    email: string
+    phoneNumber?: string
+    property?: string
+    contactDetails?: string
   }
 
   const setLocale = (props: IPropertySearchParams) => {
@@ -61,13 +73,22 @@ export default function useContextUpdateFromSocket() {
       return { ...ctx, locale: props.locale }
     })
   }
-  interface customerContactRequestPayload {
-    fullName?: string
-    lastName?: string
-    email: string
-    phoneNumber?: string
-    property?: string
-    contactDetails?: string
+
+  const setCurrency = (value: string) => {
+    setContext((ctx) => {
+      return { ...ctx, currency: value }
+    })
+  }
+  const setEmailSubscription = (value: boolean) => {
+    setContext((ctx) => {
+      return { ...ctx, emailSubscription: value }
+    })
+  }
+
+  const setCcrSubmited = (value: boolean) => {
+    setContext((ctx) => {
+      return { ...ctx, ccrSubmited: value }
+    })
   }
 
   const createCustomerRequest = (payload: customerContactRequestPayload) => {
@@ -88,7 +109,14 @@ export default function useContextUpdateFromSocket() {
 
   const cleanupSearchParams = () => {
     setContext((ctx) => {
-      return { ...ctx, searchInput: null, selectedDealType: [], selectedLocation: [], selectedPropertyCategory: [] }
+      return {
+        ...ctx,
+        searchInput: null,
+        selectedDealType: [],
+        selectedLocation: [],
+        selectedPropertyCategory: [],
+        emailSubscription: false
+      }
     })
   }
 

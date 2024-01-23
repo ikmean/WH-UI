@@ -1,34 +1,17 @@
-import React, { useState } from 'react'
-import {
-  BoxWrapper,
-  TextBox,
-  Price,
-  LocationContainer,
-  Line,
-  InfoBox,
-  ImgWrapper,
-  Top,
-  CurrencyIcons,
-  InfoBoxWrapper
-} from './FeaturedStyles'
+import React, { useContext } from 'react'
+import { BoxWrapper, TextBox, Price, LocationContainer, Line, InfoBox, ImgWrapper, Top, InfoBoxWrapper } from './FeaturedStyles'
 import { ReactComponent as Location } from '../../lib/icons/location.svg'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
 import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
-import { ReactComponent as Gel } from '../../lib/icons/gel.svg'
-import { ReactComponent as Usd } from '../../lib/icons/usd.svg'
 
 import { Link } from 'react-router-dom'
+import { AppContext } from '../../context/createContext'
 
 export default function FeaturedBox({ data }: any) {
-  const [selectedCurrency, setSelectedCurrency] = useState('gel')
-
-  const handleCurrencySwitch = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    event.preventDefault()
-
-    setSelectedCurrency((prevCurrency) => (prevCurrency === 'gel' ? 'usd' : 'gel'))
-  }
+  const { context } = useContext(AppContext)
+  const { currency } = context
 
   return (
     <BoxWrapper featured={data?.featured} main={data?.main}>
@@ -53,11 +36,7 @@ export default function FeaturedBox({ data }: any) {
             </span>
           </LocationContainer>
           <div>
-            <Price featured={data?.featured}>{selectedCurrency === 'gel' ? `${data?.price?.gel}` : `${data?.price?.usd}`}</Price>
-            {/* <CurrencyIcons onClick={handleCurrencySwitch}>
-              <Gel />
-              <Usd />
-            </CurrencyIcons> */}
+            <Price featured={data?.featured}>{currency === 'GEL' ? `₾ ${data?.price?.gel}` : `$ ${data?.price?.usd}`}</Price>
           </div>
         </Top>
         <h2>{data?.title}</h2>
@@ -74,12 +53,12 @@ export default function FeaturedBox({ data }: any) {
           </InfoBox>
           <InfoBox featured={data?.featured}>
             <Bath />
-            <span>9</span>
+            <span>{data.bathroom}</span>
           </InfoBox>
           {data?.featured && (
             <InfoBox featured={data?.featured}>
               <ParkingSmall />
-              <span>4</span>
+              <span>{data.parking}</span>
             </InfoBox>
           )}
         </InfoBoxWrapper>

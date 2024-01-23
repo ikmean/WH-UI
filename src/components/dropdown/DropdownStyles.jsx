@@ -74,6 +74,7 @@ export const DropDownContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 20px 0;
+
   &:hover ${DropdownList} {
     display: flex;
   }
@@ -88,6 +89,7 @@ export const DropDownContainer = styled.div`
       }
     }
   }
+
   &:hover ${ArrowContainer} {
     svg {
       transition: transform 0.2s ease-in-out;
@@ -97,6 +99,7 @@ export const DropDownContainer = styled.div`
       }
     }
   }
+
   ${ArrowContainer} {
     svg {
       transition: transform 0.2s ease-in-out;
@@ -105,6 +108,31 @@ export const DropDownContainer = styled.div`
 
   ${media.lg`
       width: 100%;
+
+  /* &:click ${DropdownList} {
+    display: flex;
+  }
+  &:click ${DropdownBox} {
+    border: 1px solid ${colors.secondary};
+    color: ${colors.secondary};
+  }
+  &:click ${Gap} {
+    svg {
+      path {
+        stroke: ${colors.secondary};
+      }
+    }
+  }
+
+  &:click ${ArrowContainer} {
+    svg {
+      transition: transform 0.2s ease-in-out;
+      transform: translate(2px, -2px) rotate(180deg);
+      path {
+        stroke: ${colors.secondary};
+      }
+    }
+  } */
   `}
 `
 

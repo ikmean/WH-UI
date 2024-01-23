@@ -3,13 +3,26 @@ import { colors } from '../../lib/colors'
 import { media } from '../../helpers/device'
 
 export const Wrapper = styled.div`
-  margin-top: 166px;
+  margin-top: 10rem;
   padding-bottom: 100px;
   width: 100%;
   padding-left: 5%;
   h1 {
     font-size: 32px;
   }
+
+  ${media.sm`
+    h1{
+      font-size: 1.75rem;
+    }
+  `}
+
+  ${media.xs`
+    width: 95vw;
+    h1{
+      font-size: 1.5rem;
+    }
+  `}
 `
 
 export const Header = styled.div`
@@ -17,6 +30,12 @@ export const Header = styled.div`
   margin-bottom: 41px;
   display: flex;
   justify-content: space-between;
+
+  ${media.xs`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  `}
 `
 
 export const BoxContainer = styled.div<{ type: string }>`
@@ -78,9 +97,21 @@ export const BoxContainer = styled.div<{ type: string }>`
     }
   }
 
-  ${media.md`
-      width:100%;
-     
+  ${media.lg`
+      width: ${({ type }: any) => type !== 'default' && '100%'};
+      margin-right: 0;
+  `}
+
+  ${media.xs`
+    margin-right: 0;
+    height: 100%;
+    max-height: 100%;
+    width: 85vw;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
   `}
 `
 
@@ -114,7 +145,9 @@ export const BoxWrapper = styled.div`
   gap: 30px;
 
   ${media.xs`
-   gap: 1.5rem;
+     gap: 1.5rem;
+     overflow: auto;
+     flex-direction: column;
   `}
 `
 
@@ -143,6 +176,10 @@ export const ArticleButton = styled.button`
   &:hover {
     background-color: ${colors.primary};
   }
+
+  ${media.xs`
+    display: none;
+  `}
 `
 
 export const ArticleList = styled.div`
@@ -154,6 +191,10 @@ export const ArticleList = styled.div`
     justify-content: center;
     align-items: center;
     width: 80%;
+  `}
+
+  ${media.xs`
+    width: 100%;
   `}
 `
 
@@ -178,8 +219,12 @@ export const ArticleBoxSmall = styled.div<{ type: string }>`
   display: ${({ type }) => type === 'readMoreSmall' && 'flex'};
   flex-direction: ${({ type }) => type === 'readMoreSmall' && 'row'};
 
-  ${media.lg`
+  ${media.md`
     flex-direction: ${({ type }: any) => type === 'readMoreSmall' && 'column'};
+
+    img{
+      width:100%;
+    }
   `}
 `
 
@@ -192,8 +237,8 @@ export const ReadMore = styled.div`
   font-size: 18px;
   line-height: 20px;
   display: inline-block;
-  /* &:hover {
-    transition: transform 0.2s ease-in-out;
-    transform: translate(2px, -2px);
-  } */
+
+  ${media.md`
+    padding-bottom: 0.5rem;
+  `}
 `

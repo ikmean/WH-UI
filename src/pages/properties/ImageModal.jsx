@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonClose, Buttons } from './PropertiesStyles'
+import { ButtonClose, Buttons, ModalImage } from './PropertiesStyles'
 import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg'
 import { ReactComponent as Close } from '../../lib/icons/close.svg'
@@ -33,15 +33,15 @@ const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, da
         alignItems: 'center',
         zIndex: 1000
       }}
-      onClick={closeModal}
     >
       <Buttons onClick={handlePrevClick}>
         <ChevronLeft />
       </Buttons>
+
       <ButtonClose onClick={closeModal}>
         <Close />
       </ButtonClose>
-      <img src={selectedImage.url} alt={`img-${selectedImageIndex}`} style={{ maxWidth: '60%', maxHeight: '60%' }} />
+      <ModalImage src={selectedImage.url} alt={`img-${selectedImageIndex}`} />
       <Buttons onClick={handleNextClick}>
         <ChevronRight />
       </Buttons>

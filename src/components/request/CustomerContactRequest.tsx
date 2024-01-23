@@ -24,13 +24,12 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
   const { t } = useTranslation()
 
   const { context } = useContext(AppContext)
-  const { createCustomerRequest } = context
+  const { createCustomerRequest, ccrSubmited, setCcrSubmited } = context
 
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [contactDetails, setContactDetailsDetails] = useState('')
-  const [formSubmitted, setFormSubmitted] = useState(false)
 
   const isValidEmail = (input: any) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -47,20 +46,20 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
     const isPhoneNumberValid = isValidPhoneNumber(phoneNumber)
 
     if (!fullName) {
-      alert('Please enter your full name.')
+      alert(t('EnterYourFullName'))
       return
     }
     if (!isEmailValid) {
-      alert('Please enter your email address.')
+      alert(t('EnterYourEmail'))
       return
     }
     if (!isPhoneNumberValid) {
-      alert('Please enter a georgian phone number.')
+      alert(t('EnterYourGeoNumber'))
       return
     }
-    setFormSubmitted(true)
 
     createCustomerRequest({ fullName, email, phoneNumber, contactDetails, property, project, developer })
+    setCcrSubmited(true)
   }
 
   return (
@@ -75,7 +74,7 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
         </>
       )}
       <h2>{t('GetInTouch')}</h2>
-      {formSubmitted ? (
+      {ccrSubmited ? (
         <SubmittedMessage>
           <p>{t('MessageSubmited')}</p>
           <p>{t('GetBackToYou')}</p>

@@ -24,10 +24,6 @@ export const Top = styled.div`
     align-items: left;
     gap: 2rem;
   `}
-
-  ${media.xs`
-    padding-left: 2rem;
-  `}
 `
 export const TopLeft = styled.div`
   width: 50%;

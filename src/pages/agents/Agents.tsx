@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { Header } from './AgentsStyles'
+import { AgentsWrapper, Header } from './AgentsStyles'
 import { AppContext } from '../../context/createContext'
 import { Agents } from '../../components/agents/Agents'
 import Loader from '../../components/Loader/Loader'
@@ -22,13 +22,13 @@ function AgentsPage() {
       {Util.isNull(agents) ? (
         <Loader />
       ) : (
-        <div className='container'>
-          <Header className='flex space-between center'>
+        <AgentsWrapper>
+          <Header>
             <h1>{t('OurAgents')}</h1>
             <p>{t('AgentPageDesc')}</p>
           </Header>
           <Agents data={agents} />
-        </div>
+        </AgentsWrapper>
       )}
     </>
   )

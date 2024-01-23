@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import { colors } from '../../lib/colors'
+import { media } from '../../helpers/device'
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: left;
-  flex-direction: column;
+  gap: 3rem;
   background: ${colors.grey};
   width: 100%;
   margin-top: 160px;
@@ -20,16 +21,31 @@ export const Wrapper = styled.div`
     line-height: 30px;
     color: ${colors.greyText};
   }
+  ${media.md`
+    flex-direction: column;
+    gap: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  `}
 `
 
 export const Left = styled.div`
   width: 45%;
+
+  ${media.md`
+    width: 100%;   
+  `}
 `
 
 export const Right = styled.div`
   width: 45%;
   padding-top: 160px;
   padding-bottom: 124px;
+
+  ${media.md`
+    width: 100%;
+    padding-top: 1rem;
+  `}
 `
 
 export const Header = styled.div`
@@ -40,8 +56,22 @@ export const Header = styled.div`
   font-weight: 700;
   line-height: 44px;
   p {
-    width: 492.41px;
+    width: 100%;
   }
+
+  ${media.md`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+
+    h1{
+      margin-top: 2rem;
+    }
+  `}
 `
 
 export const ValueBoxWrapper = styled.div`
@@ -62,6 +92,12 @@ export const ValueBoxWrapper = styled.div`
     transition: transform 0.3s ease;
     transform: translateY(-10px);
   }
+
+  ${media.xs`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  `}
 `
 
 export const Icon = styled.div`
@@ -74,4 +110,9 @@ export const Icon = styled.div`
   border-radius: 50%;
   margin-right: 22px;
   flex-shrink: 0;
+
+  ${media.xs`
+    width: 5rem;
+    height: 5rem;
+  `}
 `
