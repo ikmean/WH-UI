@@ -141,6 +141,7 @@ export const BlackImage = styled.div`
   top: 0;
   left: 0;
   opacity: 0;
+  max-width: 600px;
 `
 
 export const GalleryContainer = styled.div`
