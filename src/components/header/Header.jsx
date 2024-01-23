@@ -10,7 +10,9 @@ import {
   BurgerMenuButton,
   WorldWrapper,
   SelectionStyles,
-  StyledSelect
+  Selection,
+  Option,
+  BtnClose
 } from './HeaderStyles'
 import Logo from './Logo'
 import { AppContext } from '../../context/createContext'
@@ -22,7 +24,7 @@ import { ReactComponent as World } from '../../lib/icons/world.svg'
 export default function Header() {
   const { i18n, t } = useTranslation()
   const { context } = useContext(AppContext)
-  const { cleanupSearchParams, setLocale, setEmailSubscription, setCcrSubmited, locale, currency, setCurrency } = context
+  const { cleanupSearchParams, setLocale, setEmailSubscription, setCcrSubmited, setCurrency, locale, currency } = context
   const [searchParams, setSearchParams] = useSearchParams()
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
   const [selectionOpen, setSelectionOpen] = useState(false)
@@ -91,17 +93,28 @@ export default function Header() {
 
         {selectionOpen && (
           <SelectionStyles>
-            <div>
+            <Selection>
               <span>Language</span>
-              <div onClick={() => handleLocaleChange('en')}>EN</div>
-              <div onClick={() => handleLocaleChange('ka')}>GE</div>
-            </div>
+              <Option onClick={() => handleLocaleChange('en')} selected={locale === 'en'}>
+                EN
+              </Option>
+              <Option onClick={() => handleLocaleChange('ka')} selected={locale === 'ka'}>
+                GE
+              </Option>
+            </Selection>
 
-            <div>
+            <Selection>
               <span>Currency</span>
-              <div onClick={() => setCurrency('USD')}>USD</div>
-              <div onClick={() => setCurrency('GEL')}>GEL</div>
-            </div>
+              <Option onClick={() => setCurrency('USD')} selected={currency === 'USD'}>
+                USD
+              </Option>
+              <Option onClick={() => setCurrency('GEL')} selected={currency === 'GEL'}>
+                GEL
+              </Option>
+            </Selection>
+            <BtnClose onClick={() => setSelectionOpen(false)}>
+              <Close />
+            </BtnClose>
           </SelectionStyles>
         )}
       </LocaleButtonWrapper>
