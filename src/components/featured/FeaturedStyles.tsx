@@ -213,15 +213,16 @@ export const InfoBox = styled.div<props>`
 
 export const PropertiesWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
   ${media.lg`
-    grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, 1fr);
+
   `}
 
   ${media.sm`
-    grid-template-columns: auto;
+  grid-template-columns: repeat(1, 1fr);
   `}
 `
 
@@ -267,7 +268,6 @@ export const PropertiesPageWrapper = styled.div`
   z-index: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
   gap: 30px;
   margin-top: 80px;
   opacity: 0;
