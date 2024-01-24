@@ -38,6 +38,7 @@ export default function Header() {
   const handleHomeClick = () => {
     cleanupSearchParams()
     setBurgerMenuOpen(false)
+    setSelectionOpen(false)
   }
 
   const toggleSelection = () => {
@@ -48,6 +49,7 @@ export default function Header() {
     setBurgerMenuOpen(false)
     setEmailSubscription(false)
     setCcrSubmited(false)
+    setSelectionOpen(false)
   }
 
   return (
