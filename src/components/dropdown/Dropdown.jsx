@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ArrowContainer, DropDownContainer, DropdownBox, DropdownList, Gap, ListItem } from './DropdownStyles'
 import { ReactComponent as DownArrow } from '../../lib/icons/downArrow.svg'
 import { Util } from '../../helpers/Util'
 import Loader from '../Loader/Loader'
 
 export default function Dropdown({ text, icon, data, onSelect }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
   const handleSelect = (item) => {
     onSelect(item.title, icon)
+    setIsOpen(!isOpen)
   }
+
   const hasSelection = data.some((item) => item.selected)
 
   return (
-    <DropDownContainer>
+    <DropDownContainer onClick={() => toggleOpen()}>
       <DropdownBox isSelected={hasSelection}>
         <Gap>
           {icon}
@@ -20,7 +28,7 @@ export default function Dropdown({ text, icon, data, onSelect }) {
         <ArrowContainer>
           <DownArrow />
         </ArrowContainer>
-        <DropdownList>
+        <DropdownList open={isOpen}>
           {Util.isNull(data) ? (
             <Loader type='small' />
           ) : (

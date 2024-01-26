@@ -18,6 +18,8 @@ export const DropdownBox = styled.div`
   color: ${colors.greyText};
   border-radius: 14px;
   position: relative;
+  margin-right: 5px;
+  cursor: pointer;
   ${({ isSelected }) =>
     isSelected &&
     css`
@@ -29,11 +31,10 @@ export const DropdownBox = styled.div`
         }
       }
     `}
-
   ${media.lg`
       width: 100%;
       justify-content: space-between;
-    `}
+    `};
 `
 
 export const ArrowContainer = styled.div`
@@ -59,6 +60,10 @@ export const DropdownList = styled.div`
   ${media.lg`
       width: 100%;
   `}
+
+  ${media.md`
+    display: ${({ open }) => (open ? 'flex' : '')};
+  `}
 `
 
 export const Gap = styled.div`
@@ -75,9 +80,12 @@ export const DropDownContainer = styled.div`
   gap: 20px;
   padding: 20px 0;
 
-  &:hover ${DropdownList} {
-    display: flex;
+  @media (min-width: 1024px) {
+    &:hover ${DropdownList} {
+      display: flex;
+    }
   }
+
   &:hover ${DropdownBox} {
     border: 1px solid ${colors.secondary};
     color: ${colors.secondary};
@@ -107,32 +115,7 @@ export const DropDownContainer = styled.div`
   }
 
   ${media.lg`
-      width: 100%;
-
-  /* &:click ${DropdownList} {
-    display: flex;
-  }
-  &:click ${DropdownBox} {
-    border: 1px solid ${colors.secondary};
-    color: ${colors.secondary};
-  }
-  &:click ${Gap} {
-    svg {
-      path {
-        stroke: ${colors.secondary};
-      }
-    }
-  }
-
-  &:click ${ArrowContainer} {
-    svg {
-      transition: transform 0.2s ease-in-out;
-      transform: translate(2px, -2px) rotate(180deg);
-      path {
-        stroke: ${colors.secondary};
-      }
-    }
-  } */
+      width: 100%; 
   `}
 `
 
