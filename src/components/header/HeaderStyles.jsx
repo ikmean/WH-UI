@@ -115,6 +115,7 @@ export const WorldWrapper = styled.div`
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     background-color: ${colors.grey};
@@ -129,56 +130,39 @@ export const WorldWrapper = styled.div`
 export const SelectionStyles = styled.div`
   opacity: 80;
   display: flex;
-  gap: 30px;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  flex-direction: column;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 99%;
+  right: 5%;
   background-color: ${colors.grey};
   border: 1px solid ${colors.greyText};
-  border-radius: 20px;
+  border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  z-index: 1000;
-  width: 40%;
-  height: 40%;
+  padding: 2rem 1rem;
+  z-index: 10000;
+  width: 9rem;
 
-  ${media.md`
-    width: 60%
-  `}
-
-  ${media.sm`
-    width: 70%
-  `}
-
-  ${media.xs`
-    width: 100%
+  ${media.lg`
+    right: 10%;
   `}
 `
 
 export const Selection = styled.div`
-  span {
-    font-size: 24px;
-    font-weight: 500;
-    padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
   }
-
-  ${media.xs`
-   span { 
-    padding: 5px  
-    }
-  `}
 `
 
 export const Option = styled.div`
   color: ${({ selected }) => (selected ? colors.secondary : '')};
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
+  font-size: 1rem;
   cursor: pointer;
   &:hover {
     color: ${colors.secondary};
@@ -191,14 +175,14 @@ export const BtnClose = styled.button`
   right: 0;
   background-color: transparent;
   color: ${colors.greyDarker};
-  border-radius: 12px;
-  border: 1px solid transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
   width: fit-content;
-  padding: 20px;
+  padding: 0.5rem;
   svg {
-    width: 18px;
-    height: 18px;
+    width: 1rem;
+    height: 1rem;
     path {
       stroke: ${colors.greyText};
       stroke-width: 4;
