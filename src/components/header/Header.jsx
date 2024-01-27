@@ -55,9 +55,14 @@ export default function Header() {
     setSelectionOpen(false)
   }
 
-  const toggleSelection = () => {
-    setSelectionOpen(!selectionOpen)
-  }
+  // const toggleSelection = () => {
+
+  //   if(selectionOpen === true){
+  //     setSelectionOpen(false)
+  //   }else{
+  //     setSelectionOpen(true)
+  //   }
+  // }
 
   const handleMenuNavigationCleanup = () => {
     setBurgerMenuOpen(false)
@@ -104,37 +109,32 @@ export default function Header() {
 
       <div className='flex'>
         <LocaleButtonWrapper>
-          <WorldWrapper>
-            <World onClick={toggleSelection} />
-
-            {selectionOpen && (
-              <SelectionStyles ref={ref}>
-                <Selection>
-                  <h4>{t('Language')}</h4>
-                  <Option onClick={() => handleLocaleChange('en')} selected={locale === 'en'}>
-                    {t('EN')}
-                  </Option>
-                  <Option onClick={() => handleLocaleChange('ka')} selected={locale === 'ka'}>
-                    {t('GE')}
-                  </Option>
-                </Selection>
-
-                <Selection>
-                  <h4>{t('Currency')}</h4>
-                  <Option onClick={() => setCurrency('USD')} selected={currency === 'USD'}>
-                    $ - {t('USD')}
-                  </Option>
-                  <Option onClick={() => setCurrency('GEL')} selected={currency === 'GEL'}>
-                    ₾ - {t('GEL')}
-                  </Option>
-                </Selection>
-
-                <BtnClose onClick={() => setSelectionOpen(false)}>
-                  <Close />
-                </BtnClose>
-              </SelectionStyles>
-            )}
+          <WorldWrapper onClick={() => setSelectionOpen(true)}>
+            <World />
           </WorldWrapper>
+          {selectionOpen && (
+            <SelectionStyles ref={ref}>
+              <Selection>
+                <h4>{t('Language')}</h4>
+                <Option onClick={() => handleLocaleChange('en')} selected={locale === 'en'}>
+                  {t('EN')}
+                </Option>
+                <Option onClick={() => handleLocaleChange('ka')} selected={locale === 'ka'}>
+                  {t('GE')}
+                </Option>
+              </Selection>
+
+              <Selection>
+                <h4>{t('Currency')}</h4>
+                <Option onClick={() => setCurrency('USD')} selected={currency === 'USD'}>
+                  $ - {t('USD')}
+                </Option>
+                <Option onClick={() => setCurrency('GEL')} selected={currency === 'GEL'}>
+                  ₾ - {t('GEL')}
+                </Option>
+              </Selection>
+            </SelectionStyles>
+          )}
         </LocaleButtonWrapper>
 
         <BurgerMenuButton onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} open={burgerMenuOpen}>

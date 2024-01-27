@@ -85,7 +85,8 @@ export const InfoContainer = styled.div`
 
   ${media.xs`
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   `}
 `
 
