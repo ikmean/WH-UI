@@ -41,7 +41,7 @@ export default function DeveloperInnerPage() {
           <DeveloperDescription>{developerInner?.description}</DeveloperDescription>
           <span>{developerInner?.url}</span>
         </DeveloperInfoDetailsContainer>
-        <RequestProperty developer={developerInner.id} project={developerInner?.projects[0]?.id} />
+        <RequestProperty developer={developerInner.id.toString()} project={developerInner?.projects[0]?.id.toString()} />
       </DeveloperInfoWrapper>
 
       <FlexWrapper>
