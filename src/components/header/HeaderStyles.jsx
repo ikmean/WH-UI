@@ -109,16 +109,20 @@ export const LocaleButtonWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  position: relative;
 `
 
 export const WorldWrapper = styled.div`
-  padding: 10px;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0px 5px 5px ${colors.grey};
   border-radius: 50%;
+  outline: none;
+  border: none;
   cursor: pointer;
-  position: relative;
 
   &:hover {
-    background-color: ${colors.grey};
     svg {
       path {
         fill: ${colors.secondary};
@@ -136,18 +140,18 @@ export const SelectionStyles = styled.div`
   flex-direction: column;
   position: absolute;
   top: 99%;
-  right: 5%;
+  right: 0;
   background-color: ${colors.grey};
   border: 1px solid ${colors.greyText};
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem 1rem;
+  padding: 1rem;
   z-index: 10000;
   width: 9rem;
 
-  ${media.lg`
+  /* ${media.lg`
     right: 10%;
-  `}
+  `} */
 `
 
 export const Selection = styled.div`

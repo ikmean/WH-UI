@@ -56,6 +56,8 @@ export default function useContextUpdateFromSocket() {
     phoneNumber?: string
     property?: string
     contactDetails?: string
+    project?: string
+    developer?: string
   }
 
   const setLocale = (props: IPropertySearchParams) => {
@@ -96,12 +98,14 @@ export default function useContextUpdateFromSocket() {
 
     axios
       .post(url, {
-        name: payload?.fullName || 'unknown',
-        lastName: payload?.lastName || 'unknown',
-        email: payload.email,
-        phoneNumber: payload?.phoneNumber || 'unknown',
+        name: payload?.fullName,
+        lastName: payload?.lastName,
+        email: payload?.email ? payload.email : null,
+        phoneNumber: payload?.phoneNumber,
         property: payload?.property,
-        contactDetails: payload?.contactDetails || 'unknown'
+        contactDetails: payload?.contactDetails,
+        project: payload?.project,
+        developer: payload?.developer
       })
       .then((response) => console.log('Customer Request Response: ', response))
       .catch((error) => console.log(error))

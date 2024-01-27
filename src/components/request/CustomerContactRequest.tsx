@@ -13,6 +13,7 @@ interface props {
   rentOrSale?: string
   price?: {
     usd?: number
+    gel?: number
   }
   agent?: string
   property?: string
@@ -24,17 +25,17 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
   const { t } = useTranslation()
 
   const { context } = useContext(AppContext)
-  const { createCustomerRequest, ccrSubmited, setCcrSubmited } = context
+  const { createCustomerRequest, ccrSubmited, setCcrSubmited, currency } = context
 
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [contactDetails, setContactDetailsDetails] = useState('')
 
-  const isValidEmail = (input: any) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(input)
-  }
+  // const isValidEmail = (input: any) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  //   return emailRegex.test(input)
+  // }
 
   const isValidPhoneNumber = (input: any) => {
     const georgianPhoneRegex = /^(\d{9}|\+995\d{9}|995\d{9})$/
@@ -42,17 +43,13 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
   }
 
   const handleSubmit = () => {
-    const isEmailValid = isValidEmail(email)
     const isPhoneNumberValid = isValidPhoneNumber(phoneNumber)
 
     if (!fullName) {
       alert(t('EnterYourFullName'))
       return
     }
-    if (!isEmailValid) {
-      alert(t('EnterYourEmail'))
-      return
-    }
+
     if (!isPhoneNumberValid) {
       alert(t('EnterYourGeoNumber'))
       return
@@ -69,7 +66,7 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
           <h3>
             {t('PropertyFor')} {rentOrSale}
           </h3>
-          <h1>${price?.usd}</h1>
+          <h1>{currency === 'USD' ? `$ ${price?.usd}` : `₾ ${price?.gel}`}</h1>
           <Line />
         </>
       )}
@@ -85,10 +82,10 @@ function CustomerContactRequest({ rentOrSale, price, agent, property, project, d
             <input placeholder={t('FullName')} type='text' value={fullName} onChange={(e) => setFullName(e.target.value)} />
           </InputStyles>
           <InputStyles backgroundColor={colors.grey}>
-            <input placeholder={t('Email')} type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder={t('PhoneNumber')} type='number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
           </InputStyles>
           <InputStyles backgroundColor={colors.grey}>
-            <input placeholder={t('PhoneNumber')} type='number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            <input placeholder={t('Email')} type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
           </InputStyles>
           <InputStyles backgroundColor={colors.grey}>
             <textarea placeholder={t('ContactDetails')} value={contactDetails} onChange={(e) => setContactDetailsDetails(e.target.value)} />
