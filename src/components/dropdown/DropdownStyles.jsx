@@ -11,7 +11,7 @@ export const DropdownBox = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  width: 223.43px;
+  width: fit-content;
   height: 83px;
   padding: 32px 38px 38px 22px;
   box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06);
