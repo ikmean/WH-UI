@@ -27,6 +27,7 @@ export const ExploreHeader = styled.h1`
 
   ${media.sm`
     font-size: 2.5rem;
+    line-height: 40px;
   `}
 
   ${media.sm`

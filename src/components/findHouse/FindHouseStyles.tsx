@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
     width: 30%;
     text-align: center;
     margin-bottom: 63px;
+
+    ${media.lg`
+      line-height: 20px;
+    `}
   }
 
   ${media.md`

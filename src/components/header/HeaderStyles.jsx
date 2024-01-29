@@ -16,6 +16,18 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 113.5px;
+  background-color: #ffffff;
+  box-shadow: ${(props) => (props.isFixed ? '0 2px 4px rgba(0, 0, 0, 0.1)' : '')};
+  padding: 0px 40px;
+  width: 100%;
+  z-index: 1000;
+  position: ${(props) => (props.isFixed ? 'fixed' : 'relative')};
+  top: ${(props) => (props.isFixed ? '0' : 'auto')};
+  left: 0;
+
+  ${media.sm`
+    height:60px;
+  `}
 `
 
 export const HeaderLink = styled.div`
@@ -42,6 +54,12 @@ export const Left = styled.div`
     font-size: 24px;
     letter-spacing: 1.5px;
     margin-left: 13.3px;
+  }
+
+  svg {
+    ${media.sm`
+        width: 40px;
+        height: 40px  `}
   }
 `
 
@@ -89,7 +107,9 @@ export const BurgerMenuButton = styled.div`
   display: none;
 
   ${media.lg`
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     div{
       display: flex;
       justify-content: center;
@@ -100,7 +120,12 @@ export const BurgerMenuButton = styled.div`
       transition: background-color 1s;
       margin-left: 1rem;
     }
-    
+  `}
+
+  ${media.sm`
+     div{ width: 35px;
+      height: 35px;
+    }
   `}
 `
 
@@ -129,6 +154,11 @@ export const WorldWrapper = styled.div`
       }
     }
   }
+
+  ${media.md`
+    width: 50px;
+    height: 50px;
+  `}
 `
 
 export const SelectionStyles = styled.div`
