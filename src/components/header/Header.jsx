@@ -11,8 +11,7 @@ import {
   WorldWrapper,
   SelectionStyles,
   Selection,
-  Option,
-  BtnClose
+  Option
 } from './HeaderStyles'
 import Logo from './Logo'
 import { AppContext } from '../../context/createContext'
@@ -28,7 +27,25 @@ export default function Header() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false)
   const [selectionOpen, setSelectionOpen] = useState(false)
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false)
   const ref = useRef(null)
+
+  const handleScroll = () => {
+    if (ref.current) {
+      if (window.scrollY > ref.current.offsetTop) {
+        setIsHeaderFixed(true)
+      } else {
+        setIsHeaderFixed(false)
+      }
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
@@ -55,15 +72,6 @@ export default function Header() {
     setSelectionOpen(false)
   }
 
-  // const toggleSelection = () => {
-
-  //   if(selectionOpen === true){
-  //     setSelectionOpen(false)
-  //   }else{
-  //     setSelectionOpen(true)
-  //   }
-  // }
-
   const handleMenuNavigationCleanup = () => {
     setBurgerMenuOpen(false)
     setEmailSubscription(false)
@@ -72,7 +80,7 @@ export default function Header() {
   }
 
   return (
-    <HeaderWrapper className='container'>
+    <HeaderWrapper className='container' ref={ref} isFixed={isHeaderFixed}>
       <Logo onClick={() => handleMenuNavigationCleanup()} />
       <Nav open={burgerMenuOpen}>
         <li>
@@ -109,7 +117,7 @@ export default function Header() {
 
       <div className='flex'>
         <LocaleButtonWrapper>
-          <WorldWrapper onClick={() => setSelectionOpen(true)}>
+          <WorldWrapper onClick={() => setSelectionOpen(!selectionOpen)}>
             <World />
           </WorldWrapper>
           {selectionOpen && (
