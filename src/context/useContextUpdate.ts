@@ -178,14 +178,17 @@ export default function useContextUpdateFromSocket() {
       .catch((error) => console.log(error))
   }
 
-  const fetchDevelopersData = (locale: string) => {
-    const url = `${globalUrl}developers?locale=${locale}`
+  const fetchDevelopersData = (locale: string, title?: string) => {
+    const url = `${globalUrl}developers?locale=${locale}&title=${title}`
+    setContext((ctx) => {
+      return { ...ctx, loadingDevelopers: true }
+    })
     axios
       .get(url)
       .then((response) => {
         const data = response.data.data
         setContext((ctx) => {
-          return { ...ctx, developers: data }
+          return { ...ctx, developers: data, loadingDevelopers: false }
         })
       })
       .catch((error) => console.log(error))

@@ -80,7 +80,7 @@ const resources = {
       Projects: 'Projects',
       ContactDetails: 'ContactDetails',
       ConstructionCompanies: 'Construction Companies',
-      Company: 'Company',
+      Company: 'Companies',
       OngoingProjects: 'Ongoing Projects',
       PricesFrom: 'Prices From',
       SeeMoreDevelopers: 'See More Developers',
@@ -95,7 +95,9 @@ const resources = {
       GE: 'GE',
       EN: 'EN',
       USD: 'USD',
-      GEL: 'GEL'
+      GEL: 'GEL',
+      SearchForDevelopers: 'Search for developers',
+      NoDevelopersFound: 'No developers found'
     }
   },
   ka: {
@@ -189,7 +191,9 @@ const resources = {
       GE: 'ქართული',
       EN: 'ინგლისური',
       USD: 'დოლარი',
-      GEL: 'ლარი'
+      GEL: 'ლარი',
+      SearchForDevelopers: 'მოძებნეთ დეველოპერი',
+      NoDevelopersFound: 'დეველოპერი არ მოიძებნა'
     }
   }
 }
