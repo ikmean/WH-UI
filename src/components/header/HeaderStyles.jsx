@@ -20,7 +20,7 @@ export const HeaderWrapper = styled.div`
   box-shadow: ${(props) => (props.isFixed ? '0 2px 4px rgba(0, 0, 0, 0.1)' : '')};
   padding: 0px 40px;
   width: 100%;
-  z-index: 1000;
+  z-index: 10000;
   position: ${(props) => (props.isFixed ? 'fixed' : 'relative')};
   top: ${(props) => (props.isFixed ? '0' : 'auto')};
   left: 0;

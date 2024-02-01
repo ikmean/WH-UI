@@ -14,6 +14,7 @@ import useContextUpdateFromSocket from './context/useContextUpdate'
 import PropertiesPage from './pages/properties/Properties'
 import DevelopersPage from './pages/developers/DevelopersPage'
 import DeveloperInnerPage from './pages/developers/DeveloperInnerPage'
+import 'leaflet/dist/leaflet.css'
 
 export default function App() {
   const { context } = useContextUpdateFromSocket()

@@ -35,6 +35,7 @@ import { AppContext } from '../../context/createContext'
 import { useParams } from 'react-router-dom'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
+import MapComponent from '../../map component/MapComponent'
 
 function PropertiesInner() {
   const { t } = useTranslation()
@@ -75,99 +76,107 @@ function PropertiesInner() {
   return Util.isNull(propertyInner) ? (
     <Loader />
   ) : (
-    <PropertiesInnerPageContainer>
-      {propertyInner && (
-        <>
-          <ImgBtnStyles>
-            <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='auto' />
-            <ButtonWrapper>
-              <Button
-                text={
-                  <>
-                    <PhotoCamera />
-                    <span className='margin'>{t('BrowseGallery')}</span>
-                  </>
-                }
-                color={'white'}
-                borderRadius='50px'
-                click={handleClick}
-              />
-            </ButtonWrapper>
-          </ImgBtnStyles>
-          <ContentContainer className='container'>
-            <TextContent>
-              <h3>{propertyInner?.streetAddress}</h3>
-              <h1>{propertyInner?.title}</h1>
-              <InfoContainer className='flex'>
-                <InfoBox>
-                  <SQFT />
-                  <span>{propertyInner?.size} m²</span>
-                </InfoBox>
-                <InfoBox featured={true}>
-                  <Bed />
-                  <span>{propertyInner?.bedRoomQuantity}</span>
-                </InfoBox>
-                <InfoBox>
-                  <Bath />
-                  <span>{propertyInner?.bathroom}</span>
-                </InfoBox>
-                {propertyInner?.parking && (
+    <>
+      <PropertiesInnerPageContainer>
+        {propertyInner && (
+          <>
+            <ImgBtnStyles>
+              <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='auto' />
+              <ButtonWrapper>
+                <Button
+                  text={
+                    <>
+                      <PhotoCamera />
+                      <span className='margin'>{t('BrowseGallery')}</span>
+                    </>
+                  }
+                  color={'white'}
+                  borderRadius='50px'
+                  click={handleClick}
+                />
+              </ButtonWrapper>
+            </ImgBtnStyles>
+            <ContentContainer className='container'>
+              <TextContent>
+                <h3>{propertyInner?.streetAddress}</h3>
+                <h1>{propertyInner?.title}</h1>
+                <InfoContainer className='flex'>
                   <InfoBox>
-                    <ParkingSmall />
-                    <span>{propertyInner?.parking}</span>
+                    <SQFT />
+                    <span>{propertyInner?.size} m²</span>
                   </InfoBox>
-                )}
-              </InfoContainer>
-              <p>{propertyInner?.description}</p>
+                  <InfoBox featured={true}>
+                    <Bed />
+                    <span>{propertyInner?.bedRoomQuantity}</span>
+                  </InfoBox>
+                  <InfoBox>
+                    <Bath />
+                    <span>{propertyInner?.bathroom}</span>
+                  </InfoBox>
+                  {propertyInner?.parking && (
+                    <InfoBox>
+                      <ParkingSmall />
+                      <span>{propertyInner?.parking}</span>
+                    </InfoBox>
+                  )}
+                </InfoContainer>
+                <p>{propertyInner?.description}</p>
+                <Line />
+                <h2>{t('AboutTheProperty')}</h2>
+                <p>{propertyInner?.aboutProperty}</p>
+                <br />
+                <Line />
+                <h2>{t('PropertyAmenities')}</h2>
+                <AmenityContainer>
+                  {propertyInner?.amenities?.map((data, i) => (
+                    <Amenity text={data?.svg} key={i} />
+                  ))}
+                </AmenityContainer>
+              </TextContent>
               <Line />
-              <h2>{t('AboutTheProperty')}</h2>
-              <p>{propertyInner?.aboutProperty}</p>
-              <br />
+              <RequestProperty
+                rentOrSale={propertyInner?.dealType}
+                price={propertyInner?.price}
+                agent={propertyInner?.agent}
+                property={id}
+              />
               <Line />
-              <h2>{t('PropertyAmenities')}</h2>
-              <AmenityContainer>
-                {propertyInner?.amenities?.map((data, i) => (
-                  <Amenity text={data?.svg} key={i} />
-                ))}
-              </AmenityContainer>
-            </TextContent>
-            <Line />
-            <RequestProperty rentOrSale={propertyInner?.dealType} price={propertyInner?.price} agent={propertyInner?.agent} property={id} />
-            <Line />
-            <div>
-              <div ref={galleryRef} className='flex space-between center'>
-                <h1>{t('PropertyGallery')}</h1>
+              <div>
+                <div ref={galleryRef} className='flex space-between center'>
+                  <h1>{t('PropertyGallery')}</h1>
+                </div>
+                <GalleryContainer>
+                  {propertyInner?.gallery?.map((photo, i) => (
+                    <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
+                      <img key={i} src={photo?.url} alt='img' />
+                      <BlackImage>
+                        <img src={blackImage} alt='blackImage' />
+                      </BlackImage>
+                      <EyeStyles>
+                        <Eye />
+                      </EyeStyles>
+                    </GalleryStyles>
+                  ))}
+                </GalleryContainer>
               </div>
-              <GalleryContainer>
-                {propertyInner?.gallery?.map((photo, i) => (
-                  <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
-                    <img key={i} src={photo?.url} alt='img' />
-                    <BlackImage>
-                      <img src={blackImage} alt='blackImage' />
-                    </BlackImage>
-                    <EyeStyles>
-                      <Eye />
-                    </EyeStyles>
-                  </GalleryStyles>
-                ))}
-              </GalleryContainer>
-            </div>
-          </ContentContainer>
-        </>
-      )}
-      <BrowseMore>
-        <div className='container'>
-          <Properties title={t('BrowseProperties')} properties={properties} />
-        </div>
-      </BrowseMore>
-      <ImageModal
-        isModalOpen={isModalOpen}
-        selectedImageIndex={selectedImageIndex}
-        setSelectedImageIndex={setSelectedImageIndex}
-        data={propertyInner}
-        closeModal={closeModal}
-      />
-    </PropertiesInnerPageContainer>
+            </ContentContainer>
+          </>
+        )}
+        <BrowseMore>
+          <div className='container'>
+            <Properties title={t('BrowseProperties')} properties={properties} />
+          </div>
+        </BrowseMore>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          selectedImageIndex={selectedImageIndex}
+          setSelectedImageIndex={setSelectedImageIndex}
+          data={propertyInner}
+          closeModal={closeModal}
+        />
+      </PropertiesInnerPageContainer>
+      <MapComponent address={propertyInner.streetAddress} lat={propertyInner.lat} lng={propertyInner.lng} />
+    </>
   )
 }
 
