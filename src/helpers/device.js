@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-const size = {
+export const size = {
   xs: '500px', // for small screen mobile
   sm: '780px', // for mobile screen
   md: '1024px', // for tablets
@@ -9,7 +9,7 @@ const size = {
   xxl: '1920px' // for big screens
 }
 
-const device = {
+export const device = {
   xs: `(max-width: ${size.xs})`,
   sm: `(max-width: ${size.sm})`,
   md: `(max-width: ${size.md})`,
