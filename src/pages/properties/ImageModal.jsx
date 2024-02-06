@@ -1,10 +1,12 @@
-import React from 'react'
-import { ButtonClose, Buttons, ModalImage } from './PropertiesStyles'
+import React, { useState } from 'react'
+import { ButtonClose, Buttons, ModalImage, ModalVideoContainer } from './PropertiesStyles'
 import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg'
 import { ReactComponent as Close } from '../../lib/icons/close.svg'
 
-const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, data, closeModal }) => {
+export const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, data, closeModal }) => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
   if (!isModalOpen || selectedImageIndex === null) {
     return null
   }
@@ -19,6 +21,10 @@ const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, da
     setSelectedImageIndex(() => (selectedImageIndex + 1) % data.gallery.length)
   }
 
+  const handleVideoClick = () => {
+    setIsVideoPlaying(!isVideoPlaying)
+  }
+
   return (
     <div
       style={{
@@ -31,7 +37,7 @@ const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, da
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 1000
+        zIndex: 1000000
       }}
     >
       <Buttons onClick={handlePrevClick}>
@@ -41,12 +47,19 @@ const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, da
       <ButtonClose onClick={closeModal}>
         <Close />
       </ButtonClose>
-      <ModalImage src={selectedImage.url} alt={`img-${selectedImageIndex}`} />
+      {selectedImage.type === 'image' ? (
+        <ModalImage src={selectedImage.url} alt={`img-${selectedImageIndex}`} />
+      ) : (
+        <ModalVideoContainer onClick={handleVideoClick}>
+          <video controls autoPlay>
+            <source src={selectedImage?.url} type='video/mp4' />
+            <source src={selectedImage?.url} type='video/ogg' />
+          </video>
+        </ModalVideoContainer>
+      )}
       <Buttons onClick={handleNextClick}>
         <ChevronRight />
       </Buttons>
     </div>
   )
 }
-
-export default ImageModal
