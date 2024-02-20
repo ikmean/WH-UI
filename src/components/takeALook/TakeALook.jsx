@@ -14,8 +14,8 @@ export const TakeALook = () => {
     <Container>
       <Title>{t('TakeALookHeader')}</Title>
       <TakeALookContainer>
-        <Box h1={about.customerSatisfaction} h2={t('CustomerSatisfaction')} p={about.customerSatisfactionDescription} />
         <Box h1={about.inPropertySales} h2={t('InPropertySales')} p={about.inPropertySalesDescription} />
+        <Box h1={about.customerSatisfaction} h2={t('CustomerSatisfaction')} p={about.customerSatisfactionDescription} />
         <Box h1={about.succesfulSales} h2={t('SuccessfulSales')} p={about.succesfullSalesDescription} />
       </TakeALookContainer>
     </Container>

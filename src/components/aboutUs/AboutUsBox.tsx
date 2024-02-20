@@ -15,8 +15,8 @@ export const AboutUsBox = ({ reverse }: props) => {
   return (
     <AboutBoxContainer reverse={reverse}>
       <Text>
-        <h1>{about.goalHeader}</h1>
-        <p>{about.goalDescription}</p>
+        <h1>{reverse ? about.goalHeader: about.helpHeader}</h1>
+        <p>{reverse ? about.goalDescription: about.helpDescription}</p>
       </Text>
       <ImgWrapper>
         {Util.isNull(about.gallery) ? (
@@ -25,8 +25,8 @@ export const AboutUsBox = ({ reverse }: props) => {
           <img src={reverse ? about?.gallery[0]?.large : about?.gallery[1]?.large} alt='img1' width='622.72px' height='598px' />
         )}
         <InfoBox reverse={reverse}>
-          <h2>{reverse ? about.succesfulSales : about.customerSatisfaction}</h2>
-          <span>{reverse ? t('SuccessfulSales') : t('CustomerSatisfaction')}</span>
+          <h2>{reverse ? about.succesfulSales : '5+'}</h2>
+          <span>{reverse ? t('SuccessfulSales') : t('InternationalRealtor')}</span>
         </InfoBox>
       </ImgWrapper>
     </AboutBoxContainer>

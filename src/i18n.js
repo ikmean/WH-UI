@@ -45,10 +45,10 @@ const resources = {
       PropertiesPageDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit bortis arcu enim urna adipiscing praesent .',
       TakeALookHeader: 'Take a look at our numbers',
       CustomerSatisfaction: 'Customer satisfaction',
-      InPropertySales: 'In property sales',
+      InPropertySales: 'Our experience',
       SuccessfulSales: 'Successful sales',
       MeetTheAgentsHeader: 'Meet the agents in our real estate firm',
-      MeetTheAgentsDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit bortis arcu enim',
+      MeetTheAgentsDesc: 'Here you can get acquainted with the portfolios of our agents',
       ValuesHeader: 'The values that drive everything we do',
       ValuesDesc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit mi lobortis gravida ornare leo in at in egestas.',
       excellence: 'excellence',
@@ -97,7 +97,8 @@ const resources = {
       USD: 'USD',
       GEL: 'GEL',
       SearchForDevelopers: 'Search for developers',
-      NoDevelopersFound: 'No developers found'
+      NoDevelopersFound: 'No developers found',
+      InternationalRealtor: 'International Realtors'
     }
   },
   ka: {
@@ -140,11 +141,11 @@ const resources = {
       PropertiesPageHeader: 'მოძებნე უძრავი ქონება',
       PropertiesPageDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit bortis arcu enim urna adipiscing praesent .',
       TakeALookHeader: 'ჩვენი სტატისტიკა',
-      CustomerSatisfaction: 'კმაყოფილი მომხმარებლები',
-      InPropertySales: 'უძრავი ქონება',
-      SuccessfulSales: 'წარმატებული გაყიდვები',
-      MeetTheAgentsHeader: 'გაიცანით ჩვენი აგენტები',
-      MeetTheAgentsDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit bortis arcu enim ',
+      CustomerSatisfaction: 'კმაყოფილი მომხმარებელი',
+      InPropertySales: 'გამოცდილება',
+      SuccessfulSales: 'წარმატებული მოლაპარაკება',
+      MeetTheAgentsHeader: 'გაიცანით აგენტები',
+      MeetTheAgentsDesc: 'აქ შეგიძლიათ გაეცნოთ ჩვენი აგენტების პორტფელებს',
       ValuesHeader: 'ჩვენი ღირებულებები',
       ValuesDesc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit mi lobortis gravida ornare leo in at in egestas.',
       excellence: 'ბრწყინვალება',
@@ -193,7 +194,8 @@ const resources = {
       USD: 'დოლარი',
       GEL: 'ლარი',
       SearchForDevelopers: 'მოძებნეთ დეველოპერი',
-      NoDevelopersFound: 'დეველოპერი არ მოიძებნა'
+      NoDevelopersFound: 'დეველოპერი არ მოიძებნა',
+      InternationalRealtor: 'საერთაშორისო რეალტორი'
     }
   }
 }
