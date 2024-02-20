@@ -38,6 +38,8 @@ export default function DeveloperInnerPage() {
         <DeveloperLogo src={developerInner?.cover} />
         <DeveloperInfoDetailsContainer>
           <DeveloperTitle>{developerInner?.title} </DeveloperTitle>
+          <div>12 Projects in Progress</div>
+          <div>6 Projects completed</div>
           <DeveloperDescription>{developerInner?.description}</DeveloperDescription>
           <span>{developerInner?.url}</span>
         </DeveloperInfoDetailsContainer>

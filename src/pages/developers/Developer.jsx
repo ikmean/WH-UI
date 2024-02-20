@@ -22,6 +22,10 @@ export default function Developer({ developer }) {
         </div>
 
         <div>
+          <h4>Prices from</h4>$ 1 000 / m2
+        </div>
+
+        <div>
           <ProjectsHeader>{t('Projects')}</ProjectsHeader>
           {developer.projects.map((project, key) => (
             <ProjectTitle key={key}> {project.title} </ProjectTitle>

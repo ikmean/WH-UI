@@ -93,11 +93,11 @@ export default function Header() {
             <HeaderLink>{t('Properties')}</HeaderLink>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/developers' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('Developers')}</HeaderLink>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to='/about' onClick={() => handleMenuNavigationCleanup()}>
             <HeaderLink>{t('About')}</HeaderLink>
