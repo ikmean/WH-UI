@@ -29,7 +29,7 @@ export const BoxWrapper = styled.div`
   margin-left: 50px;
   margin-right: 50px;
   h1 {
-    font-size: 63px;
+    /* font-size: 63px; */
     color: ${colors.secondary};
     font-weight: 500;
     padding-bottom: 20px;
