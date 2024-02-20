@@ -19,7 +19,7 @@ export const defaultAppCTX = {
   searchInput: null,
   loadingProperties: true,
   loadingDevelopers: true,
-  locale: 'en',
+  locale: 'ka',
   currency: 'USD',
   emailSubscription: false,
   ccrSubmited: false,
