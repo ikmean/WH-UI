@@ -63,6 +63,8 @@ function PropertiesPage() {
         ?.split(',')
         ?.filter((el) => el !== '') || []
     )
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [fetchPropertiesData])
 
   const propertiesPerPage = 6

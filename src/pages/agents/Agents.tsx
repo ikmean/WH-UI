@@ -15,6 +15,8 @@ function AgentsPage() {
 
   useEffect(() => {
     fetchAgentsData(locale)
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [fetchAgentsData])
 
   return (

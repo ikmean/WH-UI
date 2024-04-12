@@ -49,9 +49,10 @@ function PropertiesInner() {
 
   useEffect(() => {
     if (id) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
       fetchPropertyInnerData(id)
     }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [id, fetchPropertyInnerData])
 
   useEffect(() => {
@@ -81,7 +82,7 @@ function PropertiesInner() {
         {propertyInner && (
           <>
             <ImgBtnStyles>
-              <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='auto' />
+              <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='500px' />
               <ButtonWrapper>
                 <Button
                   text={

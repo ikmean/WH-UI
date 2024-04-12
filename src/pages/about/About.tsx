@@ -17,6 +17,8 @@ function About() {
     fetchAgentsData(locale)
     fetchAboutData(locale)
     fetchOfficesData(locale)
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [fetchAgentsData])
 
   return Util.isNull(about) ? (
