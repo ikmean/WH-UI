@@ -21,7 +21,7 @@ export default function SocialMedia() {
         </a>
       </Social>
       <Social>
-        <a href='https://www.facebook.com/' rel='noreferrer' target='_blank'>
+        <a href='https://wa.me/message/XGYBW42KWQQWP1' rel='noreferrer' target='_blank'>
           <Whatsapp />
         </a>
       </Social>
