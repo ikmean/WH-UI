@@ -17,6 +17,8 @@ export const PropertiesInnerPageContainer = styled.div`
 export const ImgBtnStyles = styled.div`
   position: relative;
   width: 100%;
+  img {
+  }
 `
 
 export const ButtonWrapper = styled.div`

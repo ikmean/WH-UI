@@ -16,6 +16,8 @@ function Blogs() {
 
   useEffect(() => {
     fetchBlogsData()
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [fetchBlogsData])
 
   return Util.isNull(blogs) ? (

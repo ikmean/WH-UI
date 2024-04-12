@@ -37,6 +37,8 @@ function Home({ searchInput, setSearchInput }) {
     fetchPropertyCategoryData(locale)
     fetchPropertiesData({ locale })
     fetchBlogsData(locale)
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [fetchDealTypeData])
 
   return (
