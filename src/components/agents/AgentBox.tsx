@@ -12,7 +12,7 @@ export default function AgentBox({ type = 'regular', data }: any) {
       <Link to={`/agents`} className={isSmall ? 'flex row center' : ''}>
         <ImgWrapper type={type}>
           <img src={data?.profilePicture?.url} alt='img1' />
-          {!isSmall && <InfoBox>Agent</InfoBox>}
+          {!isSmall && <InfoBox>{data?.status}</InfoBox>}
         </ImgWrapper>
         <TextBox type={type}>
           <h2>
