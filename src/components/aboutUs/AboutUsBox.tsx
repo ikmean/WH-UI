@@ -15,8 +15,8 @@ export const AboutUsBox = ({ reverse }: props) => {
   return (
     <AboutBoxContainer reverse={reverse}>
       <Text>
-        <h1>{reverse ? about.goalHeader: about.helpHeader}</h1>
-        <p>{reverse ? about.goalDescription: about.helpDescription}</p>
+        <h1>{reverse ? about.goalHeader : about.helpHeader}</h1>
+        <p>{reverse ? about.goalDescription : about.helpDescription}</p>
       </Text>
       <ImgWrapper>
         {Util.isNull(about.gallery) ? (

@@ -31,7 +31,10 @@ export default function App() {
           <Route path='/developers/:id' element={<DeveloperInnerPage />} />
           <Route path='/about' element={<About />} />
           <Route path='/agents' element={<AgentsPage />} />
-          <Route path='/agents/:id' element={<AgentsInner />} />
+          {/**
+           * Disabling Agents Inner Page for now, before we have fully functional website.
+           */}
+          {/* <Route path='/agents/:id' element={<AgentsInner />} /> */}
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/blogs/:id' element={<BlogsInner />} />
         </Routes>
