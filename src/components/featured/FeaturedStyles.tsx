@@ -125,12 +125,20 @@ export const TextBox = styled.div<props>`
 
 export const LocationContainer = styled.div<props>`
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
   color: ${colors.greyText};
   margin-top: 10px;
   span {
     padding-left: 11px;
     font-size: ${({ featured }) => (featured ? '18px' : '16px')};
+  }
+
+  div{
+    display: flex;
+    align-items: center;
   }
 `
 

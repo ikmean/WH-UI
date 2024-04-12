@@ -13,6 +13,7 @@ export default function FeaturedBox({ data }: any) {
   const { context } = useContext(AppContext)
   const { currency } = context
 
+  console.log(data)
   return (
     <BoxWrapper featured={data?.featured} main={data?.main}>
       <Link to={`/properties/${data?.id?.toString()}`} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}>
@@ -33,10 +34,13 @@ export default function FeaturedBox({ data }: any) {
       <TextBox featured={data?.featured} main={data?.main}>
         <Top featured={data?.featured}>
           <LocationContainer featured={data?.featured}>
+            <div>
             <Location />
             <span className='location'>
               {data?.streetAddress}, {data?.city}
             </span>
+            </div>
+            <div>ID: {data.id}</div>
           </LocationContainer>
           <div>
             <Price featured={data?.featured}>{currency === 'GEL' ? `₾ ${data?.price?.gel}` : `$ ${data?.price?.usd}`}</Price>
