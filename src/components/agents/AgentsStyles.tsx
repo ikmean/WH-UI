@@ -40,12 +40,14 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
   border-radius: 26px;
   overflow: hidden;
   transition: transform 0.3s ease;
+
   img {
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
     border-radius: 12px;
     border-radius: ${({ type }) => type === 'small' && '50%'};
     width: 100%;
+    height: ${({ type }) => type !== 'small' && '400px'};
     transition: transform 0.3s;
   }
   a {
