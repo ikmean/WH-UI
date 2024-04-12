@@ -9,7 +9,7 @@ export default function AgentBox({ type = 'regular', data }: any) {
 
   return (
     <AgentBoxStyles type={type}>
-      <Link to={`/agents`} className={isSmall ? 'flex row center' : ''}>
+      <Link to={`/agents/${data.id}`} className={isSmall ? 'flex row center' : ''}>
         <ImgWrapper type={type}>
           <img src={data?.profilePicture?.url} alt='img1' />
           {!isSmall && data.status && <InfoBox>{data?.status}</InfoBox>}
