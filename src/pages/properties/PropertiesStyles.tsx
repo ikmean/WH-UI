@@ -47,6 +47,10 @@ export const TextContent = styled.div`
   width: 60%;
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
+  span {
+    color: ${colors.greyText};
+    padding: 1rem 0;
+  }
   h3 {
     margin-top: 63px;
     margin-bottom: 5px;

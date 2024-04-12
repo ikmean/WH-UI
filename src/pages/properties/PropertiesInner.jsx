@@ -100,7 +100,9 @@ function PropertiesInner() {
             <ContentContainer className='container'>
               <TextContent>
                 <h3>{propertyInner?.streetAddress}</h3>
+                <span>ID: {propertyInner.id}</span>
                 <h1>{propertyInner?.title}</h1>
+
                 <InfoContainer className='flex'>
                   <InfoBox>
                     <SQFT />
