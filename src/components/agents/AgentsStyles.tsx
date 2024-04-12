@@ -49,6 +49,8 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
     width: 100%;
     height: ${({ type }) => type !== 'small' && '400px'};
     transition: transform 0.3s;
+    height: 400px;
+    width: 100%;
   }
   a {
     display: 'flex';
