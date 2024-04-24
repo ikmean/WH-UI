@@ -41,15 +41,6 @@ export const AgentBoxStyles = styled.div<{ type: string }>`
   overflow: hidden;
   transition: transform 0.3s ease;
 
-  img {
-    border-top-left-radius: 26px;
-    border-top-right-radius: 26px;
-    border-radius: 12px;
-    border-radius: ${({ type }) => type === 'small' && '50%'};
-    width: 100%;
-    height: ${({ type }) => type !== 'small' && '400px'};
-    transition: transform 0.3s;
-  }
   a {
     display: 'flex';
   }
@@ -82,6 +73,17 @@ export const ImgWrapper = styled.div<{ type: any }>`
     top: 20px;
     right: 0;
     width: max-content;
+  }
+
+  img {
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    border-radius: 12px;
+    border-radius: ${({ type }) => type === 'small' && '50%'};
+    width: 100%;
+    height: ${({ type }) => type !== 'small' && '300px'};
+    object-fit: scale-down;
+    transition: transform 0.3s;
   }
 `
 
