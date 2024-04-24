@@ -136,7 +136,7 @@ export const LocationContainer = styled.div<props>`
     font-size: ${({ featured }) => (featured ? '18px' : '16px')};
   }
 
-  div{
+  div {
     display: flex;
     align-items: center;
   }

@@ -63,6 +63,7 @@ export default function Header() {
   const handleLocaleChange = (value) => {
     i18n.changeLanguage(value)
     setSearchParams({ locale: value })
+    console.log('en ge')
     setLocale({ locale: value })
   }
 
