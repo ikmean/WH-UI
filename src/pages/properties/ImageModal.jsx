@@ -52,8 +52,8 @@ export const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIn
       ) : (
         <ModalVideoContainer onClick={handleVideoClick}>
           <video controls autoPlay>
-            <source src={selectedImage?.url} type='video/mp4' />
-            <source src={selectedImage?.url} type='video/ogg' />
+            <source src={selectedImage.url} type='video/mp4' />
+            <source src={selectedImage.url} type='video/ogg' />
           </video>
         </ModalVideoContainer>
       )}

@@ -71,6 +71,9 @@ export default function useContextUpdateFromSocket() {
     fetchOfficesData(props.locale)
     fetchDevelopersData(props.locale)
 
+    //TODO: fetch agents inner when locale changes, tricky part is to get proper ID, because different locales has different id in strapi
+    // fetchAgentsInnerData()
+
     setContext((ctx) => {
       return { ...ctx, locale: props.locale }
     })

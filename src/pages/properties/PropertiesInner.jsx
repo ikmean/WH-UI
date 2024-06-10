@@ -89,7 +89,7 @@ function PropertiesInner() {
             <SEO title={`Warm House - ${propertyInner?.title}`} description={`${propertyInner?.description}`} />
 
             <ImgBtnStyles>
-              <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='500px' />
+              <img src={propertyInner?.gallery[0].url} alt='' width='100%' height='500px' />
               <ButtonWrapper>
                 <Button
                   text={
@@ -159,11 +159,18 @@ function PropertiesInner() {
                   {propertyInner?.gallery?.map((el, i) => (
                     <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
                       {el.type === 'image' && <img key={i} src={el?.url} alt='img' />}
-                      {el.type === 'video' && <img key={i} src={el?.previewUrl} alt='img' />}
+                      {el.type === 'video' && (
+                        <img
+                          key={i}
+                          src={'https://res.cloudinary.com/ikameancloud/image/upload/v1718033593/warmHouse/hg0ed5abrcm2ef78omyy.png'}
+                          alt='img'
+                        />
+                      )}
                       <BlackImage>
                         <img src={blackImage} alt='blackImage' />
                       </BlackImage>
                       <EyeStyles>
+                        <Eye />
                         {el.type === 'image' && <Eye />}
                         {el.type === 'video' && <Play />}
                       </EyeStyles>

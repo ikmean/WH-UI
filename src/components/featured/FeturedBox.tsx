@@ -12,13 +12,12 @@ import { AppContext } from '../../context/createContext'
 export default function FeaturedBox({ data }: any) {
   const { context } = useContext(AppContext)
   const { currency } = context
-
   console.log(data)
   return (
     <BoxWrapper featured={data?.featured} main={data?.main}>
       <Link to={`/properties/${data?.id?.toString()}`} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}>
         <ImgWrapper main={data?.main} featured={data?.featured}>
-          <img src={data?.gallery[0]?.url} alt='featuredImg1' />
+          <img src={data?.gallery && data?.gallery[0].url} alt='featuredImg1' />
           <div>
             {data?.dealType && (
               <InfoBox
