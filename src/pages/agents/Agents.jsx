@@ -6,6 +6,7 @@ import { AppContext } from '../../context/createContext'
 import { Agents } from '../../components/agents/Agents'
 import Loader from '../../components/Loader/Loader'
 import { Util } from '../../helpers/Util'
+import SEO from '../../components/seo'
 
 function AgentsPage() {
   const { t } = useTranslation()
@@ -22,9 +23,13 @@ function AgentsPage() {
   return (
     <>
       {Util.isNull(agents) ? (
-        <Loader />
+        <>
+          <SEO title={`Warm House - Agents`} description={`Warm House - Best Real Estate Agents`} />
+          <Loader />
+        </>
       ) : (
         <AgentsWrapper>
+          <SEO title={`Warm House Team`} description={t('AgentPageDesc')} />
           <Header>
             <h1>{t('OurAgents')}</h1>
             <p>{t('AgentPageDesc')}</p>

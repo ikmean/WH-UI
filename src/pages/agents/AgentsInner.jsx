@@ -4,9 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { BrowseMore } from '../properties/PropertiesStyles'
 import { ReactComponent as Phone } from '../../lib/icons/phone.svg'
 import { ReactComponent as MailRed } from '../../lib/icons/mailRed.svg'
-import ArticleBox from '../../components/articles/ArticleBox'
-import Button from '../../components/button/Button'
-import { AgentBoxInfoContainer, AgentBoxWrapperPage, AgentInfo, AgentsInnerPageStyles, ArticleWrapper, ContentBy } from './AgentsStyles'
+import { AgentBoxInfoContainer, AgentBoxWrapperPage, AgentInfo, AgentsInnerPageStyles, ContentBy } from './AgentsStyles'
 import { AppContext } from '../../context/createContext'
 import { useParams } from 'react-router-dom'
 import { PropertiesPageWrapper } from '../../components/featured/FeaturedStyles'
@@ -14,6 +12,7 @@ import FeaturedBox from '../../components/featured/FeturedBox'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 import Articles from '../../components/articles/Articles'
+import SEO from '../../components/seo'
 
 function AgentsInner() {
   const { t } = useTranslation()
@@ -37,9 +36,13 @@ function AgentsInner() {
   }, [agentsInner])
 
   return Util.isNull(data) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House Team`} description={t('AgentPageDesc')} />
+      <Loader />
+    </>
   ) : (
     <AgentsInnerPageStyles>
+      <SEO title={`Warm House - ${agentsInner.name} ${agentsInner.lastName}`} description={`${agentsInner.about}`} />
       <AgentBoxWrapperPage>
         <img src={agentsInner?.profilePicture.url} alt='agentImage' />
         <AgentBoxInfoContainer>
@@ -71,7 +74,7 @@ function AgentsInner() {
             </h1>
           </div>
           <PropertiesPageWrapper>
-            {data?.properties.map((data: any, i: number) => (
+            {data?.properties.map((data, i) => (
               <FeaturedBox
                 data={{
                   ...data,

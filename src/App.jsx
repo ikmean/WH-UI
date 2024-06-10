@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import About from './pages/about/About'
@@ -20,26 +22,25 @@ export default function App() {
   const { context } = useContextUpdateFromSocket()
 
   return (
-    <Router>
-      <Provider value={{ context }}>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/properties' element={<PropertiesPage />} />
-          <Route path='/properties/:id' element={<PropertiesInner />} />
-          {/* <Route path='/developers' element={<DevelopersPage />} /> */}
-          <Route path='/developers/:id' element={<DeveloperInnerPage />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/agents' element={<AgentsPage />} />
-          {/**
-           * Disabling Agents Inner Page for now, before we have fully functional website.
-           */}
-          <Route path='/agents/:id' element={<AgentsInner />} />
-          <Route path='/blogs' element={<Blogs />} />
-          <Route path='/blogs/:id' element={<BlogsInner />} />
-        </Routes>
-        <Footer />
-      </Provider>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Provider value={{ context }}>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/properties' element={<PropertiesPage />} />
+            <Route path='/properties/:id' element={<PropertiesInner />} />
+            <Route path='/developers' element={<DevelopersPage />} />
+            <Route path='/developers/:id' element={<DeveloperInnerPage />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/agents' element={<AgentsPage />} />
+            <Route path='/agents/:id' element={<AgentsInner />} />
+            <Route path='/blogs' element={<Blogs />} />
+            <Route path='/blogs/:id' element={<BlogsInner />} />
+          </Routes>
+          <Footer />
+        </Provider>
+      </Router>
+    </HelmetProvider>
   )
 }

@@ -11,6 +11,7 @@ import Button from '../../components/button/Button'
 import { ButtonsStyles } from './PropertiesStyles'
 import { useSearchParams } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
+import SEO from '../../components/seo'
 
 function PropertiesPage() {
   const { t } = useTranslation()
@@ -88,6 +89,8 @@ function PropertiesPage() {
 
   return (
     <div className='container'>
+      <SEO title={`Warm House, Real Estate Agency, Properties`} description={`Warm House, Real Estate Agency, Properties`} />
+
       <PropertiesHeader />
       <SearchContainer />
       <>

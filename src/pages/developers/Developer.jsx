@@ -5,12 +5,15 @@ import styled from 'styled-components'
 import { colors } from '../../lib/colors'
 import { Link } from 'react-router-dom'
 import { media } from '../../helpers/device'
+import SEO from '../../components/seo'
 
 export default function Developer({ developer }) {
   const { t } = useTranslation()
 
   return (
     <DeveloperContainer>
+      <SEO title={`Warm House - Partner Developers`} description={`Real Estate Developers`} />
+
       <DeveloperLogoContainer>
         <Link to={`/developers/${developer.id.toString()}`}>
           <DeveloperLogo src={developer.cover} alt='logo' />

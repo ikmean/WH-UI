@@ -35,10 +35,10 @@ export default function FeaturedBox({ data }: any) {
         <Top featured={data?.featured}>
           <LocationContainer featured={data?.featured}>
             <div>
-            <Location />
-            <span className='location'>
-              {data?.streetAddress}, {data?.city}
-            </span>
+              <Location />
+              <span className='location'>
+                {data?.streetAddress}, {data?.city}
+              </span>
             </div>
             <div>ID: {data.id}</div>
           </LocationContainer>

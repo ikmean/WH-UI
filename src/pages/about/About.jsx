@@ -8,6 +8,7 @@ import { AppContext } from '../../context/createContext'
 import AboutAgents from '../../components/aboutUs/AboutAgents'
 import Loader from '../../components/Loader/Loader'
 import { Util } from '../../helpers/Util'
+import SEO from '../../components/seo'
 
 function About() {
   const { context } = useContext(AppContext)
@@ -22,9 +23,15 @@ function About() {
   }, [fetchAgentsData])
 
   return Util.isNull(about) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House, About Us`} description={`Warm House, Best Real Estate Agency in Georgia`} />
+
+      <Loader />
+    </>
   ) : (
     <AboutContainer>
+      <SEO title={`${about?.header}`} description={`${about.descriptionFirst},${about.descriptionSecond}`} />
+
       <div>
         <HeaderAndDescription>
           <h1>{about?.header}</h1>
@@ -34,7 +41,7 @@ function About() {
           </Description>
         </HeaderAndDescription>
         <Images>
-          {about?.gallery?.map((image: any, i: number) => (
+          {about?.gallery?.map((image, i) => (
             <img key={i} src={image.large} alt='aboutimg' />
           ))}
         </Images>
