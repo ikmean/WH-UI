@@ -203,7 +203,7 @@ const resources = {
 i18n.use(initReactI18next).init({
   resources,
   fallbackLng: 'ka',
-  debug: true,
+  debug: false,
 
   interpolation: {
     escapeValue: false

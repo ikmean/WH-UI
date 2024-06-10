@@ -1,6 +1,7 @@
 import React from 'react'
 import { UploadContainer, UploadHeader, UploadForm, Label, Amenities } from './UploadStyles'
 import { useTranslation } from 'react-i18next'
+import UploadWidget from './Cloudinary'
 
 export default function UploadPage() {
   const { t } = useTranslation()
@@ -119,11 +120,7 @@ export default function UploadPage() {
                 Garage
               </Amenities>
             </div>
-            <div>
-              <Label>{t('Listing Images')}</Label>
-              <p>Please share a Google Drive or Imgur link of your listing images</p>
-              <input type='link' placeholder='ex. drive.google.com/...' />
-            </div>
+            <UploadWidget />
           </>
         </form>
       </UploadForm>
