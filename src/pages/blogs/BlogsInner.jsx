@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArticleContent, ArticleHeaderContent, ArticleHeaderWrapper, Author, AuthorBigger, DateWrapper } from './BlogsStyles'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
+import SEO from '../../components/seo'
 
 function BlogsInner() {
   const { context } = useContext(AppContext)
@@ -28,10 +29,14 @@ function BlogsInner() {
   }, [id, fetchBlogsInnerData])
 
   return Util.isNull(blogsInner) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House - Blogs`} description={`Read our Blogs`} />
+      <Loader />
+    </>
   ) : (
     <>
       <ArticleHeaderWrapper>
+        <SEO title={`${blogsInner?.title}`} description={`${blogsInner?.description}`} />
         <ArticleHeaderContent>
           <DateWrapper>Articles - {formattedDate}</DateWrapper>
           <h1>{data?.title}</h1>

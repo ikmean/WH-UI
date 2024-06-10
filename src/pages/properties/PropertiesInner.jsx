@@ -36,6 +36,7 @@ import { useParams } from 'react-router-dom'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 import MapComponent from '../../map component/MapComponent'
+import SEO from '../../components/seo'
 
 function PropertiesInner() {
   const { t } = useTranslation()
@@ -75,12 +76,17 @@ function PropertiesInner() {
   }
 
   return Util.isNull(propertyInner) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House, Real Estate Agency, Properties`} description={`Warm House, Real Estate Agency, Properties`} />
+      <Loader />
+    </>
   ) : (
     <>
       <PropertiesInnerPageContainer>
         {propertyInner && (
           <>
+            <SEO title={`Warm House - ${propertyInner?.title}`} description={`${propertyInner?.description}`} />
+
             <ImgBtnStyles>
               <img src={propertyInner?.gallery[0]?.url} alt='' width='100%' height='500px' />
               <ButtonWrapper>

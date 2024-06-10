@@ -7,6 +7,7 @@ import { AppContext } from '../../context/createContext'
 import { ArticleBoxList, ArticleList } from '../../components/articles/ArticlesStyles'
 import Loader from '../../components/Loader/Loader'
 import { Util } from '../../helpers/Util'
+import SEO from '../../components/seo'
 
 function Blogs() {
   const { t } = useTranslation()
@@ -21,7 +22,10 @@ function Blogs() {
   }, [fetchBlogsData])
 
   return Util.isNull(blogs) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House - Blogs`} description={`Read our Blogs`} />
+      <Loader />
+    </>
   ) : (
     <div className='container'>
       <Header>
@@ -32,7 +36,7 @@ function Blogs() {
           <ArticleList>
             <ArticleBox type='description' data={blogs[0]} />
             <ArticleBoxList>
-              {blogs.slice(1).map((data: any, i: number) => (
+              {blogs.slice(1).map((data, i) => (
                 <ArticleBox type='readMoreSmall' key={i} data={data} />
               ))}
             </ArticleBoxList>

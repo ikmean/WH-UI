@@ -12,6 +12,7 @@ import FeaturedBox from '../../components/featured/FeturedBox'
 import { Util } from '../../helpers/Util'
 import Loader from '../../components/Loader/Loader'
 import Articles from '../../components/articles/Articles'
+import SEO from '../../components/seo'
 
 function AgentsInner() {
   const { t } = useTranslation()
@@ -35,9 +36,13 @@ function AgentsInner() {
   }, [agentsInner])
 
   return Util.isNull(data) ? (
-    <Loader />
+    <>
+      <SEO title={`Warm House Team`} description={t('AgentPageDesc')} />
+      <Loader />
+    </>
   ) : (
     <AgentsInnerPageStyles>
+      <SEO title={`Warm House - ${agentsInner.name} ${agentsInner.lastName}`} description={`${agentsInner.about}`} />
       <AgentBoxWrapperPage>
         <img src={agentsInner?.profilePicture.url} alt='agentImage' />
         <AgentBoxInfoContainer>
@@ -69,7 +74,7 @@ function AgentsInner() {
             </h1>
           </div>
           <PropertiesPageWrapper>
-            {data?.properties.map((data: any, i: number) => (
+            {data?.properties.map((data, i) => (
               <FeaturedBox
                 data={{
                   ...data,

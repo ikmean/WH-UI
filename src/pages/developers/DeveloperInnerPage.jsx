@@ -13,6 +13,7 @@ import Loader from '../../components/Loader/Loader'
 import RequestProperty from '../../components/request/CustomerContactRequest'
 import Developer from './Developer'
 import { media } from '../../helpers/device'
+import SEO from '../../components/seo'
 
 export default function DeveloperInnerPage() {
   const { t } = useTranslation()
@@ -31,9 +32,13 @@ export default function DeveloperInnerPage() {
   }, [id, fetchDeveloperInnerData])
 
   return Util.isNull(developerInner) ? (
-    <Loader />
+    <>
+      <SEO title={`${developerInner?.title}`} description={`${developerInner?.description}`} />
+      <Loader />
+    </>
   ) : (
     <DeveloperInnerPageWrapper>
+      <SEO title={`${developerInner?.title}`} description={`${developerInner?.description}`} />
       <DeveloperInfoWrapper>
         <DeveloperLogo src={developerInner?.cover} />
         <DeveloperInfoDetailsContainer>

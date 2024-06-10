@@ -12,7 +12,6 @@ import Featured from '../../components/featured/Featured'
 import Loader from '../../components/Loader/Loader'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import MapComponent from '../../map component/MapComponent'
 import SEO from '../../components/seo'
 
 function Home({ searchInput, setSearchInput }) {
@@ -46,7 +45,7 @@ function Home({ searchInput, setSearchInput }) {
 
   return (
     <div className='flex-column'>
-      <SEO />
+      <SEO title={'Warm House, Real Estate Agency'} description={'Warm House, Real Estate Agency'} />
       <div className='container'>
         <Explore featuredListRef={featuredListRef} />
         <SearchContainer searchInput={searchInput} setSearchInput={setSearchInput} />
