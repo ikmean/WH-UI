@@ -200,6 +200,7 @@ InfoBoxWrapper
 export const InfoBox = styled.div<props>`
   display: flex;
   align-items: center;
+  gap: 10px;
   border-radius: 40px;
   box-shadow: 0px 1px 6px rgba(20, 20, 43, 0.09);
   margin-right: 18px;
