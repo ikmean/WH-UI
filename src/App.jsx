@@ -16,6 +16,7 @@ import useContextUpdateFromSocket from './context/useContextUpdate'
 import PropertiesPage from './pages/properties/Properties'
 import DevelopersPage from './pages/developers/DevelopersPage'
 import DeveloperInnerPage from './pages/developers/DeveloperInnerPage'
+import UploadPage from './pages/upload/Upload'
 import 'leaflet/dist/leaflet.css'
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
             <Route path='/about' element={<About />} />
             <Route path='/agents' element={<AgentsPage />} />
             <Route path='/agents/:id' element={<AgentsInner />} />
+            <Route path='/upload' element={<UploadPage />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/blogs/:id' element={<BlogsInner />} />
           </Routes>

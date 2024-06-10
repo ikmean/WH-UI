@@ -158,13 +158,17 @@ export const GalleryContainer = styled.div`
   grid-gap: 41px;
   margin-bottom: 160px;
   img {
-    width: auto;
+    width: 400px;
+    height: 307.49px;
+  }
+  video {
+    width: 400px;
     height: 307.49px;
   }
 
   ${media.md`
     grid-template-columns: auto auto;
-    img{
+    img, video {
       width: 20rem;
       height: 10rem;
     }
@@ -212,7 +216,7 @@ export const ButtonsStyles = styled.div`
 `
 
 export const Buttons = styled.button`
-  z-index: 2000;
+  z-index: 200;
   display: flex;
   align-items: center;
   margin: auto;
@@ -277,4 +281,19 @@ export const ModalImage = styled.img`
   ${media.md`
     height: auto;
   `}
+`
+
+export const ModalVideoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video {
+    height: 60%;
+    width: 80%;
+
+    ${media.md`
+    height: auto;
+  `}
+  }
 `

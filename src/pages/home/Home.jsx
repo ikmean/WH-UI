@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import { Helmet } from 'react-helmet-async'
-
 import Explore from '../../components/explore/Explore'
 import { AppContext } from '../../context/createContext'
 import SearchContainer from '../../components/search/SearchContainer'

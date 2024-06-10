@@ -21,11 +21,12 @@ import RequestProperty from '../../components/request/CustomerContactRequest'
 import { ReactComponent as SQFT } from '../../lib/icons/sqft.svg'
 import { Line } from '../../components/articles/ArticlesStyles'
 import { InfoBox } from '../../components/featured/FeaturedStyles'
-import ImageModal from './ImageModal'
+import { ImageModal } from './ImageModal'
 import { ReactComponent as Bed } from '../../lib/icons/bed.svg'
 import { ReactComponent as Bath } from '../../lib/icons/bath.svg'
 import { ReactComponent as ParkingSmall } from '../../lib/icons/parkingSmall.svg'
 import { ReactComponent as Eye } from '../../lib/icons/Eye.svg'
+import { ReactComponent as Play } from '../../lib/icons/Play.svg'
 import { ReactComponent as PhotoCamera } from '../../lib/icons/PhotoCamera.svg'
 import blackImage from '../../lib/images/blackImage.jpg'
 import { Amenity } from './Amenity'
@@ -155,14 +156,16 @@ function PropertiesInner() {
                   <h1>{t('PropertyGallery')}</h1>
                 </div>
                 <GalleryContainer>
-                  {propertyInner?.gallery?.map((photo, i) => (
+                  {propertyInner?.gallery?.map((el, i) => (
                     <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
-                      <img key={i} src={photo?.url} alt='img' />
+                      {el.type === 'image' && <img key={i} src={el?.url} alt='img' />}
+                      {el.type === 'video' && <img key={i} src={el?.previewUrl} alt='img' />}
                       <BlackImage>
                         <img src={blackImage} alt='blackImage' />
                       </BlackImage>
                       <EyeStyles>
-                        <Eye />
+                        {el.type === 'image' && <Eye />}
+                        {el.type === 'video' && <Play />}
                       </EyeStyles>
                     </GalleryStyles>
                   ))}
