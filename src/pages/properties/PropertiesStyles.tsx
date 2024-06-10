@@ -120,6 +120,7 @@ export const AmenityStyles = styled.div`
   span {
     margin-left: 25px;
   }
+
   ${media.xs`
     justify-content: flex-start;
     gap: 2rem;
@@ -136,7 +137,7 @@ export const EyeStyles = styled.div`
   opacity: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   background-color: ${colors.grey};
   padding: 10px 15px;
