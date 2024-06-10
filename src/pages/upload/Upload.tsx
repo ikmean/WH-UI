@@ -2,7 +2,7 @@ import React from 'react'
 import { UploadContainer, UploadHeader, UploadForm, Label, Amenities } from './UploadStyles'
 import { useTranslation } from 'react-i18next'
 
-export default function Developer() {
+export default function UploadPage() {
   const { t } = useTranslation()
 
   return (
