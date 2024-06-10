@@ -41,6 +41,7 @@ export const SearchWrapper = styled.div`
 export const ArticleListWrapper = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 1s forwards;
+  margin-bottom: 100px;
 
   ${media.lg`
     display: flex;
