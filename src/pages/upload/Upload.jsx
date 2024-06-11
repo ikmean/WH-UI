@@ -1,10 +1,53 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UploadContainer, UploadHeader, UploadForm, Label, Amenities } from './UploadStyles'
 import { useTranslation } from 'react-i18next'
 import UploadWidget from './Cloudinary'
+import Button from '../../components/button/Button'
+import { AppContext } from '../../context/createContext'
 
 export default function UploadPage() {
   const { t } = useTranslation()
+  const { context } = useContext(AppContext)
+  const { fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData, fetchAgentsData, agents, location, propertyCategory, dealType } =
+    context
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    size: 0,
+    bedroomQuantity: 0,
+    price: 0,
+    streetAddress: '',
+    propertyAmenities: [],
+    propertyCategory: '',
+    dealType: '',
+    developer: '',
+    agent: '',
+    pinned: true,
+    city: '',
+    district: '',
+    aboutProperty: '',
+    bathroom: 0,
+    parking: 0,
+    gallery: '',
+    locale: 'ka'
+  })
+
+  useEffect(function () {
+    fetchLocationData()
+    fetchPropertyCategoryData()
+    fetchDealTypeData()
+    fetchAgentsData()
+  }, [])
+
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    console.log(formData)
+    console.log('Agents', agents)
+    console.log('Location', location)
+    console.log('Property Category', propertyCategory)
+    console.log('Deal Type', dealType)
+  }
 
   return (
     <UploadContainer>
@@ -15,30 +58,24 @@ export default function UploadPage() {
         </p>
       </UploadHeader>
       <UploadForm>
-        <form>
-          <section>
-            <div>
-              <Label>{t('Full name')}</Label>
-              <input type='text' placeholder={t('John Carter')} />
-            </div>
-            <div>
-              <Label>{t('Email')}</Label>
-              <input type='email' placeholder='example@email.com' />
-            </div>
-            <div>
-              <Label>{t('Phone')}</Label>
-              <input type='number' placeholder='(+995) 123456789' />
-            </div>
-          </section>
-          <br />
+        <form onSubmit={handleSubmit}>
           <section>
             <div>
               <Label>{t('Lising title')}</Label>
-              <input type='text' placeholder={t('Property listing title')} />
+              <input
+                type='text'
+                placeholder={t('Property listing title')}
+                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              />
             </div>
             <div>
-              <Label>{t('Property type')}</Label>
+              <Label>{t('Property Deal type')}</Label>
               <select name='Select'>
+                {dealType.map((type) => (
+                  <option key={type.id} value={type.title} onSelect={() => setFormData({ ...formData, dealType: type.id })}>
+                    {type.title}
+                  </option>
+                ))}
                 <option value='rent'>Rent</option>
                 <option value='sale'>Sale</option>
               </select>
@@ -57,11 +94,19 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Address')}</Label>
-              <input type='text' placeholder={t('5 Kedia st.')} />
+              <input
+                type='text'
+                placeholder={t('5 Kedia st.')}
+                onChange={(e) => setFormData({ ...formData, streetAddress: e.target.value })}
+              />
             </div>
             <div>
               <Label>{t('Listing price')}</Label>
-              <input type='number' placeholder={t('ex. $10 000')} />
+              <input
+                type='number'
+                placeholder={t('ex. $10 000')}
+                onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
+              />
             </div>
             <div>
               <Label>{t('Bedrooms')}</Label>
@@ -76,22 +121,20 @@ export default function UploadPage() {
               <input type='number' placeholder='1' />
             </div>
             <div>
-              <Label>{t('Construqtion sqm.')}</Label>
-              <input type='number' placeholder='470 m2' />
-            </div>
-            <div>
-              <Label>{t('Land sqm.')}</Label>
-              <input type='number' placeholder='1000 m2' />
+              <Label>{t('Area')}</Label>
+              <input type='number' placeholder='1000 m2' onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })} />
             </div>
           </section>
           <>
             <div>
-              <Label>{t('Lising short description')}</Label>
-              <input type='text' maxLength={240} placeholder={t('Please enter up to 240 characters')} id='shortDesc' />
-            </div>
-            <div>
-              <Label>{t('Lising long description')}</Label>
-              <input type='text' maxLength={4000} placeholder={t('Please enter up to 4000 characters')} id='longDesc' />
+              <Label>{t('Lising description')}</Label>
+              <input
+                type='text'
+                maxLength={4000}
+                placeholder={t('Please enter up to 4000 characters')}
+                id='longDesc'
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              />
             </div>
             <div>
               <Label>{t('Property amenities')}</Label>
@@ -120,8 +163,17 @@ export default function UploadPage() {
                 Garage
               </Amenities>
             </div>
-            <UploadWidget />
+            <div id='listing-imgs'>
+              <div>
+                <label>Listing images</label>
+                <p>Please upload your listing images</p>
+              </div>
+              <UploadWidget />
+            </div>
           </>
+          <div id='submit-btn'>
+            <Button text={'Submit'} color={'black'} click={handleSubmit} />
+          </div>
         </form>
       </UploadForm>
     </UploadContainer>

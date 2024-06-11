@@ -74,6 +74,19 @@ export const UploadForm = styled.div`
   opacity: 0;
   animation: ${slideAnimation('100px')} 1s ease 0.9s forwards;
 
+  #listing-imgs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+    padding: 3rem;
+  }
+
+  #submit-btn {
+    display: flex;
+    align-items: center;
+  }
+
   input,
   select {
     background-color: rgba(246, 246, 246, 1);
@@ -124,6 +137,7 @@ export const Label = styled.label`
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
+  margin-top: 15px;
 `
 
 export const Amenities = styled.div`
