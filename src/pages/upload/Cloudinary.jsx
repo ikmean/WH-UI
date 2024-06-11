@@ -35,7 +35,7 @@ const UploadWidget = () => {
     widgetRef.current.open()
   }
 
-  return <Button text={'Media Upload'} color={'black'} click={(e) => handleWidgetOpen(e)} />
+  return <Button text={'Media Upload'} color={'white'} click={(e) => handleWidgetOpen(e)} />
 }
 
 export default UploadWidget
