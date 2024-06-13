@@ -24,7 +24,6 @@ const UploadWidget = () => {
           }
 
           window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([...mediaUrlStorage, { url: mediaUrl, type: mediaType }]))
-          console.log(window.localStorage.getItem('uploadedMediaUrls'))
         }
       }
     )

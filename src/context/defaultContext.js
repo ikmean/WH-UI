@@ -23,6 +23,8 @@ export const defaultAppCTX = {
   currency: 'USD',
   emailSubscription: false,
   ccrSubmited: false,
+  amenities: [],
+  districts: [],
 
   setLocale: () => {},
   setSelectedDealType: () => {},
@@ -53,5 +55,9 @@ export const defaultAppCTX = {
   fetchDevelopersData: () => {},
   fetchDeveloperInnerData: () => {},
 
-  createCustomerRequest: () => {}
+  fetchDistrictsData: () => {},
+  fetchAmenitiesData: () => {},
+
+  createCustomerRequest: () => {},
+  uploadProperty: () => {}
 }

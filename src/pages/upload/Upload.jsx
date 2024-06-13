@@ -8,9 +8,26 @@ import { AppContext } from '../../context/createContext'
 export default function UploadPage() {
   const { t } = useTranslation()
   const { context } = useContext(AppContext)
-  const { fetchLocationData, fetchPropertyCategoryData, fetchDealTypeData, fetchAgentsData, agents, location, propertyCategory, dealType } =
-    context
-  const [formData, setFormData] = useState({
+  const {
+    fetchLocationData,
+    fetchPropertyCategoryData,
+    fetchDealTypeData,
+    fetchAgentsData,
+    fetchDistrictsData,
+    fetchAmenitiesData,
+    fetchDevelopersData,
+    agents,
+    location,
+    propertyCategory,
+    dealType,
+    districts,
+    developers,
+    amenities,
+    locale,
+    uploadProperty
+  } = context
+
+  const initialData = {
     title: '',
     description: '',
     size: 0,
@@ -22,7 +39,7 @@ export default function UploadPage() {
     dealType: '',
     developer: '',
     agent: '',
-    pinned: true,
+    pinned: false,
     city: '',
     district: '',
     aboutProperty: '',
@@ -30,23 +47,59 @@ export default function UploadPage() {
     parking: 0,
     gallery: '',
     locale: 'ka'
-  })
+  }
 
-  useEffect(function () {
-    fetchLocationData()
-    fetchPropertyCategoryData()
-    fetchDealTypeData()
-    fetchAgentsData()
-  }, [])
+  const [formData, setFormData] = useState(initialData)
+
+  useEffect(() => {
+    fetchLocationData(locale)
+    fetchPropertyCategoryData(locale)
+    fetchDealTypeData(locale)
+    fetchAgentsData(locale)
+    fetchDistrictsData(locale)
+    fetchAmenitiesData(locale)
+    fetchDevelopersData(locale)
+  }, [
+    fetchLocationData,
+    fetchPropertyCategoryData,
+    fetchDealTypeData,
+    fetchAgentsData,
+    fetchDistrictsData,
+    fetchAmenitiesData,
+    fetchDevelopersData,
+    locale
+  ])
+
+  function clear() {
+    setFormData(initialData)
+    window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([]))
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
+    const mediaUrls = JSON.stringify(window.localStorage.getItem('uploadedMediaUrls'))
+    console.log(mediaUrls)
+    setFormData({ ...formData, gallery: mediaUrls })
+    uploadProperty(formData)
 
-    console.log(formData)
-    console.log('Agents', agents)
-    console.log('Location', location)
-    console.log('Property Category', propertyCategory)
-    console.log('Deal Type', dealType)
+    // clear()
+  }
+
+  function handleAmenityChange(e) {
+    const value = e.target.value
+    setFormData((prevFormData) => {
+      if (prevFormData.propertyAmenities.includes(value)) {
+        return {
+          ...prevFormData,
+          propertyAmenities: prevFormData.propertyAmenities.filter((amenity) => amenity !== value)
+        }
+      } else {
+        return {
+          ...prevFormData,
+          propertyAmenities: [...prevFormData.propertyAmenities, value]
+        }
+      }
+    })
   }
 
   return (
@@ -70,38 +123,102 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Property Deal type')}</Label>
-              <select name='Select'>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, dealType: e.target.value })}>
+                <option value='' disabled>
+                  Select deal type
+                </option>
                 {dealType.map((type) => (
-                  <option key={type.id} value={type.title} onSelect={() => setFormData({ ...formData, dealType: type.id })}>
+                  <option key={type.id} value={type.title}>
                     {type.title}
                   </option>
                 ))}
-                <option value='rent'>Rent</option>
-                <option value='sale'>Sale</option>
               </select>
             </div>
             <div>
               <Label>{t('Listing type')}</Label>
-              <select name='Select'>
-                <option value='houses'>Houses</option>
-                <option value='apartments'>Apartments</option>
-                <option value='offices'>Offices</option>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, propertyCategory: e.target.value })}>
+                <option value='' disabled>
+                  Select listing type
+                </option>
+                {propertyCategory.map((category) => (
+                  <option key={category.id} value={category.title}>
+                    {category.title}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
-              <Label>{t('Location')}</Label>
-              <input type='text' placeholder={t('ex. Tbilisi')} />
+              <Label>{t('About property')}</Label>
+              <input
+                type='text'
+                maxLength={400}
+                placeholder={t('Please enter up to 400 characters')}
+                id='shortDesc'
+                onChange={(e) => setFormData({ ...formData, aboutProperty: e.target.value })}
+              />
+            </div>
+            <br />
+            <div></div>
+            <div>
+              <Label>{t('City')}</Label>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, city: e.target.value })}>
+                <option value='' disabled>
+                  Select city
+                </option>
+                {location && location.length > 0 ? (
+                  location.map((location) => (
+                    <option key={location.id} value={location.title}>
+                      {location.title}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>{t('No city available')}</option>
+                )}
+              </select>
+            </div>
+            <div>
+              <Label>{t('District')}</Label>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, district: e.target.value })}>
+                <option value='' disabled>
+                  Select district
+                </option>
+                {districts && districts.length > 0 ? (
+                  districts.map((district) => (
+                    <option key={district.id} value={district.title}>
+                      {district.title}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>{t('No districts available')}</option>
+                )}
+              </select>
             </div>
             <div>
               <Label>{t('Address')}</Label>
               <input
                 type='text'
-                placeholder={t('5 Kedia st.')}
+                placeholder={t('ex. 5 Kedia st.')}
                 onChange={(e) => setFormData({ ...formData, streetAddress: e.target.value })}
               />
             </div>
             <div>
-              <Label>{t('Listing price')}</Label>
+              <Label>{t('Bedrooms')}</Label>
+              <input
+                type='number'
+                placeholder='ex. 1'
+                onChange={(e) => setFormData({ ...formData, bedroomQuantity: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+              <Label>{t('Bathrooms')}</Label>
+              <input type='number' placeholder='ex. 1' onChange={(e) => setFormData({ ...formData, bathroom: Number(e.target.value) })} />
+            </div>
+            <div>
+              <Label>{t('Parking lots')}</Label>
+              <input type='number' placeholder='ex. 1' onChange={(e) => setFormData({ ...formData, parking: Number(e.target.value) })} />
+            </div>
+            <div>
+              <Label>{t('Listing price in USD')}</Label>
               <input
                 type='number'
                 placeholder={t('ex. $10 000')}
@@ -109,20 +226,42 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Bedrooms')}</Label>
-              <input type='number' placeholder='1' />
+              <Label>{t('Area in m2')}</Label>
+              <input type='number' placeholder='ex. 1000' onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })} />
             </div>
             <div>
-              <Label>{t('Bathrooms')}</Label>
-              <input type='number' placeholder='1' />
+              <Label>{t('Developer')}</Label>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, developer: e.target.value })}>
+                <option value='' disabled>
+                  Select developer
+                </option>
+                {developers && developers.length > 0 ? (
+                  developers.map((developer) => (
+                    <option key={developer.id} value={developer.id}>
+                      {developer.title}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>{t('No developers available')}</option>
+                )}
+              </select>
             </div>
             <div>
-              <Label>{t('Parking lots')}</Label>
-              <input type='number' placeholder='1' />
-            </div>
-            <div>
-              <Label>{t('Area')}</Label>
-              <input type='number' placeholder='1000 m2' onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })} />
+              <Label>{t('Agent')}</Label>
+              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, agent: e.target.value })}>
+                <option value='' disabled>
+                  Select agent
+                </option>
+                {agents && agents.length > 0 ? (
+                  agents.map((agent) => (
+                    <option key={agent.id} value={agent.id}>
+                      {agent.name} {agent.lastName}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>{t('No agents available')}</option>
+                )}
+              </select>
             </div>
           </section>
           <>
@@ -139,28 +278,13 @@ export default function UploadPage() {
             <div>
               <Label>{t('Property amenities')}</Label>
               <Amenities>
-                <input type='checkbox' />
-                Security cameras
-                <input type='checkbox' />
-                Laundry
-                <input type='checkbox' />
-                Internet
-                <input type='checkbox' />
-                Pool
-                <input type='checkbox' />
-                Video surveillance
-                <input type='checkbox' />
-                Jacuzzi
-                <input type='checkbox' />
-                Elevator
-                <input type='checkbox' />
-                Vigilance
-                <input type='checkbox' />
-                Dish washer
-                <input type='checkbox' />
-                Solar panel
-                <input type='checkbox' />
-                Garage
+                {amenities &&
+                  amenities.map((amenity) => (
+                    <label key={amenity.id}>
+                      <input type='checkbox' value={amenity.id} onChange={handleAmenityChange} />
+                      {amenity.title}
+                    </label>
+                  ))}
               </Amenities>
             </div>
             <div id='listing-imgs'>

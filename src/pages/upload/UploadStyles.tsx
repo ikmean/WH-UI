@@ -46,7 +46,7 @@ export const UploadHeader = styled.div`
   p {
     font-size: 18px;
     line-height: 30px;
-    width: 40%;
+    width: 70%;
     text-align: center;
     color: ${colors.greyText};
     opacity: 0;
@@ -142,14 +142,15 @@ export const Label = styled.label`
 
 export const Amenities = styled.div`
   display: grid !important;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   input {
     white-space: nowrap;
     height: fit-content;
+    margin-right: 0.5rem;
   }
 
   ${media.xs`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     `}
 `
