@@ -31,9 +31,12 @@ export default function useContextUpdateFromSocket() {
         setLocale,
         fetchDevelopersData,
         fetchDeveloperInnerData,
+        fetchDistrictsData,
+        fetchAmenitiesData,
         setEmailSubscription,
         setCcrSubmited,
-        setCurrency
+        setCurrency,
+        uploadProperty
       }
     })
   }, [])
@@ -58,6 +61,28 @@ export default function useContextUpdateFromSocket() {
     contactDetails?: string
     project?: string
     developer?: string
+  }
+
+  interface uploadPropertyPayload {
+    title: string
+    description: string
+    size: number
+    bedroomQuantity: number
+    price: number
+    bathroom: number
+    parking: number
+    propertyAmenities: string[]
+    streetAddress: string
+    locale: string
+    gallery: string[]
+    propertyCategory: string
+    dealType: string
+    developer: string
+    agent: string
+    city: string
+    district: string
+    aboutProperty: string
+    pinned: boolean
   }
 
   const setLocale = (props: IPropertySearchParams) => {
@@ -111,6 +136,15 @@ export default function useContextUpdateFromSocket() {
         developer: payload?.developer
       })
       .then((response) => console.log('Customer Request Response: ', response))
+      .catch((error) => console.log(error))
+  }
+
+  const uploadProperty = (payload: uploadPropertyPayload) => {
+    const url = `${globalUrl}properties/upload`
+
+    axios
+      .post(url, payload)
+      .then((response) => console.log('Upload Request Response: ', response))
       .catch((error) => console.log(error))
   }
 
@@ -244,6 +278,32 @@ export default function useContextUpdateFromSocket() {
         const data = response.data.data
         setContext((ctx) => {
           return { ...ctx, blogs: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchDistrictsData = (locale: string) => {
+    const url = `${globalUrl}properties/districts?locale=${locale}`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, districts: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchAmenitiesData = (locale: string) => {
+    const url = `${globalUrl}properties/amenities?locale=${locale}`
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, amenities: data }
         })
       })
       .catch((error) => console.log(error))
