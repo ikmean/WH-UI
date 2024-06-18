@@ -72,17 +72,14 @@ export default function UploadPage() {
 
   function clear() {
     setFormData(initialData)
-    window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([]))
+    // window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([]))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    const mediaUrls = JSON.stringify(window.localStorage.getItem('uploadedMediaUrls'))
-    console.log(mediaUrls)
-    setFormData({ ...formData, gallery: mediaUrls })
-    uploadProperty(formData)
 
-    // clear()
+    await uploadProperty(formData)
+    clear()
   }
 
   function handleAmenityChange(e) {
@@ -292,7 +289,7 @@ export default function UploadPage() {
                 <label>Listing images</label>
                 <p>Please upload your listing images</p>
               </div>
-              <UploadWidget />
+              <UploadWidget setFormData={setFormData} />
             </div>
           </>
           <div id='submit-btn'>
