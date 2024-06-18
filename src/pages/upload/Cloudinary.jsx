@@ -1,7 +1,7 @@
 import { useEffect, useRef, React } from 'react'
 import Button from '../../components/button/Button'
 
-const UploadWidget = () => {
+const UploadWidget = ({ setFormData }) => {
   const cloudinaryRef = useRef()
   const widgetRef = useRef()
 
@@ -14,7 +14,6 @@ const UploadWidget = () => {
       },
       function (error, result) {
         if (result.event === 'success' && result.info.url) {
-          console.log(result.info)
           const mediaUrlStorage = JSON.parse(window.localStorage.getItem('uploadedMediaUrls')) || []
           const mediaUrl = result.info.url
           let mediaType = 'video'
@@ -24,6 +23,13 @@ const UploadWidget = () => {
           }
 
           window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([...mediaUrlStorage, { url: mediaUrl, type: mediaType }]))
+        }
+
+        if (result.event === 'close') {
+          const mediaUrls = JSON.stringify(JSON.parse(window.localStorage.getItem('uploadedMediaUrls')))
+          setFormData((data) => {
+            return { ...data, gallery: mediaUrls }
+          })
         }
       }
     )
