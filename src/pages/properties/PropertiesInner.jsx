@@ -158,7 +158,7 @@ function PropertiesInner() {
                 <GalleryContainer>
                   {propertyInner?.gallery?.map((el, i) => (
                     <GalleryStyles key={i} onClick={() => handleImageClick(i)}>
-                      {el.type === 'image' && <img key={i} src={el?.url} alt='img' />}
+                      {el.type === 'photo' && <img key={i} src={el?.url} alt='img' />}
                       {el.type === 'video' && (
                         <img
                           key={i}
@@ -170,8 +170,7 @@ function PropertiesInner() {
                         <img src={blackImage} alt='blackImage' />
                       </BlackImage>
                       <EyeStyles>
-                        <Eye />
-                        {el.type === 'image' && <Eye />}
+                        {el.type === 'photo' && <Eye />}
                         {el.type === 'video' && <Play />}
                       </EyeStyles>
                     </GalleryStyles>
