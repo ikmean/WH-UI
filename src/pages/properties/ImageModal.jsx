@@ -47,7 +47,7 @@ export const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIn
       <ButtonClose onClick={closeModal}>
         <Close />
       </ButtonClose>
-      {selectedImage.type === 'image' ? (
+      {selectedImage.type === 'photo' ? (
         <ModalImage src={selectedImage.url} alt={`img-${selectedImageIndex}`} />
       ) : (
         <ModalVideoContainer onClick={handleVideoClick}>
