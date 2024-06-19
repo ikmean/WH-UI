@@ -131,7 +131,12 @@ const resources = {
       Listingimages: 'Listing images',
       Pleaseupload: 'Please upload your listing images',
       MediaUpload: 'Media Upload',
-      Submit: 'Submit'
+      Submit: 'Submit',
+      Nodevelopers: 'No developers available',
+      Noagents: 'No agents available',
+      Nocities: 'No cities available',
+      Nodistricts: 'No districts available',
+      Noamenities: 'No amenities available'
     }
   },
   ka: {
@@ -261,7 +266,12 @@ const resources = {
       Listingimages: 'სურათები',
       Pleaseupload: 'გთხოვთ ატვირთოთ უძრავი ქონების სურათები',
       MediaUpload: 'სურათების ატვირთვა',
-      Submit: 'ატვირთვა'
+      Submit: 'ატვირთვა',
+      Nodevelopers: 'დეველოპერი ვერ მოიძებნა',
+      Noagents: 'აგენტი ვერ მოიძებნა',
+      Nocities: 'ქალაქი ვერ მოიძებნა',
+      Nodistricts: 'უბანი ვერ მოიძებნა',
+      Noamenities: 'ვერ მოიძებნა'
     }
   }
 }

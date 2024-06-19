@@ -31,8 +31,8 @@ export default function UploadPage() {
     title: '',
     description: '',
     size: '',
-    bedroomQuantity: null,
-    price: null,
+    bedroomQuantity: '',
+    price: '',
     streetAddress: '',
     propertyAmenities: [],
     propertyCategory: '',
@@ -43,8 +43,8 @@ export default function UploadPage() {
     city: '',
     district: '',
     aboutProperty: '',
-    bathroom: null,
-    parking: null,
+    bathroom: '',
+    parking: '',
     gallery: '',
     locale: 'ka'
   }
@@ -83,6 +83,7 @@ export default function UploadPage() {
 
   function handleAmenityChange(e) {
     const value = e.target.value
+
     setFormData((prevFormData) => {
       if (prevFormData.propertyAmenities.includes(value)) {
         return {
@@ -183,7 +184,7 @@ export default function UploadPage() {
                     </option>
                   ))
                 ) : (
-                  <option disabled>{t('No city available')}</option>
+                  <option disabled>{t('Nocities')}</option>
                 )}
               </select>
             </div>
@@ -205,7 +206,7 @@ export default function UploadPage() {
                     </option>
                   ))
                 ) : (
-                  <option disabled>{t('No districts available')}</option>
+                  <option disabled>{t('Nodistricts')}</option>
                 )}
               </select>
             </div>
@@ -281,7 +282,7 @@ export default function UploadPage() {
                     </option>
                   ))
                 ) : (
-                  <option disabled>{t('No developers available')}</option>
+                  <option disabled>{t('Nodevelopers')}</option>
                 )}
               </select>
             </div>
@@ -303,7 +304,7 @@ export default function UploadPage() {
                     </option>
                   ))
                 ) : (
-                  <option disabled>{t('No agents available')}</option>
+                  <option disabled>{t('Noagents')}</option>
                 )}
               </select>
             </div>
@@ -320,7 +321,7 @@ export default function UploadPage() {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
             </div>
-            <div>
+            {/* <div>
               <Label>{t('PropertyAmenities')}</Label>
               <Amenities>
                 {amenities &&
@@ -330,11 +331,33 @@ export default function UploadPage() {
                         type='checkbox'
                         // value={formData.amenities}
                         value={amenity.id}
+                        checked={formData.propertyAmenities.includes(amenity.title)}
                         onChange={handleAmenityChange}
                       />
                       {amenity.title}
                     </label>
                   ))}
+              </Amenities>
+            </div> */}
+            <div>
+              <Label>{t('PropertyAmenities')}</Label>
+              <Amenities>
+                {amenities && amenities.length > 0 ? (
+                  amenities.map((amenity) => (
+                    <div key={amenity.id}>
+                      <input
+                        type='checkbox'
+                        id={`amenity-${amenity.id}`}
+                        value={amenity.title}
+                        checked={formData.propertyAmenities.includes(amenity.title)}
+                        onChange={handleAmenityChange}
+                      />
+                      <label htmlFor={`amenity-${amenity.id}`}>{amenity.title}</label>
+                    </div>
+                  ))
+                ) : (
+                  <p>{t('Noamenities')}</p>
+                )}
               </Amenities>
             </div>
             <div id='listing-imgs'>
