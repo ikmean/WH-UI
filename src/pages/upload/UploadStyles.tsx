@@ -141,13 +141,31 @@ export const Label = styled.label`
 `
 
 export const Amenities = styled.div`
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
+  /* display: grid !important;
+  grid-template-columns: repeat(6, 1fr);
 
   input {
     white-space: nowrap;
     height: fit-content;
     margin-right: 0.5rem;
+  } */
+
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  input {
+    margin-right: 0.5rem;
+  }
+
+  label {
+    white-space: nowrap;
   }
 
   ${media.xs`
