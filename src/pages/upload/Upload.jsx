@@ -115,12 +115,18 @@ export default function UploadPage() {
               <input
                 type='text'
                 placeholder={t('Property listing title')}
+                value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               />
             </div>
             <div>
               <Label>{t('Property Deal type')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, dealType: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, dealType: e.target.value })}
+                value={formData.dealType}
+              >
                 <option value='' disabled>
                   Select deal type
                 </option>
@@ -133,7 +139,12 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Listing type')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, propertyCategory: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, propertyCategory: e.target.value })}
+                value={formData.propertyCategory}
+              >
                 <option value='' disabled>
                   Select listing type
                 </option>
@@ -150,6 +161,7 @@ export default function UploadPage() {
                 type='text'
                 maxLength={400}
                 placeholder={t('Please enter up to 400 characters')}
+                value={formData.aboutProperty}
                 id='shortDesc'
                 onChange={(e) => setFormData({ ...formData, aboutProperty: e.target.value })}
               />
@@ -158,7 +170,12 @@ export default function UploadPage() {
             <div></div>
             <div>
               <Label>{t('City')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, city: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                value={formData.location}
+              >
                 <option value='' disabled>
                   Select city
                 </option>
@@ -175,7 +192,12 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('District')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, district: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, district: e.target.value })}
+                value={formData.district}
+              >
                 <option value='' disabled>
                   Select district
                 </option>
@@ -195,6 +217,7 @@ export default function UploadPage() {
               <input
                 type='text'
                 placeholder={t('ex. 5 Kedia st.')}
+                value={formData.streetAddress}
                 onChange={(e) => setFormData({ ...formData, streetAddress: e.target.value })}
               />
             </div>
@@ -203,32 +226,54 @@ export default function UploadPage() {
               <input
                 type='number'
                 placeholder='ex. 1'
+                value={formData.bedroomQuantity}
                 onChange={(e) => setFormData({ ...formData, bedroomQuantity: Number(e.target.value) })}
               />
             </div>
             <div>
               <Label>{t('Bathrooms')}</Label>
-              <input type='number' placeholder='ex. 1' onChange={(e) => setFormData({ ...formData, bathroom: Number(e.target.value) })} />
+              <input
+                type='number'
+                placeholder='ex. 1'
+                value={formData.bathroom}
+                onChange={(e) => setFormData({ ...formData, bathroom: Number(e.target.value) })}
+              />
             </div>
             <div>
               <Label>{t('Parking lots')}</Label>
-              <input type='number' placeholder='ex. 1' onChange={(e) => setFormData({ ...formData, parking: Number(e.target.value) })} />
+              <input
+                type='number'
+                placeholder='ex. 1'
+                value={formData.parking}
+                onChange={(e) => setFormData({ ...formData, parking: Number(e.target.value) })}
+              />
             </div>
             <div>
               <Label>{t('Listing price in USD')}</Label>
               <input
                 type='number'
                 placeholder={t('ex. $10 000')}
+                value={formData.price}
                 onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
               />
             </div>
             <div>
               <Label>{t('Area in m2')}</Label>
-              <input type='number' placeholder='ex. 1000' onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })} />
+              <input
+                type='number'
+                placeholder='ex. 1000'
+                value={formData.size}
+                onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })}
+              />
             </div>
             <div>
               <Label>{t('Developer')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, developer: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, developer: e.target.value })}
+                value={formData.developer}
+              >
                 <option value='' disabled>
                   Select developer
                 </option>
@@ -245,7 +290,12 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Agent')}</Label>
-              <select name='Select' defaultValue='' onChange={(e) => setFormData({ ...formData, agent: e.target.value })}>
+              <select
+                name='Select'
+                defaultValue=''
+                onChange={(e) => setFormData({ ...formData, agent: e.target.value })}
+                value={formData.agent}
+              >
                 <option value='' disabled>
                   Select agent
                 </option>
@@ -268,6 +318,7 @@ export default function UploadPage() {
                 type='text'
                 maxLength={4000}
                 placeholder={t('Please enter up to 4000 characters')}
+                value={formData.description}
                 id='longDesc'
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
@@ -278,7 +329,12 @@ export default function UploadPage() {
                 {amenities &&
                   amenities.map((amenity) => (
                     <label key={amenity.id}>
-                      <input type='checkbox' value={amenity.id} onChange={handleAmenityChange} />
+                      <input
+                        type='checkbox'
+                        // value={formData.amenities}
+                        value={amenity.id}
+                        onChange={handleAmenityChange}
+                      />
                       {amenity.title}
                     </label>
                   ))}
