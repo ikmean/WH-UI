@@ -1,7 +1,11 @@
-import { useEffect, useRef, React } from 'react'
+import { useEffect, useRef, React, useContext } from 'react'
 import Button from '../../components/button/Button'
+import { useTranslation } from 'react-i18next'
+import { AppContext } from '../../context/createContext'
 
 const UploadWidget = ({ setFormData }) => {
+  const { t } = useTranslation()
+
   const cloudinaryRef = useRef()
   const widgetRef = useRef()
 
@@ -40,7 +44,7 @@ const UploadWidget = ({ setFormData }) => {
     widgetRef.current.open()
   }
 
-  return <Button text={'Media Upload'} color={'white'} click={(e) => handleWidgetOpen(e)} />
+  return <Button text={t('MediaUpload')} color={'white'} click={(e) => handleWidgetOpen(e)} />
 }
 
 export default UploadWidget

@@ -30,9 +30,9 @@ export default function UploadPage() {
   const initialData = {
     title: '',
     description: '',
-    size: 0,
-    bedroomQuantity: 0,
-    price: 0,
+    size: '',
+    bedroomQuantity: null,
+    price: null,
     streetAddress: '',
     propertyAmenities: [],
     propertyCategory: '',
@@ -43,8 +43,8 @@ export default function UploadPage() {
     city: '',
     district: '',
     aboutProperty: '',
-    bathroom: 0,
-    parking: 0,
+    bathroom: null,
+    parking: null,
     gallery: '',
     locale: 'ka'
   }
@@ -72,7 +72,6 @@ export default function UploadPage() {
 
   function clear() {
     setFormData(initialData)
-    // window.localStorage.setItem('uploadedMediaUrls', JSON.stringify([]))
   }
 
   async function handleSubmit(e) {
@@ -102,25 +101,23 @@ export default function UploadPage() {
   return (
     <UploadContainer>
       <UploadHeader>
-        <h1>{t('Post a property for sale or rent')}</h1>
-        <p>
-          {t('loreLorem ipsum dolor sit amet consectetur adipiscing elit eleifend nullam eros, nulla erat magnis inceptos aptent hac odi.')}
-        </p>
+        <h1>{t('PostAProperty')}</h1>
+        <p>{t('UploadPageDesc')}</p>
       </UploadHeader>
       <UploadForm>
         <form onSubmit={handleSubmit}>
           <section>
             <div>
-              <Label>{t('Lising title')}</Label>
+              <Label>{t('ListingTitle')}</Label>
               <input
                 type='text'
-                placeholder={t('Property listing title')}
+                placeholder={t('PropertyListing')}
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               />
             </div>
             <div>
-              <Label>{t('Property Deal type')}</Label>
+              <Label>{t('DealType')}</Label>
               <select
                 name='Select'
                 defaultValue=''
@@ -128,7 +125,7 @@ export default function UploadPage() {
                 value={formData.dealType}
               >
                 <option value='' disabled>
-                  Select deal type
+                  {t('Selectdealtype')}
                 </option>
                 {dealType.map((type) => (
                   <option key={type.id} value={type.title}>
@@ -138,7 +135,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('Listing type')}</Label>
+              <Label>{t('ListingType')}</Label>
               <select
                 name='Select'
                 defaultValue=''
@@ -146,7 +143,7 @@ export default function UploadPage() {
                 value={formData.propertyCategory}
               >
                 <option value='' disabled>
-                  Select listing type
+                  {t('Selectlistingtype')}
                 </option>
                 {propertyCategory.map((category) => (
                   <option key={category.id} value={category.title}>
@@ -156,11 +153,11 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('About property')}</Label>
+              <Label>{t('AboutTheProperty')}</Label>
               <input
                 type='text'
                 maxLength={400}
-                placeholder={t('Please enter up to 400 characters')}
+                placeholder={t('Numcharacters')}
                 value={formData.aboutProperty}
                 id='shortDesc'
                 onChange={(e) => setFormData({ ...formData, aboutProperty: e.target.value })}
@@ -177,7 +174,7 @@ export default function UploadPage() {
                 value={formData.location}
               >
                 <option value='' disabled>
-                  Select city
+                  {t('Selectcity')}
                 </option>
                 {location && location.length > 0 ? (
                   location.map((location) => (
@@ -199,7 +196,7 @@ export default function UploadPage() {
                 value={formData.district}
               >
                 <option value='' disabled>
-                  Select district
+                  {t('Selectdistrict')}
                 </option>
                 {districts && districts.length > 0 ? (
                   districts.map((district) => (
@@ -225,7 +222,7 @@ export default function UploadPage() {
               <Label>{t('Bedrooms')}</Label>
               <input
                 type='number'
-                placeholder='ex. 1'
+                placeholder={t('ex1')}
                 value={formData.bedroomQuantity}
                 onChange={(e) => setFormData({ ...formData, bedroomQuantity: Number(e.target.value) })}
               />
@@ -234,34 +231,34 @@ export default function UploadPage() {
               <Label>{t('Bathrooms')}</Label>
               <input
                 type='number'
-                placeholder='ex. 1'
+                placeholder={t('ex1')}
                 value={formData.bathroom}
                 onChange={(e) => setFormData({ ...formData, bathroom: Number(e.target.value) })}
               />
             </div>
             <div>
-              <Label>{t('Parking lots')}</Label>
+              <Label>{t('Parking')}</Label>
               <input
                 type='number'
-                placeholder='ex. 1'
+                placeholder={t('ex1')}
                 value={formData.parking}
                 onChange={(e) => setFormData({ ...formData, parking: Number(e.target.value) })}
               />
             </div>
             <div>
-              <Label>{t('Listing price in USD')}</Label>
+              <Label>{t('Price')}</Label>
               <input
                 type='number'
-                placeholder={t('ex. $10 000')}
+                placeholder={t('ex10000')}
                 value={formData.price}
                 onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
               />
             </div>
             <div>
-              <Label>{t('Area in m2')}</Label>
+              <Label>{t('Area')}</Label>
               <input
                 type='number'
-                placeholder='ex. 1000'
+                placeholder={t('ex100')}
                 value={formData.size}
                 onChange={(e) => setFormData({ ...formData, size: Number(e.target.value) })}
               />
@@ -275,7 +272,7 @@ export default function UploadPage() {
                 value={formData.developer}
               >
                 <option value='' disabled>
-                  Select developer
+                  {t('Selectdeveloper')}
                 </option>
                 {developers && developers.length > 0 ? (
                   developers.map((developer) => (
@@ -297,7 +294,7 @@ export default function UploadPage() {
                 value={formData.agent}
               >
                 <option value='' disabled>
-                  Select agent
+                  {t('Selectagent')}
                 </option>
                 {agents && agents.length > 0 ? (
                   agents.map((agent) => (
@@ -313,18 +310,18 @@ export default function UploadPage() {
           </section>
           <>
             <div>
-              <Label>{t('Lising description')}</Label>
+              <Label>{t('Lisingdescription')}</Label>
               <input
                 type='text'
                 maxLength={4000}
-                placeholder={t('Please enter up to 4000 characters')}
+                placeholder={t('BigNumcharacters')}
                 value={formData.description}
                 id='longDesc'
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
             </div>
             <div>
-              <Label>{t('Property amenities')}</Label>
+              <Label>{t('PropertyAmenities')}</Label>
               <Amenities>
                 {amenities &&
                   amenities.map((amenity) => (
@@ -342,14 +339,14 @@ export default function UploadPage() {
             </div>
             <div id='listing-imgs'>
               <div>
-                <label>Listing images</label>
-                <p>Please upload your listing images</p>
+                <label>{t('Listingimages')}</label>
+                <p>{t('Pleaseupload')}</p>
               </div>
               <UploadWidget setFormData={setFormData} />
             </div>
           </>
           <div id='submit-btn'>
-            <Button text={'Submit'} color={'black'} click={handleSubmit} />
+            <Button text={t('Submit')} color={'black'} click={handleSubmit} />
           </div>
         </form>
       </UploadForm>
