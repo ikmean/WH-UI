@@ -82,19 +82,17 @@ export default function UploadPage() {
   }
 
   function handleAmenityChange(e) {
-    const value = e.target.value
+    const amenityId = e.target.value
 
-    setFormData((prevFormData) => {
-      if (prevFormData.propertyAmenities.includes(value)) {
-        return {
-          ...prevFormData,
-          propertyAmenities: prevFormData.propertyAmenities.filter((amenity) => amenity !== value)
-        }
-      } else {
-        return {
-          ...prevFormData,
-          propertyAmenities: [...prevFormData.propertyAmenities, value]
-        }
+    setFormData((data) => {
+      const includes = data.propertyAmenities.includes(amenityId)
+
+      if (!includes) {
+        return { ...data, propertyAmenities: [...data.propertyAmenities, amenityId] }
+      }
+
+      if (includes) {
+        return { ...data, propertyAmenities: data.propertyAmenities.filter((amenity) => amenity !== amenityId) }
       }
     })
   }
@@ -128,12 +126,7 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('DealType')}</Label>
-              <select
-                name='Select'
-                defaultValue=''
-                onChange={(e) => setFormData({ ...formData, dealType: e.target.value })}
-                value={formData.dealType}
-              >
+              <select name='Select' onChange={(e) => setFormData({ ...formData, dealType: e.target.value })} value={formData.dealType}>
                 <option value='' disabled>
                   {t('Selectdealtype')}
                 </option>
@@ -148,7 +141,6 @@ export default function UploadPage() {
               <Label>{t('ListingType')}</Label>
               <select
                 name='Select'
-                defaultValue=''
                 onChange={(e) => setFormData({ ...formData, propertyCategory: e.target.value })}
                 value={formData.propertyCategory}
               >
@@ -177,12 +169,7 @@ export default function UploadPage() {
             <div></div>
             <div>
               <Label>{t('City')}</Label>
-              <select
-                name='Select'
-                defaultValue=''
-                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                value={formData.location}
-              >
+              <select name='Select' onChange={(e) => setFormData({ ...formData, city: e.target.value })} value={formData.location}>
                 <option value='' disabled>
                   {t('Selectcity')}
                 </option>
@@ -199,12 +186,7 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('District')}</Label>
-              <select
-                name='Select'
-                defaultValue=''
-                onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                value={formData.district}
-              >
+              <select name='Select' onChange={(e) => setFormData({ ...formData, district: e.target.value })} value={formData.district}>
                 <option value='' disabled>
                   {t('Selectdistrict')}
                 </option>
@@ -275,12 +257,7 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Developer')}</Label>
-              <select
-                name='Select'
-                defaultValue=''
-                onChange={(e) => setFormData({ ...formData, developer: e.target.value })}
-                value={formData.developer}
-              >
+              <select name='Select' onChange={(e) => setFormData({ ...formData, developer: e.target.value })} value={formData.developer}>
                 <option value='' disabled>
                   {t('Selectdeveloper')}
                 </option>
@@ -297,12 +274,7 @@ export default function UploadPage() {
             </div>
             <div>
               <Label>{t('Agent')}</Label>
-              <select
-                name='Select'
-                defaultValue=''
-                onChange={(e) => setFormData({ ...formData, agent: e.target.value })}
-                value={formData.agent}
-              >
+              <select name='Select' onChange={(e) => setFormData({ ...formData, agent: e.target.value })} value={formData.agent}>
                 <option value='' disabled>
                   {t('Selectagent')}
                 </option>
@@ -330,24 +302,6 @@ export default function UploadPage() {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
             </div>
-            {/* <div>
-              <Label>{t('PropertyAmenities')}</Label>
-              <Amenities>
-                {amenities &&
-                  amenities.map((amenity) => (
-                    <label key={amenity.id}>
-                      <input
-                        type='checkbox'
-                        // value={formData.amenities}
-                        value={amenity.id}
-                        checked={formData.propertyAmenities.includes(amenity.title)}
-                        onChange={handleAmenityChange}
-                      />
-                      {amenity.title}
-                    </label>
-                  ))}
-              </Amenities>
-            </div> */}
             <div>
               <Label>{t('PropertyAmenities')}</Label>
               <Amenities>
@@ -356,12 +310,11 @@ export default function UploadPage() {
                     <div key={amenity.id}>
                       <input
                         type='checkbox'
-                        id={`amenity-${amenity.id}`}
-                        value={amenity.title}
-                        checked={formData.propertyAmenities.includes(amenity.title)}
-                        onChange={handleAmenityChange}
+                        value={amenity.id.toString()}
+                        checked={formData.propertyAmenities.includes(amenity.id.toString())}
+                        onChange={(e) => handleAmenityChange(e)}
                       />
-                      <label htmlFor={`amenity-${amenity.id}`}>{amenity.title}</label>
+                      <label htmlFor={`${amenity.title}`}>{amenity.title}</label>
                     </div>
                   ))
                 ) : (
@@ -384,12 +337,10 @@ export default function UploadPage() {
               <UploadGallery>
                 {JSON.parse(formData.gallery).map((img) => {
                   return (
-                    <>
-                      <div className='img-container' key={img.url}>
-                        <img src={img.url} alt='picture of a home' />
-                        <Button text='x' color='white' width='1px' className='closebtn' click={() => handleRemove(img.url)} />
-                      </div>
-                    </>
+                    <div className='img-container' key={img.url}>
+                      <img src={img.url} alt='picture of a home' />
+                      <Button text='x' color='white' width='1px' className='closebtn' click={() => handleRemove(img.url)} />
+                    </div>
                   )
                 })}
               </UploadGallery>
