@@ -172,3 +172,25 @@ export const Amenities = styled.div`
     grid-template-columns: repeat(2, 1fr);
     `}
 `
+
+export const UploadGallery = styled.div`
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1rem;
+
+  .img-container {
+    position: relative;
+  }
+
+  img {
+    max-width: 15rem;
+    display: block;
+  }
+
+  .closebtn {
+    position: absolute;
+    padding: 0 5px 2px 5px;
+    right: 1.2rem;
+    top: -0.5rem;
+  }
+`

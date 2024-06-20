@@ -136,7 +136,8 @@ const resources = {
       Noagents: 'No agents available',
       Nocities: 'No cities available',
       Nodistricts: 'No districts available',
-      Noamenities: 'No amenities available'
+      Noamenities: 'No amenities available',
+      Successfullyuploaded: 'Media successfully uploaded'
     }
   },
   ka: {
@@ -271,7 +272,8 @@ const resources = {
       Noagents: 'აგენტი ვერ მოიძებნა',
       Nocities: 'ქალაქი ვერ მოიძებნა',
       Nodistricts: 'უბანი ვერ მოიძებნა',
-      Noamenities: 'ვერ მოიძებნა'
+      Noamenities: 'ვერ მოიძებნა',
+      Successfullyuploaded: 'უძრავი ქონების სურათები ატვირთულია'
     }
   }
 }
