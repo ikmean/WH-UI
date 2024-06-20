@@ -1,7 +1,6 @@
-import { useEffect, useRef, React, useContext } from 'react'
+import { useEffect, useRef, React } from 'react'
 import Button from '../../components/button/Button'
 import { useTranslation } from 'react-i18next'
-import { AppContext } from '../../context/createContext'
 
 const UploadWidget = ({ setFormData }) => {
   const { t } = useTranslation()

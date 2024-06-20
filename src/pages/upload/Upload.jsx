@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UploadContainer, UploadHeader, UploadForm, Label, Amenities } from './UploadStyles'
+import { UploadContainer, UploadHeader, UploadForm, Label, Amenities, UploadGallery } from './UploadStyles'
 import { useTranslation } from 'react-i18next'
 import UploadWidget from './Cloudinary'
 import Button from '../../components/button/Button'
@@ -45,7 +45,7 @@ export default function UploadPage() {
     aboutProperty: '',
     bathroom: '',
     parking: '',
-    gallery: '',
+    gallery: '[]',
     locale: 'ka'
   }
 
@@ -96,6 +96,15 @@ export default function UploadPage() {
           propertyAmenities: [...prevFormData.propertyAmenities, value]
         }
       }
+    })
+  }
+
+  const handleRemove = (url) => {
+    const uploadedMediaUrls = JSON.parse(window.localStorage.getItem('uploadedMediaUrls'))
+    const updatedMediaUrls = uploadedMediaUrls.filter((img) => img.url !== url)
+    window.localStorage.setItem('uploadedMediaUrls', JSON.stringify(updatedMediaUrls))
+    setFormData((data) => {
+      return { ...data, gallery: JSON.stringify(updatedMediaUrls) }
     })
   }
 
@@ -363,10 +372,30 @@ export default function UploadPage() {
             <div id='listing-imgs'>
               <div>
                 <label>{t('Listingimages')}</label>
-                <p>{t('Pleaseupload')}</p>
+                {JSON.parse(formData.gallery).length > 0 ? (
+                  <p style={{ color: '#fb8722' }}>{t('Successfullyuploaded')}</p>
+                ) : (
+                  <p>{t('Pleaseupload')}</p>
+                )}
               </div>
               <UploadWidget setFormData={setFormData} />
             </div>
+            {JSON.parse(formData.gallery).length > 0 ? (
+              <UploadGallery>
+                {JSON.parse(formData.gallery).map((img) => {
+                  return (
+                    <>
+                      <div className='img-container' key={img.url}>
+                        <img src={img.url} alt='picture of a home' />
+                        <Button text='x' color='white' width='1px' className='closebtn' click={() => handleRemove(img.url)} />
+                      </div>
+                    </>
+                  )
+                })}
+              </UploadGallery>
+            ) : (
+              ''
+            )}
           </>
           <div id='submit-btn'>
             <Button text={t('Submit')} color={'black'} click={handleSubmit} />
