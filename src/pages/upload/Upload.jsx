@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UploadContainer, UploadHeader, UploadForm, Label, Amenities, UploadGallery } from './UploadStyles'
+import { UploadContainer, UploadHeader, UploadForm, Label, Amenities, UploadGallery, SectionTwo } from './UploadStyles'
 import { useTranslation } from 'react-i18next'
 import UploadWidget from './Cloudinary'
 import Button from '../../components/button/Button'
@@ -290,7 +290,7 @@ export default function UploadPage() {
               </select>
             </div>
           </section>
-          <>
+          <SectionTwo>
             <div>
               <Label>{t('Lisingdescription')}</Label>
               <input
@@ -347,7 +347,7 @@ export default function UploadPage() {
             ) : (
               ''
             )}
-          </>
+          </SectionTwo>
           <div id='submit-btn'>
             <Button text={t('Submit')} color={'black'} click={handleSubmit} />
           </div>
