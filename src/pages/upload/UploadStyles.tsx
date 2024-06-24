@@ -8,7 +8,6 @@ export const UploadContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   padding: 0 0 1rem 0;
-  /* box-shadow: 0px 3px 20px rgba(8, 15, 52, 0.06); */
 
   img {
     border-bottom-right-radius: 0.5rem;
@@ -54,19 +53,22 @@ export const UploadHeader = styled.div`
   }
 
   ${media.sm`
-  h1{
+    h1{
     font-size: 2.5rem;
-    width: 80%;
-  }
-  p{
-    width: 80%;
-  }
+     }
+    p{
+    width: 60%;
+    }
 `}
 
   ${media.xs`
-  h1{
-    font-size: 2.05rem
-  }
+    h1{
+      font-size: 1.9rem;
+      align-self: center;
+    }
+    p{
+      width: 80%;
+    }
 `}
 `
 
@@ -124,12 +126,36 @@ export const UploadForm = styled.div`
     }
 `}
 
+  ${media.md`
+    section {
+      margin: 0 2rem;
+      grid-template-columns: 1fr;
+    }
+`}
+
+  ${media.sm`
+    max-width: 100vw;
+    section{
+      margin: 0 5rem;
+    }
+      #listing-imgs{
+      margin:0;
+      display: flex;
+      flex-direction: column;
+      gap:1rem;
+
+      div{
+        align-items: center;
+      }
+    }
+`}
+
   ${media.xs`
     margin: 0;
 
     section {
-        grid-template-columns: 1fr;
-    }
+      margin:0;
+      }
 `}
 `
 
@@ -141,15 +167,6 @@ export const Label = styled.label`
 `
 
 export const Amenities = styled.div`
-  /* display: grid !important;
-  grid-template-columns: repeat(6, 1fr);
-
-  input {
-    white-space: nowrap;
-    height: fit-content;
-    margin-right: 0.5rem;
-  } */
-
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -168,8 +185,23 @@ export const Amenities = styled.div`
     white-space: nowrap;
   }
 
-  ${media.xs`
+  ${media.sm`
     grid-template-columns: repeat(2, 1fr);
+    `}
+
+  ${media.xs`
+    grid-template-columns: repeat(1, 1fr);
+    `}
+`
+
+export const SectionTwo = styled.div`
+  ${media.sm`
+      max-width: 100vw;
+      margin: 0 5rem;
+    `}
+
+  ${media.xs`
+      margin: 0;
     `}
 `
 
@@ -193,4 +225,12 @@ export const UploadGallery = styled.div`
     right: 1.2rem;
     top: -0.5rem;
   }
+
+  ${media.md`
+    grid-template-columns: repeat(3, 1fr) !important;
+    `}
+
+  ${media.sm`
+    grid-template-columns: repeat(2, 1fr) !important;
+    `}
 `
