@@ -7,6 +7,8 @@ import { AppContext } from '../../context/createContext'
 
 export default function UploadPage() {
   const { t } = useTranslation()
+  const [formErrors, setFormErrors] = useState({})
+  const [submitMessage, setSubmitMessage] = useState('')
   const { context } = useContext(AppContext)
   const {
     fetchLocationData,
@@ -77,7 +79,14 @@ export default function UploadPage() {
   async function handleSubmit(e) {
     e.preventDefault()
 
+    if (!validateForm()) {
+      console.log(formErrors)
+      setSubmitMessage(t('PleaseuploadMsg'))
+      return
+    }
+
     await uploadProperty(formData)
+    setSubmitMessage(t('SuccessfuluploadMsg'))
     clear()
   }
 
@@ -106,6 +115,31 @@ export default function UploadPage() {
     })
   }
 
+  function validateForm() {
+    const errors = {}
+
+    if (!formData.title) errors.title = true
+    if (!formData.dealType) errors.dealType = true
+    if (!formData.propertyCategory) errors.propertyCategory = true
+    if (!formData.aboutProperty) errors.aboutProperty = true
+    if (!formData.city) errors.city = true
+    if (!formData.district) errors.district = true
+    if (!formData.streetAddress) errors.streetAddress = true
+    if (!formData.bedroomQuantity) errors.bedroomQuantity = true
+    if (!formData.bathroom) errors.bathroom = true
+    if (!formData.parking) errors.parking = true
+    if (!formData.price) errors.price = true
+    if (!formData.size) errors.size = true
+    if (!formData.agent) errors.agent = true
+    if (!formData.description) errors.description = true
+    if (!formData.amenities) errors.amenities = true
+    if (JSON.parse(formData.gallery).length === 0) errors.gallery = true
+
+    setFormErrors(errors)
+
+    return Object.keys(errors).length === 0
+  }
+
   return (
     <UploadContainer>
       <UploadHeader>
@@ -116,7 +150,7 @@ export default function UploadPage() {
         <form onSubmit={handleSubmit}>
           <section>
             <div>
-              <Label>{t('ListingTitle')}</Label>
+              <Label style={{ color: formErrors.title ? '#fb8722' : 'inherit' }}>{t('ListingTitle')} *</Label>
               <input
                 type='text'
                 placeholder={t('PropertyListing')}
@@ -125,7 +159,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('DealType')}</Label>
+              <Label style={{ color: formErrors.dealType ? '#fb8722' : 'inherit' }}>{t('DealType')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, dealType: e.target.value })} value={formData.dealType}>
                 <option value='' disabled>
                   {t('Selectdealtype')}
@@ -138,7 +172,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('ListingType')}</Label>
+              <Label style={{ color: formErrors.propertyCategory ? '#fb8722' : 'inherit' }}>{t('ListingType')} *</Label>
               <select
                 name='Select'
                 onChange={(e) => setFormData({ ...formData, propertyCategory: e.target.value })}
@@ -155,7 +189,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('AboutTheProperty')}</Label>
+              <Label style={{ color: formErrors.aboutProperty ? '#fb8722' : 'inherit' }}>{t('AboutTheProperty')} *</Label>
               <input
                 type='text'
                 maxLength={400}
@@ -168,7 +202,7 @@ export default function UploadPage() {
             <br />
             <div></div>
             <div>
-              <Label>{t('City')}</Label>
+              <Label style={{ color: formErrors.city ? '#fb8722' : 'inherit' }}>{t('City')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, city: e.target.value })} value={formData.location}>
                 <option value='' disabled>
                   {t('Selectcity')}
@@ -185,7 +219,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('District')}</Label>
+              <Label style={{ color: formErrors.district ? '#fb8722' : 'inherit' }}>{t('District')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, district: e.target.value })} value={formData.district}>
                 <option value='' disabled>
                   {t('Selectdistrict')}
@@ -202,7 +236,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('Address')}</Label>
+              <Label style={{ color: formErrors.streetAddress ? '#fb8722' : 'inherit' }}>{t('Address')} *</Label>
               <input
                 type='text'
                 placeholder={t('ex. 5 Kedia st.')}
@@ -211,7 +245,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Bedrooms')}</Label>
+              <Label style={{ color: formErrors.bedroomQuantity ? '#fb8722' : 'inherit' }}>{t('Bedrooms')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex1')}
@@ -220,7 +254,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Bathrooms')}</Label>
+              <Label style={{ color: formErrors.bathroom ? '#fb8722' : 'inherit' }}>{t('Bathrooms')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex1')}
@@ -229,7 +263,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Parking')}</Label>
+              <Label style={{ color: formErrors.parking ? '#fb8722' : 'inherit' }}>{t('Parking')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex1')}
@@ -238,7 +272,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Price')}</Label>
+              <Label style={{ color: formErrors.price ? '#fb8722' : 'inherit' }}>{t('Price')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex10000')}
@@ -247,7 +281,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Area')}</Label>
+              <Label style={{ color: formErrors.size ? '#fb8722' : 'inherit' }}>{t('Area')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex100')}
@@ -273,7 +307,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('Agent')}</Label>
+              <Label style={{ color: formErrors.agent ? '#fb8722' : 'inherit' }}>{t('Agent')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, agent: e.target.value })} value={formData.agent}>
                 <option value='' disabled>
                   {t('Selectagent')}
@@ -292,7 +326,7 @@ export default function UploadPage() {
           </section>
           <SectionTwo>
             <div>
-              <Label>{t('Lisingdescription')}</Label>
+              <Label style={{ color: formErrors.description ? '#fb8722' : 'inherit' }}>{t('Lisingdescription')} *</Label>
               <input
                 type='text'
                 maxLength={4000}
@@ -303,7 +337,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('PropertyAmenities')}</Label>
+              <Label style={{ color: formErrors.amenities ? '#fb8722' : 'inherit' }}>{t('PropertyAmenities')} *</Label>
               <Amenities>
                 {amenities && amenities.length > 0 ? (
                   amenities.map((amenity) => (
@@ -324,7 +358,7 @@ export default function UploadPage() {
             </div>
             <div id='listing-imgs'>
               <div>
-                <label>{t('Listingimages')}</label>
+                <label style={{ color: formErrors.gallery ? '#fb8722' : 'inherit' }}>{t('Listingimages')} *</label>
                 {JSON.parse(formData.gallery).length > 0 ? (
                   <p style={{ color: '#fb8722' }}>{t('Successfullyuploaded')}</p>
                 ) : (
@@ -350,6 +384,7 @@ export default function UploadPage() {
           </SectionTwo>
           <div id='submit-btn'>
             <Button text={t('Submit')} color={'black'} click={handleSubmit} />
+            {submitMessage && <p style={{ color: '#fb8722' }}>{submitMessage}</p>}
           </div>
         </form>
       </UploadForm>

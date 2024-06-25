@@ -121,7 +121,7 @@ const resources = {
       Bedrooms: 'Bedrooms',
       Bathrooms: 'Bathrooms',
       Parking: 'Parking lots',
-      Price: 'Listing price in USD',
+      Price: 'Listing price in GEL',
       Area: 'Area in m2',
       Developer: 'Developer',
       Selectdeveloper: 'Select developer',
@@ -137,7 +137,9 @@ const resources = {
       Nocities: 'No cities available',
       Nodistricts: 'No districts available',
       Noamenities: 'No amenities available',
-      Successfullyuploaded: 'Media successfully uploaded'
+      Successfullyuploaded: 'Media successfully uploaded',
+      PleaseuploadMsg: 'Please fill out all required fields',
+      SuccessfuluploadMsg: 'Uploaded successfully'
     }
   },
   ka: {
@@ -257,7 +259,7 @@ const resources = {
       Bedrooms: 'საძინებელი',
       Bathrooms: 'სველი წერტილი',
       Parking: 'პარკინგის ადგილი',
-      Price: 'უძრავი ქონების ფასი დოლარში',
+      Price: 'უძრავი ქონების ფასი ლარში',
       Area: 'ფართობი კვადრატულ მეტრში',
       Developer: 'დეველოპერი',
       Selectdeveloper: 'აირჩიეთ დეველოპერი',
@@ -273,7 +275,9 @@ const resources = {
       Nocities: 'ქალაქი ვერ მოიძებნა',
       Nodistricts: 'უბანი ვერ მოიძებნა',
       Noamenities: 'ვერ მოიძებნა',
-      Successfullyuploaded: 'უძრავი ქონების სურათები ატვირთულია'
+      Successfullyuploaded: 'უძრავი ქონების სურათები ატვირთულია',
+      PleaseuploadMsg: 'გთხოვთ შეავსოთ ყველა *- ით აღნიშნული ველი',
+      SuccessfuluploadMsg: 'უძრავი ქონება წარმატებით აიტვირთა'
     }
   }
 }
