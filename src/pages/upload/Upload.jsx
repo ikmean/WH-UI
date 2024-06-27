@@ -124,9 +124,9 @@ export default function UploadPage() {
     if (!formData.city) errors.city = true
     if (!formData.district) errors.district = true
     if (!formData.streetAddress) errors.streetAddress = true
-    if (!formData.bedroomQuantity) errors.bedroomQuantity = true
-    if (!formData.bathroom) errors.bathroom = true
-    if (!formData.parking) errors.parking = true
+    if (!formData.bedroomQuantity && formData.bedroomQuantity !== 0) errors.bedroomQuantity = true
+    if (!formData.bathroom && formData.bathroom !== 0) errors.bathroom = true
+    if (!formData.parking && formData.parking !== 0) errors.parking = true
     if (!formData.price) errors.price = true
     if (!formData.size) errors.size = true
     if (!formData.agent) errors.agent = true
