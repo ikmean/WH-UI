@@ -80,8 +80,6 @@ export default function UploadPage() {
     e.preventDefault()
 
     if (!validateForm()) {
-      console.log(formErrors)
-      console.log(formData)
       setSubmitMessage(t('PleaseuploadMsg'))
       return
     }
@@ -133,6 +131,7 @@ export default function UploadPage() {
     if (!formData.size) errors.size = true
     if (!formData.agent) errors.agent = true
     if (!formData.description) errors.description = true
+    if (!formData.developer) errors.developer = true
     if (formData.propertyAmenities.length === 0) errors.amenities = true
     if (JSON.parse(formData.gallery).length === 0) errors.gallery = true
 
@@ -291,7 +290,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Developer')}</Label>
+              <Label style={{ color: formErrors.developer ? '#fb8722' : 'inherit' }}>{t('Developer')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, developer: e.target.value })} value={formData.developer}>
                 <option value='' disabled>
                   {t('Selectdeveloper')}

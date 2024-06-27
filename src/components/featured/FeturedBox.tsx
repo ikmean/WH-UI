@@ -21,8 +21,8 @@ export default function FeaturedBox({ data }: any) {
           <div>
             {data?.dealType && (
               <InfoBox
-                forSale={data?.dealType === 'For Sale' || data?.dealType === 'იყიდება'}
-                forRent={data?.dealType === 'For Rent' || data?.dealType === 'ქირავდება'}
+                forSale={data?.dealType === 'For sale' || data?.dealType === 'იყიდება'}
+                forRent={data?.dealType === 'For rent' || data?.dealType === 'ქირავდება'}
               >
                 {data?.dealType}
               </InfoBox>
