@@ -21,7 +21,7 @@ const UploadWidget = ({ setFormData }) => {
           const mediaUrl = result.info.url
           let mediaType = 'video'
 
-          if (result.info.format === 'png' || result.info.format === 'jpg') {
+          if (result.info.format === 'png' || result.info.format === 'jpg' || result.info.format === 'webp') {
             mediaType = 'photo'
           }
 
