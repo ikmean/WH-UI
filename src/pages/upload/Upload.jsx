@@ -81,6 +81,7 @@ export default function UploadPage() {
 
     if (!validateForm()) {
       console.log(formErrors)
+      console.log(formData)
       setSubmitMessage(t('PleaseuploadMsg'))
       return
     }
@@ -132,7 +133,7 @@ export default function UploadPage() {
     if (!formData.size) errors.size = true
     if (!formData.agent) errors.agent = true
     if (!formData.description) errors.description = true
-    if (!formData.amenities) errors.amenities = true
+    if (formData.propertyAmenities.length === 0) errors.amenities = true
     if (JSON.parse(formData.gallery).length === 0) errors.gallery = true
 
     setFormErrors(errors)
