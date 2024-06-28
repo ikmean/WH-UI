@@ -88,18 +88,19 @@ export const TextContent = styled.div`
 
 export const InfoContainer = styled.div`
   margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 
   ${media.xs`
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   `}
 `
 
 export const AmenityContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
-  gap: 2rem;
+  gap: 1rem;
   margin-top: 46px;
 
   ${media.md`
@@ -115,18 +116,11 @@ export const AmenityStyles = styled.div`
   display: flex;
   font-size: 18px;
   align-items: center;
-  margin-bottom: 46px;
-
-  span {
-    margin-left: 25px;
-  }
+  gap: 0.5rem;
 
   ${media.xs`
     justify-content: flex-start;
     gap: 2rem;
-    span{
-      margin-left: 1rem;
-    }
   `}
 `
 

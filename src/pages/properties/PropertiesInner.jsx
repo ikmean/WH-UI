@@ -110,25 +110,56 @@ function PropertiesInner() {
                 <span>ID: {propertyInner.id}</span>
                 <h1>{propertyInner?.title}</h1>
 
-                <InfoContainer className='flex'>
+                <InfoContainer>
                   <InfoBox>
                     <SQFT />
                     <span>{propertyInner?.size} m²</span>
                   </InfoBox>
                   <InfoBox featured={true}>
                     <Bed />
-                    <span>{propertyInner?.bedRoomQuantity}</span>
+                    <span>
+                      {t('Bedrooms')} {propertyInner?.bedRoomQuantity}
+                    </span>
+                  </InfoBox>
+                  <InfoBox featured={true}>
+                    <span>
+                      {t('Rooms')} {propertyInner?.roomQuantity}
+                    </span>
                   </InfoBox>
                   <InfoBox>
                     <Bath />
-                    <span>{propertyInner?.bathroom}</span>
+                    <span>
+                      {t('Bathrooms')} {propertyInner?.bathroom}
+                    </span>
                   </InfoBox>
-                  {propertyInner?.parking && (
-                    <InfoBox>
-                      <ParkingSmall />
-                      <span>{propertyInner?.parking}</span>
-                    </InfoBox>
-                  )}
+                  <InfoBox>
+                    <ParkingSmall />
+                    <span>{propertyInner?.parkingType}</span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>
+                      {t('Story')} {propertyInner?.floor}
+                    </span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>
+                      {t('NumStories')} {propertyInner?.totalFloor}
+                    </span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>{propertyInner?.status}</span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>{propertyInner?.condition}</span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>
+                      {t('Ceilingheight')} {propertyInner?.ceilingHeight}
+                    </span>
+                  </InfoBox>
+                  <InfoBox>
+                    <span>{propertyInner?.heating}</span>
+                  </InfoBox>
                 </InfoContainer>
                 <p>{propertyInner?.description}</p>
                 <Line />
