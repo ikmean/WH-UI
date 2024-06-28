@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ButtonClose, Buttons, ModalImage, ModalVideoContainer } from './PropertiesStyles'
 import { ReactComponent as ChevronLeft } from '../../lib/icons/ChevronLeft.svg'
 import { ReactComponent as ChevronRight } from '../../lib/icons/ChevronRight.svg'
-import { ReactComponent as Close } from '../../lib/icons/close.svg'
+import { ReactComponent as Close } from '../../lib/icons/Close.svg'
 
 export const ImageModal = ({ isModalOpen, selectedImageIndex, setSelectedImageIndex, data, closeModal }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)

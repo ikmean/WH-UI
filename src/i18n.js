@@ -294,7 +294,7 @@ const resources = {
       Successfullyuploaded: 'უძრავი ქონების სურათები ატვირთულია',
       PleaseuploadMsg: 'გთხოვთ შეავსოთ ყველა *- ით აღნიშნული ველი',
       SuccessfuluploadMsg: 'უძრავი ქონება წარმატებით აიტვირთა',
-      Parkingtype: 'პარკინგის ტიოი',
+      Parkingtype: 'პარკინგის ტიპი',
       Selectparkingtype: ' აირჩიეთ პარკინგის ტიპი',
       Heatingtype: 'გათბობა',
       Selectheatingtype: 'აირჩიეთ გათბობის ტიპი',
