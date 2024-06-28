@@ -25,6 +25,10 @@ export const defaultAppCTX = {
   ccrSubmited: false,
   amenities: [],
   districts: [],
+  parkingTypes: [],
+  heatingTypes: [],
+  conditionTypes: [],
+  statusTypes: [],
 
   setLocale: () => {},
   setSelectedDealType: () => {},
@@ -59,5 +63,10 @@ export const defaultAppCTX = {
   fetchAmenitiesData: () => {},
 
   createCustomerRequest: () => {},
-  uploadProperty: () => {}
+  uploadProperty: () => {},
+
+  fetchParkingTypes: () => {},
+  fetchHeatingTypes: () => {},
+  fetchConditionTypes: () => {},
+  fetchStatusTypes: () => {}
 }

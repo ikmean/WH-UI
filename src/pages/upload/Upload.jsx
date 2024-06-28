@@ -18,6 +18,10 @@ export default function UploadPage() {
     fetchDistrictsData,
     fetchAmenitiesData,
     fetchDevelopersData,
+    fetchParkingTypes,
+    fetchHeatingTypes,
+    fetchConditionTypes,
+    fetchStatusTypes,
     agents,
     location,
     propertyCategory,
@@ -26,13 +30,18 @@ export default function UploadPage() {
     developers,
     amenities,
     locale,
-    uploadProperty
+    uploadProperty,
+    parkingTypes,
+    heatingTypes,
+    conditionTypes,
+    statusTypes
   } = context
 
   const initialData = {
     title: '',
     description: '',
     size: '',
+    roomQuantity: '',
     bedroomQuantity: '',
     price: '',
     streetAddress: '',
@@ -48,7 +57,15 @@ export default function UploadPage() {
     bathroom: '',
     parking: '',
     gallery: '[]',
-    locale: 'ka'
+    locale: 'ka',
+    parkingType: '',
+    heating: '',
+    condition: '',
+    status: '',
+    story: '',
+    ceilingHeight: '',
+    floor: '',
+    totalFloor: ''
   }
 
   const [formData, setFormData] = useState(initialData)
@@ -61,6 +78,10 @@ export default function UploadPage() {
     fetchDistrictsData(locale)
     fetchAmenitiesData(locale)
     fetchDevelopersData(locale)
+    fetchParkingTypes(locale)
+    fetchHeatingTypes(locale)
+    fetchConditionTypes(locale)
+    fetchStatusTypes(locale)
   }, [
     fetchLocationData,
     fetchPropertyCategoryData,
@@ -69,6 +90,10 @@ export default function UploadPage() {
     fetchDistrictsData,
     fetchAmenitiesData,
     fetchDevelopersData,
+    fetchParkingTypes,
+    fetchHeatingTypes,
+    fetchConditionTypes,
+    fetchStatusTypes,
     locale
   ])
 
@@ -127,6 +152,10 @@ export default function UploadPage() {
     if (!formData.bedroomQuantity && formData.bedroomQuantity !== 0) errors.bedroomQuantity = true
     if (!formData.bathroom && formData.bathroom !== 0) errors.bathroom = true
     if (!formData.parking && formData.parking !== 0) errors.parking = true
+    if (!formData.parkingType) errors.parkingType = true
+    if (!formData.heating) errors.heatingType = true
+    if (!formData.condition) errors.conditionType = true
+    if (!formData.status) errors.statusType = true
     if (!formData.price) errors.price = true
     if (!formData.size) errors.size = true
     if (!formData.agent) errors.agent = true
@@ -192,15 +221,11 @@ export default function UploadPage() {
               <Label style={{ color: formErrors.aboutProperty ? '#fb8722' : 'inherit' }}>{t('AboutTheProperty')} *</Label>
               <input
                 type='text'
-                maxLength={400}
-                placeholder={t('Numcharacters')}
+                placeholder='11.13.78.001.013.05.728'
                 value={formData.aboutProperty}
-                id='shortDesc'
                 onChange={(e) => setFormData({ ...formData, aboutProperty: e.target.value })}
               />
             </div>
-            <br />
-            <div></div>
             <div>
               <Label style={{ color: formErrors.city ? '#fb8722' : 'inherit' }}>{t('City')} *</Label>
               <select name='Select' onChange={(e) => setFormData({ ...formData, city: e.target.value })} value={formData.location}>
@@ -245,6 +270,15 @@ export default function UploadPage() {
               />
             </div>
             <div>
+              <Label style={{ color: formErrors.roomQuantity ? '#fb8722' : 'inherit' }}>{t('Rooms')} *</Label>
+              <input
+                type='number'
+                placeholder={t('ex1')}
+                value={formData.roomQuantity}
+                onChange={(e) => setFormData({ ...formData, roomQuantity: Number(e.target.value) })}
+              />
+            </div>
+            <div>
               <Label style={{ color: formErrors.bedroomQuantity ? '#fb8722' : 'inherit' }}>{t('Bedrooms')} *</Label>
               <input
                 type='number'
@@ -269,6 +303,89 @@ export default function UploadPage() {
                 placeholder={t('ex1')}
                 value={formData.parking}
                 onChange={(e) => setFormData({ ...formData, parking: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+              <Label style={{ color: formErrors.parkingType ? '#fb8722' : 'inherit' }}>{t('Parkingtype')} *</Label>
+              <select
+                name='Select'
+                onChange={(e) => setFormData({ ...formData, parkingType: e.target.value })}
+                value={formData.parkingType}
+              >
+                <option value='' disabled>
+                  {t('Selectparkingtype')}
+                </option>
+                {parkingTypes.map((type) => (
+                  <option key={type.id} value={type.title}>
+                    {type.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <Label style={{ color: formErrors.heatingType ? '#fb8722' : 'inherit' }}>{t('Heatingtype')} *</Label>
+              <select name='Select' onChange={(e) => setFormData({ ...formData, heating: e.target.value })} value={formData.heating}>
+                <option value='' disabled>
+                  {t('Selectheatingtype')}
+                </option>
+                {heatingTypes.map((type) => (
+                  <option key={type.id} value={type.title}>
+                    {type.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <Label style={{ color: formErrors.conditionType ? '#fb8722' : 'inherit' }}>{t('Condition')} *</Label>
+              <select name='Select' onChange={(e) => setFormData({ ...formData, condition: e.target.value })} value={formData.condition}>
+                <option value='' disabled>
+                  {t('Selectcondition')}
+                </option>
+                {conditionTypes.map((type) => (
+                  <option key={type.id} value={type.title}>
+                    {type.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <Label style={{ color: formErrors.statusType ? '#fb8722' : 'inherit' }}>{t('Status')} *</Label>
+              <select name='Select' onChange={(e) => setFormData({ ...formData, status: e.target.value })} value={formData.status}>
+                <option value='' disabled>
+                  {t('Selectstatus')}
+                </option>
+                {statusTypes.map((type) => (
+                  <option key={type.id} value={type.title}>
+                    {type.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <Label>{t('NumStories')}</Label>
+              <input
+                type='number'
+                placeholder={t('ex25')}
+                value={formData.totalFloor}
+                onChange={(e) => setFormData({ ...formData, totalFloor: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+              <Label>{t('Story')}</Label>
+              <input
+                type='number'
+                placeholder={t('ex3')}
+                value={formData.floor}
+                onChange={(e) => setFormData({ ...formData, floor: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+              <Label>{t('Ceilingheight')}</Label>
+              <input
+                type='number'
+                placeholder={t('ex3')}
+                value={formData.ceilingHeight}
+                onChange={(e) => setFormData({ ...formData, ceilingHeight: Number(e.target.value) })}
               />
             </div>
             <div>

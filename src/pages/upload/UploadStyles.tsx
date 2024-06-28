@@ -110,10 +110,6 @@ export const UploadForm = styled.div`
     margin-top: 15px;
   }
 
-  #shortDesc {
-    height: 100px;
-  }
-
   #longDesc {
     height: 170px;
   }
