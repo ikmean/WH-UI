@@ -36,7 +36,11 @@ export default function useContextUpdateFromSocket() {
         setEmailSubscription,
         setCcrSubmited,
         setCurrency,
-        uploadProperty
+        uploadProperty,
+        fetchParkingTypes,
+        fetchHeatingTypes,
+        fetchConditionTypes,
+        fetchStatusTypes
       }
     })
   }, [])
@@ -142,30 +146,8 @@ export default function useContextUpdateFromSocket() {
   const uploadProperty = (payload: uploadPropertyPayload) => {
     const url = `${globalUrl}properties/upload`
 
-    console.log(payload)
-
     axios
-      .post(url, {
-        title: payload.title,
-        description: payload.description,
-        size: payload.size,
-        bedroomQuantity: payload.bedroomQuantity,
-        price: payload.price,
-        bathroom: payload.bathroom,
-        parking: payload.parking,
-        propertyAmenities: payload.propertyAmenities,
-        streetAddress: payload.streetAddress,
-        locale: payload.locale,
-        gallery: payload.gallery,
-        propertyCategory: payload.propertyCategory,
-        dealType: payload.dealType,
-        developer: payload.developer,
-        agent: payload.agent,
-        city: payload.city,
-        district: payload.district,
-        aboutProperty: payload.aboutProperty,
-        pinned: payload.pinned
-      })
+      .post(url, payload)
       .then((response) => {
         console.log('Upload Request Response: ', response)
       })
@@ -224,6 +206,62 @@ export default function useContextUpdateFromSocket() {
         const data = response.data.data
         setContext((ctx) => {
           return { ...ctx, properties: data, loadingProperties: false }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchParkingTypes = (locale: string) => {
+    const url = `${globalUrl}properties/parkingTypes?locale=${locale}`
+
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, parkingTypes: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchHeatingTypes = (locale: string) => {
+    const url = `${globalUrl}properties/heatingTypes?locale=${locale}`
+
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, heatingTypes: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchConditionTypes = (locale: string) => {
+    const url = `${globalUrl}properties/condintionTypes?locale=${locale}`
+
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, conditionTypes: data }
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const fetchStatusTypes = (locale: string) => {
+    const url = `${globalUrl}properties/statusTypes?locale=${locale}`
+
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data.data
+        setContext((ctx) => {
+          return { ...ctx, statusTypes: data }
         })
       })
       .catch((error) => console.log(error))
