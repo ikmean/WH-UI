@@ -16,7 +16,7 @@ import {
 import Logo from './Logo'
 import { AppContext } from '../../context/createContext'
 
-import { ReactComponent as Close } from '../../lib/icons/Close.svg'
+import { ReactComponent as Close } from '../../lib/icons/close.svg'
 import { ReactComponent as Burger } from '../../lib/icons/burger.svg'
 import { ReactComponent as World } from '../../lib/icons/world.svg'
 
