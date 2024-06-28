@@ -162,6 +162,11 @@ export default function UploadPage() {
     if (!formData.description) errors.description = true
     if (!formData.developer) errors.developer = true
     if (formData.propertyAmenities.length === 0) errors.amenities = true
+    if (!formData.roomQuantity) errors.roomQuantity = true
+    if (!formData.totalFloor) errors.totalFloor = true
+    if (!formData.floor) errors.floor = true
+    if (!formData.ceilingHeight) errors.ceilingHeight = true
+
     if (JSON.parse(formData.gallery).length === 0) errors.gallery = true
 
     setFormErrors(errors)
@@ -362,7 +367,7 @@ export default function UploadPage() {
               </select>
             </div>
             <div>
-              <Label>{t('NumStories')}</Label>
+              <Label style={{ color: formErrors.totalFloor ? '#fb8722' : 'inherit' }}>{t('NumStories')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex25')}
@@ -371,7 +376,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Story')}</Label>
+              <Label style={{ color: formErrors.floor ? '#fb8722' : 'inherit' }}>{t('Story')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex3')}
@@ -380,7 +385,7 @@ export default function UploadPage() {
               />
             </div>
             <div>
-              <Label>{t('Ceilingheight')}</Label>
+              <Label style={{ color: formErrors.ceilingHeight ? '#fb8722' : 'inherit' }}>{t('Ceilingheight')} *</Label>
               <input
                 type='number'
                 placeholder={t('ex3')}
