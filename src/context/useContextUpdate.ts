@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 
 export default function useContextUpdateFromSocket() {
   const [context, setContext] = useState(defaultAppCTX)
-  const [globalUrl] = useState('https://wh-api-gky42.ondigitalocean.app/content/')
+  const url = process.env.API_URL ?? 'https://wh-api-gky42.ondigitalocean.app/content/'
+  const [globalUrl] = useState(`${url}`)
   // const [globalUrl] = useState('http://localhost:5555/content/')
 
   useEffect(() => {
