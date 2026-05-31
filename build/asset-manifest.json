@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.a6e481a3.css",
+    "main.css": "/static/css/main.b4300746.css",
     "main.js": "/static/js/main.88063499.js",
     "static/media/discoveryImg1.png": "/static/media/discoveryImg1.69d18c8ed39b4d000902.png",
     "static/media/discoveryImg2.png": "/static/media/discoveryImg2.e89fbd2d2aa3cf075e7c.png",
@@ -48,11 +48,11 @@
     "static/media/ChevronRightWhite.svg": "/static/media/ChevronRightWhite.be4ca0a2ad89e4bf481d8eb5e897e49a.svg",
     "static/media/ChevronLeft.svg": "/static/media/ChevronLeft.2e11a1a00555baee457f86d582a47cbf.svg",
     "static/media/ChevronRight.svg": "/static/media/ChevronRight.831121c949c61d934b4713e8d819a699.svg",
-    "main.a6e481a3.css.map": "/static/css/main.a6e481a3.css.map",
+    "main.b4300746.css.map": "/static/css/main.b4300746.css.map",
     "main.88063499.js.map": "/static/js/main.88063499.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6e481a3.css",
+    "static/css/main.b4300746.css",
     "static/js/main.88063499.js"
   ]
 }
